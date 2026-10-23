@@ -19,17 +19,17 @@ export default function Membership249Section() {
   const { openContract, openCert } = useDaon();
 
   return (
-    <section id="premium-249" className="py-16 bg-[#FAF8F5] border-y border-gray-200">
+    <section id="premium-249" className="py-10 sm:py-16 bg-[#FAF8F5] border-y border-gray-200">
       <div className="max-w-7xl mx-auto px-4">
         {/* 섹션 타이틀 */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-xs font-black tracking-widest uppercase text-white gold-gradient px-4 py-1.5 rounded-full inline-block shadow-sm">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+          <span className="text-[11px] sm:text-xs font-black tracking-widest uppercase text-white gold-gradient px-4 py-1.5 rounded-full inline-block shadow-sm">
             MAIN MEMBERSHIP PACKAGE
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-[#0F1E36] mt-3">
+          <h2 className="text-2xl sm:text-4xl font-black text-[#0F1E36] mt-3 leading-snug">
             다온 프리미엄 249 상품 구성
           </h2>
-          <p className="text-gray-600 mt-2 text-sm sm:text-base leading-relaxed">
+          <p className="text-gray-600 mt-2 text-xs sm:text-base leading-relaxed">
             총 판매금액 <strong className="text-[#0F1E36] font-extrabold">2,490,000원(VAT 포함)</strong>으로 누리는 7대 핵심 보증 및 라이프케어 올인원 패키지
           </p>
         </div>
@@ -37,75 +37,75 @@ export default function Membership249Section() {
         {/* 498만원 환급보증 하이라이트 배너 */}
         <div
           id="refund-guarantee"
-          className="navy-gradient rounded-3xl p-6 sm:p-10 text-white shadow-2xl mb-12 border-2 border-[#C5A059]/60 relative overflow-hidden"
+          className="navy-gradient rounded-2xl sm:rounded-3xl p-5 sm:p-10 text-white shadow-2xl mb-8 sm:mb-12 border-2 border-[#C5A059]/60 relative overflow-hidden"
         >
-          <div className="grid lg:grid-cols-12 gap-8 items-center relative z-10">
-            <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-1.5 bg-[#C5A059] text-[#091324] font-black text-xs px-3.5 py-1 rounded-md shadow">
-                <Sparkles className="w-3.5 h-3.5" />
-                특별 보장 · 10년 공증 환급보증서 발급
+          <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 items-center relative z-10">
+            <div className="lg:col-span-7 space-y-3.5 sm:space-y-4">
+              <div className="inline-flex items-center gap-1.5 bg-[#C5A059] text-[#091324] font-black text-[11px] sm:text-xs px-3 sm:px-3.5 py-1 rounded-md shadow">
+                <Sparkles className="w-3.5 h-3.5 shrink-0" />
+                <span>특별 보장 · 10년 공증 환급보증서 발급</span>
               </div>
 
-              <h3 className="text-2xl sm:text-4xl font-black leading-tight">
+              <h3 className="text-xl sm:text-4xl font-black leading-snug sm:leading-tight">
                 가입금액 249만 원,<br />
                 <span className="text-[#E5C98B]">환급보증서 4,980,000원</span> 발행!
               </h3>
 
-              <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+              <p className="text-gray-300 text-xs sm:text-base leading-relaxed">
                 안전한 납입과 든든한 보장을 약속합니다. 10년 공증 환급증서가 발급되며, 가입{" "}
                 <strong className="text-white font-bold">2년 만기 후 자유롭게 양도·양수</strong>가 가능합니다. 
                 (장례·추모 등 주요 서비스 미이용 시 약정 및 보증서 조건에 따라 반환 지급)
               </p>
 
-              <div className="flex flex-wrap gap-2.5 pt-2 text-xs">
-                <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/20 flex items-center gap-1.5">
-                  <FileCheck className="w-3.5 h-3.5 text-[#C5A059]" />
+              <div className="flex flex-wrap gap-2 pt-1 sm:pt-2 text-[11px] sm:text-xs">
+                <span className="bg-white/10 px-2.5 sm:px-3 py-1.5 rounded-xl border border-white/20 flex items-center gap-1.5 whitespace-nowrap">
+                  <FileCheck className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
                   10년 공증 환급증서 발급
                 </span>
-                <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/20 flex items-center gap-1.5">
-                  <RefreshCcw className="w-3.5 h-3.5 text-[#C5A059]" />
+                <span className="bg-white/10 px-2.5 sm:px-3 py-1.5 rounded-xl border border-white/20 flex items-center gap-1.5 whitespace-nowrap">
+                  <RefreshCcw className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
                   가입 2년 후 양도·양수 가능
                 </span>
-                <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/20 flex items-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#C5A059]" />
+                <span className="bg-white/10 px-2.5 sm:px-3 py-1.5 rounded-xl border border-white/20 flex items-center gap-1.5 whitespace-nowrap">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
                   (주)에스엘부티크호텔 반환 지급 약정 기준
                 </span>
               </div>
 
-              <div className="pt-2 flex flex-wrap gap-3">
+              <div className="pt-2 flex flex-wrap gap-2.5 sm:gap-3">
                 <button
                   onClick={openCert}
-                  className="bg-white/15 hover:bg-white/25 text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm border border-[#C5A059]/40 transition flex items-center gap-1.5 cursor-pointer"
+                  className="flex-1 sm:flex-initial justify-center bg-white/15 hover:bg-white/25 text-white font-bold px-3.5 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm border border-[#C5A059]/40 transition flex items-center gap-1.5 whitespace-nowrap cursor-pointer"
                 >
-                  <Award className="w-4 h-4 text-[#C5A059]" />
+                  <Award className="w-4 h-4 text-[#C5A059] shrink-0" />
                   <span>모바일 보증서 미리보기</span>
                 </button>
                 <button
                   onClick={() => openContract()}
-                  className="gold-gradient text-white font-black px-5 py-2.5 rounded-xl text-xs sm:text-sm shadow-md hover:opacity-95 transition flex items-center gap-1.5 cursor-pointer"
+                  className="flex-1 sm:flex-initial justify-center gold-gradient text-white font-black px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm shadow-md hover:opacity-95 transition flex items-center gap-1.5 whitespace-nowrap cursor-pointer"
                 >
                   <span>가입 및 보증서 신청</span>
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight className="w-4 h-4 shrink-0" />
                 </button>
               </div>
             </div>
 
             {/* 우측: 보증서 견본 카드 */}
             <div className="lg:col-span-5">
-              <div className="cert-card text-[#0F1E36] rounded-3xl p-6 sm:p-7 shadow-2xl relative overflow-hidden bg-white">
-                <div className="flex justify-between items-start border-b border-amber-200 pb-3.5 mb-4">
+              <div className="cert-card text-[#0F1E36] rounded-2xl sm:rounded-3xl p-4 sm:p-7 shadow-2xl relative overflow-hidden bg-white">
+                <div className="flex justify-between items-start border-b border-amber-200 pb-3 sm:pb-3.5 mb-3.5 sm:mb-4">
                   <div>
-                    <div className="text-[11px] font-extrabold text-[#C5A059] tracking-wider">
+                    <div className="text-[10px] sm:text-[11px] font-extrabold text-[#C5A059] tracking-wider">
                       DAONNET GUARANTEE CERTIFICATE
                     </div>
-                    <div className="text-xl font-black text-[#0F1E36] mt-0.5">
+                    <div className="text-lg sm:text-xl font-black text-[#0F1E36] mt-0.5">
                       다온넷 환급보증서 (견본)
                     </div>
                   </div>
-                  <Award className="w-9 h-9 text-[#C5A059]" />
+                  <Award className="w-8 h-8 sm:w-9 sm:h-9 text-[#C5A059] shrink-0" />
                 </div>
 
-                <div className="space-y-2.5 text-xs sm:text-sm">
+                <div className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm">
                   <div className="flex justify-between py-1 border-b border-gray-100">
                     <span className="text-gray-500">상품구분</span>
                     <span className="font-bold text-[#0F1E36]">다온 프리미엄 249</span>
@@ -115,16 +115,16 @@ export default function Membership249Section() {
                     <span className="font-bold text-[#0F1E36]">2,490,000 원 (VAT포함)</span>
                   </div>
                   <div className="flex justify-between items-center bg-amber-50/80 p-3 rounded-xl border border-amber-200 my-2">
-                    <span className="font-bold text-[#0F1E36] text-xs sm:text-sm">
+                    <span className="font-bold text-[#0F1E36] text-xs sm:text-sm whitespace-nowrap">
                       환급보증서 금액
                     </span>
-                    <span className="text-2xl font-black text-red-600">4,980,000 원</span>
+                    <span className="text-xl sm:text-2xl font-black text-red-600 whitespace-nowrap">4,980,000 원</span>
                   </div>
-                  <div className="flex justify-between text-xs pt-1 text-gray-500">
+                  <div className="flex justify-between text-[11px] sm:text-xs pt-1 text-gray-500">
                     <span>보증 조건</span>
                     <span className="font-semibold text-gray-700">10년 공증 / 2년 후 양도·양수 가능</span>
                   </div>
-                  <div className="flex justify-between text-xs text-gray-500">
+                  <div className="flex justify-between text-[11px] sm:text-xs text-gray-500">
                     <span>반환 지급처</span>
                     <span className="font-semibold text-gray-700">(주)에스엘부티크호텔 약정</span>
                   </div>
@@ -135,7 +135,7 @@ export default function Membership249Section() {
         </div>
 
         {/* 7대 구성 상세 그리드 (PDF 방판 조견표 100% 일치) */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
           {/* 구성 1: 환급보증서 */}
           <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-200 hover:border-[#C5A059] transition flex flex-col justify-between">
             <div>

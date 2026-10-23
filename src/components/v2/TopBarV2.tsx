@@ -8,8 +8,8 @@ export default function TopBarV2() {
   const { openCert, openLookup, openAdmin, userPoints } = useDaon();
 
   return (
-    <div className="bg-[#172c37] text-[#e3e6e5] text-[11px] tracking-[0.5px] py-2 px-5 border-b border-[#243d4a]">
-      <div className="max-w-[1400px] mx-auto flex flex-wrap justify-between items-center gap-2">
+    <div className="hidden lg:block bg-[#172c37] text-[#e3e6e5] text-[11px] tracking-[0.5px] py-2 px-5 border-b border-[#243d4a]">
+      <div className="max-w-[1400px] mx-auto flex flex-wrap justify-between items-center gap-2 whitespace-nowrap">
         {/* 좌측: 슬로건 & 24시간 긴급상담 */}
         <div className="flex items-center flex-wrap gap-3 sm:gap-6">
           <span>

@@ -30,26 +30,26 @@ export default function HeroSection({ onSearch }: HeroSectionProps) {
   };
 
   return (
-    <section className="relative navy-gradient text-white py-14 lg:py-20 overflow-hidden">
+    <section className="relative navy-gradient text-white py-8 sm:py-14 lg:py-20 overflow-hidden">
       {/* 은은한 배경 패턴 */}
       <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:24px_24px]"></div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-10 items-center">
+        <div className="grid lg:grid-cols-12 gap-7 lg:gap-10 items-center">
           {/* 좌측: 타이틀 및 핵심 요약 뱃지 */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-1.5 rounded-full border border-[#C5A059]/40 text-[#E5C98B] text-xs sm:text-sm font-semibold">
-              <span className="w-2 h-2 rounded-full bg-[#C5A059] animate-pulse"></span>
-              전국 주요 추모공원 특별지원 · 프리미엄 라이프케어 멤버십
+          <div className="lg:col-span-7 space-y-4 sm:space-y-6">
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur px-3 sm:px-4 py-1.5 rounded-full border border-[#C5A059]/40 text-[#E5C98B] text-[11px] sm:text-sm font-semibold">
+              <span className="w-2 h-2 rounded-full bg-[#C5A059] animate-pulse shrink-0"></span>
+              <span>전국 주요 추모공원 특별지원 · 프리미엄 라이프케어</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-black leading-tight tracking-tight">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black leading-snug sm:leading-tight tracking-tight">
               소중한 기억이 머무는 곳,<br />
               <span className="text-[#E5C98B]">전국 어디든 희망하시는 추모공원</span>을<br />
               다온넷이 특별 지원합니다.
             </h1>
 
-            <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
+            <p className="text-gray-300 text-xs sm:text-base leading-relaxed max-w-2xl font-normal">
               직영 <strong className="text-white font-bold">안성 유토피아 추모관</strong>부터 전국 주요 추모공원 봉안당(1단 기준) 지원은 물론,{" "}
               <strong className="text-[#E5C98B] font-bold">10년 만기 498만 원 환급보증서</strong>와{" "}
               <strong className="text-white font-bold">249만 쇼핑포인트</strong>,{" "}
@@ -57,63 +57,63 @@ export default function HeroSection({ onSearch }: HeroSectionProps) {
             </p>
 
             {/* 핵심 4대 뱃지 */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-              <div className="bg-white/10 backdrop-blur p-3.5 rounded-2xl border border-white/15 hover:border-[#C5A059]/50 transition">
-                <div className="flex items-center gap-1.5 text-xs text-gray-300">
-                  <Landmark className="w-3.5 h-3.5 text-[#C5A059]" />
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-1 sm:pt-2">
+              <div className="bg-white/10 backdrop-blur p-3 sm:p-3.5 rounded-2xl border border-white/15 hover:border-[#C5A059]/50 transition">
+                <div className="flex items-center gap-1 text-[11px] sm:text-xs text-gray-300 whitespace-nowrap">
+                  <Landmark className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
                   <span>추모공원 특별지원</span>
                 </div>
-                <div className="text-base sm:text-lg font-black text-white mt-1">
+                <div className="text-sm sm:text-lg font-black text-white mt-1 whitespace-nowrap">
                   봉안당 1단 기준
                 </div>
-                <div className="text-[11px] text-[#E5C98B] mt-0.5">전국 시설 10~70% 할인</div>
+                <div className="text-[10px] sm:text-[11px] text-[#E5C98B] mt-0.5 whitespace-nowrap">전국 시설 10~70% 할인</div>
               </div>
 
-              <div className="bg-white/10 backdrop-blur p-3.5 rounded-2xl border border-[#C5A059] shadow-inner">
-                <div className="flex items-center gap-1.5 text-xs text-[#E5C98B] font-bold">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#C5A059]" />
+              <div className="bg-white/10 backdrop-blur p-3 sm:p-3.5 rounded-2xl border border-[#C5A059] shadow-inner">
+                <div className="flex items-center gap-1 text-[11px] sm:text-xs text-[#E5C98B] font-bold whitespace-nowrap">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
                   <span>10년 공증 환급보증</span>
                 </div>
-                <div className="text-base sm:text-lg font-black text-[#E5C98B] mt-1">
+                <div className="text-sm sm:text-lg font-black text-[#E5C98B] mt-1 whitespace-nowrap">
                   4,980,000원
                 </div>
-                <div className="text-[11px] text-gray-300 mt-0.5">가입 2년 후 양도 가능</div>
+                <div className="text-[10px] sm:text-[11px] text-gray-300 mt-0.5 whitespace-nowrap">가입 2년 후 양도 가능</div>
               </div>
 
-              <div className="bg-white/10 backdrop-blur p-3.5 rounded-2xl border border-white/15 hover:border-[#C5A059]/50 transition">
-                <div className="flex items-center gap-1.5 text-xs text-gray-300">
-                  <HeartHandshake className="w-3.5 h-3.5 text-[#C5A059]" />
+              <div className="bg-white/10 backdrop-blur p-3 sm:p-3.5 rounded-2xl border border-white/15 hover:border-[#C5A059]/50 transition">
+                <div className="flex items-center gap-1 text-[11px] sm:text-xs text-gray-300 whitespace-nowrap">
+                  <HeartHandshake className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
                   <span>후불장례 이행보증</span>
                 </div>
-                <div className="text-base sm:text-lg font-black text-white mt-1">
+                <div className="text-sm sm:text-lg font-black text-white mt-1 whitespace-nowrap">
                   1,980,000원
                 </div>
-                <div className="text-[11px] text-[#E5C98B] mt-0.5">365일 24시간 의전접수</div>
+                <div className="text-[10px] sm:text-[11px] text-[#E5C98B] mt-0.5 whitespace-nowrap">365일 24시간 의전접수</div>
               </div>
 
-              <div className="bg-white/10 backdrop-blur p-3.5 rounded-2xl border border-white/15 hover:border-[#C5A059]/50 transition">
-                <div className="flex items-center gap-1.5 text-xs text-gray-300">
-                  <Gift className="w-3.5 h-3.5 text-[#C5A059]" />
+              <div className="bg-white/10 backdrop-blur p-3 sm:p-3.5 rounded-2xl border border-white/15 hover:border-[#C5A059]/50 transition">
+                <div className="flex items-center gap-1 text-[11px] sm:text-xs text-gray-300 whitespace-nowrap">
+                  <Gift className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
                   <span>포인트 + 지원금</span>
                 </div>
-                <div className="text-base sm:text-lg font-black text-white mt-1">
+                <div className="text-sm sm:text-lg font-black text-white mt-1 whitespace-nowrap">
                   249만P + 40만원
                 </div>
-                <div className="text-[11px] text-[#E5C98B] mt-0.5">삼칠그라·2박3일 숙박권</div>
+                <div className="text-[10px] sm:text-[11px] text-[#E5C98B] mt-0.5 whitespace-nowrap">삼칠그라·2박3일 숙박권</div>
               </div>
             </div>
           </div>
 
           {/* 우측: 빠른 추모공원 검색 위젯 */}
           <div className="lg:col-span-5">
-            <div className="bg-white text-gray-800 rounded-3xl p-6 sm:p-8 shadow-2xl border-t-4 border-[#C5A059]">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-black text-[#0F1E36] flex items-center gap-2">
-                  <Search className="w-5 h-5 text-[#C5A059]" />
-                  전국 추모공원 빠른 찾기
+            <div className="bg-white text-gray-800 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl border-t-4 border-[#C5A059]">
+              <div className="flex items-center justify-between gap-2 mb-3 sm:mb-4">
+                <h2 className="text-lg sm:text-xl font-black text-[#0F1E36] flex items-center gap-1.5 whitespace-nowrap">
+                  <Search className="w-5 h-5 text-[#C5A059] shrink-0" />
+                  <span>전국 추모공원 빠른 찾기</span>
                 </h2>
-                <span className="text-xs bg-blue-50 text-[#0F1E36] font-extrabold px-3 py-1 rounded-full">
-                  전국 55개소 원스톱
+                <span className="text-[11px] sm:text-xs bg-blue-50 text-[#0F1E36] font-extrabold px-2.5 sm:px-3 py-1 rounded-full whitespace-nowrap shrink-0">
+                  전국 56개소
                 </span>
               </div>
 

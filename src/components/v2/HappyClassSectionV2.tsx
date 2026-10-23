@@ -12,24 +12,24 @@ export default function HappyClassSectionV2() {
       {/* 1. MORE MOMENTS, MORE LIFE — 라이프 혜택 3대 비주얼 카드 & 전국 50곳 제휴 숙박 (.life) */}
       <section
         id="happy-class"
-        className="bg-[#eeeee6] py-[68px] lg:py-[96px] px-[6%] border-t border-[#dedfd7]"
+        className="bg-[#eeeee6] py-[48px] sm:py-[68px] lg:py-[96px] px-5 sm:px-[6%] border-t border-[#dedfd7]"
       >
         <div className="max-w-[1200px] mx-auto">
           {/* 섹션 헤더 */}
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-[20px] mb-[35px]">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-[12px] sm:gap-[20px] mb-[26px] sm:mb-[35px]">
             <div>
-              <div className="text-[10px] tracking-[2.7px] text-[#947b50] font-semibold mb-[14px] uppercase">
+              <div className="text-[10px] tracking-[2.7px] text-[#947b50] font-semibold mb-[10px] sm:mb-[14px] uppercase">
                 MORE MOMENTS, MORE LIFE · 해피클래스 &amp; 크루즈
               </div>
               <h2
-                className="text-[28px] sm:text-[35px] font-medium leading-[1.5] tracking-[-1.2px] text-[#26373b] m-0"
+                className="text-[24px] sm:text-[35px] font-medium leading-[1.45] sm:leading-[1.5] tracking-[-1px] sm:tracking-[-1.2px] text-[#26373b] m-0"
                 style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
               >
                 일상에도 이어지는 다온의 혜택
               </h2>
             </div>
 
-            <p className="text-[13px] sm:text-[14px] text-[#747b78] m-0">
+            <p className="text-[12px] sm:text-[14px] text-[#747b78] m-0">
               준비하는 마음만큼, 지금의 행복도 소중하니까요.
               <br />
               전국 약 50곳 2박 3일 무료 숙박권과 크루즈 우대를 만나보세요.
@@ -37,11 +37,11 @@ export default function HappyClassSectionV2() {
           </div>
 
           {/* 3대 라이프 비주얼 카드 (.life-grid) */}
-          <div className="grid lg:grid-cols-3 gap-[23px] mb-[50px]">
+          <div className="grid lg:grid-cols-3 gap-[16px] sm:gap-[23px] mb-[36px] sm:mb-[50px]">
             {/* 01 / STAY */}
             <div
               onClick={() => openContract("[해피클래스 2박 3일 숙박권 문의] ")}
-              className="h-[320px] sm:h-[355px] text-left p-[24px] flex flex-col justify-between text-white relative overflow-hidden cursor-pointer group"
+              className="h-[240px] sm:h-[355px] text-left p-[20px] sm:p-[24px] flex flex-col justify-between text-white relative overflow-hidden cursor-pointer group"
               style={{
                 background:
                   "linear-gradient(0deg, rgba(25, 51, 44, 0.88), transparent), url('/assets/stay.jpg') center/cover, #667e6a",
@@ -55,7 +55,7 @@ export default function HappyClassSectionV2() {
                   HAPPY CLASS ACCOMMODATION
                 </small>
                 <h3
-                  className="text-[23px] sm:text-[25px] font-normal my-[8px]"
+                  className="text-[21px] sm:text-[25px] font-normal my-[6px] sm:my-[8px]"
                   style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
                 >
                   잠시 쉬어가는 여유
@@ -72,7 +72,7 @@ export default function HappyClassSectionV2() {
             {/* 02 / CRUISE */}
             <div
               onClick={() => openContract("[럭셔리 크루즈 회원 우대 문의] ")}
-              className="h-[320px] sm:h-[355px] text-left p-[24px] flex flex-col justify-between text-white relative overflow-hidden cursor-pointer group"
+              className="h-[240px] sm:h-[355px] text-left p-[20px] sm:p-[24px] flex flex-col justify-between text-white relative overflow-hidden cursor-pointer group"
               style={{
                 background:
                   "linear-gradient(0deg, rgba(24, 55, 68, 0.88), transparent), url('/assets/sea.jpg') center/cover, #7b9ca5",
@@ -86,7 +86,7 @@ export default function HappyClassSectionV2() {
                   TRAVEL &amp; LEISURE
                 </small>
                 <h3
-                  className="text-[23px] sm:text-[25px] font-normal my-[8px]"
+                  className="text-[21px] sm:text-[25px] font-normal my-[6px] sm:my-[8px]"
                   style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
                 >
                   더 넓은 세상으로
@@ -103,7 +103,7 @@ export default function HappyClassSectionV2() {
             {/* 03 / HEALTH & GIFT */}
             <div
               onClick={() => openContract("[삼칠그라 건강식품 & 위로지원금 40만원 문의] ")}
-              className="h-[320px] sm:h-[355px] text-left p-[24px] flex flex-col justify-between bg-[#ded9c9] text-[#172c37] relative overflow-hidden cursor-pointer group"
+              className="h-[240px] sm:h-[355px] text-left p-[20px] sm:p-[24px] flex flex-col justify-between bg-[#ded9c9] text-[#172c37] relative overflow-hidden cursor-pointer group"
             >
               <span className="text-[9px] tracking-[2px] uppercase">
                 03 / HEALTH &amp; SUPPORT
@@ -111,10 +111,10 @@ export default function HappyClassSectionV2() {
 
               {/* 타이포그래피 아트워크 (.shopping-art) */}
               <div
-                className="text-[92px] text-[#a5977c] absolute left-[42%] top-[42px] -rotate-[12deg] border border-[#b3a991] px-[22px] shadow-[12px_12px_#c3bcaa] select-none"
+                className="text-[72px] sm:text-[92px] text-[#a5977c] absolute left-[45%] sm:left-[42%] top-[28px] sm:top-[42px] -rotate-[12deg] border border-[#b3a991] px-[18px] sm:px-[22px] shadow-[10px_10px_#c3bcaa] select-none"
                 style={{ fontFamily: "Georgia, serif" }}
               >
-                d<span className="text-[28px]">＋</span>
+                d<span className="text-[24px] sm:text-[28px]">＋</span>
               </div>
 
               <div className="relative z-10">
@@ -122,7 +122,7 @@ export default function HappyClassSectionV2() {
                   SPECIAL COMPLIMENTARY
                 </small>
                 <h3
-                  className="text-[23px] sm:text-[25px] font-normal my-[8px] text-[#172c37]"
+                  className="text-[21px] sm:text-[25px] font-normal my-[6px] sm:my-[8px] text-[#172c37]"
                   style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
                 >
                   건강과 생활의 든든함
@@ -138,7 +138,7 @@ export default function HappyClassSectionV2() {
           </div>
 
           {/* 해피클래스 전국 50여 곳 주요 제휴 숙박시설 리스트 & 이용 기준 */}
-          <div className="bg-[#f7f5ef] border border-[#dedfd7] p-[28px] sm:p-[40px] grid lg:grid-cols-12 gap-[36px] items-start">
+          <div className="bg-[#f7f5ef] border border-[#dedfd7] p-[20px] sm:p-[40px] grid lg:grid-cols-12 gap-[28px] sm:gap-[36px] items-start">
             {/* 좌측: 숙박 & 크루즈 이용 조건 */}
             <div className="lg:col-span-5 space-y-[18px]">
               <div className="text-[10px] tracking-[2px] text-[#947b50] font-semibold uppercase">

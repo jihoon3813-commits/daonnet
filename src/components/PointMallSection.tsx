@@ -57,31 +57,31 @@ export default function PointMallSection() {
   };
 
   return (
-    <section id="daon-mall" className="py-16 max-w-7xl mx-auto px-4">
+    <section id="daon-mall" className="py-10 sm:py-16 max-w-7xl mx-auto px-4">
       {/* 헤더 & 포인트 월렛 위젯 */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">
         <div>
-          <span className="text-xs font-black tracking-widest uppercase text-white bg-blue-600 px-3.5 py-1.5 rounded-full inline-block">
+          <span className="text-[11px] sm:text-xs font-black tracking-widest uppercase text-white bg-blue-600 px-3.5 py-1.5 rounded-full inline-block">
             MEMBER EXCLUSIVE POINT MALL
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-[#0F1E36] mt-3">
+          <h2 className="text-2xl sm:text-4xl font-black text-[#0F1E36] mt-3 leading-snug">
             다온넷 회원 전용 포인트 특가몰
           </h2>
-          <p className="text-gray-600 text-sm mt-1 leading-relaxed">
+          <p className="text-gray-600 text-xs sm:text-sm mt-1 leading-relaxed">
             가입 즉시 지급되는 <strong className="text-blue-600">2,490,000P</strong>로 오픈마켓 최저가보다 최대 80% 저렴하게 현금처럼 차감 구매하세요.
           </p>
         </div>
 
-        <div className="bg-amber-50 border border-amber-200 rounded-2xl px-5 py-3.5 flex items-center justify-between gap-4 shadow-sm">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-[#C5A059]">
-              <Coins className="w-6 h-6 text-[#C5A059]" />
+        <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 sm:px-5 py-3 sm:py-3.5 flex items-center justify-between gap-3 sm:gap-4 shadow-sm">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-100 flex items-center justify-center text-[#C5A059] shrink-0">
+              <Coins className="w-5 h-5 sm:w-6 sm:h-6 text-[#C5A059]" />
             </div>
             <div>
-              <div className="text-xs text-gray-500 font-semibold">나의 사용 가능 쇼핑포인트</div>
-              <div className="text-xl font-black text-[#0F1E36]">
+              <div className="text-[11px] sm:text-xs text-gray-500 font-semibold">나의 사용 가능 쇼핑포인트</div>
+              <div className="text-lg sm:text-xl font-black text-[#0F1E36] whitespace-nowrap">
                 {userPoints.toLocaleString()} P{" "}
-                <span className="text-xs font-normal text-green-700">(즉시 차감 가능)</span>
+                <span className="text-[11px] sm:text-xs font-normal text-green-700">(즉시 차감 가능)</span>
               </div>
             </div>
           </div>
@@ -89,7 +89,7 @@ export default function PointMallSection() {
           <button
             onClick={resetPoints}
             title="테스트 포인트 복구 (2,490,000P)"
-            className="text-gray-400 hover:text-gray-600 p-1.5 rounded-lg hover:bg-amber-100/50 transition cursor-pointer"
+            className="text-gray-400 hover:text-gray-600 p-1.5 rounded-lg hover:bg-amber-100/50 transition cursor-pointer shrink-0"
           >
             <RotateCcw className="w-4 h-4" />
           </button>
@@ -219,16 +219,16 @@ export default function PointMallSection() {
       </div>
 
       {/* 전용몰 접속 안내 배너 (PDF 10페이지 자료 반영) */}
-      <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+      <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 text-xs">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full bg-blue-600 text-white flex items-center justify-center font-black">
+          <div className="w-9 h-9 rounded-full bg-blue-600 text-white flex items-center justify-center font-black shrink-0">
             P
           </div>
           <div>
-            <div className="font-extrabold text-[#0F1E36] text-sm">
+            <div className="font-extrabold text-[#0F1E36] text-xs sm:text-sm">
               다온넷 폐쇄형 회원몰 (www.다온넷.kr) 안내
             </div>
-            <div className="text-gray-600 mt-0.5">
+            <div className="text-gray-600 mt-0.5 text-[11px] sm:text-xs">
               공식 제휴 폐쇄몰 체험 계정: <strong className="text-blue-900">ID : test1 / PW : 1234</strong>
             </div>
           </div>
@@ -238,7 +238,7 @@ export default function PointMallSection() {
           href="http://www.xn--hu1bo87b2xb.kr/"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-xl transition flex items-center gap-1 shrink-0"
+          className="w-full sm:w-auto justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2.5 sm:py-2 rounded-xl transition flex items-center gap-1 shrink-0"
         >
           <span>다온넷몰 바로가기</span>
           <ExternalLink className="w-3.5 h-3.5" />

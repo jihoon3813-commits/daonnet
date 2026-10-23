@@ -36,47 +36,47 @@ export default function PointMallSectionV2() {
   return (
     <section
       id="daon-mall"
-      className="bg-[#efeee7] py-[68px] lg:py-[96px] px-[6%] border-t border-[#dedfd7]"
+      className="bg-[#efeee7] py-[48px] sm:py-[68px] lg:py-[96px] px-5 sm:px-[6%] border-t border-[#dedfd7]"
     >
       <div className="max-w-[1200px] mx-auto">
         {/* 섹션 헤더 & 포인트 월렛 위젯 */}
-        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-end gap-[24px] mb-[40px] pb-[24px] border-b border-[#d5d8ce]">
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-end gap-[18px] sm:gap-[24px] mb-[28px] sm:mb-[40px] pb-[20px] sm:pb-[24px] border-b border-[#d5d8ce]">
           <div>
-            <div className="text-[10px] tracking-[2.7px] text-[#947b50] font-semibold mb-[14px] uppercase">
+            <div className="text-[10px] tracking-[2.7px] text-[#947b50] font-semibold mb-[10px] sm:mb-[14px] uppercase">
               MEMBER EXCLUSIVE POINT MALL · 2,490,000P
             </div>
             <h2
-              className="text-[28px] sm:text-[35px] font-medium leading-[1.5] tracking-[-1.2px] text-[#26373b] m-0 mb-[10px]"
+              className="text-[24px] sm:text-[35px] font-medium leading-[1.45] sm:leading-[1.5] tracking-[-1px] sm:tracking-[-1.2px] text-[#26373b] m-0 mb-[8px] sm:mb-[10px]"
               style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
             >
               다온넷 회원 전용 포인트 특가몰
             </h2>
-            <p className="text-[13px] sm:text-[14px] text-[#747b78] m-0">
+            <p className="text-[12px] sm:text-[14px] text-[#747b78] m-0">
               가입 즉시 지급되는 <strong className="text-[#26373b]">2,490,000P</strong>로 오픈마켓 최저가보다 최대 80% 저렴하게 현금처럼 차감 구매하세요.
             </p>
           </div>
 
           {/* 포인트 지갑 박스 */}
-          <div className="bg-[#f7f5ef] border border-[#c8cec3] px-[24px] py-[18px] flex items-center justify-between gap-[28px] shrink-0">
+          <div className="bg-[#f7f5ef] border border-[#c8cec3] px-[18px] sm:px-[24px] py-[14px] sm:py-[18px] flex items-center justify-between gap-[16px] sm:gap-[28px] shrink-0">
             <div>
-              <small className="block text-[10px] tracking-[1.5px] text-[#8c744d] uppercase font-semibold">
+              <small className="block text-[9px] sm:text-[10px] tracking-[1.5px] text-[#8c744d] uppercase font-semibold">
                 MY SHOPPING POINTS · 즉시 차감 가능
               </small>
               <strong
-                className="block text-[26px] sm:text-[30px] text-[#172c37] font-normal mt-0.5"
+                className="block text-[22px] sm:text-[30px] text-[#172c37] font-normal mt-0.5 whitespace-nowrap"
                 style={{ fontFamily: "Georgia, serif" }}
               >
                 {userPoints.toLocaleString()}{" "}
-                <span className="text-[14px] text-[#947b50]">P</span>
+                <span className="text-[13px] sm:text-[14px] text-[#947b50]">P</span>
               </strong>
             </div>
 
             <button
               onClick={resetPoints}
               title="테스트 포인트 복구 (2,490,000P)"
-              className="border border-[#b6bcb7] hover:border-[#172c37] text-[#26373b] px-[12px] py-[8px] text-[11px] font-medium transition cursor-pointer"
+              className="border border-[#b6bcb7] hover:border-[#172c37] text-[#26373b] px-[10px] sm:px-[12px] py-[7px] sm:py-[8px] text-[11px] font-medium transition cursor-pointer whitespace-nowrap shrink-0"
             >
-              포인트 초기화 ↺
+              초기화 ↺
             </button>
           </div>
         </div>

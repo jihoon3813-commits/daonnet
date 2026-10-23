@@ -8,7 +8,7 @@ export default function TopBar() {
   const { openCert, openLookup, openAdmin, userPoints } = useDaon();
 
   return (
-    <div className="bg-[#091324] text-gray-300 text-xs py-2 px-4 border-b border-gray-800">
+    <div className="hidden lg:block bg-[#091324] text-gray-300 text-xs py-2 px-4 border-b border-gray-800">
       <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2 whitespace-nowrap">
         <div className="flex items-center space-x-3 sm:space-x-4 whitespace-nowrap">
           <span className="text-[#C5A059] font-bold flex items-center gap-1.5 whitespace-nowrap">

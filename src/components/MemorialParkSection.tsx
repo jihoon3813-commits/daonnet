@@ -77,66 +77,66 @@ export default function MemorialParkSection({
   };
 
   return (
-    <section id="memorial-parks" className="py-16 max-w-7xl mx-auto px-4">
+    <section id="memorial-parks" className="py-10 sm:py-16 max-w-7xl mx-auto px-4">
       {/* 섹션 타이틀 */}
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <span className="text-xs font-black tracking-widest uppercase text-[#C5A059] bg-[#0F1E36] px-3.5 py-1.5 rounded-full inline-block">
+      <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+        <span className="text-[11px] sm:text-xs font-black tracking-widest uppercase text-[#C5A059] bg-[#0F1E36] px-3.5 py-1.5 rounded-full inline-block">
           MEMORIAL PARK NETWORK
         </span>
-        <h2 className="text-3xl sm:text-4xl font-black text-[#0F1E36] mt-3">
-          전국 55개 추모공원 · 봉안당 특별지원 안내
+        <h2 className="text-2xl sm:text-4xl font-black text-[#0F1E36] mt-3 leading-snug">
+          전국 56개 추모공원 · 봉안당 특별지원 안내
         </h2>
-        <p className="text-gray-600 mt-2 text-sm sm:text-base leading-relaxed">
+        <p className="text-gray-600 mt-2 text-xs sm:text-base leading-relaxed">
           다온넷 프리미엄 249 회원은 직영{" "}
           <strong className="text-[#0F1E36]">안성 유토피아 추모관</strong>을 비롯하여 전국 어디든 희망하시는 추모공원을 특별 혜택으로 이용하실 수 있습니다.
         </p>
       </div>
 
       {/* 4대 특장점 배너 */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-        <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-200 flex items-start gap-3.5">
-          <div className="w-11 h-11 rounded-xl bg-amber-50 text-[#C5A059] flex items-center justify-center text-xl shrink-0">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 mb-6 sm:mb-10">
+        <div className="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-gray-200 flex items-start gap-3">
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-50 text-[#C5A059] flex items-center justify-center text-xl shrink-0">
             <Building className="w-5 h-5 text-[#C5A059]" />
           </div>
           <div>
-            <h3 className="font-bold text-[#0F1E36] text-sm">봉안당 1단 기준 특별지원</h3>
-            <p className="text-xs text-gray-500 mt-1">
+            <h3 className="font-bold text-[#0F1E36] text-xs sm:text-sm">봉안당 1단 기준 특별지원</h3>
+            <p className="text-[11px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1 leading-relaxed">
               추모공원 이행증서 및 고급 봉안함 기본 제공 (타 시설 10~70% 할인가 적용)
             </p>
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-200 flex items-start gap-3.5">
-          <div className="w-11 h-11 rounded-xl bg-amber-50 text-[#C5A059] flex items-center justify-center text-xl shrink-0">
+        <div className="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-gray-200 flex items-start gap-3">
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-50 text-[#C5A059] flex items-center justify-center text-xl shrink-0">
             <Crown className="w-5 h-5 text-[#C5A059]" />
           </div>
           <div>
-            <h3 className="font-bold text-[#0F1E36] text-sm">사전 예약 및 로얄석 선점</h3>
-            <p className="text-xs text-gray-500 mt-1">
+            <h3 className="font-bold text-[#0F1E36] text-xs sm:text-sm">사전 예약 및 로얄석 선점</h3>
+            <p className="text-[11px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1 leading-relaxed">
               장례 발생 전 희망하는 장지의 우수 위치(로얄석) 사전 지정 및 상담 가능
             </p>
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-200 flex items-start gap-3.5">
-          <div className="w-11 h-11 rounded-xl bg-amber-50 text-[#C5A059] flex items-center justify-center text-xl shrink-0">
+        <div className="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-gray-200 flex items-start gap-3">
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-50 text-[#C5A059] flex items-center justify-center text-xl shrink-0">
             <Users className="w-5 h-5 text-[#C5A059]" />
           </div>
           <div>
-            <h3 className="font-bold text-[#0F1E36] text-sm">직계가족 자유 양도·양수</h3>
-            <p className="text-xs text-gray-500 mt-1">
+            <h3 className="font-bold text-[#0F1E36] text-xs sm:text-sm">직계가족 자유 양도·양수</h3>
+            <p className="text-[11px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1 leading-relaxed">
               부모님 등 직계 가족 사용을 위한 추모공원 및 장례 이행 권리 양도 자유
             </p>
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-200 flex items-start gap-3.5">
-          <div className="w-11 h-11 rounded-xl bg-amber-50 text-[#C5A059] flex items-center justify-center text-xl shrink-0">
+        <div className="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-gray-200 flex items-start gap-3">
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-50 text-[#C5A059] flex items-center justify-center text-xl shrink-0">
             <Headphones className="w-5 h-5 text-[#C5A059]" />
           </div>
           <div>
-            <h3 className="font-bold text-[#0F1E36] text-sm">원스톱 장지 연결 컨설팅</h3>
-            <p className="text-xs text-gray-500 mt-1">
+            <h3 className="font-bold text-[#0F1E36] text-xs sm:text-sm">원스톱 장지 연결 컨설팅</h3>
+            <p className="text-[11px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1 leading-relaxed">
               장례 발생 시 24시간 의전 접수부터 전국 공설·사설 장지 안치까지 원스톱 진행
             </p>
           </div>
@@ -144,12 +144,12 @@ export default function MemorialParkSection({
       </div>
 
       {/* 권역별 탭 & 검색 바 */}
-      <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-200 mb-8 space-y-3">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="flex flex-wrap gap-2">
+      <div className="bg-white p-3.5 sm:p-4 rounded-2xl shadow-sm border border-gray-200 mb-6 sm:mb-8 space-y-3">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+          <div className="flex overflow-x-auto pb-1 sm:pb-0 sm:flex-wrap gap-1.5 sm:gap-2 no-scrollbar -mx-1 px-1">
             <button
               onClick={() => setCurrentRegion("ALL")}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer ${
+              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer whitespace-nowrap shrink-0 ${
                 currentRegion === "ALL"
                   ? "bg-[#0F1E36] text-white shadow"
                   : "bg-gray-100 hover:bg-gray-200 text-gray-700"
@@ -163,7 +163,7 @@ export default function MemorialParkSection({
 
             <button
               onClick={() => setCurrentRegion("CAPITAL")}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer ${
+              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer whitespace-nowrap shrink-0 ${
                 currentRegion === "CAPITAL"
                   ? "bg-[#0F1E36] text-white shadow"
                   : "bg-gray-100 hover:bg-gray-200 text-gray-700"
@@ -177,7 +177,7 @@ export default function MemorialParkSection({
 
             <button
               onClick={() => setCurrentRegion("CHUNG_GANG")}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer ${
+              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer whitespace-nowrap shrink-0 ${
                 currentRegion === "CHUNG_GANG"
                   ? "bg-[#0F1E36] text-white shadow"
                   : "bg-gray-100 hover:bg-gray-200 text-gray-700"
@@ -191,7 +191,7 @@ export default function MemorialParkSection({
 
             <button
               onClick={() => setCurrentRegion("YEONGNAM")}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer ${
+              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer whitespace-nowrap shrink-0 ${
                 currentRegion === "YEONGNAM"
                   ? "bg-[#0F1E36] text-white shadow"
                   : "bg-gray-100 hover:bg-gray-200 text-gray-700"
@@ -205,7 +205,7 @@ export default function MemorialParkSection({
 
             <button
               onClick={() => setCurrentRegion("HONAM_JEJU")}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer ${
+              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer whitespace-nowrap shrink-0 ${
                 currentRegion === "HONAM_JEJU"
                   ? "bg-[#0F1E36] text-white shadow"
                   : "bg-gray-100 hover:bg-gray-200 text-gray-700"
@@ -218,11 +218,11 @@ export default function MemorialParkSection({
             </button>
           </div>
 
-          <div className="flex items-center gap-2 w-full sm:w-auto">
+          <div className="flex items-center gap-2 w-full lg:w-auto">
             <select
               value={currentType}
               onChange={(e) => setCurrentType(e.target.value)}
-              className="border border-gray-300 rounded-xl px-3 py-2 text-xs sm:text-sm focus:outline-none focus:border-[#0F1E36] bg-gray-50"
+              className="border border-gray-300 rounded-xl px-2.5 sm:px-3 py-2 text-xs sm:text-sm focus:outline-none focus:border-[#0F1E36] bg-gray-50 shrink-0"
             >
               <option value="ALL">전체 유형</option>
               <option value="직영">직영 (유토피아)</option>
@@ -231,15 +231,15 @@ export default function MemorialParkSection({
               <option value="공설">공설</option>
             </select>
 
-            <div className="relative flex-1 sm:w-60">
+            <div className="relative flex-1 lg:w-60">
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="시설명 또는 지역 검색..."
-                className="w-full border border-gray-300 rounded-xl pl-9 pr-3 py-2 text-xs sm:text-sm focus:outline-none focus:border-[#0F1E36]"
+                className="w-full border border-gray-300 rounded-xl pl-8 sm:pl-9 pr-3 py-2 text-xs sm:text-sm focus:outline-none focus:border-[#0F1E36]"
               />
-              <Search className="w-4 h-4 text-gray-400 absolute left-3 top-2.5" />
+              <Search className="w-4 h-4 text-gray-400 absolute left-2.5 sm:left-3 top-2.5" />
             </div>
           </div>
         </div>
@@ -263,11 +263,11 @@ export default function MemorialParkSection({
           </button>
         </div>
       ) : (
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {visibleParks.map((park) => (
             <div
               key={park.id}
-              className={`bg-white rounded-2xl p-5 shadow-sm border transition flex flex-col justify-between ${
+              className={`bg-white rounded-2xl p-4 sm:p-5 shadow-sm border transition flex flex-col justify-between ${
                 park.featured
                   ? "border-2 border-[#C5A059] ring-2 ring-[#C5A059]/20"
                   : "border-gray-200 hover:border-[#0F1E36]/30 hover:shadow-md"
@@ -276,7 +276,7 @@ export default function MemorialParkSection({
               <div>
                 <div className="flex items-center justify-between gap-2 mb-2.5">
                   <span
-                    className={`text-xs font-bold px-2.5 py-0.5 rounded-full ${
+                    className={`text-xs font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap ${
                       park.featured
                         ? "gold-gradient text-white"
                         : "bg-gray-100 text-[#0F1E36]"
@@ -284,18 +284,18 @@ export default function MemorialParkSection({
                   >
                     {park.loc} · {park.type}
                   </span>
-                  <span className="text-[11px] font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded flex items-center gap-1">
-                    <CheckCircle className="w-3 h-3 text-green-600" />
+                  <span className="text-[11px] font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded flex items-center gap-1 whitespace-nowrap shrink-0">
+                    <CheckCircle className="w-3 h-3 text-green-600 shrink-0" />
                     다온넷 지원 가능
                   </span>
                 </div>
 
                 <div className="flex items-start justify-between gap-2">
-                  <h3 className="text-lg font-black text-[#0F1E36] leading-snug">
+                  <h3 className="text-base sm:text-lg font-black text-[#0F1E36] leading-snug">
                     {park.name}
                   </h3>
                   {park.featured && (
-                    <span className="bg-amber-100 text-[#C5A059] text-[10px] font-black px-2 py-0.5 rounded-full flex items-center gap-1 shrink-0">
+                    <span className="bg-amber-100 text-[#C5A059] text-[10px] font-black px-2 py-0.5 rounded-full flex items-center gap-1 shrink-0 whitespace-nowrap">
                       <Sparkles className="w-3 h-3" /> 직영
                     </span>
                   )}
@@ -316,13 +316,13 @@ export default function MemorialParkSection({
               </div>
 
               <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between gap-2">
-                <span className="text-[11px] text-gray-400">봉안당 1단 / 사전선점</span>
+                <span className="text-[11px] text-gray-400 whitespace-nowrap">봉안당 1단 / 사전선점</span>
                 <button
                   onClick={() => handleSelectPark(park)}
-                  className="bg-[#0F1E36] hover:bg-[#C5A059] text-white text-xs font-bold px-3.5 py-2 rounded-xl transition flex items-center gap-1 cursor-pointer"
+                  className="bg-[#0F1E36] hover:bg-[#C5A059] text-white text-xs font-bold px-3.5 py-2 rounded-xl transition flex items-center gap-1 cursor-pointer whitespace-nowrap shrink-0"
                 >
                   <span>이 시설로 지원 상담</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 shrink-0" />
                 </button>
               </div>
             </div>
@@ -332,20 +332,20 @@ export default function MemorialParkSection({
 
       {/* 더보기 / 접기 버튼 */}
       {filteredParks.length > 12 && (
-        <div className="text-center mt-8">
+        <div className="text-center mt-7 sm:mt-8">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="bg-white border-2 border-[#0F1E36] text-[#0F1E36] hover:bg-[#0F1E36] hover:text-white font-black px-8 py-3 rounded-2xl transition shadow-sm inline-flex items-center gap-2 cursor-pointer"
+            className="w-full sm:w-auto justify-center bg-white border-2 border-[#0F1E36] text-[#0F1E36] hover:bg-[#0F1E36] hover:text-white font-black px-5 sm:px-8 py-3 rounded-2xl text-xs sm:text-sm transition shadow-sm inline-flex items-center gap-2 cursor-pointer"
           >
             {showAll ? (
               <>
                 <span>추모공원 리스트 접기</span>
-                <ChevronUp className="w-4 h-4" />
+                <ChevronUp className="w-4 h-4 shrink-0" />
               </>
             ) : (
               <>
-                <span>전국 추모공원 전체 리스트 펼쳐보기 (+{filteredParks.length - 12}개 더보기)</span>
-                <ChevronDown className="w-4 h-4" />
+                <span>전국 추모공원 전체 리스트 보기 (+{filteredParks.length - 12}개)</span>
+                <ChevronDown className="w-4 h-4 shrink-0" />
               </>
             )}
           </button>

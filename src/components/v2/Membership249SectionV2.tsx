@@ -11,20 +11,20 @@ export default function Membership249SectionV2() {
       {/* 1. 다크 슬레이트 네이비 멤버십 & 498만 환급보증 하이라이트 (.membership) */}
       <section
         id="premium-249"
-        className="bg-[#172c37] text-white py-[68px] lg:py-[92px] px-[7%] lg:px-[8%]"
+        className="bg-[#172c37] text-white py-[48px] sm:py-[68px] lg:py-[92px] px-5 sm:px-[7%] lg:px-[8%]"
       >
         <div
           id="refund-guarantee"
-          className="max-w-[1160px] mx-auto grid lg:grid-cols-2 gap-[48px] lg:gap-[80px] items-center"
+          className="max-w-[1160px] mx-auto grid lg:grid-cols-2 gap-[36px] sm:gap-[48px] lg:gap-[80px] items-center"
         >
           {/* 좌측: 상품 설명 및 가격, 498만 환급보증 안내 */}
           <div>
-            <div className="text-[10px] tracking-[2.7px] text-[#e1c897] font-semibold mb-[17px] uppercase">
+            <div className="text-[10px] tracking-[2px] sm:tracking-[2.7px] text-[#e1c897] font-semibold mb-[12px] sm:mb-[17px] uppercase">
               DAON PREMIUM MEMBERSHIP · 10년 공증 환급보증서 발급
             </div>
 
             <h2
-              className="text-[28px] sm:text-[35px] font-medium leading-[1.52] tracking-[-1.2px] m-0 mb-[18px]"
+              className="text-[24px] sm:text-[35px] font-medium leading-[1.45] sm:leading-[1.52] tracking-[-1px] sm:tracking-[-1.2px] m-0 mb-[14px] sm:mb-[18px]"
               style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
             >
               내일을 위한 준비에,
@@ -34,51 +34,51 @@ export default function Membership249SectionV2() {
               </em>
             </h2>
 
-            <p className="text-[#b8c2c4] text-[13px] sm:text-[14px] leading-[1.85] m-0">
+            <p className="text-[#b8c2c4] text-[12px] sm:text-[14px] leading-[1.8] sm:leading-[1.85] m-0">
               가입금액 <strong className="text-white">249만 원(VAT 포함)</strong>으로 추모공원·후불장례 보증부터 쇼핑·여행·건강식품까지.
               안전한 납입과 든든한 보장을 위해 <strong className="text-[#d9bc86]">10년 공증 4,980,000원 환급보증서</strong>가 발행되며,
               가입 <strong className="text-white">2년 만기 후 자유롭게 양도·양수</strong>가 가능합니다.
             </p>
 
             {/* 가격 블록 (.price) */}
-            <div className="my-[30px] pt-[20px] border-t border-[#334b57] grid sm:grid-cols-2 gap-5">
+            <div className="my-[22px] sm:my-[30px] pt-[18px] sm:pt-[20px] border-t border-[#334b57] grid grid-cols-2 gap-4 sm:gap-5">
               <div>
-                <small className="block text-[11px] text-[#b8c2c4]">
+                <small className="block text-[10px] sm:text-[11px] text-[#b8c2c4]">
                   다온 프리미엄 249 (실제 가입판매가)
                 </small>
                 <strong
-                  className="block text-[36px] sm:text-[42px] tracking-[1px] font-normal text-white leading-[1.2] mt-1"
+                  className="block text-[26px] sm:text-[42px] tracking-[0.5px] sm:tracking-[1px] font-normal text-white leading-[1.2] mt-1 whitespace-nowrap"
                   style={{ fontFamily: "Georgia, serif" }}
                 >
                   2,490,000
-                  <span className="text-[15px] ml-[6px] font-sans">원</span>
+                  <span className="text-[13px] sm:text-[15px] ml-[4px] sm:ml-[6px] font-sans">원</span>
                 </strong>
-                <span className="block text-[11px] text-[#b8c2c4] mt-1">
+                <span className="block text-[10px] sm:text-[11px] text-[#b8c2c4] mt-1">
                   VAT 포함 · 총 상품가격
                 </span>
               </div>
 
-              <div className="sm:border-l sm:border-[#334b57] sm:pl-6">
-                <small className="block text-[11px] text-[#e1c897]">
+              <div className="border-l border-[#334b57] pl-4 sm:pl-6">
+                <small className="block text-[10px] sm:text-[11px] text-[#e1c897]">
                   10년 공증 환급보증서 발행 금액
                 </small>
                 <strong
-                  className="block text-[36px] sm:text-[42px] tracking-[1px] font-normal text-[#d9bc86] leading-[1.2] mt-1"
+                  className="block text-[26px] sm:text-[42px] tracking-[0.5px] sm:tracking-[1px] font-normal text-[#d9bc86] leading-[1.2] mt-1 whitespace-nowrap"
                   style={{ fontFamily: "Georgia, serif" }}
                 >
                   4,980,000
-                  <span className="text-[15px] ml-[6px] font-sans">원</span>
+                  <span className="text-[13px] sm:text-[15px] ml-[4px] sm:ml-[6px] font-sans">원</span>
                 </strong>
-                <span className="block text-[11px] text-[#b8c2c4] mt-1">
-                  2년 후 양도·양수 가능 · (주)에스엘부티크호텔 약정
+                <span className="block text-[10px] sm:text-[11px] text-[#b8c2c4] mt-1">
+                  2년 후 양도·양수 · 에스엘부티크호텔 약정
                 </span>
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-[14px]">
+            <div className="grid grid-cols-1 sm:flex sm:flex-wrap gap-2.5 sm:gap-[14px]">
               <button
                 onClick={() => openContract()}
-                className="bg-[#d9bc86] text-[#172c37] hover:bg-[#e5cba0] px-[24px] py-[16px] text-[13px] font-semibold inline-flex items-center justify-between gap-[28px] transition cursor-pointer"
+                className="bg-[#d9bc86] text-[#172c37] hover:bg-[#e5cba0] px-[20px] sm:px-[24px] py-[14px] sm:py-[16px] text-[13px] font-semibold inline-flex items-center justify-between gap-[20px] sm:gap-[28px] transition cursor-pointer"
               >
                 <span>가입 및 보증서 신청하기</span>
                 <span>↗</span>
@@ -86,7 +86,7 @@ export default function Membership249SectionV2() {
 
               <button
                 onClick={openCert}
-                className="text-white border border-[#a2aaa2] hover:border-[#d9bc86] hover:text-[#d9bc86] px-[22px] py-[16px] text-[13px] font-semibold inline-flex items-center justify-between gap-[22px] transition cursor-pointer"
+                className="text-white border border-[#a2aaa2] hover:border-[#d9bc86] hover:text-[#d9bc86] px-[20px] sm:px-[22px] py-[14px] sm:py-[16px] text-[13px] font-semibold inline-flex items-center justify-between gap-[20px] sm:gap-[22px] transition cursor-pointer"
               >
                 <span>모바일 보증서(498만) 견본 보기</span>
                 <span>↗</span>
@@ -95,30 +95,30 @@ export default function Membership249SectionV2() {
           </div>
 
           {/* 우측: 틸트 멤버십 카드 & 보증 요약 (.membership-right) */}
-          <div className="pt-[10px]">
+          <div className="pt-[4px] sm:pt-[10px]">
             <div
               onClick={openCert}
               title="클릭하여 모바일 보증서 상세 보기"
-              className="aspect-[1.65] max-w-[440px] mx-auto mb-[36px] rounded-[10px] p-[26px_30px] border border-[#8c8d70] text-[#e5d0a5] shadow-[0_18px_40px_rgba(11,26,36,0.35)] -rotate-[3.5deg] hover:rotate-0 transition-transform duration-300 cursor-pointer flex flex-col justify-between"
+              className="aspect-[1.65] max-w-[440px] mx-auto mb-[26px] sm:mb-[36px] rounded-[10px] p-[20px_22px] sm:p-[26px_30px] border border-[#8c8d70] text-[#e5d0a5] shadow-[0_18px_40px_rgba(11,26,36,0.35)] sm:-rotate-[3.5deg] hover:rotate-0 transition-transform duration-300 cursor-pointer flex flex-col justify-between"
               style={{
                 background:
                   "radial-gradient(ellipse at 100% 0, #4f645e, transparent 70%), linear-gradient(130deg, #334847, #162c32)",
               }}
             >
               <div
-                className="flex justify-between items-start text-[18px] tracking-[3px]"
+                className="flex justify-between items-start text-[16px] sm:text-[18px] tracking-[3px]"
                 style={{ fontFamily: "Georgia, serif" }}
               >
                 <span>DAONNET</span>
-                <span className="text-[30px] leading-[0.7]">∞</span>
+                <span className="text-[26px] sm:text-[30px] leading-[0.7]">∞</span>
               </div>
 
-              <div className="my-auto pt-3">
-                <small className="block text-[8px] tracking-[2px] text-[#cbd3cc] uppercase">
+              <div className="my-auto pt-2 sm:pt-3">
+                <small className="block text-[8px] tracking-[1.5px] sm:tracking-[2px] text-[#cbd3cc] uppercase">
                   PREMIUM MEMBERSHIP &amp; GUARANTEE CERTIFICATE
                 </small>
                 <strong
-                  className="block mt-[8px] text-[19px] sm:text-[21px] font-normal leading-[1.45] text-[#f5e6c8]"
+                  className="block mt-[6px] sm:mt-[8px] text-[16px] sm:text-[21px] font-normal leading-[1.45] text-[#f5e6c8]"
                   style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
                 >
                   마음을 담은 준비, 삶을 채우는 혜택.
@@ -127,7 +127,7 @@ export default function Membership249SectionV2() {
                 </strong>
               </div>
 
-              <div className="text-[8px] tracking-[1px] flex justify-between items-center pt-3 border-t border-[#8c8d70]/40">
+              <div className="text-[8px] tracking-[1px] flex justify-between items-center pt-2.5 sm:pt-3 border-t border-[#8c8d70]/40">
                 <span>DAON PREMIUM 249 · 10년 공증</span>
                 <span className="text-[7px] text-[#d9bc86]">CLICK TO PREVIEW ↗</span>
               </div>
@@ -180,25 +180,25 @@ export default function Membership249SectionV2() {
       </section>
 
       {/* 2. 다온 프리미엄 249 — 7대 핵심 보증 패키지 상세 그리드 */}
-      <section className="py-[68px] lg:py-[96px] px-[6%] max-w-[1200px] mx-auto border-b border-[#dedfd7]">
-        <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-5 mb-[42px]">
+      <section className="py-[48px] sm:py-[68px] lg:py-[96px] px-5 sm:px-[6%] max-w-[1200px] mx-auto border-b border-[#dedfd7]">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-3 sm:gap-5 mb-[28px] sm:mb-[42px]">
           <div>
-            <div className="text-[10px] tracking-[2.7px] text-[#947b50] font-semibold mb-[14px] uppercase">
+            <div className="text-[10px] tracking-[2.7px] text-[#947b50] font-semibold mb-[10px] sm:mb-[14px] uppercase">
               ALL-IN-ONE 7 PRIVILEGES
             </div>
             <h2
-              className="text-[28px] sm:text-[35px] font-medium leading-[1.5] tracking-[-1.2px] text-[#26373b] m-0"
+              className="text-[24px] sm:text-[35px] font-medium leading-[1.45] sm:leading-[1.5] tracking-[-1px] sm:tracking-[-1.2px] text-[#26373b] m-0"
               style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
             >
               다온 프리미엄 249, 7대 핵심 패키지 구성
             </h2>
           </div>
-          <p className="text-[13px] text-[#747b78] m-0">
+          <p className="text-[12px] sm:text-[13px] text-[#747b78] m-0">
             총 판매금액 <strong className="text-[#26373b]">2,490,000원(VAT 포함)</strong>으로 누리는 평생의 안심과 현재의 혜택
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-[24px]">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-[16px] sm:gap-[24px]">
           {[
             {
               num: "01",
@@ -252,19 +252,19 @@ export default function Membership249SectionV2() {
           ].map((item) => (
             <article
               key={item.num}
-              className={`p-[26px] flex flex-col justify-between transition ${
+              className={`p-[20px] sm:p-[26px] flex flex-col justify-between transition ${
                 item.highlight
                   ? "bg-[#eae7dd] border-2 border-[#947b50]"
                   : "bg-[#efeee7]/70 border border-[#dedfd7]"
               }`}
             >
               <div>
-                <div className="flex justify-between items-baseline border-b border-[#d5d8ce] pb-[12px] mb-[16px]">
-                  <span className="text-[10px] tracking-[1.5px] text-[#8d7854] font-semibold uppercase">
+                <div className="flex justify-between items-baseline border-b border-[#d5d8ce] pb-[10px] sm:pb-[12px] mb-[12px] sm:mb-[16px]">
+                  <span className="text-[10px] tracking-[1.5px] text-[#8d7854] font-semibold uppercase whitespace-nowrap">
                     {item.tag}
                   </span>
                   <strong
-                    className={`text-[20px] font-medium ${
+                    className={`text-[18px] sm:text-[20px] font-medium whitespace-nowrap ${
                       item.highlight ? "text-[#947b50]" : "text-[#172c37]"
                     }`}
                     style={{ fontFamily: "Georgia, serif" }}
@@ -274,11 +274,11 @@ export default function Membership249SectionV2() {
                 </div>
 
                 <h3
-                  className="text-[19px] font-medium text-[#26373b] mb-[10px]"
+                  className="text-[17px] sm:text-[19px] font-medium text-[#26373b] mb-[8px] sm:mb-[10px]"
                   style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
                 >
                   <span
-                    className="text-[#947b50] mr-2 text-[15px]"
+                    className="text-[#947b50] mr-2 text-[14px] sm:text-[15px]"
                     style={{ fontFamily: "Georgia, serif" }}
                   >
                     {item.num}.
@@ -286,12 +286,12 @@ export default function Membership249SectionV2() {
                   {item.title}
                 </h3>
 
-                <p className="text-[12px] text-[#5e6562] leading-[1.75] m-0 mb-[18px]">
+                <p className="text-[12px] text-[#5e6562] leading-[1.7] sm:leading-[1.75] m-0 mb-[14px] sm:mb-[18px]">
                   {item.desc}
                 </p>
               </div>
 
-              <div className="border-t border-[#d5d8ce] pt-[12px] text-[11px] text-[#7b847d]">
+              <div className="border-t border-[#d5d8ce] pt-[10px] sm:pt-[12px] text-[11px] text-[#7b847d]">
                 ※ {item.note}
               </div>
             </article>
@@ -302,41 +302,41 @@ export default function Membership249SectionV2() {
       {/* 3. FUNERAL CARE — 아치 아트워크 & 24시간 의전 절차 (.funeral 레이아웃) */}
       <section
         id="funeral"
-        className="py-[68px] lg:py-[96px] px-[6%] max-w-[1200px] mx-auto grid lg:grid-cols-2 gap-[45px] lg:gap-[100px] items-center border-b border-[#dedfd7]"
+        className="py-[48px] sm:py-[68px] lg:py-[96px] px-5 sm:px-[6%] max-w-[1200px] mx-auto grid lg:grid-cols-2 gap-[32px] sm:gap-[45px] lg:gap-[100px] items-center border-b border-[#dedfd7]"
       >
         {/* 좌측 아치 아트워크 (.funeral-art) */}
-        <div className="bg-[#e7e5db] text-center p-[36px_40px_24px] self-stretch flex flex-col justify-center">
+        <div className="bg-[#e7e5db] text-center p-[24px_20px_18px] sm:p-[36px_40px_24px] self-stretch flex flex-col justify-center">
           <div
-            className="h-[280px] sm:h-[340px] pt-[60px] sm:pt-[75px] border border-[#d1cbb9] overflow-hidden mx-auto w-full max-w-[360px]"
+            className="h-[230px] sm:h-[340px] pt-[45px] sm:pt-[75px] border border-[#d1cbb9] overflow-hidden mx-auto w-full max-w-[360px]"
             style={{
               background: "linear-gradient(135deg, #f8f5e9, #cecebb)",
               borderRadius: "200px 200px 0 0",
             }}
           >
             <span
-              className="block text-[21px] sm:text-[24px] text-[#8b8c75] tracking-[4px]"
+              className="block text-[18px] sm:text-[24px] text-[#8b8c75] tracking-[4px]"
               style={{ fontFamily: "Georgia, serif" }}
             >
               WITH YOU,
               <br />
               WITH CARE.
             </span>
-            <div className="text-[130px] sm:text-[155px] leading-[1.35] text-[#fcfaf1] rotate-[15deg] select-none">
+            <div className="text-[105px] sm:text-[155px] leading-[1.35] text-[#fcfaf1] rotate-[15deg] select-none">
               ✳
             </div>
           </div>
-          <small className="text-[9px] tracking-[2px] mt-[22px] text-[#8a8d7e]">
+          <small className="text-[9px] tracking-[1.5px] sm:tracking-[2px] mt-[16px] sm:mt-[22px] text-[#8a8d7e]">
             마지막 순간까지, 정성을 다하는 마음 · 198만 원 후불장례 이행보증
           </small>
         </div>
 
         {/* 우측 설명 (.funeral-copy) */}
         <div>
-          <div className="text-[10px] tracking-[2.7px] text-[#947b50] font-semibold mb-[17px] uppercase">
+          <div className="text-[10px] tracking-[2.7px] text-[#947b50] font-semibold mb-[12px] sm:mb-[17px] uppercase">
             FUNERAL CARE · 365일 24시간 통합 의전
           </div>
           <h2
-            className="text-[28px] sm:text-[35px] font-medium leading-[1.55] tracking-[-1.2px] text-[#26373b] m-0 mb-[18px]"
+            className="text-[24px] sm:text-[35px] font-medium leading-[1.45] sm:leading-[1.55] tracking-[-1px] sm:tracking-[-1.2px] text-[#26373b] m-0 mb-[14px] sm:mb-[18px]"
             style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
           >
             경황없는 순간에도,
