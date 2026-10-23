@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>다온넷(DAONNET) - 전국 추모공원 특별지원 & 프리미엄 라이프케어 멤버십</title>
+  <!-- Tailwind CSS & Pretendard 폰트 & 아이콘 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Pretendard', 'sans-serif'] },
+          colors: {
+            daon: {
+              navy: '#0F1E36',
+              dark: '#091324',
+              gold: '#C5A059',
+              goldlight: '#E5C98B',
+              cream: '#FAF8F5'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .gold-gradient { background: linear-gradient(135deg, #C5A059 0%, #9E7B36 100%); }
+    .navy-gradient { background: linear-gradient(135deg, #0F1E36 0%, #1B3358 100%); }
+    .cert-card { background: linear-gradient(145deg, #ffffff 0%, #f9f6f0 100%); border: 2px solid #C5A059; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans pb-20">
+
+  <!-- [최상단] 에이치디원 스타일 멤버십 상태 바 -->
+  <div class="bg-daon-dark text-gray-300 text-xs py-2 px-4 border-b border-gray-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center space-x-4">
+        <span class="text-daon-gold font-semibold"><i class="fa-solid fa-crown mr-1"></i>DAONNET INFINITE POSSIBILITIES</span>
+        <span class="hidden sm:inline">365일 24시간 장례·추모 긴급접수 및 상담센터: <strong class="text-white">1877-8816</strong></span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <button onclick="openModal('certModal')" class="hover:text-white flex items-center gap-1">
+          <i class="fa-solid fa-file-shield text-daon-gold"></i> <span>모바일 보증서 확인</span>
+        </button>
+        <span class="text-gray-600">|</span>
+        <button onclick="openModal('certModal')" class="bg-daon-navy px-2.5 py-1 rounded text-white border border-daon-gold/40 hover:border-daon-gold transition">
+          보유 포인트: <strong class="text-daon-gold">2,490,000 P</strong>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- [헤더 GNB] 슬반생 스타일 직관적 네비게이션 -->
+  <header class="bg-white/95 backdrop-blur sticky top-0 z-40 shadow-sm border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+      <!-- 로고 -->
+      <a href="#" class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-full navy-gradient flex items-center justify-center text-daon-gold font-bold text-xl shadow">
+          <i class="fa-solid fa-infinity"></i>
+        </div>
+        <div>
+          <span class="text-2xl font-extrabold tracking-tight text-daon-navy block leading-none">DAONNET</span>
+          <span class="text-[11px] text-gray-500 tracking-widest">함께 나누는 다온넷</span>
+        </div>
+      </a>
+
+      <!-- 메인 메뉴 -->
+      <nav class="hidden lg:flex items-center space-x-8 font-semibold text-gray-700">
+        <a href="#memorial-parks" class="text-daon-navy hover:text-daon-gold flex items-center gap-1.5 py-2 border-b-2 border-daon-gold">
+          <i class="fa-solid fa-map-location-dot text-daon-gold"></i> 전국 추모공원 찾기
+        </a>
+        <a href="#premium-249" class="hover:text-daon-gold transition">다온 프리미엄 249</a>
+        <a href="#refund-guarantee" class="hover:text-daon-gold transition">498만 환급보증</a>
+        <a href="#daon-mall" class="hover:text-daon-gold transition flex items-center gap-1">
+          다온넷 전용몰 <span class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full">249만P</span>
+        </a>
+        <a href="#happy-class" class="hover:text-daon-gold transition">해피클래스 숙박·크루즈</a>
+      </nav>
+
+      <!-- 우측 액션 버튼 -->
+      <div class="flex items-center gap-2.5">
+        <button onclick="openModal('certModal')" class="hidden sm:flex items-center gap-1.5 px-3.5 py-2.5 rounded-lg border border-gray-300 text-sm font-semibold hover:bg-gray-50 transition">
+          <i class="fa-regular fa-id-card text-daon-navy"></i> 마이 보증서
+        </button>
+        <button onclick="openModal('contractModal')" class="gold-gradient text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow hover:opacity-95 transition flex items-center gap-1.5">
+          <span>멤버십 가입·상담</span> <i class="fa-solid fa-chevron-right text-xs"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- [히어로 섹션] 추모공원 최우선 노출 + 슬반생형 빠른 장지 검색 -->
+  <section class="relative navy-gradient text-white py-16 lg:py-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center"></div>
+    <div class="max-w-7xl mx-auto px-4 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-1.5 rounded-full border border-daon-gold/40 text-daon-goldlight text-sm font-medium">
+            <span class="w-2 h-2 rounded-full bg-daon-gold animate-pulse"></span>
+            전국 주요 추모공원 특별지원 · 프리미엄 라이프케어 멤버십
+          </div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight">
+            소중한 기억이 머무는 곳,<br>
+            <span class="text-daon-goldlight">전국 어디든 희망하시는 추모공원</span>을<br>
+            다온넷이 특별 지원합니다.
+          </h1>
+          <p class="text-gray-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+            직영 유토피아 추모관부터 전국 주요 추모공원 봉안당(1단 기준) 지원은 물론, 
+            <strong>10년 만기 498만 원 환급보증서</strong>와 <strong>249만 쇼핑포인트</strong>, <strong>2박 3일 무료 숙박권</strong>까지 하나로 담았습니다.
+          </p>
+          <!-- 핵심 요약 뱃지 -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+            <div class="bg-white/10 backdrop-blur p-3.5 rounded-xl border border-white/15">
+              <div class="text-xs text-gray-300">추모공원 특별지원</div>
+              <div class="text-lg font-bold text-white mt-0.5">봉안당 1단 기준</div>
+              <div class="text-[11px] text-daon-goldlight">전국 시설 10~70% 할인</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur p-3.5 rounded-xl border border-daon-gold/50">
+              <div class="text-xs text-daon-goldlight">10년 공증 환급보증서</div>
+              <div class="text-lg font-extrabold text-daon-goldlight mt-0.5">4,980,000원</div>
+              <div class="text-[11px] text-gray-300">가입 2년 후 양도·양수 가능</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur p-3.5 rounded-xl border border-white/15">
+              <div class="text-xs text-gray-300">후불장례 이행보증</div>
+              <div class="text-lg font-bold text-white mt-0.5">1,980,000원</div>
+              <div class="text-[11px] text-daon-goldlight">365일 24시간 통합접수</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur p-3.5 rounded-xl border border-white/15">
+              <div class="text-xs text-gray-300">전용몰 포인트 + 지원금</div>
+              <div class="text-lg font-bold text-white mt-0.5">249만P + 40만원</div>
+              <div class="text-[11px] text-daon-goldlight">삼칠그라·2박3일 숙박권</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 우측: 슬반생 스타일 빠른 추모공원 검색 박스 -->
+        <div class="lg:col-span-5">
+          <div class="bg-white text-gray-800 rounded-2xl p-6 sm:p-8 shadow-2xl border-t-4 border-daon-gold">
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="text-xl font-extrabold text-daon-navy flex items-center gap-2">
+                <i class="fa-solid fa-magnifying-glass-location text-daon-gold"></i> 전국 추모공원 빠른 찾기
+              </h2>
+              <span class="text-xs bg-blue-50 text-daon-navy font-bold px-2.5 py-1 rounded-full">전국 원스톱 연결</span>
+            </div>
+            <p class="text-xs text-gray-500 mb-5">
+              장례 발생 전 희망 장지 상담 및 우수 위치(로얄석) 사전 지정이 가능합니다.
+            </p>
+            <div class="space-y-4">
+              <div>
+                <label class="block text-xs font-bold text-gray-600 mb-1.5">희망 권역 선택</label>
+                <select id="quickRegion" class="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-daon-navy">
+                  <option value="ALL">전국 전체 (55개 주요 추모시설)</option>
+                  <option value="CAPITAL">수도권 (서울·경기·인천 - 유토피아 직영 포함)</option>
+                  <option value="CHUNG_GANG">충청·강원권 (세종·대전·충남북·강원)</option>
+                  <option value="YEONGNAM">경상·영남권 (부산·대구·울산·경남북)</option>
+                  <option value="HONAM_JEJU">전라·호남·제주권 (광주·전남북·제주)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-gray-600 mb-1.5">시설 구분</label>
+                <select id="quickType" class="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-daon-navy">
+                  <option value="ALL">모든 유형 (봉안당 / 수목장 / 공원묘원 / 공설)</option>
+                  <option value="직영">다온넷 직영 (안성 유토피아추모관)</option>
+                  <option value="재단">재단법인 추모공원</option>
+                  <option value="사설">프리미엄 사설 봉안당·수목장</option>
+                  <option value="공설">전국 시·군 공설 추모시설</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-gray-600 mb-1.5">시설명 또는 지역명 검색</label>
+                <input type="text" id="quickKeyword" placeholder="예: 유토피아, 용인, 파주, 부산, 수목장..." class="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-daon-navy">
+              </div>
+              <button onclick="applyQuickSearch()" class="w-full navy-gradient text-white font-bold py-3.5 rounded-xl shadow-lg hover:opacity-95 transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-search text-daon-gold"></i> 선택한 조건으로 추모공원 조회하기
+              </button>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+              <span><i class="fa-solid fa-check text-daon-gold mr-1"></i>직계가족 자유 양도 가능</span>
+              <span><i class="fa-solid fa-phone text-daon-gold mr-1"></i>장지 상담: 1877-8816</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- [SECTION 1: 최우선 노출] 전국 추모공원 특별지원 상품 & 전체 리스트 카테고리 -->
+  <section id="memorial-parks" class="py-16 max-w-7xl mx-auto px-4">
+    <!-- 섹션 타이틀 -->
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="text-xs font-bold tracking-widest uppercase text-daon-gold bg-daon-navy px-3 py-1 rounded-full">MEMORIAL PARK NETWORK</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-daon-navy mt-3">전국 추모공원·봉안당 특별지원 안내</h2>
+      <p class="text-gray-600 mt-2 text-sm sm:text-base">
+        다온넷 프리미엄 249 회원은 직영 <strong>안성 유토피아 추모관</strong>을 비롯하여 전국 어디든 희망하시는 추모공원을 특별 혜택으로 이용하실 수 있습니다.
+      </p>
+    </div>
+
+    <!-- 추모공원 이행보증 4대 특장점 배너 -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-200 flex items-start gap-3.5">
+        <div class="w-11 h-11 rounded-xl bg-amber-50 text-daon-gold flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-building-columns"></i></div>
+        <div>
+          <h3 class="font-bold text-daon-navy text-sm">봉안당 1단 기준 특별지원</h3>
+          <p class="text-xs text-gray-500 mt-1">추모공원 이행증서 및 고급 봉안함 기본 제공 (타 시설 10~70% 할인가 적용)</p>
+        </div>
+      </div>
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-200 flex items-start gap-3.5">
+        <div class="w-11 h-11 rounded-xl bg-amber-50 text-daon-gold flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-crown"></i></div>
+        <div>
+          <h3 class="font-bold text-daon-navy text-sm">사전 예약 및 로얄석 선점</h3>
+          <p class="text-xs text-gray-500 mt-1">장례 발생 전 희망하는 장지의 우수 위치(로얄석) 사전 지정 및 상담 가능</p>
+        </div>
+      </div>
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-200 flex items-start gap-3.5">
+        <div class="w-11 h-11 rounded-xl bg-amber-50 text-daon-gold flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-people-roof"></i></div>
+        <div>
+          <h3 class="font-bold text-daon-navy text-sm">직계가족 자유 양도·양수</h3>
+          <p class="text-xs text-gray-500 mt-1">부모님 등 직계 가족 사용을 위한 추모공원 및 장례 이행 권리 양도 자유</p>
+        </div>
+      </div>
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-200 flex items-start gap-3.5">
+        <div class="w-11 h-11 rounded-xl bg-amber-50 text-daon-gold flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-headset"></i></div>
+        <div>
+          <h3 class="font-bold text-daon-navy text-sm">원스톱 장지 연결 컨설팅</h3>
+          <p class="text-xs text-gray-500 mt-1">장례 발생 시 24시간 의전 접수부터 전국 공설·사설 장지 안치까지 원스톱 진행</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 권역별 탭 버튼 -->
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-6 bg-white p-3 rounded-xl shadow-sm border border-gray-200">
+      <div class="flex flex-wrap gap-2" id="regionTabs">
+        <button onclick="filterParks('ALL')" data-region="ALL" class="region-tab active bg-daon-navy text-white px-4 py-2 rounded-lg text-sm font-bold transition">
+          전국 전체 <span class="text-daon-gold ml-1" id="count-ALL">55</span>
+        </button>
+        <button onclick="filterParks('CAPITAL')" data-region="CAPITAL" class="region-tab bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-semibold transition">
+          수도권 (서울·경기·인천) <span class="text-xs text-gray-500 ml-1">24</span>
+        </button>
+        <button onclick="filterParks('CHUNG_GANG')" data-region="CHUNG_GANG" class="region-tab bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-semibold transition">
+          충청·강원권 <span class="text-xs text-gray-500 ml-1">15</span>
+        </button>
+        <button onclick="filterParks('YEONGNAM')" data-region="YEONGNAM" class="region-tab bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-semibold transition">
+          경상·영남권 <span class="text-xs text-gray-500 ml-1">11</span>
+        </button>
+        <button onclick="filterParks('HONAM_JEJU')" data-region="HONAM_JEJU" class="region-tab bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-semibold transition">
+          호남·제주권 <span class="text-xs text-gray-500 ml-1">6</span>
+        </button>
+      </div>
+      <div class="flex items-center gap-2 w-full sm:w-auto">
+        <input type="text" id="parkSearchInput" oninput="renderParks()" placeholder="시설명/지역 검색..." class="border border-gray-300 rounded-lg px-3 py-1.5 text-sm w-full sm:w-52 focus:outline-none focus:border-daon-navy">
+      </div>
+    </div>
+
+    <!-- 추모공원 카드 그리드 출력 영역 -->
+    <div id="parkGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+
+    <!-- 더보기 버튼 -->
+    <div class="text-center mt-8" id="loadMoreWrap">
+      <button onclick="toggleShowAllParks()" id="toggleParksBtn" class="bg-white border-2 border-daon-navy text-daon-navy hover:bg-daon-navy hover:text-white font-bold px-8 py-3 rounded-xl transition shadow-sm">
+        전국 추모공원 전체 리스트 펼쳐보기 (+43개 더보기) <i class="fa-solid fa-chevron-down ml-1"></i>
+      </button>
+    </div>
+
+    <!-- 하단 안내 고지 -->
+    <div class="mt-6 bg-gray-100 rounded-xl p-4 text-xs text-gray-500 leading-relaxed">
+      ※ 위 리스트는 고객님의 희망 지역 장지 선택을 돕기 위한 전국 주요 추모공원 및 봉안당 안내 정보입니다. 다온넷 회원은 직영 유토피아 추모관 및 전국 주요 시설 이용 시 봉안당 1단 기준 특별지원 또는 정가 대비 10~70% 할인 혜택을 적용받으실 수 있으며, 공설 시설 희망 시 원스톱 입소 절차 안내를 지원합니다. 실제 적용 조건 및 단(층) 변경에 따른 추가 비용은 이용 시점의 시설 운영규정에 따라 달라질 수 있으므로 반드시 <strong>다온넷 고객센터(1877-8816)</strong>를 통해 사전 접수해 주시기 바랍니다.
+    </div>
+  </section>
+
+  <!-- [SECTION 2: 메인 상품] 다온 프리미엄 249 및 498만원 환급보증 상세 -->
+  <section id="premium-249" class="py-16 bg-daon-cream border-y border-gray-200">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-bold tracking-widest uppercase text-white gold-gradient px-3.5 py-1 rounded-full">MAIN MEMBERSHIP PRODUCT</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-daon-navy mt-3">다온 프리미엄 249 상품 구성</h2>
+        <p class="text-gray-600 mt-2">
+          총 납입금액 <strong>2,490,000원(VAT 포함)</strong>으로 누리는 7대 핵심 보증 및 라이프케어 패키지
+        </p>
+      </div>
+
+      <!-- 498만원 환급보증 하이라이트 배너 -->
+      <div id="refund-guarantee" class="navy-gradient rounded-3xl p-6 sm:p-10 text-white shadow-xl mb-10 border-2 border-daon-gold/60">
+        <div class="grid lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 space-y-3">
+            <div class="inline-block bg-daon-gold text-daon-dark font-extrabold text-xs px-3 py-1 rounded-md">
+              특별 보장 · 10년 공증 환급증서 발급
+            </div>
+            <h3 class="text-2xl sm:text-4xl font-extrabold leading-tight">
+              가입금액 249만 원,<br>
+              <span class="text-daon-goldlight">환급보증서 4,980,000원</span> 발행!
+            </h3>
+            <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+              안전한 납입과 든든한 보장을 약속합니다. 10년 공증 환급증서가 발급되며, 가입 <strong>2년 만기 후 자유롭게 양도·양수</strong>가 가능합니다. (장례·추모 등 주요 서비스 미이용 시 약정 및 보증서 조건에 따라 반환 지급)
+            </p>
+            <div class="flex flex-wrap gap-3 pt-2 text-xs">
+              <span class="bg-white/10 px-3 py-1.5 rounded-lg border border-white/20"><i class="fa-solid fa-file-contract text-daon-gold mr-1"></i>10년 공증 환급증서 발급</span>
+              <span class="bg-white/10 px-3 py-1.5 rounded-lg border border-white/20"><i class="fa-solid fa-right-left text-daon-gold mr-1"></i>가입 2년 후 양도·양수 가능</span>
+              <span class="bg-white/10 px-3 py-1.5 rounded-lg border border-white/20"><i class="fa-solid fa-building-shield text-daon-gold mr-1"></i>(주)에스엘부티크호텔 반환 지급 약정 기준</span>
+            </div>
+          </div>
+          <div class="lg:col-span-5">
+            <div class="cert-card text-daon-navy rounded-2xl p-6 shadow-lg relative overflow-hidden">
+              <div class="flex justify-between items-start border-b border-amber-200 pb-3 mb-4">
+                <div>
+                  <div class="text-[11px] font-bold text-daon-gold tracking-wider">DAONNET GUARANTEE CERTIFICATE</div>
+                  <div class="text-lg font-extrabold">다온넷 환급보증서 (견본)</div>
+                </div>
+                <i class="fa-solid fa-award text-3xl text-daon-gold"></i>
+              </div>
+              <div class="space-y-2 text-sm">
+                <div class="flex justify-between"><span class="text-gray-500">상품구분</span><span class="font-bold">다온 프리미엄 249</span></div>
+                <div class="flex justify-between"><span class="text-gray-500">판매금액</span><span class="font-bold">2,490,000 원 (VAT포함)</span></div>
+                <div class="flex justify-between items-center bg-amber-50 p-2.5 rounded-lg border border-amber-200">
+                  <span class="font-bold text-daon-navy">환급보증서 금액</span>
+                  <span class="text-xl font-extrabold text-red-600">4,980,000 원</span>
+                </div>
+                <div class="flex justify-between text-xs pt-1"><span class="text-gray-500">보증조건</span><span>10년 공증 / 2년 후 양도·양수 가능</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 방판 조견표 기반 7대 구성 상세 그리드 -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- 구성 1 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 hover:border-daon-gold transition">
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-xs font-bold text-daon-gold bg-amber-50 px-2.5 py-1 rounded">보증 혜택 01</span>
+            <span class="text-lg font-extrabold text-daon-navy">4,980,000원</span>
+          </div>
+          <h4 class="text-lg font-bold text-daon-navy mb-2">1. 환급보증서 발급</h4>
+          <p class="text-sm text-gray-600 mb-4">10년 공증 환급증서 발급. 가입 2년 후 양도·양수가 가능하며, 주요 서비스 미이용 시 반환 지급약정 및 보증서 조건에 따라 지급됩니다.</p>
+          <div class="text-xs text-gray-400 border-t pt-3">※ 실물 또는 모바일 증서 발급</div>
+        </div>
+
+        <!-- 구성 2 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 hover:border-daon-gold transition">
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-xs font-bold text-daon-gold bg-amber-50 px-2.5 py-1 rounded">보증 혜택 02</span>
+            <span class="text-lg font-extrabold text-daon-navy">1,980,000원</span>
+          </div>
+          <h4 class="text-lg font-bold text-daon-navy mb-2">2. 후불장례 이행보증</h4>
+          <p class="text-sm text-gray-600 mb-4">전국장례통합 서비스를 통해 365일 24시간 장례접수 가능. 물가 상승 대비형으로 전문 인력·용품·차량 등 라이프케어 의전을 지원합니다.</p>
+          <div class="text-xs text-gray-400 border-t pt-3">※ 1구좌당 1회 원칙 / 가족 양도 가능</div>
+        </div>
+
+        <!-- 구성 3 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 hover:border-daon-gold transition">
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-xs font-bold text-daon-gold bg-amber-50 px-2.5 py-1 rounded">보증 혜택 03</span>
+            <span class="text-lg font-extrabold text-daon-navy">봉안당 1단 기준</span>
+          </div>
+          <h4 class="text-lg font-bold text-daon-navy mb-2">3. 전국 추모공원 특별지원</h4>
+          <p class="text-sm text-gray-600 mb-4">직영 유토피아 추모관을 포함한 전국 주요 추모공원 이용 안내 및 봉안함 제공. 유토피아 외 제휴 시설은 정가 대비 10~70% 할인가가 적용됩니다.</p>
+          <div class="text-xs text-gray-400 border-t pt-3">※ 사전 로얄석 지정 및 직계가족 양도 가능</div>
+        </div>
+
+        <!-- 구성 4 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 hover:border-daon-gold transition">
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded">즉시 혜택 04</span>
+            <span class="text-lg font-extrabold text-blue-700">2,490,000 P</span>
+          </div>
+          <h4 class="text-lg font-bold text-daon-navy mb-2">4. 다온넷 전용몰 쇼핑포인트</h4>
+          <p class="text-sm text-gray-600 mb-4">회원가입 및 본인 인증 즉시 다온넷.kr 폐쇄몰에서 현금처럼 차감하여 특가 상품을 구매할 수 있는 249만 포인트를 지급합니다.</p>
+          <div class="text-xs text-gray-400 border-t pt-3">※ 최대 80% 포인트 차감 할인 구매</div>
+        </div>
+
+        <!-- 구성 5 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 hover:border-daon-gold transition">
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded">레저 혜택 05</span>
+            <span class="text-lg font-extrabold text-daon-navy">2박 3일 숙박권</span>
+          </div>
+          <h4 class="text-lg font-bold text-daon-navy mb-2">5. 해피클래스 & 크루즈 우대</h4>
+          <p class="text-sm text-gray-600 mb-4">전국 약 50개 제휴 호텔·리조트·펜션 2박 3일 무료 숙박권(1박 15만 원 상당) 제공 및 럭셔리 크루즈 여행 회원 전용 할인가 혜택을 제공합니다.</p>
+          <div class="text-xs text-gray-400 border-t pt-3">※ 숙박 청소비 별도 (평일 1.9만 / 주말 3.9만)</div>
+        </div>
+
+        <!-- 구성 6 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 hover:border-daon-gold transition">
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-xs font-bold text-green-700 bg-green-50 px-2.5 py-1 rounded">특별 지원 06</span>
+            <span class="text-lg font-extrabold text-green-700">58만원 상당 + 40만원</span>
+          </div>
+          <h4 class="text-lg font-bold text-daon-navy mb-2">6. 프리미엄 건강식품 & 위로지원금</h4>
+          <p class="text-sm text-gray-600 mb-4">온라인가 58~59.8만 원 상당의 <strong>삼칠그라 365</strong>(또는 경남제약 알부민 프라임 맥스) 제공 및 등급별 <strong>위로지원금 현금 400,000원</strong>을 지급합니다.</p>
+          <div class="text-xs text-gray-400 border-t pt-3">※ 건강식품 영업일 기준 1~3일 내 무료배송</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- [SECTION 3: 에이치디원 스타일] 다온넷 회원 전용 쇼핑몰 (2,490,000P 사용처) -->
+  <section id="daon-mall" class="py-16 max-w-7xl mx-auto px-4">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+      <div>
+        <span class="text-xs font-bold tracking-widest uppercase text-white bg-blue-600 px-3 py-1 rounded-full">HDONE STYLE POINT MALL</span>
+        <h2 class="text-3xl font-extrabold text-daon-navy mt-3">다온넷 회원 전용 포인트 특가몰</h2>
+        <p class="text-gray-600 text-sm mt-1">가입 즉시 지급되는 <strong>2,490,000P</strong>로 오픈마켓 최저가보다 훨씬 저렴하게 구매하세요.</p>
+      </div>
+      <div class="bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 flex items-center gap-3">
+        <i class="fa-solid fa-coins text-2xl text-daon-gold"></i>
+        <div class="text-xs">
+          <div class="text-gray-500">나의 사용 가능 쇼핑포인트</div>
+          <div class="text-base font-extrabold text-daon-navy">2,490,000 P <span class="text-[11px] font-normal text-green-600">(즉시 차감 가능)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 실제 자료(12페이지) 상품 비교 카드 + 건강식품 -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- 몰 상품 1: 오토모 물걸레 청소기 -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between">
+        <div>
+          <div class="relative bg-gray-100 h-48 flex items-center justify-center p-4">
+            <span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-extrabold px-2.5 py-1 rounded-md">80% 포인트 차감</span>
+            <i class="fa-solid fa-broom text-6xl text-gray-400"></i>
+          </div>
+          <div class="p-5">
+            <div class="text-xs text-gray-400 mb-1">생활/리빙 가전</div>
+            <h3 class="font-bold text-daon-navy text-sm line-clamp-2 h-10">[오토모] 쓰리패드 배터리분리형 무선 물걸레 청소기 AVC-W9</h3>
+            <div class="mt-3 space-y-1 text-xs">
+              <div class="flex justify-between text-gray-400 line-through"><span>타사 오픈마켓 최저가</span><span>498,000원</span></div>
+              <div class="flex justify-between text-gray-600"><span>다온넷 회원 판매가</span><span>399,000원</span></div>
+              <div class="flex justify-between text-blue-600 font-bold"><span>쇼핑포인트 할인(80%)</span><span>- 319,200 P</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="p-5 pt-0">
+          <div class="bg-gray-50 p-3 rounded-xl flex justify-between items-center mb-3">
+            <span class="text-xs font-bold text-gray-600">실제 결제금액</span>
+            <span class="text-lg font-extrabold text-red-600">79,800원</span>
+          </div>
+          <button onclick="alert('회원 전용 포인트 차감 장바구니에 담겼습니다. (차감 포인트: 319,200P)')" class="w-full bg-daon-navy text-white text-xs font-bold py-2.5 rounded-lg hover:bg-daon-dark transition">포인트 차감 구매하기</button>
+        </div>
+      </div>
+
+      <!-- 몰 상품 2: 코렐 스탠 밀폐용기 12종 -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between">
+        <div>
+          <div class="relative bg-gray-100 h-48 flex items-center justify-center p-4">
+            <span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-extrabold px-2.5 py-1 rounded-md">59% 포인트 차감</span>
+            <i class="fa-solid fa-kitchen-set text-6xl text-gray-400"></i>
+          </div>
+          <div class="p-5">
+            <div class="text-xs text-gray-400 mb-1">주방/생활용품</div>
+            <h3 class="font-bold text-daon-navy text-sm line-clamp-2 h-10">[코렐] 코디네이츠 스탠 밀폐용기 혼합 12종 세트</h3>
+            <div class="mt-3 space-y-1 text-xs">
+              <div class="flex justify-between text-gray-400 line-through"><span>타사 오픈마켓 판매가</span><span>167,900원</span></div>
+              <div class="flex justify-between text-gray-600"><span>다온넷 회원 판매가</span><span>159,900원</span></div>
+              <div class="flex justify-between text-blue-600 font-bold"><span>쇼핑포인트 할인(59%)</span><span>- 94,341 P</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="p-5 pt-0">
+          <div class="bg-gray-50 p-3 rounded-xl flex justify-between items-center mb-3">
+            <span class="text-xs font-bold text-gray-600">실제 결제금액</span>
+            <span class="text-lg font-extrabold text-red-600">65,559원</span>
+          </div>
+          <button onclick="alert('회원 전용 포인트 차감 장바구니에 담겼습니다. (차감 포인트: 94,341P)')" class="w-full bg-daon-navy text-white text-xs font-bold py-2.5 rounded-lg hover:bg-daon-dark transition">포인트 차감 구매하기</button>
+        </div>
+      </div>
+
+      <!-- 몰 상품 3: 노르딕캠프 웨건카트 -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between">
+        <div>
+          <div class="relative bg-gray-100 h-48 flex items-center justify-center p-4">
+            <span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-extrabold px-2.5 py-1 rounded-md">44% 포인트 차감</span>
+            <i class="fa-solid fa-campground text-6xl text-gray-400"></i>
+          </div>
+          <div class="p-5">
+            <div class="text-xs text-gray-400 mb-1">캠핑/레저</div>
+            <h3 class="font-bold text-daon-navy text-sm line-clamp-2 h-10">[노르딕 캠프] 어반화이트 퍼스트 웨건카트(블랙) NOR-WG1000</h3>
+            <div class="mt-3 space-y-1 text-xs">
+              <div class="flex justify-between text-gray-400 line-through"><span>타사 오픈마켓 최저가</span><span>398,990원</span></div>
+              <div class="flex justify-between text-gray-600"><span>다온넷 회원 판매가</span><span>99,000원</span></div>
+              <div class="flex justify-between text-blue-600 font-bold"><span>쇼핑포인트 할인(44%)</span><span>- 43,560 P</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="p-5 pt-0">
+          <div class="bg-gray-50 p-3 rounded-xl flex justify-between items-center mb-3">
+            <span class="text-xs font-bold text-gray-600">실제 결제금액</span>
+            <span class="text-lg font-extrabold text-red-600">55,440원</span>
+          </div>
+          <button onclick="alert('회원 전용 포인트 차감 장바구니에 담겼습니다. (차감 포인트: 43,560P)')" class="w-full bg-daon-navy text-white text-xs font-bold py-2.5 rounded-lg hover:bg-daon-dark transition">포인트 차감 구매하기</button>
+        </div>
+      </div>
+
+      <!-- 몰 상품 4: 삼칠그라 365 / 경남제약 알부민 (멤버십 기본 제공 건강식품) -->
+      <div class="bg-white rounded-2xl shadow-sm border-2 border-daon-gold overflow-hidden flex flex-col justify-between">
+        <div>
+          <div class="relative bg-amber-50 h-48 flex items-center justify-center p-4">
+            <span class="absolute top-3 left-3 gold-gradient text-white text-xs font-extrabold px-2.5 py-1 rounded-md">프리미엄 249 기본제공</span>
+            <i class="fa-solid fa-capsules text-6xl text-daon-gold"></i>
+          </div>
+          <div class="p-5">
+            <div class="text-xs text-daon-gold font-bold mb-1">멤버십 가입 사은 건강식품</div>
+            <h3 class="font-bold text-daon-navy text-sm line-clamp-2 h-10">삼칠그라 365 (삼칠삼·전칠삼) 또는 경남제약 저분자 콜라겐 알부민 프라임 맥스</h3>
+            <div class="mt-3 space-y-1 text-xs">
+              <div class="flex justify-between text-gray-500"><span>네이버 쇼핑 판매가</span><span>580,000~598,000원</span></div>
+              <div class="flex justify-between text-green-700 font-bold"><span>프리미엄 249 가입 회원</span><span>무료 증정 (택1)</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="p-5 pt-0">
+          <div class="bg-amber-50 p-3 rounded-xl flex justify-between items-center mb-3">
+            <span class="text-xs font-bold text-daon-navy">가입 회원 혜택가</span>
+            <span class="text-lg font-extrabold text-daon-gold">0원 (무료배송)</span>
+          </div>
+          <button onclick="openModal('contractModal')" class="w-full gold-gradient text-white text-xs font-bold py-2.5 rounded-lg hover:opacity-95 transition">가입하고 무료 수령하기</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- [SECTION 4] 해피클래스 전국 50곳 무료 숙박 & 크루즈 혜택 -->
+  <section id="happy-class" class="py-16 bg-white border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-5 space-y-4">
+          <span class="text-xs font-bold tracking-widest uppercase text-daon-gold bg-daon-navy px-3 py-1 rounded-full">LIFE & LEISURE CARE</span>
+          <h2 class="text-3xl font-extrabold text-daon-navy">해피클래스 2박 3일 무료숙박권 & 럭셔리 크루즈</h2>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            전국 약 50개 제휴 호텔·리조트·펜션에서 이용 가능한 <strong>2박 3일 숙박권(1박 평균 150,000원 상당)</strong>을 드립니다. 또한 초호화 크루즈 여행 상품 예약 시 회원 전용 특별 할인가와 기항지 혜택을 누리실 수 있습니다.
+          </p>
+          <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 text-xs space-y-1.5 text-gray-600">
+            <div><strong class="text-daon-navy">· 숙박 이용 안내:</strong> 평일 청소비 19,000원 / 주말 청소비 39,000원 별도 (성수기·객실유형에 따라 추가요금 발생 가능, 양도 가능)</div>
+            <div><strong class="text-daon-navy">· 크루즈 이용 안내:</strong> 최소 6개월 이전 사전 예약 및 상담 필수 (1877-8816)</div>
+          </div>
+        </div>
+
+        <!-- 전국 50곳 주요 제휴 숙박 리스트 -->
+        <div class="lg:col-span-7 bg-gray-50 rounded-2xl p-6 border border-gray-200">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="font-bold text-daon-navy"><i class="fa-solid fa-hotel text-daon-gold mr-1.5"></i>해피클래스 주요 제휴 호텔·리조트·펜션 (전국 50여 곳)</h3>
+            <span class="text-xs text-gray-500">2박 3일 숙박권 적용</span>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-2.5 text-xs">
+            <div class="bg-white p-3 rounded-lg border border-gray-200"><strong>[인천/영종도·송도]</strong> 스카이베이호텔, 오션파크나인호텔, 영종도 더시티호텔, 셀럽스테이호텔</div>
+            <div class="bg-white p-3 rounded-lg border border-gray-200"><strong>[부산/해운대·강서]</strong> 해운대 플레어드 호텔, 더웨스턴부산호텔</div>
+            <div class="bg-white p-3 rounded-lg border border-gray-200"><strong>[경기/수원·포천·가평]</strong> 아모레미오 더클래식, 호텔마루 포천점, 가평 에어호텔, 파주호텔</div>
+            <div class="bg-white p-3 rounded-lg border border-gray-200"><strong>[강원/양양·춘천·태백]</strong> 오션스테이양양, 38리조트, 태백 설화국가족호텔, 숲속의요정, 다온휴펜션</div>
+            <div class="bg-white p-3 rounded-lg border border-gray-200"><strong>[충청/보은·충주·청양]</strong> 속리산호텔, 충주 알아이(RI) 종합호텔, 칠갑산, 더대전스토리펜션</div>
+            <div class="bg-white p-3 rounded-lg border border-gray-200"><strong>[전라·경상·제주]</strong> 여수 퍼스트시티호텔프리미엄, 영덕 칠보산온천리조트, 마산 아모르호텔, 서귀포 제주리조트</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- [푸터] 필수 고지사항 및 기업 정보 -->
+  <footer class="bg-daon-dark text-gray-400 py-12 text-xs">
+    <div class="max-w-7xl mx-auto px-4 space-y-6">
+      <div class="grid md:grid-cols-2 gap-6 pb-6 border-b border-gray-800">
+        <div>
+          <div class="text-white font-extrabold text-lg mb-2">주식회사 다온넷 (DAONNET)</div>
+          <p>고객상담센터(장례·추모 24시간 접수 및 사전상담): <strong class="text-daon-gold text-sm">1877-8816</strong> | 공식 홈페이지: www.다온넷.kr</p>
+        </div>
+        <div class="bg-white/5 p-4 rounded-xl border border-gray-800 space-y-1 text-[11px] leading-relaxed">
+          <div class="text-white font-bold mb-1">서비스 이용 및 방송/판매 필수 고지사항</div>
+          <p>• 장례·추모공원 이행증서는 실물 또는 모바일로 발급되며, 서비스 발생 시 반드시 고객센터(1877-8816) 접수 후 혜택이 적용됩니다.</p>
+          <p>• 추모공원·숙박·크루즈 등 제휴 서비스는 이용 시점의 제휴 여부, 시설 객실 현황, 시즌 및 운영규정에 따라 제한 또는 추가비용이 발생할 수 있습니다.</p>
+          <p>• 환급보증서 498만 원은 보증서 금액 기준이며, 실제 환급 절차·지급형태·조건은 환급보증서 및 반환 지급약정 내용을 우선합니다.</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap justify-between items-center text-gray-500">
+        <span>Copyright © 2026 DAONNET Co., Ltd. All rights reserved.</span>
+        <span>개인정보처리방침 | 이용약관 | 환급보증약정안내</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- [하단 고정 바] 슬반생 스타일 24시간 상담 플로팅 바 -->
+  <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-2xl z-40 py-3 px-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-daon-navy text-daon-gold flex items-center justify-center text-lg"><i class="fa-solid fa-phone-volume"></i></div>
+        <div>
+          <div class="text-[11px] text-gray-500">365일 24시간 장례·추모공원·멤버십 상담</div>
+          <div class="text-base sm:text-lg font-extrabold text-daon-navy">1877-8816</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="openModal('certModal')" class="px-4 py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-daon-navy text-xs sm:text-sm font-bold transition">
+          모바일 보증서(498만) 보기
+        </button>
+        <button onclick="openModal('contractModal')" class="px-5 py-2.5 rounded-xl gold-gradient text-white text-xs sm:text-sm font-extrabold shadow hover:opacity-95 transition">
+          온라인 간편 가입·상담 신청
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- [모달 1] 마이 보증서 월렛 (498만원 환급보증서 / 장례 / 추모공원) -->
+  <div id="certModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center border-b pb-4 mb-6">
+        <div>
+          <span class="text-xs font-bold text-daon-gold">MY MEMBERSHIP WALLET</span>
+          <h3 class="text-xl font-extrabold text-daon-navy">다온넷 모바일 이행보증서 & 포인트 월렛</h3>
+        </div>
+        <button onclick="closeModal('certModal')" class="text-gray-400 hover:text-gray-700 text-2xl"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-3 mb-6">
+        <div class="cert-card p-4 rounded-xl">
+          <div class="text-[11px] text-daon-gold font-bold">제1호 보증서</div>
+          <div class="font-extrabold text-daon-navy mt-0.5">10년 공증 환급보증서</div>
+          <div class="text-xl font-extrabold text-red-600 mt-2">4,980,000원</div>
+          <div class="text-[11px] text-gray-500 mt-1">가입 2년 후 양도·양수 가능</div>
+        </div>
+        <div class="cert-card p-4 rounded-xl">
+          <div class="text-[11px] text-daon-gold font-bold">제2호 보증서</div>
+          <div class="font-extrabold text-daon-navy mt-0.5">후불장례 이행증서</div>
+          <div class="text-xl font-extrabold text-daon-navy mt-2">1,980,000원</div>
+          <div class="text-[11px] text-gray-500 mt-1">365일 24시간 의전 지원</div>
+        </div>
+        <div class="cert-card p-4 rounded-xl">
+          <div class="text-[11px] text-daon-gold font-bold">제3호 보증서</div>
+          <div class="font-extrabold text-daon-navy mt-0.5">추모공원 이행증서</div>
+          <div class="text-xl font-extrabold text-daon-navy mt-2">봉안당 1단</div>
+          <div class="text-[11px] text-gray-500 mt-1">유토피아 및 전국 시설 지원</div>
+        </div>
+      </div>
+
+      <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 text-xs space-y-2 mb-6">
+        <div class="flex justify-between"><span>· 보유 쇼핑포인트 (www.다온넷.kr)</span><strong class="text-blue-600">2,490,000 P</strong></div>
+        <div class="flex justify-between"><span>· 해피클래스 무료 숙박권</span><strong class="text-daon-navy">2박 3일권 (전국 50곳)</strong></div>
+        <div class="flex justify-between"><span>· 제공 건강식품 및 위로지원금</span><strong class="text-daon-navy">삼칠그라 365 + 현금 400,000원</strong></div>
+      </div>
+
+      <button onclick="closeModal('certModal')" class="w-full bg-daon-navy text-white font-bold py-3 rounded-xl">확인 닫기</button>
+    </div>
+  </div>
+
+  <!-- [모달 2] 상품 공급(구매) 온라인 계약 및 추모공원 상담 신청 (자료 13p 계약서 반영) -->
+  <div id="contractModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center border-b pb-4 mb-5">
+        <div>
+          <span class="text-xs font-bold text-daon-gold">ONLINE CONTRACT & CONSULTATION</span>
+          <h3 class="text-xl font-extrabold text-daon-navy">다온넷 상품 공급(구매) 신청 및 장지 상담</h3>
+        </div>
+        <button onclick="closeModal('contractModal')" class="text-gray-400 hover:text-gray-700 text-2xl"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <form onsubmit="submitContract(event)" class="space-y-4 text-sm">
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-2">가입 상품 선택 (계약서 기준)</label>
+          <div class="space-y-2">
+            <label class="flex items-center justify-between p-3.5 border-2 border-daon-gold bg-amber-50/40 rounded-xl cursor-pointer">
+              <div class="flex items-center gap-2.5">
+                <input type="radio" name="productSet" value="Set2" checked class="accent-daon-navy">
+                <div>
+                  <div class="font-extrabold text-daon-navy">Set 2. 다온 프리미엄 249 (삼칠그라 OR 알부민 & 밸런스케어)</div>
+                  <div class="text-xs text-gray-500">환급보증 498만원 + 추모공원(1단) + 장례 198만원 + 249만P + 숙박권 + 지원금 40만원</div>
+                </div>
+              </div>
+              <span class="font-extrabold text-daon-navy shrink-0">2,490,000원</span>
+            </label>
+            <label class="flex items-center justify-between p-3.5 border border-gray-200 rounded-xl cursor-pointer">
+              <div class="flex items-center gap-2.5">
+                <input type="radio" name="productSet" value="Set1" class="accent-daon-navy">
+                <div>
+                  <div class="font-bold text-gray-800">Set 1. 기본형 (삼칠그라 OR 알부민)</div>
+                  <div class="text-xs text-gray-500">기본 라이프케어 및 건강식품 세트</div>
+                </div>
+              </div>
+              <span class="font-bold text-gray-800 shrink-0">1,980,000원</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">건강식품 선택</label>
+            <select class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+              <option>삼칠그라 365 (59.8만원 상당)</option>
+              <option>경남제약 알부민 프라임 맥스 (58만원 상당)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">결제 방법</label>
+            <select class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+              <option>신용카드 (지정 PG 결제)</option>
+              <option>CMS (자동이체)</option>
+              <option>계좌이체 / 현금</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">구매자 성명</label>
+            <input type="text" required placeholder="홍길동" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">연락처</label>
+            <input type="tel" required placeholder="010-0000-0000" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">희망 추모공원 / 배송 받으실 주소</label>
+          <input type="text" id="selectedParkInput" placeholder="희망 추모공원 또는 건강식품 수령 주소를 입력해 주세요" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+        </div>
+
+        <button type="submit" class="w-full gold-gradient text-white font-extrabold py-3.5 rounded-xl shadow-lg">
+          상담 및 계약 신청 완료하기 (고객센터 1877-8816)
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- [스크립트] 전국 55개 추모공원 데이터 렌더링 및 인터랙션 -->
+  <script>
+    const MEMORIAL_PARKS = [
+      // 직영 (최상단 고정)
+      { region: 'CAPITAL', loc: '경기 안성', name: '유토피아추모관 (다온넷 직영)', type: '직영', addr: '경기 안성시 삼죽면 용월리 산223', desc: '대규모 수목장 및 종합 봉안당 · 프리미엄 249 봉안당 1단 기준 특별지원', featured: true },
+      // 수도권
+      { region: 'CAPITAL', loc: '경기 광주', name: '시안가족추모공원', type: '재단', addr: '경기 광주시 오포읍 오포로 762', desc: '재단법인 · 봉안당/매장묘/수목장 복합 명당' },
+      { region: 'CAPITAL', loc: '경기 용인', name: '용인공원 & 아너스톤', type: '재단', addr: '경기 용인시 처인구 포곡읍 에버랜드로 331', desc: '국내 최대 규모 복합 장사시설 및 프리미엄 실내 봉안당' },
+      { region: 'CAPITAL', loc: '경기 고양', name: '자유로 청아공원', type: '재단', addr: '경기 고양시 덕양구 자유로 359', desc: '실내 봉안당 중심 · 수도권 우수한 접근성' },
+      { region: 'CAPITAL', loc: '경기 성남', name: '분당메모리얼파크', type: '재단', addr: '경기 성남시 분당구 새나리로 79', desc: '재단법인 · 도심형 조각공원 추모시설' },
+      { region: 'CAPITAL', loc: '경기 이천', name: '에덴낙원', type: '사설', addr: '경기 이천시 마장면 덕평로 678', desc: '호텔/카페 복합형 프리미엄 추모공원' },
+      { region: 'CAPITAL', loc: '경기 파주', name: '서현추모공원', type: '사설', addr: '경기 파주시 광탄면 부흥로 668', desc: '호텔식 쾌적한 실내 봉안당' },
+      { region: 'CAPITAL', loc: '경기 파주', name: '크리스찬메모리얼파크', type: '사설', addr: '경기 파주시 광탄면 부흥로 498', desc: '기독교 전용 현대식 추모공원' },
+      { region: 'CAPITAL', loc: '경기 양평', name: '별그리다', type: '재단', addr: '경기 양평군 용문면 연수로 134', desc: '자연장, 봉안당, 공원형 디자인 시설' },
+      { region: 'CAPITAL', loc: '경기 동두천', name: '예래원', type: '재단', addr: '경기 동두천시 탑동로 142', desc: '자연친화적 공원묘원' },
+      { region: 'CAPITAL', loc: '경기 고양', name: '하늘문 추모공원', type: '사설', addr: '경기 고양시 일산동구 성석로 156', desc: '기독교 전용 · 현대식 실내 봉안당' },
+      { region: 'CAPITAL', loc: '경기 광주', name: '엘리시움', type: '사설', addr: '경기 광주시 곤지암읍 광여로 318', desc: '가족봉안묘 및 봉안탑 중심' },
+      { region: 'CAPITAL', loc: '경기 평택', name: '평택서호추모공원', type: '재단', addr: '경기 평택시 서동대로 2439', desc: '접근성 좋은 실내 봉안당' },
+      { region: 'CAPITAL', loc: '경기 여주', name: '남한강공원묘원', type: '재단', addr: '경기 여주시 북내면 당우리길 38', desc: '수려한 자연경관의 공원묘원' },
+      { region: 'CAPITAL', loc: '경기 양주', name: '양주 하늘안 추모공원', type: '사설', addr: '경기 양주시 백석읍 기산로 98', desc: '호텔식 실내 봉안당' },
+      { region: 'CAPITAL', loc: '경기 용인', name: '모현공원묘원', type: '재단', addr: '경기 용인시 처인구 모현읍 능원리 산1', desc: '매장 및 봉안 복합시설' },
+      { region: 'CAPITAL', loc: '경기 포천/파주', name: '경기추모공원', type: '사설', addr: '경기 포천시 내촌면 금강로 255', desc: '네트워크 연합 사설 장사시설' },
+      { region: 'CAPITAL', loc: '경기 양주', name: '신세계공원묘원', type: '재단', addr: '경기 양주시 남방동 산45', desc: '재단법인 종합 공원묘원' },
+      { region: 'CAPITAL', loc: '경기 양평', name: '팔당공원묘원', type: '재단', addr: '경기 양평군 양서면 목왕리 산22', desc: '재단법인 한강변 명당 공원묘원' },
+      { region: 'CAPITAL', loc: '경기 고양', name: '벽제중앙추모공원', type: '사설', addr: '경기 고양시 덕양구 벽제동 573', desc: '실내 봉안당 중심 추모공원' },
+      { region: 'CAPITAL', loc: '서울 서초', name: '서울추모공원', type: '공설', addr: '서울 서초구 헌릉로 420', desc: '서울시 운영 화장장 및 봉안시설 (원스톱 절차 안내)' },
+      { region: 'CAPITAL', loc: '경기 파주', name: '용미리 시립묘지', type: '공설', addr: '경기 파주시 광탄면 용미리 35', desc: '서울시립승화원 관할 공설묘지' },
+      { region: 'CAPITAL', loc: '인천 부평', name: '인천가족공원', type: '공설', addr: '인천 부평구 평온로 61', desc: '만월당/평온당 등 대규모 종합 장사시설' },
+
+      // 충청·강원권
+      { region: 'CHUNG_GANG', loc: '세종특별자치시', name: '세종 은하수공원', type: '공설', addr: '세종시 연서면 은하수로 32', desc: '화장, 봉안, 자연장 복합 장사시설' },
+      { region: 'CHUNG_GANG', loc: '충남 천안', name: '천안추모공원', type: '공설', addr: '충남 천안시 동남구 광덕면', desc: '대형 봉안당 및 화장시설' },
+      { region: 'CHUNG_GANG', loc: '충북 충주', name: '진달래메모리얼파크', type: '재단', addr: '충북 충주시 살미면 형산로 935', desc: '자연친화적 대규모 공원묘원' },
+      { region: 'CHUNG_GANG', loc: '대전 서구', name: '대전추모공원', type: '공설', addr: '대전 서구 상보안윗길 49', desc: '봉안당, 자연장지 등 대전 대표 시설' },
+      { region: 'CHUNG_GANG', loc: '충남 금산', name: '서대산추모공원', type: '사설', addr: '충남 금산군 추부면 서대산로 541', desc: '경관이 수려한 실내 봉안당' },
+      { region: 'CHUNG_GANG', loc: '강원 춘천', name: '경춘공원묘원', type: '재단', addr: '강원 춘천시 남산면 강촌로 224', desc: '수도권 인접 · 교통이 편리한 공원묘원' },
+      { region: 'CHUNG_GANG', loc: '충남 공주', name: '공주 나래원', type: '공설', addr: '충남 공주시 이인면 나래원길 193', desc: '지역 대표 종합 장사시설' },
+      { region: 'CHUNG_GANG', loc: '충북 청주', name: '청주 목련공원', type: '공설', addr: '충북 청주시 서원구 현도면', desc: '봉안당 및 자연장지 완비' },
+      { region: 'CHUNG_GANG', loc: '충남 부여', name: '부여군추모공원', type: '공설', addr: '충남 부여군 규암면', desc: '공설 봉안 및 자연장 시설' },
+      { region: 'CHUNG_GANG', loc: '강원 춘천', name: '춘천 안식원', type: '공설', addr: '강원 춘천시 신북읍', desc: '화장시설 및 봉안당 복합' },
+      { region: 'CHUNG_GANG', loc: '강원 원주', name: '원주추모공원 (하늘나래원)', type: '공설', addr: '강원 원주시 호저면', desc: '원주권 종합 추모공원' },
+      { region: 'CHUNG_GANG', loc: '강원 강릉', name: '강릉 솔향하늘길', type: '공설', addr: '강원 강릉시 성산면', desc: '강릉 대표 공설 추모시설' },
+      { region: 'CHUNG_GANG', loc: '충남 금산', name: '금수강산 공원묘원', type: '사설', addr: '충남 금산군', desc: '사설 종합 공원묘원' },
+      { region: 'CHUNG_GANG', loc: '충남 홍성', name: '홍성군 추모공원', type: '공설', addr: '충남 홍성군', desc: '홍성권 종합 장사시설' },
+      { region: 'CHUNG_GANG', loc: '강원 속초', name: '속초시 추모공원', type: '공설', addr: '강원 속초시', desc: '영동권 공설 추모공원' },
+
+      // 경상·영남권
+      { region: 'YEONGNAM', loc: '부산 금정구', name: '부산 영락공원', type: '공설', addr: '부산 금정구 금정로 66', desc: '부산광역시 대표 종합 장사시설' },
+      { region: 'YEONGNAM', loc: '부산 기장', name: '실로암공원묘원', type: '재단', addr: '부산 기장군 장안읍', desc: '조망이 뛰어난 대규모 재단 공원묘원' },
+      { region: 'YEONGNAM', loc: '부산 기장', name: '부산추모공원', type: '공설', addr: '부산 기장군 장안읍', desc: '벽식 봉안당 및 실내외 대규모 추모시설' },
+      { region: 'YEONGNAM', loc: '경남 창원', name: '창원시립상복공원', type: '공설', addr: '경남 창원시 의창구', desc: '화장, 봉안, 장례식장 통합 운영' },
+      { region: 'YEONGNAM', loc: '대구 수성구', name: '대구 명복공원', type: '공설', addr: '대구 수성구', desc: '대구권 핵심 장사시설' },
+      { region: 'YEONGNAM', loc: '경북 경주', name: '경주 하늘마루', type: '공설', addr: '경북 경주시', desc: '경주 종합 추모공원' },
+      { region: 'YEONGNAM', loc: '경남 김해', name: '낙원공원묘원', type: '사설', addr: '경남 김해시', desc: '부산·김해권 사설 공원묘원' },
+      { region: 'YEONGNAM', loc: '경남 양산', name: '백운공원묘원', type: '사설', addr: '경남 양산시', desc: '자연경관이 뛰어난 양산 공원묘원' },
+      { region: 'YEONGNAM', loc: '경남 양산', name: '솥발산공원묘원', type: '사설', addr: '경남 양산시', desc: '경남권 대표 사설 추모공원' },
+      { region: 'YEONGNAM', loc: '경북 포항', name: '청하공원묘원', type: '사설', addr: '경북 포항시', desc: '포항권 사설 공원묘원' },
+      { region: 'YEONGNAM', loc: '경북 영천', name: '영천 청통추모관', type: '사설', addr: '경북 영천시', desc: '사찰/사설 연계 프리미엄 실내 봉안당' },
+
+      // 전라·호남·제주권
+      { region: 'HONAM_JEJU', loc: '전북 임실', name: '국립임실호국원', type: '공설', addr: '전북 임실군', desc: '국가유공자 전용 국립 추모시설 안내' },
+      { region: 'HONAM_JEJU', loc: '광주 북구', name: '광주 영락공원', type: '공설', addr: '광주 북구', desc: '광주광역시 대표 종합 장사시설' },
+      { region: 'HONAM_JEJU', loc: '전북 전주', name: '전주 모악산추모공원', type: '사설', addr: '전북 전주시', desc: '전북권 대표 사설 명당 추모공원' },
+      { region: 'HONAM_JEJU', loc: '전남 목포', name: '목포추모공원', type: '공설', addr: '전남 목포시', desc: '전남 서남권 추모공원' },
+      { region: 'HONAM_JEJU', loc: '전남 해남', name: '남도광역추모공원', type: '공설', addr: '전남 해남군', desc: '지역 연합형 대규모 종합 장사시설' },
+      { region: 'HONAM_JEJU', loc: '제주 제주시', name: '제주 양지공원', type: '공설', addr: '제주 제주시', desc: '제주도 대표 종합 추모시설' }
+    ];
+
+    let currentRegion = 'ALL';
+    let currentType = 'ALL';
+    let showAllParks = false;
+
+    function filterParks(region) {
+      currentRegion = region;
+      document.querySelectorAll('.region-tab').forEach(btn => {
+        if (btn.dataset.region === region) {
+          btn.className = 'region-tab active bg-daon-navy text-white px-4 py-2 rounded-lg text-sm font-bold transition';
+        } else {
+          btn.className = 'region-tab bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-semibold transition';
+        }
+      });
+      renderParks();
+    }
+
+    function applyQuickSearch() {
+      currentRegion = document.getElementById('quickRegion').value;
+      currentType = document.getElementById('quickType').value;
+      const kw = document.getElementById('quickKeyword').value;
+      document.getElementById('parkSearchInput').value = kw;
+      showAllParks = true;
+      filterParks(currentRegion);
+      document.getElementById('memorial-parks').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function toggleShowAllParks() {
+      showAllParks = !showAllParks;
+      renderParks();
+    }
+
+    function selectParkForConsult(parkName) {
+      document.getElementById('selectedParkInput').value = `[희망 장지: ${parkName}] `;
+      openModal('contractModal');
+    }
+
+    function renderParks() {
+      const keyword = (document.getElementById('parkSearchInput').value || '').trim().toLowerCase();
+      const filtered = MEMORIAL_PARKS.filter(p => {
+        const matchRegion = currentRegion === 'ALL' || p.region === currentRegion;
+        const matchType = currentType === 'ALL' || p.type === currentType;
+        const matchKw = !keyword || p.name.toLowerCase().includes(keyword) || p.loc.toLowerCase().includes(keyword) || p.desc.toLowerCase().includes(keyword);
+        return matchRegion && matchType && matchKw;
+      });
+
+      const listToShow = showAllParks ? filtered : filtered.slice(0, 12);
+      const grid = document.getElementById('parkGrid');
+
+      grid.innerHTML = listToShow.map(p => `
+        <div class="bg-white rounded-2xl p-5 shadow-sm border ${p.featured ? 'border-2 border-daon-gold ring-2 ring-daon-gold/20' : 'border-gray-200'} hover:shadow-md transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-2.5">
+              <span class="text-xs font-bold px-2.5 py-0.5 rounded-full ${p.featured ? 'gold-gradient text-white' : 'bg-gray-100 text-daon-navy'}">${p.loc} · ${p.type}</span>
+              <span class="text-[11px] font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded">다온넷 특별지원 가능</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-daon-navy">${p.name}</h3>
+            <p class="text-xs text-gray-500 mt-1"><i class="fa-solid fa-location-dot text-daon-gold mr-1"></i>${p.addr}</p>
+            <p class="text-xs text-gray-600 mt-2.5 bg-gray-50 p-2.5 rounded-lg">${p.desc}</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between gap-2">
+            <span class="text-[11px] text-gray-400">봉안당 1단 기준 / 사전선점 상담</span>
+            <button onclick="selectParkForConsult('${p.name}')" class="bg-daon-navy hover:bg-daon-gold text-white text-xs font-bold px-3.5 py-2 rounded-lg transition">
+              이 시설로 지원 상담 <i class="fa-solid fa-angle-right ml-0.5"></i>
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      const toggleBtn = document.getElementById('toggleParksBtn');
+      if (filtered.length <= 12) {
+        toggleBtn.style.display = 'none';
+      } else {
+        toggleBtn.style.display = 'inline-block';
+        toggleBtn.innerHTML = showAllParks
+          ? `리스트 접기 <i class="fa-solid fa-chevron-up ml-1"></i>`
+          : `전국 추모공원 전체 리스트 펼쳐보기 (+${filtered.length - 12}개 더보기) <i class="fa-solid fa-chevron-down ml-1"></i>`;
+      }
+    }
+
+    function openModal(id) {
+      const el = document.getElementById(id);
+      el.classList.remove('hidden');
+      el.classList.add('flex');
+    }
+
+    function closeModal(id) {
+      const el = document.getElementById(id);
+      el.classList.add('hidden');
+      el.classList.remove('flex');
+    }
+
+    function submitContract(e) {
+      e.preventDefault();
+      alert('다온넷 멤버십 및 추모공원 특별지원 상담 신청이 접수되었습니다.\n담당 전문 상담원이 신속히 연락드리겠습니다. (고객센터: 1877-8816)');
+      closeModal('contractModal');
+    }
+
+    // 초기 렌더링
+    renderParks();
+  </script>
+</body>
+</html>
