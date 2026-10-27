@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { useDaon } from "@/context/DaonContext";
 
 export default function HeaderV2() {
@@ -168,13 +167,6 @@ export default function HeaderV2() {
                 >
                   관리자
                 </button>
-                <Link
-                  href="/"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="px-2 py-0.5 border border-[#4c626d] text-[#d9bc86]"
-                >
-                  1안(기존) 보기
-                </Link>
               </div>
             </div>
           </div>

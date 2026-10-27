@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { DaonProvider } from "@/context/DaonContext";
-import DesignSwitcher from "@/components/DesignSwitcher";
 
 export const metadata: Metadata = {
   title: "다온넷(DAONNET) - 전국 추모공원 특별지원 & 프리미엄 라이프케어 멤버십",
@@ -46,7 +45,6 @@ export default function RootLayout({
       <body className="antialiased selection:bg-[#C5A059] selection:text-white">
         <DaonProvider>
           {children}
-          <DesignSwitcher />
         </DaonProvider>
       </body>
     </html>

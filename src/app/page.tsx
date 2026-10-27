@@ -1,15 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import TopBar from "@/components/TopBar";
-import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
-import MemorialParkSection from "@/components/MemorialParkSection";
-import Membership249Section from "@/components/Membership249Section";
-import PointMallSection from "@/components/PointMallSection";
-import HappyClassSection from "@/components/HappyClassSection";
-import FloatingBar from "@/components/FloatingBar";
-import Footer from "@/components/Footer";
+import TopBarV2 from "@/components/v2/TopBarV2";
+import HeaderV2 from "@/components/v2/HeaderV2";
+import HeroSectionV2 from "@/components/v2/HeroSectionV2";
+import MemorialParkSectionV2 from "@/components/v2/MemorialParkSectionV2";
+import Membership249SectionV2 from "@/components/v2/Membership249SectionV2";
+import PointMallSectionV2 from "@/components/v2/PointMallSectionV2";
+import HappyClassSectionV2 from "@/components/v2/HappyClassSectionV2";
+import FooterV2 from "@/components/v2/FooterV2";
+import FloatingBarV2 from "@/components/v2/FloatingBarV2";
 
 import CertificateModal from "@/components/CertificateModal";
 import ContractModal from "@/components/ContractModal";
@@ -28,39 +28,42 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 text-gray-800 font-sans pb-24">
+    <main
+      className="min-h-screen bg-[#f7f5ef] text-[#26373b] text-[14px] leading-[1.7]"
+      style={{ fontFamily: "'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif" }}
+    >
       {/* 1. 최상단 상태바 */}
-      <TopBar />
+      <TopBarV2 />
 
       {/* 2. 네비게이션 헤더 */}
-      <Header />
+      <HeaderV2 />
 
       {/* 3. 히어로 배너 & 빠른 장지 검색 */}
-      <HeroSection onSearch={handleHeroSearch} />
+      <HeroSectionV2 onSearch={handleHeroSearch} />
 
       {/* 4. 전국 55개 추모공원 특별지원 네트워크 */}
-      <MemorialParkSection
+      <MemorialParkSectionV2
         initialRegion={searchParams.region}
         initialType={searchParams.type}
         initialKeyword={searchParams.keyword}
       />
 
       {/* 5. 다온 프리미엄 249 & 498만 환급보증 상세 */}
-      <Membership249Section />
+      <Membership249SectionV2 />
 
       {/* 6. 다온넷 회원 전용 포인트 특가몰 (2,490,000P) */}
-      <PointMallSection />
+      <PointMallSectionV2 />
 
       {/* 7. 해피클래스 2박 3일 무료 숙박권 & 크루즈 */}
-      <HappyClassSection />
+      <HappyClassSectionV2 />
 
       {/* 8. 푸터 */}
-      <Footer />
+      <FooterV2 />
 
       {/* 9. 하단 고정 24시간 긴급상담 플로팅 바 */}
-      <FloatingBar />
+      <FloatingBarV2 />
 
-      {/* 모달 레이어 */}
+      {/* 모달 레이어 (기존 모달 100% 공유 연동) */}
       <CertificateModal />
       <ContractModal />
       <LookupModal />
