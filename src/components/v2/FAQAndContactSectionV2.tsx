@@ -9,13 +9,13 @@ export default function FAQAndContactSectionV2() {
   return (
     <>
       {/* QUESTIONS & ANSWERS — 자주 묻는 질문 */}
-      <section id="faq" className="py-[68px] lg:py-[85px] px-[6%] max-w-[1200px] mx-auto border-t border-[#dedfd7] grid lg:grid-cols-[0.8fr_1.2fr] gap-[40px] lg:gap-[60px]">
+      <section id="faq" className="py-6 sm:py-14 px-4 sm:px-[6%] max-w-[1200px] mx-auto border-t border-[#dedfd7] grid lg:grid-cols-[0.8fr_1.2fr] gap-6 lg:gap-[60px]">
         <div>
-          <div className="text-[10px] tracking-[2.7px] text-[#947b50] font-semibold mb-[17px] uppercase">
+          <div className="text-[10px] tracking-[2px] sm:tracking-[2.7px] text-[#947b50] font-semibold mb-2 sm:mb-[17px] uppercase">
             QUESTIONS &amp; ANSWERS
           </div>
           <h2
-            className="text-[28px] sm:text-[35px] font-medium leading-[1.55] tracking-[-1.2px] text-[#26373b] m-0"
+            className="text-xl sm:text-[35px] font-medium leading-[1.35] sm:leading-[1.55] tracking-tight sm:tracking-[-1.2px] text-[#26373b] m-0 break-keep"
             style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
           >
             궁금한 점을
@@ -24,13 +24,13 @@ export default function FAQAndContactSectionV2() {
           </h2>
           <button
             onClick={() => openContract("[이용 및 가입 문의] ")}
-            className="inline-block pt-[15px] pb-[5px] border-b border-[#9c9f91] text-[12px] text-[#26373b] hover:text-[#947b50] mt-[18px] cursor-pointer"
+            className="inline-block pt-2 sm:pt-[15px] pb-1 sm:pb-[5px] border-b border-[#9c9f91] text-xs text-[#26373b] hover:text-[#947b50] mt-2 sm:mt-[18px] cursor-pointer"
           >
             다른 질문이 있으신가요? 맞춤 상담 신청 ↗
           </button>
         </div>
 
-        <div>
+        <div className="divide-y divide-[#d7d9d0]">
           {[
             {
               q: "다온 프리미엄 249의 498만 원 환급보증서는 어떤 혜택인가요?",
@@ -59,9 +59,9 @@ export default function FAQAndContactSectionV2() {
           ].map((item, idx) => (
             <details
               key={idx}
-              className="border-b border-[#d7d9d0] py-[20px] group"
+              className="py-2.5 sm:py-[20px] group"
             >
-              <summary className="cursor-pointer text-[13px] sm:text-[14px] font-medium text-[#26373b] list-none pr-[24px] relative">
+              <summary className="cursor-pointer text-xs sm:text-[14px] font-medium text-[#26373b] list-none pr-[24px] relative break-keep leading-snug">
                 {item.q}
                 <span className="absolute right-0 top-0 text-[#9b8762] group-open:hidden">
                   ＋
@@ -70,7 +70,7 @@ export default function FAQAndContactSectionV2() {
                   −
                 </span>
               </summary>
-              <p className="text-[12px] text-[#747b78] leading-[1.75] mt-[14px] mb-0">
+              <p className="text-[11.5px] sm:text-[12px] text-[#747b78] leading-[1.65] sm:leading-[1.75] mt-2 sm:mt-[14px] mb-0 break-keep">
                 {item.a}
               </p>
             </details>
@@ -79,28 +79,28 @@ export default function FAQAndContactSectionV2() {
       </section>
 
       {/* WE ARE HERE FOR YOU — 하단 컨택트 배너 */}
-      <section className="bg-[#344b49] py-[55px] lg:py-[65px] px-[7%] lg:px-[9%] text-[#f5f4ec]">
-        <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row md:justify-between md:items-center gap-[25px]">
+      <section className="bg-[#344b49] py-6 sm:py-[65px] px-4 sm:px-[7%] lg:px-[9%] text-[#f5f4ec]">
+        <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row md:justify-between md:items-center gap-4 sm:gap-[25px]">
           <div>
-            <div className="text-[10px] tracking-[2.7px] text-[#e1c897] font-semibold mb-[14px] uppercase">
+            <div className="text-[10px] tracking-[2px] sm:tracking-[2.7px] text-[#e1c897] font-semibold mb-1.5 sm:mb-[14px] uppercase">
               WE ARE HERE FOR YOU · 365일 24시간 상담센터
             </div>
             <h2
-              className="text-[26px] sm:text-[32px] font-medium leading-[1.5] tracking-[-1px] m-0 mb-[8px]"
+              className="text-xl sm:text-[32px] font-medium leading-[1.35] sm:leading-[1.5] tracking-tight sm:tracking-[-1px] m-0 mb-1.5 sm:mb-[8px] break-keep"
               style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
             >
               가족을 위한 준비,
               <br />
               함께 이야기해 볼까요?
             </h2>
-            <p className="text-[#c3ceca] text-[13px] m-0">
+            <p className="text-[#c3ceca] text-xs sm:text-[13px] m-0 break-keep leading-relaxed">
               희망하시는 추모공원 지역과 다온 프리미엄 249 혜택, 패키지 여행 우대를 편하게 남겨주세요.
             </p>
           </div>
 
           <button
             onClick={() => openContract()}
-            className="self-start md:self-center bg-[#d9bc86] text-[#172c37] hover:bg-[#e5cba0] px-[26px] py-[16px] text-[13px] font-semibold inline-flex items-center justify-between gap-[28px] transition cursor-pointer shrink-0"
+            className="self-stretch sm:self-start md:self-center bg-[#d9bc86] text-[#172c37] hover:bg-[#e5cba0] px-5 py-3 sm:px-[26px] sm:py-[16px] text-xs sm:text-[13px] font-semibold inline-flex items-center justify-between gap-4 sm:gap-[28px] transition cursor-pointer shrink-0 rounded-lg sm:rounded-none"
           >
             <span>맞춤 상담·가입 신청하기</span>
             <span>↗</span>

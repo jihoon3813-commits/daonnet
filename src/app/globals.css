@@ -16,6 +16,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -23,7 +25,11 @@ body {
   color: var(--foreground);
   font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Segoe UI", Roboto, sans-serif;
   word-break: keep-all;
+  overflow-wrap: break-word;
   overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
 }
 
 .no-scrollbar::-webkit-scrollbar {

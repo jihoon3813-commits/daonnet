@@ -597,32 +597,32 @@ export default function AdminPage() {
         className="min-h-screen bg-[#f7f5ef] text-[#26373b] flex flex-col justify-center items-center p-4"
         style={{ fontFamily: "'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif" }}
       >
-        <div className="w-full max-w-md bg-white border border-[#e5e4dc] rounded-3xl p-8 sm:p-10 shadow-[0_10px_30px_rgba(23,44,55,0.06)] relative overflow-hidden">
+        <div className="w-full max-w-md bg-white border border-[#e5e4dc] rounded-2xl sm:rounded-3xl p-5 sm:p-10 shadow-[0_10px_30px_rgba(23,44,55,0.06)] relative overflow-hidden">
           {/* 상단 골드 악센트 라인 */}
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#947b50] via-[#c5a059] to-[#172c37]" />
 
-          <div className="text-center mb-8 pt-2">
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#172c37] text-[#d9bc86] shadow-md mb-3 border border-[#2d4d5e]">
-              <span className="text-3xl font-normal leading-none" style={{ fontFamily: "Georgia, serif" }}>
+          <div className="text-center mb-5 sm:mb-8 pt-1 sm:pt-2">
+            <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#172c37] text-[#d9bc86] shadow-md mb-2 sm:mb-3 border border-[#2d4d5e]">
+              <span className="text-2xl sm:text-3xl font-normal leading-none" style={{ fontFamily: "Georgia, serif" }}>
                 ∞
               </span>
             </div>
             <span
-              className="text-xs font-bold tracking-[2px] text-[#947b50] block uppercase"
+              className="text-[11px] sm:text-xs font-bold tracking-[2px] text-[#947b50] block uppercase"
               style={{ fontFamily: "Georgia, serif" }}
             >
               DAONNET MANAGEMENT
             </span>
-            <h1 className="text-2xl font-bold text-[#172c37] mt-1">다온넷 관리자 로그인</h1>
-            <p className="text-xs text-[#747b78] mt-2">
+            <h1 className="text-xl sm:text-2xl font-bold text-[#172c37] mt-1 break-keep">다온넷 관리자 로그인</h1>
+            <p className="text-[11px] sm:text-xs text-[#747b78] mt-1.5 break-keep">
               통합 관리자 계정으로 접속하여 고객 상담과 추모공원 데이터를 안전하게 관리하세요.
             </p>
           </div>
 
           {/* 보안 접속 안내 */}
-          <div className="mb-6 p-3.5 bg-[#fbfaf6] border border-[#e5e4dc] rounded-xl text-xs text-[#747b78] flex items-center gap-2.5">
+          <div className="mb-4 sm:mb-6 p-3 sm:p-3.5 bg-[#fbfaf6] border border-[#e5e4dc] rounded-xl text-xs text-[#747b78] flex items-center gap-2">
             <Lock className="w-4 h-4 text-[#947b50] shrink-0" />
-            <span className="text-[11px] leading-relaxed">
+            <span className="text-[11px] leading-relaxed break-keep">
               보안 인증된 다온넷 관리자 계정 정보로 로그인해 주시기 바랍니다.
             </span>
           </div>
@@ -857,24 +857,24 @@ export default function AdminPage() {
       ========================================= */}
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         {/* 상단 탑바 (헤더) */}
-        <header className="sticky top-0 z-30 h-16 bg-[#f7f5ef]/95 backdrop-blur-sm border-b border-[#e5e4dc] px-4 sm:px-8 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+        <header className="sticky top-0 z-30 h-14 sm:h-16 bg-[#f7f5ef]/95 backdrop-blur-sm border-b border-[#e5e4dc] px-3 sm:px-8 flex items-center justify-between">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             {/* 모바일 햄버거 버튼 */}
             <button
               onClick={() => setIsMobileSidebarOpen(true)}
-              className="lg:hidden p-2 -ml-1 text-[#26373b] hover:bg-[#eae8df] rounded-xl transition"
+              className="lg:hidden p-1.5 -ml-1 text-[#26373b] hover:bg-[#eae8df] rounded-xl transition shrink-0"
               aria-label="메뉴 열기"
             >
               <Menu className="w-5 h-5" />
             </button>
 
-            <div>
-              <h1 className="text-base sm:text-lg font-bold text-[#172c37] leading-tight">
+            <div className="min-w-0">
+              <h1 className="text-sm sm:text-lg font-bold text-[#172c37] leading-tight truncate">
                 {activeTab === "consultations" && "상담신청 이력 관리"}
-                {activeTab === "parks" && "전국 추모공원 네트워크 관리"}
+                {activeTab === "parks" && "전국 추모공원 관리"}
                 {activeTab === "users" && "가입 회원 목록"}
-                {activeTab === "settings" && "푸터 & 개인정보 약관 설정"}
-                {activeTab === "password" && "관리자 보안 비밀번호 변경"}
+                {activeTab === "settings" && "푸터 & 약관 설정"}
+                {activeTab === "password" && "비밀번호 변경"}
               </h1>
               <p className="text-[11px] text-[#747b78] hidden sm:block">
                 {activeTab === "consultations" && "고객 상담 신청 내역을 실시간으로 확인하고 진행 상태를 업데이트합니다."}
@@ -887,7 +887,7 @@ export default function AdminPage() {
           </div>
 
           {/* 우측 액션 버튼들 */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
             <Link
               href="/"
               target="_blank"
@@ -900,82 +900,82 @@ export default function AdminPage() {
 
             <button
               onClick={handleLogout}
-              className="inline-flex items-center gap-1.5 text-xs bg-[#f4ecea] hover:bg-[#edd8d6] text-[#b4342b] border border-[#f0c3bf] font-bold px-3 py-1.5 rounded-xl transition cursor-pointer"
+              className="inline-flex items-center gap-1 text-xs bg-[#f4ecea] hover:bg-[#edd8d6] text-[#b4342b] border border-[#f0c3bf] font-bold px-2.5 sm:px-3 py-1.5 rounded-xl transition cursor-pointer"
             >
               <LogOut className="w-3.5 h-3.5" />
-              <span>로그아웃</span>
+              <span className="hidden xs:inline">로그아웃</span>
             </button>
           </div>
         </header>
 
         {/* 본문 메인 컨텐츠 */}
-        <main className="p-4 sm:p-8 flex-1 max-w-[1600px] w-full mx-auto">
+        <main className="p-3 sm:p-8 flex-1 max-w-[1600px] w-full mx-auto">
           {/* =========================================
               TAB 1: 상담신청 이력 관리
           ========================================= */}
           {activeTab === "consultations" && (
-            <div className="space-y-6">
-              {/* 요약 통계 카드 (랜딩 스타일) */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-                <div className="bg-white p-5 rounded-2xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] relative overflow-hidden group">
+            <div className="space-y-4 sm:space-y-6">
+              {/* 요약 통계 카드 - 모바일 2열 유지 */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
+                <div className="bg-white p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] relative overflow-hidden group">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-[#172c37]" />
-                  <div className="text-xs text-[#747b78] font-bold">전체 접수건수</div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#172c37] mt-1.5 tracking-tight">
+                  <div className="text-[11px] sm:text-xs text-[#747b78] font-bold">전체 접수건수</div>
+                  <div className="text-xl sm:text-3xl font-black text-[#172c37] mt-1 tracking-tight">
                     {stats.total}
-                    <span className="text-sm font-bold text-[#747b78] ml-1">건</span>
+                    <span className="text-xs sm:text-sm font-bold text-[#747b78] ml-0.5 sm:ml-1">건</span>
                   </div>
-                  <div className="text-[10px] text-[#9aa09d] mt-1">누적 온라인 상담·계약 신청</div>
+                  <div className="text-[9px] sm:text-[10px] text-[#9aa09d] mt-0.5 truncate">누적 온라인 신청</div>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] relative overflow-hidden group">
+                <div className="bg-white p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] relative overflow-hidden group">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-[#d9bc86]" />
-                  <div className="text-xs text-[#947b50] font-bold">신청 접수 (대기)</div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#947b50] mt-1.5 tracking-tight">
+                  <div className="text-[11px] sm:text-xs text-[#947b50] font-bold">신청 접수 (대기)</div>
+                  <div className="text-xl sm:text-3xl font-black text-[#947b50] mt-1 tracking-tight">
                     {stats.pending}
-                    <span className="text-sm font-bold text-[#947b50] ml-1">건</span>
+                    <span className="text-xs sm:text-sm font-bold text-[#947b50] ml-0.5 sm:ml-1">건</span>
                   </div>
-                  <div className="text-[10px] text-[#9aa09d] mt-1">확인 및 해피콜 필요</div>
+                  <div className="text-[9px] sm:text-[10px] text-[#9aa09d] mt-0.5 truncate">해피콜 대기</div>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] relative overflow-hidden group">
+                <div className="bg-white p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] relative overflow-hidden group">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-[#3a7291]" />
-                  <div className="text-xs text-[#2b5973] font-bold">상담 진행중</div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#2b5973] mt-1.5 tracking-tight">
+                  <div className="text-[11px] sm:text-xs text-[#2b5973] font-bold">상담 진행중</div>
+                  <div className="text-xl sm:text-3xl font-black text-[#2b5973] mt-1 tracking-tight">
                     {stats.processing}
-                    <span className="text-sm font-bold text-[#2b5973] ml-1">건</span>
+                    <span className="text-xs sm:text-sm font-bold text-[#2b5973] ml-0.5 sm:ml-1">건</span>
                   </div>
-                  <div className="text-[10px] text-[#9aa09d] mt-1">장지 안내 및 상담사 연결</div>
+                  <div className="text-[9px] sm:text-[10px] text-[#9aa09d] mt-0.5 truncate">상담사 연결</div>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] relative overflow-hidden group">
+                <div className="bg-white p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] relative overflow-hidden group">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-[#2e7d56]" />
-                  <div className="text-xs text-[#2e7d56] font-bold">계약 / 발급 완료</div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#2e7d56] mt-1.5 tracking-tight">
+                  <div className="text-[11px] sm:text-xs text-[#2e7d56] font-bold">계약 / 발급 완료</div>
+                  <div className="text-xl sm:text-3xl font-black text-[#2e7d56] mt-1 tracking-tight">
                     {stats.completed}
-                    <span className="text-sm font-bold text-[#2e7d56] ml-1">건</span>
+                    <span className="text-xs sm:text-sm font-bold text-[#2e7d56] ml-0.5 sm:ml-1">건</span>
                   </div>
-                  <div className="text-[10px] text-[#9aa09d] mt-1">보증서 발급 및 계약 체결</div>
+                  <div className="text-[9px] sm:text-[10px] text-[#9aa09d] mt-0.5 truncate">계약 체결 완료</div>
                 </div>
               </div>
 
               {/* 필터 및 검색 바 */}
-              <div className="bg-white p-4 sm:p-5 rounded-2xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] flex flex-wrap items-center justify-between gap-3">
-                <div className="flex flex-wrap items-center gap-2.5">
-                  <div className="relative">
+              <div className="bg-white p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] flex flex-wrap items-center justify-between gap-2.5">
+                <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+                  <div className="relative flex-1 sm:flex-none">
                     <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-[#747b78]" />
                     <input
                       type="text"
                       placeholder="고객명, 연락처, 주소 검색"
                       value={consultationSearch}
                       onChange={(e) => setConsultationSearch(e.target.value)}
-                      className="pl-8 pr-3 py-2 text-xs bg-[#fbfaf6] border border-[#dcd9ce] rounded-xl w-48 sm:w-64 focus:outline-none focus:border-[#947b50] focus:ring-1 focus:ring-[#947b50] transition"
+                      className="pl-8 pr-3 py-1.5 sm:py-2 text-xs bg-[#fbfaf6] border border-[#dcd9ce] rounded-xl w-full sm:w-64 focus:outline-none focus:border-[#947b50] focus:ring-1 focus:ring-[#947b50] transition"
                     />
                   </div>
 
                   <select
                     value={statusFilter}
                     onChange={(e) => setStatusFilter(e.target.value)}
-                    className="py-2 px-3 text-xs border border-[#dcd9ce] rounded-xl bg-[#fbfaf6] font-medium text-[#26373b] focus:outline-none focus:border-[#947b50]"
+                    className="py-1.5 sm:py-2 px-2.5 sm:px-3 text-xs border border-[#dcd9ce] rounded-xl bg-[#fbfaf6] font-medium text-[#26373b] focus:outline-none focus:border-[#947b50]"
                   >
                     <option value="ALL">전체 진행상태</option>
                     <option value="신청접수">신청접수</option>
@@ -987,7 +987,7 @@ export default function AdminPage() {
 
                 <button
                   onClick={handleExportCSV}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#172c37] hover:bg-[#26373b] text-[#f7f5ef] rounded-xl text-xs font-bold transition shadow-xs cursor-pointer border border-[#172c37]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 sm:py-2 bg-[#172c37] hover:bg-[#26373b] text-[#f7f5ef] rounded-xl text-xs font-bold transition shadow-xs cursor-pointer border border-[#172c37]"
                 >
                   <Download className="w-3.5 h-3.5 text-[#d9bc86]" />
                   <span>엑셀(CSV) 내보내기</span>
@@ -1159,38 +1159,38 @@ export default function AdminPage() {
               TAB 2: 전국 추모공원 관리
           ========================================= */}
           {activeTab === "parks" && (
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {/* 상단 알림 및 액션 바 */}
-              <div className="bg-white p-5 sm:p-6 rounded-2xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
                 <div>
-                  <h3 className="text-base font-bold text-[#172c37] flex items-center gap-2">
-                    <span>전국 추모공원 네트워크 데이터베이스 관리</span>
-                    <span className="text-xs bg-[#f4efe4] text-[#947b50] font-semibold px-2 py-0.5 rounded-full border border-[#ded5c2]">
+                  <h3 className="text-sm sm:text-base font-bold text-[#172c37] flex items-center gap-2">
+                    <span>전국 추모공원 네트워크 DB 관리</span>
+                    <span className="text-[10px] sm:text-xs bg-[#f4efe4] text-[#947b50] font-semibold px-2 py-0.5 rounded-full border border-[#ded5c2]">
                       55개 제휴공원
                     </span>
                   </h3>
-                  <p className="text-xs text-[#747b78] mt-1">
+                  <p className="text-[11px] sm:text-xs text-[#747b78] mt-1 break-keep">
                     총 <strong className="text-[#172c37]">{dbParks.length}개소</strong>의 추모공원이 등록되어 있습니다.
-                    신규 등록, 수정, 삭제 및 대표 이미지, 공식 홈페이지 링크를 손쉽게 관리할 수 있습니다.
+                    신규 등록, 수정, 삭제 및 대표 이미지, 공식 홈페이지 링크를 관리할 수 있습니다.
                   </p>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-2.5">
+                <div className="flex flex-wrap items-center gap-2">
                   {/* 50개 초기 시딩 버튼 */}
                   <button
                     onClick={() => handleSeedParks(false)}
                     disabled={isSeeding}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#f4efe4] hover:bg-[#eae2d3] border border-[#ded5c2] text-[#26373b] rounded-xl text-xs font-semibold transition cursor-pointer"
+                    className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 px-3 py-1.5 sm:py-2 bg-[#f4efe4] hover:bg-[#eae2d3] border border-[#ded5c2] text-[#26373b] rounded-xl text-xs font-semibold transition cursor-pointer"
                     title="기존 기본 추모공원 목록을 DB에 동기화합니다"
                   >
                     <RefreshCw className={`w-3.5 h-3.5 ${isSeeding ? "animate-spin text-[#947b50]" : "text-[#947b50]"}`} />
-                    <span>기본 50개 공원 동기화</span>
+                    <span>기본 50개 동기화</span>
                   </button>
 
                   {/* 신규 추모공원 추가 */}
                   <button
                     onClick={() => handleOpenParkModal()}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#947b50] hover:bg-[#836c44] text-white rounded-xl text-xs font-bold transition shadow-xs cursor-pointer"
+                    className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 sm:py-2 bg-[#947b50] hover:bg-[#836c44] text-white rounded-xl text-xs font-bold transition shadow-xs cursor-pointer"
                   >
                     <Plus className="w-4 h-4" />
                     <span>새 추모공원 등록</span>
@@ -1199,30 +1199,30 @@ export default function AdminPage() {
               </div>
 
               {seedNotice && (
-                <div className="p-3.5 bg-[#edf6f1] border border-[#c4e4d1] rounded-xl text-xs text-[#2d6e49] flex items-center gap-2">
+                <div className="p-3 bg-[#edf6f1] border border-[#c4e4d1] rounded-xl text-xs text-[#2d6e49] flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 shrink-0 text-[#2d6e49]" />
                   <span>{seedNotice}</span>
                 </div>
               )}
 
               {/* 필터 및 검색 바 */}
-              <div className="bg-white p-4 sm:p-5 rounded-2xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] flex flex-wrap items-center justify-between gap-3">
-                <div className="flex flex-wrap items-center gap-2.5">
-                  <div className="relative">
+              <div className="bg-white p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] flex flex-wrap items-center justify-between gap-2.5">
+                <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+                  <div className="relative flex-1 sm:flex-none">
                     <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-[#747b78]" />
                     <input
                       type="text"
                       placeholder="공원명, 지역, 주소 검색"
                       value={parkSearch}
                       onChange={(e) => setParkSearch(e.target.value)}
-                      className="pl-8 pr-3 py-2 text-xs bg-[#fbfaf6] border border-[#dcd9ce] rounded-xl w-48 sm:w-64 focus:outline-none focus:border-[#947b50] focus:ring-1 focus:ring-[#947b50]"
+                      className="pl-8 pr-3 py-1.5 sm:py-2 text-xs bg-[#fbfaf6] border border-[#dcd9ce] rounded-xl w-full sm:w-64 focus:outline-none focus:border-[#947b50] focus:ring-1 focus:ring-[#947b50]"
                     />
                   </div>
 
                   <select
                     value={parkRegionFilter}
                     onChange={(e) => setParkRegionFilter(e.target.value)}
-                    className="py-2 px-3 text-xs border border-[#dcd9ce] rounded-xl bg-[#fbfaf6] font-medium text-[#26373b] focus:outline-none focus:border-[#947b50]"
+                    className="py-1.5 sm:py-2 px-2.5 sm:px-3 text-xs border border-[#dcd9ce] rounded-xl bg-[#fbfaf6] font-medium text-[#26373b] focus:outline-none focus:border-[#947b50]"
                   >
                     <option value="ALL">전체 지역</option>
                     <option value="CAPITAL">수도권 (서울/경기/인천)</option>
@@ -1234,7 +1234,7 @@ export default function AdminPage() {
                   <select
                     value={parkTypeFilter}
                     onChange={(e) => setParkTypeFilter(e.target.value)}
-                    className="py-2 px-3 text-xs border border-[#dcd9ce] rounded-xl bg-[#fbfaf6] font-medium text-[#26373b] focus:outline-none focus:border-[#947b50]"
+                    className="py-1.5 sm:py-2 px-2.5 sm:px-3 text-xs border border-[#dcd9ce] rounded-xl bg-[#fbfaf6] font-medium text-[#26373b] focus:outline-none focus:border-[#947b50]"
                   >
                     <option value="ALL">전체 구분</option>
                     <option value="직영">직영</option>
@@ -1245,7 +1245,7 @@ export default function AdminPage() {
                 </div>
 
                 <div className="text-xs text-[#747b78] font-medium">
-                  조회 결과:{" "}
+                  조회:{" "}
                   <strong className="text-[#172c37] font-bold">
                     {
                       dbParks.filter((p: any) => {
@@ -1269,19 +1269,19 @@ export default function AdminPage() {
               </div>
 
               {/* 추모공원 목록 테이블 */}
-              <div className="bg-white border border-[#e5e4dc] rounded-2xl shadow-[0_2px_8px_rgba(23,44,55,0.04)] overflow-hidden">
+              <div className="bg-white border border-[#e5e4dc] rounded-xl sm:rounded-2xl shadow-[0_2px_8px_rgba(23,44,55,0.04)] overflow-hidden">
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-xs">
                     <thead className="bg-[#172c37] text-[#f7f5ef] border-b border-[#223947]">
                       <tr>
-                        <th className="p-3.5 font-bold whitespace-nowrap">이미지</th>
-                        <th className="p-3.5 font-bold whitespace-nowrap">권역 / 지역</th>
-                        <th className="p-3.5 font-bold whitespace-nowrap">구분</th>
-                        <th className="p-3.5 font-bold whitespace-nowrap">추모공원명</th>
-                        <th className="p-3.5 font-bold whitespace-nowrap">주소</th>
-                        <th className="p-3.5 font-bold whitespace-nowrap">특별지원 혜택</th>
-                        <th className="p-3.5 font-bold whitespace-nowrap">공식 홈페이지</th>
-                        <th className="p-3.5 font-bold whitespace-nowrap">관리</th>
+                        <th className="p-2.5 sm:p-3.5 font-bold whitespace-nowrap">이미지</th>
+                        <th className="p-2.5 sm:p-3.5 font-bold whitespace-nowrap">권역 / 지역</th>
+                        <th className="p-2.5 sm:p-3.5 font-bold whitespace-nowrap">구분</th>
+                        <th className="p-2.5 sm:p-3.5 font-bold whitespace-nowrap">추모공원명</th>
+                        <th className="p-2.5 sm:p-3.5 font-bold whitespace-nowrap">주소</th>
+                        <th className="p-2.5 sm:p-3.5 font-bold whitespace-nowrap">특별지원 혜택</th>
+                        <th className="p-2.5 sm:p-3.5 font-bold whitespace-nowrap">공식 홈페이지</th>
+                        <th className="p-2.5 sm:p-3.5 font-bold whitespace-nowrap">관리</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-[#eeebe3]">
@@ -1414,62 +1414,64 @@ export default function AdminPage() {
               TAB 3: 가입 회원 목록 관리
           ========================================= */}
           {activeTab === "users" && (
-            <div className="space-y-6">
-              <div className="bg-white p-5 sm:p-6 rounded-2xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] flex items-center justify-between">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] flex items-center justify-between">
                 <div>
-                  <h3 className="text-base font-bold text-[#172c37]">가입 회원 목록</h3>
-                  <p className="text-xs text-[#747b78] mt-0.5">
+                  <h3 className="text-sm sm:text-base font-bold text-[#172c37]">가입 회원 목록</h3>
+                  <p className="text-[11px] sm:text-xs text-[#747b78] mt-0.5">
                     다온넷 웹사이트를 통해 가입한 회원 목록입니다. 현재 총 <strong>{registeredUsers.length}명</strong>이 가입되어 있습니다.
                   </p>
                 </div>
               </div>
 
-              <div className="bg-white border border-[#e5e4dc] rounded-2xl shadow-[0_2px_8px_rgba(23,44,55,0.04)] overflow-hidden">
-                <table className="w-full text-left text-xs">
-                  <thead className="bg-[#172c37] text-[#f7f5ef] border-b border-[#223947]">
-                    <tr>
-                      <th className="p-3.5 font-bold">회원번호</th>
-                      <th className="p-3.5 font-bold">성함</th>
-                      <th className="p-3.5 font-bold">연락처</th>
-                      <th className="p-3.5 font-bold">가입 이메일(아이디)</th>
-                      <th className="p-3.5 font-bold">주소</th>
-                      <th className="p-3.5 font-bold">회원 권한</th>
-                      <th className="p-3.5 font-bold">가입일시</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-[#eeebe3]">
-                    {registeredUsers.map((u: any, idx: number) => (
-                      <tr key={u._id} className="hover:bg-[#faf9f5] transition">
-                        <td className="p-3.5 text-[#747b78] font-mono text-[11px]">#{idx + 1}</td>
-                        <td className="p-3.5 font-bold text-[#172c37]">{u.name || "-"}</td>
-                        <td className="p-3.5 text-[#26373b] font-mono">{u.phone || "-"}</td>
-                        <td className="p-3.5 text-[#172c37]">{u.email}</td>
-                        <td className="p-3.5 text-[#555] max-w-xs truncate" title={u.address || ""}>{u.address || "-"}</td>
-                        <td className="p-3.5">
-                          <span
-                            className={`px-2 py-0.5 rounded font-semibold text-[10px] ${
-                              u.role === "admin"
-                                ? "bg-[#fef8ed] text-[#9c6a1e] border border-[#f3ddb3]"
-                                : "bg-[#edf4f8] text-[#1e5875] border border-[#c4dce9]"
-                            }`}
-                          >
-                            {u.role === "admin" ? "관리자" : "일반회원"}
-                          </span>
-                        </td>
-                        <td className="p-3.5 text-[#747b78] whitespace-nowrap">
-                          {new Date(u.createdAt).toLocaleString("ko-KR")}
-                        </td>
-                      </tr>
-                    ))}
-                    {registeredUsers.length === 0 && (
+              <div className="bg-white border border-[#e5e4dc] rounded-xl sm:rounded-2xl shadow-[0_2px_8px_rgba(23,44,55,0.04)] overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left text-xs">
+                    <thead className="bg-[#172c37] text-[#f7f5ef] border-b border-[#223947]">
                       <tr>
-                        <td colSpan={7} className="p-12 text-center text-[#747b78] text-xs">
-                          가입된 회원이 아직 없습니다.
-                        </td>
+                        <th className="p-2.5 sm:p-3.5 font-bold whitespace-nowrap">회원번호</th>
+                        <th className="p-2.5 sm:p-3.5 font-bold whitespace-nowrap">성함</th>
+                        <th className="p-2.5 sm:p-3.5 font-bold whitespace-nowrap">연락처</th>
+                        <th className="p-2.5 sm:p-3.5 font-bold whitespace-nowrap">가입 이메일(아이디)</th>
+                        <th className="p-2.5 sm:p-3.5 font-bold whitespace-nowrap">주소</th>
+                        <th className="p-2.5 sm:p-3.5 font-bold whitespace-nowrap">회원 권한</th>
+                        <th className="p-2.5 sm:p-3.5 font-bold whitespace-nowrap">가입일시</th>
                       </tr>
-                    )}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody className="divide-y divide-[#eeebe3]">
+                      {registeredUsers.map((u: any, idx: number) => (
+                        <tr key={u._id} className="hover:bg-[#faf9f5] transition">
+                          <td className="p-2.5 sm:p-3.5 text-[#747b78] font-mono text-[11px] whitespace-nowrap">#{idx + 1}</td>
+                          <td className="p-2.5 sm:p-3.5 font-bold text-[#172c37] whitespace-nowrap">{u.name || "-"}</td>
+                          <td className="p-2.5 sm:p-3.5 text-[#26373b] font-mono whitespace-nowrap">{u.phone || "-"}</td>
+                          <td className="p-2.5 sm:p-3.5 text-[#172c37] whitespace-nowrap">{u.email}</td>
+                          <td className="p-2.5 sm:p-3.5 text-[#555] max-w-xs truncate" title={u.address || ""}>{u.address || "-"}</td>
+                          <td className="p-2.5 sm:p-3.5 whitespace-nowrap">
+                            <span
+                              className={`px-2 py-0.5 rounded font-semibold text-[10px] ${
+                                u.role === "admin"
+                                  ? "bg-[#fef8ed] text-[#9c6a1e] border border-[#f3ddb3]"
+                                  : "bg-[#edf4f8] text-[#1e5875] border border-[#c4dce9]"
+                              }`}
+                            >
+                              {u.role === "admin" ? "관리자" : "일반회원"}
+                            </span>
+                          </td>
+                          <td className="p-2.5 sm:p-3.5 text-[#747b78] whitespace-nowrap">
+                            {new Date(u.createdAt).toLocaleString("ko-KR")}
+                          </td>
+                        </tr>
+                      ))}
+                      {registeredUsers.length === 0 && (
+                        <tr>
+                          <td colSpan={7} className="p-12 text-center text-[#747b78] text-xs">
+                            가입된 회원이 아직 없습니다.
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           )}
@@ -1478,29 +1480,29 @@ export default function AdminPage() {
               TAB 4: 푸터 & 개인정보 약관 설정
           ========================================= */}
           {activeTab === "settings" && (
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {/* 설정 상단 안내 및 액션 */}
-              <div className="bg-white p-5 sm:p-6 rounded-3xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <div className="bg-white p-4 sm:p-6 rounded-2xl sm:rounded-3xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4">
                 <div>
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-xl bg-[#172c37] text-[#d9bc86] flex items-center justify-center font-bold">
-                      <FileText className="w-4 h-4" />
+                  <div className="flex items-center gap-2">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#172c37] text-[#d9bc86] flex items-center justify-center font-bold">
+                      <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </div>
-                    <h3 className="text-base sm:text-lg font-bold text-[#172c37]">
+                    <h3 className="text-sm sm:text-lg font-bold text-[#172c37]">
                       푸터 내용 및 개인정보동의 설정
                     </h3>
                   </div>
-                  <p className="text-xs text-[#747b78] mt-1">
-                    메인 화면 하단 푸터의 사업자 정보, 고객센터 번호, 고지사항 및 상담신청/가입 시 동의 문구와 처리방침을 수정합니다.
+                  <p className="text-[11px] sm:text-xs text-[#747b78] mt-1 break-keep">
+                    메인 화면 하단 푸터의 사업자 정보, 고객센터 번호, 고지사항 및 상담신청 시 동의 문구와 처리방침을 수정합니다.
                   </p>
                 </div>
 
-                <div className="flex items-center gap-2.5 w-full sm:w-auto">
+                <div className="flex items-center gap-2 w-full sm:w-auto">
                   <button
                     type="button"
                     onClick={handleResetSettings}
                     disabled={isSavingSettings}
-                    className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-[#dcd9ce] hover:bg-[#f4efe4] text-[#26373b] text-xs font-bold transition cursor-pointer disabled:opacity-50"
+                    className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1 px-3 py-2 rounded-xl border border-[#dcd9ce] hover:bg-[#f4efe4] text-[#26373b] text-xs font-bold transition cursor-pointer disabled:opacity-50"
                     title="기본 설정값으로 복원"
                   >
                     <RotateCcw className="w-3.5 h-3.5 text-[#747b78]" />
@@ -1510,7 +1512,7 @@ export default function AdminPage() {
                     type="button"
                     onClick={handleSaveSettings}
                     disabled={isSavingSettings}
-                    className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#172c37] hover:bg-[#26373b] text-[#d9bc86] text-xs font-black transition cursor-pointer shadow-md disabled:opacity-50 border border-[#172c37]"
+                    className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1 px-4 py-2 rounded-xl bg-[#172c37] hover:bg-[#26373b] text-[#d9bc86] text-xs font-black transition cursor-pointer shadow-md disabled:opacity-50 border border-[#172c37]"
                   >
                     <Check className="w-3.5 h-3.5" />
                     <span>{isSavingSettings ? "저장 중..." : "설정 저장하기"}</span>
@@ -1521,7 +1523,7 @@ export default function AdminPage() {
               {/* 알림 메시지 배너 */}
               {settingsNotice && (
                 <div
-                  className={`p-4 rounded-2xl text-xs flex items-center gap-2.5 shadow-xs ${
+                  className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl text-xs flex items-center gap-2 shadow-xs ${
                     settingsNotice.type === "success"
                       ? "bg-[#edf6f1] border border-[#c4e4d1] text-[#2d6e49]"
                       : "bg-[#fdf2f2] border border-[#f8b4b4] text-[#c81e1e]"
@@ -1536,9 +1538,9 @@ export default function AdminPage() {
                 </div>
               )}
 
-              <form onSubmit={handleSaveSettings} className="space-y-6">
+              <form onSubmit={handleSaveSettings} className="space-y-4 sm:space-y-6">
                 {/* 섹션 1: 푸터(Footer) 내용 관리 */}
-                <div className="bg-white p-6 sm:p-7 rounded-3xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] space-y-5">
+                <div className="bg-white p-4 sm:p-7 rounded-2xl sm:rounded-3xl border border-[#e5e4dc] shadow-[0_2px_8px_rgba(23,44,55,0.04)] space-y-3.5 sm:space-y-5">
                   <div className="border-b border-[#eeebe3] pb-3">
                     <div className="flex items-center gap-2">
                       <span className="px-2 py-0.5 rounded-md bg-[#172c37] text-[#d9bc86] text-[10px] font-bold">
@@ -1937,20 +1939,20 @@ export default function AdminPage() {
           추모공원 등록/수정 모달 (랜딩 디자인 컨셉)
       ========================================= */}
       {isParkModalOpen && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-[#e5e4dc] max-h-[90vh] overflow-y-auto animate-scale-up">
-            <div className="flex justify-between items-center pb-3 border-b border-[#eeebe3] mb-5">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-2.5 sm:p-4 overflow-y-auto">
+          <div className="bg-white rounded-2xl sm:rounded-3xl max-w-2xl w-full p-4 sm:p-8 shadow-2xl border border-[#e5e4dc] max-h-[92vh] overflow-y-auto animate-scale-up">
+            <div className="flex justify-between items-center pb-2.5 border-b border-[#eeebe3] mb-3 sm:mb-5">
               <div>
-                <h3 className="text-lg font-bold text-[#172c37]">
+                <h3 className="text-base sm:text-lg font-bold text-[#172c37] break-keep">
                   {editingPark ? "추모공원 정보 수정" : "새로운 추모공원 등록"}
                 </h3>
-                <p className="text-xs text-[#747b78] mt-0.5">
+                <p className="text-[11px] sm:text-xs text-[#747b78] mt-0.5 break-keep">
                   전국 추모공원 네트워크에 노출될 상세 정보 및 이미지, 공식 홈페이지 링크를 설정합니다.
                 </p>
               </div>
               <button
                 onClick={() => setIsParkModalOpen(false)}
-                className="text-[#747b78] hover:text-[#172c37] p-1.5 rounded-full hover:bg-[#f4efe4] transition"
+                className="text-[#747b78] hover:text-[#172c37] p-1.5 rounded-full hover:bg-[#f4efe4] transition cursor-pointer"
               >
                 ✕
               </button>

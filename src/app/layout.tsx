@@ -1,7 +1,14 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { DaonProvider } from "@/context/DaonContext";
 import ConvexClientProvider from "@/components/ConvexClientProvider";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   title: "다온넷(DAONNET) - 전국 추모공원 특별지원 & 프리미엄 라이프케어 멤버십",

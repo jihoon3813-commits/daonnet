@@ -170,29 +170,29 @@ export default function ContractModal() {
   };
 
   return (
-    <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 flex items-center justify-center p-3 sm:p-5 overflow-y-auto no-scrollbar">
+    <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 flex items-center justify-center p-2 sm:p-5 overflow-y-auto no-scrollbar">
       <div 
-        className="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-[0_25px_60px_-15px_rgba(15,30,54,0.2)] max-h-[92vh] overflow-y-auto no-scrollbar border border-amber-100/80 animate-scale-up"
+        className="bg-white rounded-2xl sm:rounded-3xl max-w-xl w-full p-3.5 sm:p-6 shadow-[0_25px_60px_-15px_rgba(15,30,54,0.2)] max-h-[92vh] overflow-y-auto no-scrollbar border border-amber-100/80 animate-scale-up"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
-        {/* 헤더 영역 - 밝고 세련된 프리미엄 스타일 */}
-        <div className="flex justify-between items-start border-b border-gray-100 pb-4 mb-5">
-          <div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-200/80 text-[11px] font-bold text-[#A37D32] tracking-wider mb-1.5">
-              <Sparkles className="w-3 h-3 text-[#C5A059]" />
+        {/* 헤더 영역 - 상하 여백 최소화 및 모바일 폰트 최적화 */}
+        <div className="flex justify-between items-start border-b border-gray-100 pb-2.5 mb-3">
+          <div className="pr-2">
+            <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-50 border border-amber-200/80 text-[10px] sm:text-[11px] font-bold text-[#A37D32] tracking-wider mb-1">
+              <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#C5A059]" />
               <span>DAONNET PREMIUM LIFEMEMBERSHIP</span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-black text-[#0F1E36] tracking-tight">
+            <h3 className="text-base sm:text-2xl font-black text-[#0F1E36] tracking-tight break-keep">
               다온 프리미엄 249 상품 신청 및 장지 상담
             </h3>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-[11px] sm:text-xs text-gray-500 mt-0.5 break-keep">
               신청 즉시 전문 상담원이 1:1 맞춤 배정되어 혜택 안내 및 계약을 도와드립니다.
             </p>
           </div>
           <button
             type="button"
             onClick={handleResetAndClose}
-            className="text-gray-400 hover:text-gray-700 p-2 rounded-full hover:bg-gray-100 transition cursor-pointer -mr-1"
+            className="text-gray-400 hover:text-gray-700 p-1.5 rounded-full hover:bg-gray-100 transition cursor-pointer -mr-1 shrink-0"
             aria-label="닫기"
           >
             <X className="w-5 h-5" />
@@ -201,24 +201,24 @@ export default function ContractModal() {
 
         {completedCertNum ? (
           /* 신청 완료 화면 */
-          <div className="py-6 text-center space-y-4">
-            <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center mx-auto shadow-sm">
-              <CheckCircle2 className="w-9 h-9" />
+          <div className="py-4 sm:py-6 text-center space-y-3 sm:space-y-4">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center mx-auto shadow-sm">
+              <CheckCircle2 className="w-7 h-7 sm:w-9 sm:h-9" />
             </div>
 
-            <h4 className="text-2xl font-black text-[#0F1E36]">
+            <h4 className="text-lg sm:text-2xl font-black text-[#0F1E36] break-keep px-2">
               상담 및 계약 신청이 안전하게 접수되었습니다
             </h4>
 
-            <p className="text-xs sm:text-sm text-gray-600 max-w-md mx-auto leading-relaxed">
+            <p className="text-[11px] sm:text-sm text-gray-600 max-w-md mx-auto leading-relaxed break-keep px-2">
               고객님의 신청 정보가 다온넷 본사 고객지원센터에 안전하게 접수되었습니다.
               전문 라이프케어 상담원이 신속히 안내 전화를 드리겠습니다.
             </p>
 
-            <div className="bg-[#FAF8F5] border border-amber-200/90 rounded-2xl p-5 text-left text-xs space-y-2.5 max-w-md mx-auto shadow-sm">
+            <div className="bg-[#FAF8F5] border border-amber-200/90 rounded-xl sm:rounded-2xl p-3.5 sm:p-5 text-left text-xs space-y-2 sm:space-y-2.5 max-w-md mx-auto shadow-sm">
               <div className="flex justify-between items-center pb-2 border-b border-amber-100">
                 <span className="text-gray-500 font-medium">신청 접수 번호</span>
-                <strong className="text-[#0F1E36] font-mono text-sm font-bold bg-white px-2 py-0.5 rounded border border-amber-200">
+                <strong className="text-[#0F1E36] font-mono text-xs sm:text-sm font-bold bg-white px-2 py-0.5 rounded border border-amber-200">
                   {completedCertNum}
                 </strong>
               </div>
@@ -237,7 +237,7 @@ export default function ContractModal() {
               {baseAddress && (
                 <div className="flex justify-between items-start pt-1">
                   <span className="text-gray-500 shrink-0 mr-2">배송/상담 주소</span>
-                  <strong className="text-[#0F1E36] text-right font-medium text-[11px] leading-snug">
+                  <strong className="text-[#0F1E36] text-right font-medium text-[11px] leading-snug break-all">
                     {zonecode && `[${zonecode}] `}
                     {baseAddress} {detailAddress}
                   </strong>
@@ -249,11 +249,11 @@ export default function ContractModal() {
               </div>
             </div>
 
-            <div className="pt-3 max-w-md mx-auto">
+            <div className="pt-2 max-w-md mx-auto">
               <button
                 type="button"
                 onClick={handleResetAndClose}
-                className="w-full gold-gradient text-white font-extrabold py-3.5 rounded-xl text-xs sm:text-sm shadow-md hover:brightness-105 transition cursor-pointer"
+                className="w-full gold-gradient text-white font-extrabold py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm shadow-md hover:brightness-105 transition cursor-pointer"
               >
                 확인 완료
               </button>
@@ -261,102 +261,102 @@ export default function ContractModal() {
           </div>
         ) : (
           /* 신청 폼 */
-          <form onSubmit={handleSubmit} className="space-y-4 text-sm">
+          <form onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-3.5 text-xs sm:text-sm">
             {/* 단일 상품 카드 (249만원 전용 + 제공항목에 건강기능식품 포함) */}
-            <div className="rounded-2xl border-2 border-[#C5A059] bg-gradient-to-br from-[#FFFDF9] via-[#FAF7F0] to-[#F5EFE3] p-4 sm:p-5 shadow-sm relative overflow-hidden">
+            <div className="rounded-xl sm:rounded-2xl border-2 border-[#C5A059] bg-gradient-to-br from-[#FFFDF9] via-[#FAF7F0] to-[#F5EFE3] p-3 sm:p-4 shadow-sm relative overflow-hidden">
               {/* 상단 뱃지 & 타이틀 */}
-              <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-amber-200/70">
-                <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-[#0F1E36] text-[#C5A059] flex items-center justify-center font-black text-xs shadow-sm">
+              <div className="flex items-center justify-between gap-2 pb-2 sm:pb-2.5 border-b border-amber-200/70">
+                <div className="flex items-center gap-1.5 min-w-0">
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-[#0F1E36] text-[#C5A059] flex items-center justify-center font-black text-[11px] sm:text-xs shadow-sm shrink-0">
                     VIP
                   </div>
-                  <div>
-                    <h4 className="font-black text-[#0F1E36] text-base sm:text-lg tracking-tight">
+                  <div className="min-w-0">
+                    <h4 className="font-black text-[#0F1E36] text-sm sm:text-base tracking-tight truncate">
                       다온 프리미엄 249 라이프케어
                     </h4>
-                    <p className="text-[11px] text-amber-900/80 font-medium">
-                      10년 100% 환급보증 + 장지 + 의전 + 건강식품 + 리조트·여행 풀패키지
+                    <p className="text-[10px] sm:text-[11px] text-amber-900/80 font-medium truncate">
+                      10년 100% 환급보증 + 장지 + 의전 + 건강식품 + 리조트
                     </p>
                   </div>
                 </div>
-                <div className="text-right">
-                  <div className="inline-block bg-red-600 text-white font-black text-[10px] px-2 py-0.5 rounded shadow-sm mb-0.5">
+                <div className="text-right shrink-0">
+                  <div className="inline-block bg-red-600 text-white font-black text-[9px] sm:text-[10px] px-1.5 py-0.5 rounded shadow-sm mb-0.5">
                     10년 498만 환급보증
                   </div>
-                  <div className="font-black text-[#0F1E36] text-lg sm:text-xl tracking-tight">
-                    2,490,000<span className="text-xs font-bold text-gray-600 ml-0.5">원</span>
+                  <div className="font-black text-[#0F1E36] text-base sm:text-lg tracking-tight">
+                    2,490,000<span className="text-[11px] sm:text-xs font-bold text-gray-600 ml-0.5">원</span>
                   </div>
                 </div>
               </div>
 
-              {/* 제공 항목 상세 리스트 (8대 핵심 혜택) */}
-              <div className="pt-3">
-                <div className="text-[11px] font-bold text-amber-950/70 mb-2 flex items-center gap-1">
-                  <Award className="w-3.5 h-3.5 text-[#C5A059]" />
+              {/* 제공 항목 상세 리스트 (8대 핵심 혜택) - 모바일 2열 배치 */}
+              <div className="pt-2">
+                <div className="text-[10px] sm:text-[11px] font-bold text-amber-950/70 mb-1.5 flex items-center gap-1">
+                  <Award className="w-3 h-3 text-[#C5A059]" />
                   <span>249 상품 전체 제공 항목 (8대 핵심 혜택)</span>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-gray-700">
-                  <div className="flex items-start gap-1.5 bg-white/70 backdrop-blur-xs p-2 rounded-xl border border-amber-100">
-                    <span className="text-emerald-600 font-black shrink-0">✓</span>
-                    <span className="leading-snug">
-                      <strong className="text-[#0F1E36] font-bold">프리미엄 건강기능식품</strong> 증정
-                      <span className="text-[10px] text-amber-700 block">(삼칠그라 365 or 알부민 택1 · 최고 59.8만원)</span>
+                <div className="grid grid-cols-2 gap-1 sm:gap-1.5 text-[10.5px] sm:text-xs text-gray-700">
+                  <div className="flex items-start gap-1 bg-white/80 backdrop-blur-xs p-1.5 sm:p-2 rounded-lg border border-amber-100">
+                    <span className="text-emerald-600 font-black shrink-0 text-xs">✓</span>
+                    <span className="leading-tight break-keep">
+                      <strong className="text-[#0F1E36] font-bold">건강식품</strong> 택1
+                      <span className="text-[9px] text-amber-700 block">59.8만 상당 증정</span>
                     </span>
                   </div>
 
-                  <div className="flex items-start gap-1.5 bg-white/70 backdrop-blur-xs p-2 rounded-xl border border-amber-100">
-                    <span className="text-emerald-600 font-black shrink-0">✓</span>
-                    <span className="leading-snug">
-                      <strong className="text-[#0F1E36] font-bold">10년 환급보증서</strong> (498만원)
-                      <span className="text-[10px] text-gray-500 block">법무법인 공증 확정보증 (200% 반환)</span>
+                  <div className="flex items-start gap-1 bg-white/80 backdrop-blur-xs p-1.5 sm:p-2 rounded-lg border border-amber-100">
+                    <span className="text-emerald-600 font-black shrink-0 text-xs">✓</span>
+                    <span className="leading-tight break-keep">
+                      <strong className="text-[#0F1E36] font-bold">10년 환급보증</strong>
+                      <span className="text-[9px] text-gray-500 block">498만 공증 보증</span>
                     </span>
                   </div>
 
-                  <div className="flex items-start gap-1.5 bg-white/70 backdrop-blur-xs p-2 rounded-xl border border-amber-100">
-                    <span className="text-emerald-600 font-black shrink-0">✓</span>
-                    <span className="leading-snug">
-                      <strong className="text-[#0F1E36] font-bold">전국 55개 추모공원 봉안당</strong>
-                      <span className="text-[10px] text-gray-500 block">개인단(1단) 안치 특별 지원 혜택</span>
+                  <div className="flex items-start gap-1 bg-white/80 backdrop-blur-xs p-1.5 sm:p-2 rounded-lg border border-amber-100">
+                    <span className="text-emerald-600 font-black shrink-0 text-xs">✓</span>
+                    <span className="leading-tight break-keep">
+                      <strong className="text-[#0F1E36] font-bold">전국 55개 추모관</strong>
+                      <span className="text-[9px] text-gray-500 block">봉안당 개인단 지원</span>
                     </span>
                   </div>
 
-                  <div className="flex items-start gap-1.5 bg-white/70 backdrop-blur-xs p-2 rounded-xl border border-amber-100">
-                    <span className="text-emerald-600 font-black shrink-0">✓</span>
-                    <span className="leading-snug">
-                      <strong className="text-[#0F1E36] font-bold">VIP 198 후불제 장례 의전</strong>
-                      <span className="text-[10px] text-gray-500 block">다온넷 직영 24시 장례의전 보증</span>
+                  <div className="flex items-start gap-1 bg-white/80 backdrop-blur-xs p-1.5 sm:p-2 rounded-lg border border-amber-100">
+                    <span className="text-emerald-600 font-black shrink-0 text-xs">✓</span>
+                    <span className="leading-tight break-keep">
+                      <strong className="text-[#0F1E36] font-bold">VIP 198 후불장례</strong>
+                      <span className="text-[9px] text-gray-500 block">24시 직영 장례의전</span>
                     </span>
                   </div>
 
-                  <div className="flex items-start gap-1.5 bg-white/70 backdrop-blur-xs p-2 rounded-xl border border-amber-100">
-                    <span className="text-emerald-600 font-black shrink-0">✓</span>
-                    <span className="leading-snug">
-                      <strong className="text-[#0F1E36] font-bold">249만 쇼핑 복지 포인트</strong>
-                      <span className="text-[10px] text-gray-500 block">다온넷 전용 폐쇄몰 100% 사용</span>
+                  <div className="flex items-start gap-1 bg-white/80 backdrop-blur-xs p-1.5 sm:p-2 rounded-lg border border-amber-100">
+                    <span className="text-emerald-600 font-black shrink-0 text-xs">✓</span>
+                    <span className="leading-tight break-keep">
+                      <strong className="text-[#0F1E36] font-bold">249만 쇼핑포인트</strong>
+                      <span className="text-[9px] text-gray-500 block">복지몰 100% 사용</span>
                     </span>
                   </div>
 
-                  <div className="flex items-start gap-1.5 bg-white/70 backdrop-blur-xs p-2 rounded-xl border border-amber-100">
-                    <span className="text-emerald-600 font-black shrink-0">✓</span>
-                    <span className="leading-snug">
-                      <strong className="text-[#0F1E36] font-bold">해피클래스 리조트 2박 3일권</strong>
-                      <span className="text-[10px] text-gray-500 block">전국 50여 곳 제휴 콘도·호텔 무료 숙박권</span>
+                  <div className="flex items-start gap-1 bg-white/80 backdrop-blur-xs p-1.5 sm:p-2 rounded-lg border border-amber-100">
+                    <span className="text-emerald-600 font-black shrink-0 text-xs">✓</span>
+                    <span className="leading-tight break-keep">
+                      <strong className="text-[#0F1E36] font-bold">리조트 2박 3일권</strong>
+                      <span className="text-[9px] text-gray-500 block">전국 50곳 무료숙박</span>
                     </span>
                   </div>
 
-                  <div className="flex items-start gap-1.5 bg-white/70 backdrop-blur-xs p-2 rounded-xl border border-amber-100">
-                    <span className="text-emerald-600 font-black shrink-0">✓</span>
-                    <span className="leading-snug">
-                      <strong className="text-[#0F1E36] font-bold">패키지 여행 특가 혜택</strong>
-                      <span className="text-[10px] text-gray-500 block">인기 해외 패키지 회원 우대가 & 맞춤 플래너</span>
+                  <div className="flex items-start gap-1 bg-white/80 backdrop-blur-xs p-1.5 sm:p-2 rounded-lg border border-amber-100">
+                    <span className="text-emerald-600 font-black shrink-0 text-xs">✓</span>
+                    <span className="leading-tight break-keep">
+                      <strong className="text-[#0F1E36] font-bold">패키지 여행 특가</strong>
+                      <span className="text-[9px] text-gray-500 block">인기 해외여행 우대</span>
                     </span>
                   </div>
 
-                  <div className="flex items-start gap-1.5 bg-white/70 backdrop-blur-xs p-2 rounded-xl border border-amber-100">
-                    <span className="text-emerald-600 font-black shrink-0">✓</span>
-                    <span className="leading-snug">
-                      <strong className="text-[#0F1E36] font-bold">특별 위로지원금 40만원</strong>
-                      <span className="text-[10px] text-gray-500 block">장례 발생 시 현금 40만원 별도 지원 혜택</span>
+                  <div className="flex items-start gap-1 bg-white/80 backdrop-blur-xs p-1.5 sm:p-2 rounded-lg border border-amber-100">
+                    <span className="text-emerald-600 font-black shrink-0 text-xs">✓</span>
+                    <span className="leading-tight break-keep">
+                      <strong className="text-[#0F1E36] font-bold">위로지원금 40만원</strong>
+                      <span className="text-[9px] text-gray-500 block">장례 발생 시 현금지급</span>
                     </span>
                   </div>
                 </div>
@@ -364,20 +364,20 @@ export default function ContractModal() {
             </div>
 
             {/* 건강식품 & 결제수단 선택 */}
-            <div className="grid sm:grid-cols-2 gap-3 pt-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1.5 flex items-center justify-between">
+                <label className="block text-[11px] sm:text-xs font-bold text-gray-700 mb-1 flex items-center justify-between">
                   <span className="flex items-center gap-1 text-[#0F1E36]">
-                    <Gift className="w-3.5 h-3.5 text-[#C5A059]" />
+                    <Gift className="w-3 h-3 text-[#C5A059]" />
                     사은 건강기능식품 선택 <span className="text-red-500">*</span>
                   </span>
-                  <span className="text-[10px] text-amber-700 font-medium">택1 무료 증정</span>
+                  <span className="text-[9px] text-amber-700 font-medium">택1 무료 증정</span>
                 </label>
                 <div className="relative">
                   <select
                     value={healthFood}
                     onChange={(e) => setHealthFood(e.target.value)}
-                    className="w-full appearance-none border border-gray-200 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-[#C5A059]/40 focus:border-[#C5A059] shadow-xs cursor-pointer pr-8 font-medium"
+                    className="w-full appearance-none border border-gray-200 rounded-xl px-2.5 sm:px-3 py-2 sm:py-2.5 text-xs text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-[#C5A059]/40 focus:border-[#C5A059] shadow-xs cursor-pointer pr-7 font-medium truncate"
                   >
                     <option value="삼칠그라 365 (59.8만원 상당)">
                       삼칠그라 365 (59.8만원 상당 / 활력·혈행 개선)
@@ -386,33 +386,33 @@ export default function ContractModal() {
                       경남제약 저분자 콜라겐 알부민 프라임 맥스 (58만원 상당)
                     </option>
                   </select>
-                  <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <ChevronDown className="w-3.5 h-3.5 text-gray-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1.5 text-[#0F1E36]">
+                <label className="block text-[11px] sm:text-xs font-bold text-gray-700 mb-1 text-[#0F1E36]">
                   희망 결제 수단
                 </label>
                 <div className="relative">
                   <select
                     value={paymentMethod}
                     onChange={(e) => setPaymentMethod(e.target.value)}
-                    className="w-full appearance-none border border-gray-200 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-[#C5A059]/40 focus:border-[#C5A059] shadow-xs cursor-pointer pr-8 font-medium"
+                    className="w-full appearance-none border border-gray-200 rounded-xl px-2.5 sm:px-3 py-2 sm:py-2.5 text-xs text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-[#C5A059]/40 focus:border-[#C5A059] shadow-xs cursor-pointer pr-7 font-medium truncate"
                   >
                     <option value="신용카드 (지정 PG 결제)">신용카드 (무이자 할부 / 지정 PG 결제)</option>
                     <option value="CMS (자동이체)">CMS (자동이체 분납 상담)</option>
                     <option value="계좌이체 / 현금">계좌이체 / 무통장입금</option>
                   </select>
-                  <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <ChevronDown className="w-3.5 h-3.5 text-gray-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
             </div>
 
             {/* 고객 성명 및 연락처 */}
-            <div className="grid sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1.5">
+                <label className="block text-[11px] sm:text-xs font-bold text-gray-700 mb-1">
                   구매자 성명 <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -421,12 +421,12 @@ export default function ContractModal() {
                   value={customerName}
                   onChange={(e) => setCustomerName(e.target.value)}
                   placeholder="예: 홍길동"
-                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#C5A059]/40 focus:border-[#C5A059] bg-white shadow-xs transition"
+                  className="w-full border border-gray-200 rounded-xl px-3 py-2 sm:py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#C5A059]/40 focus:border-[#C5A059] bg-white shadow-xs transition"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1.5">
+                <label className="block text-[11px] sm:text-xs font-bold text-gray-700 mb-1">
                   구매자 연락처 <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -438,104 +438,99 @@ export default function ContractModal() {
                   value={phone}
                   onChange={(e) => setPhone(formatPhoneNumber(e.target.value))}
                   placeholder="예: 010-1234-5678"
-                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#C5A059]/40 focus:border-[#C5A059] bg-white shadow-xs transition"
+                  className="w-full border border-gray-200 rounded-xl px-3 py-2 sm:py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#C5A059]/40 focus:border-[#C5A059] bg-white shadow-xs transition"
                 />
               </div>
             </div>
 
-            {/* 주소 검색 및 상세주소 입력 영역 (사용자 핵심 요구사항) */}
-            <div className="space-y-2 bg-[#FBFBFA] p-3.5 rounded-2xl border border-gray-200/80">
+            {/* 주소 검색 및 상세주소 입력 영역 */}
+            <div className="space-y-1.5 bg-[#FBFBFA] p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border border-gray-200/80">
               <div className="flex items-center justify-between">
-                <label className="text-xs font-bold text-[#0F1E36] flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-[#C5A059]" />
-                  <span>건강식품 배송 받으실 주소 (또는 상담 희망지역)</span>
+                <label className="text-[11px] sm:text-xs font-bold text-[#0F1E36] flex items-center gap-1 truncate">
+                  <MapPin className="w-3 h-3 text-[#C5A059] shrink-0" />
+                  <span className="truncate">건강식품 배송 주소 (또는 상담 희망지역)</span>
                 </label>
-                <span className="text-[10px] text-gray-500">주소검색 필수 연동</span>
+                <span className="text-[9px] text-gray-500 shrink-0 ml-1">주소검색 필수</span>
               </div>
 
               {/* 1행: 우편번호 표시 & 주소 검색 버튼 */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 sm:gap-2">
                 <input
                   type="text"
                   readOnly
                   value={zonecode}
                   placeholder="우편번호"
                   onClick={handleOpenAddressSearch}
-                  className="w-28 border border-gray-200 rounded-xl px-3 py-2 text-xs sm:text-sm bg-white font-mono text-gray-700 text-center cursor-pointer focus:outline-none"
+                  className="w-20 sm:w-28 border border-gray-200 rounded-lg sm:rounded-xl px-2 py-1.5 sm:py-2 text-xs bg-white font-mono text-gray-700 text-center cursor-pointer focus:outline-none shrink-0"
                 />
                 <button
                   type="button"
                   onClick={handleOpenAddressSearch}
-                  className="flex-1 sm:flex-none px-4 py-2 bg-[#0F1E36] hover:bg-[#1a2f52] text-white font-bold text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs cursor-pointer active:scale-98"
+                  className="flex-1 sm:flex-none px-2.5 sm:px-4 py-1.5 sm:py-2 bg-[#0F1E36] hover:bg-[#1a2f52] text-white font-bold text-xs rounded-lg sm:rounded-xl transition flex items-center justify-center gap-1 shadow-xs cursor-pointer active:scale-98 whitespace-nowrap"
                 >
-                  <Search className="w-3.5 h-3.5 text-[#C5A059]" />
-                  <span>우편번호 / 주소 검색</span>
+                  <Search className="w-3 h-3 text-[#C5A059]" />
+                  <span>주소 검색</span>
                 </button>
                 {zonecode && (
-                  <span className="text-[11px] text-emerald-600 font-semibold hidden sm:inline-flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5" /> 주소 확인 완료
+                  <span className="text-[10px] sm:text-[11px] text-emerald-600 font-semibold inline-flex items-center gap-0.5 truncate">
+                    <CheckCircle2 className="w-3 h-3 shrink-0" /> <span className="hidden xs:inline">확인완료</span>
                   </span>
                 )}
               </div>
 
-              {/* 2행: 기본 주소 (조회해서 나오는 괄호 안 내용까지 포함) */}
+              {/* 2행: 기본 주소 */}
               <div>
                 <input
                   type="text"
                   readOnly
                   value={baseAddress}
                   onClick={handleOpenAddressSearch}
-                  placeholder="주소 검색 버튼을 눌러 도로명 또는 지번 주소를 선택해 주세요"
-                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm bg-white text-gray-800 placeholder-gray-400 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#C5A059]/40 focus:border-[#C5A059] shadow-xs"
+                  placeholder="주소 검색 버튼을 눌러 도로명 주소를 선택해 주세요"
+                  className="w-full border border-gray-200 rounded-lg sm:rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs bg-white text-gray-800 placeholder-gray-400 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#C5A059]/40 focus:border-[#C5A059] shadow-xs truncate"
                 />
-                {baseAddress && (
-                  <p className="text-[10px] text-gray-500 mt-1 pl-1">
-                    ※ 동·건물명 등 괄호 안 법정 참고항목이 자동으로 포함되었습니다.
-                  </p>
-                )}
               </div>
 
-              {/* 3행: 상세 주소 (동·호수 등 직접 입력) */}
+              {/* 3행: 상세 주소 */}
               <div>
                 <input
                   ref={detailInputRef}
                   type="text"
                   value={detailAddress}
                   onChange={(e) => setDetailAddress(e.target.value)}
-                  placeholder="동·호수, 층수 등 상세 주소를 입력해 주세요 (예: 102동 1502호)"
-                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#C5A059]/40 focus:border-[#C5A059] shadow-xs transition"
+                  placeholder="동·호수 등 상세 주소 입력 (예: 102동 1502호)"
+                  className="w-full border border-gray-200 rounded-lg sm:rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#C5A059]/40 focus:border-[#C5A059] shadow-xs transition"
                 />
               </div>
             </div>
 
             {/* 희망 추모공원 (선택 사항) */}
             <div>
-              <label className="block text-xs font-bold text-gray-700 mb-1.5">
+              <label className="block text-[11px] sm:text-xs font-bold text-gray-700 mb-1">
                 희망 추모공원 (선택 사항)
               </label>
               <input
                 type="text"
                 value={preferredPark}
                 onChange={(e) => setPreferredPark(e.target.value)}
-                placeholder="예: 유토피아추모관, 용인공원, 시안추모공원 등 (미정 시 상담 안내)"
-                className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#C5A059]/40 focus:border-[#C5A059] bg-white shadow-xs transition"
+                placeholder="예: 유토피아추모관, 용인공원 등 (미정 시 상담 안내)"
+                className="w-full border border-gray-200 rounded-xl px-3 py-2 sm:py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#C5A059]/40 focus:border-[#C5A059] bg-white shadow-xs transition"
               />
             </div>
 
             {/* 약관 동의 */}
-            <div className="pt-1">
-              <div className="flex items-start justify-between gap-2">
-                <label className="flex items-start gap-2 text-xs text-gray-600 cursor-pointer select-none">
+            <div className="pt-0.5">
+              <div className="flex items-start justify-between gap-1.5">
+                <label className="flex items-start gap-1.5 text-[11px] sm:text-xs text-gray-600 cursor-pointer select-none">
                   <input
                     type="checkbox"
                     checked={agreeTerms}
                     onChange={(e) => setAgreeTerms(e.target.checked)}
                     required
-                    className="mt-0.5 accent-[#0F1E36] cursor-pointer"
+                    className="mt-0.5 accent-[#0F1E36] cursor-pointer shrink-0"
                   />
-                  <span className="leading-snug">
+                  <span className="leading-tight break-keep">
                     {privacyTitle}
-                    <span className="text-gray-400 block text-[11px] mt-0.5">
+                    <span className="text-gray-400 block text-[10px] mt-0.5">
                       {privacySummary}
                     </span>
                   </span>
@@ -543,7 +538,7 @@ export default function ContractModal() {
                 <button
                   type="button"
                   onClick={() => setShowPolicyModal(true)}
-                  className="text-[11px] text-gray-500 hover:text-[#0F1E36] underline shrink-0 cursor-pointer ml-1"
+                  className="text-[10px] sm:text-[11px] text-gray-500 hover:text-[#0F1E36] underline shrink-0 cursor-pointer ml-1"
                 >
                   전문보기
                 </button>
@@ -554,18 +549,20 @@ export default function ContractModal() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full gold-gradient text-white font-black py-4 rounded-2xl shadow-lg hover:shadow-xl hover:brightness-105 active:scale-[0.99] transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 mt-3"
+              className="w-full gold-gradient text-white font-black py-3 sm:py-3.5 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl hover:brightness-105 active:scale-[0.99] transition flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50 mt-2 text-center"
             >
               {isSubmitting ? (
-                <span className="flex items-center gap-2">
-                  <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                <span className="flex items-center gap-2 text-xs sm:text-sm">
+                  <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                   접수 처리 중입니다...
                 </span>
               ) : (
-                <>
-                  <Sparkles className="w-4 h-4 text-white drop-shadow-xs" />
-                  <span className="text-sm sm:text-base">다온 프리미엄 249 상담 및 계약 신청하기 (1877-8816)</span>
-                </>
+                <div className="flex items-center justify-center gap-1.5 break-keep px-2">
+                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white drop-shadow-xs shrink-0" />
+                  <span className="text-xs sm:text-base leading-tight font-black">
+                    다온 프리미엄 249 상담 및 계약 신청하기 (1877-8816)
+                  </span>
+                </div>
               )}
             </button>
           </form>
@@ -574,12 +571,12 @@ export default function ContractModal() {
 
       {/* 개인정보 수집 및 이용 방침 전문 서브모달 */}
       {showPolicyModal && (
-        <div className="fixed inset-0 bg-black/75 backdrop-blur-xs z-[60] flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-lg w-full max-h-[80vh] flex flex-col shadow-2xl overflow-hidden animate-scale-up">
-            <div className="p-5 border-b border-gray-100 flex justify-between items-center bg-[#0F1E36] text-white">
+        <div className="fixed inset-0 bg-black/75 backdrop-blur-xs z-[60] flex items-center justify-center p-3 sm:p-4">
+          <div className="bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full max-h-[80vh] flex flex-col shadow-2xl overflow-hidden animate-scale-up">
+            <div className="p-3.5 sm:p-5 border-b border-gray-100 flex justify-between items-center bg-[#0F1E36] text-white">
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-[#C5A059]" />
-                <h4 className="font-bold text-sm sm:text-base">개인정보 수집 및 이용 방침 전문</h4>
+                <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-[#C5A059]" />
+                <h4 className="font-bold text-xs sm:text-base">개인정보 수집 및 이용 방침 전문</h4>
               </div>
               <button
                 type="button"
@@ -589,10 +586,10 @@ export default function ContractModal() {
                 <X className="w-5 h-5" />
               </button>
             </div>
-            <div className="p-5 overflow-y-auto flex-1 text-xs text-gray-700 leading-relaxed whitespace-pre-line bg-gray-50/70">
+            <div className="p-3.5 sm:p-5 overflow-y-auto flex-1 text-xs text-gray-700 leading-relaxed whitespace-pre-line bg-gray-50/70">
               {privacyPolicy || "등록된 개인정보 처리방침이 없습니다."}
             </div>
-            <div className="p-3.5 bg-white border-t border-gray-100 text-right">
+            <div className="p-3 bg-white border-t border-gray-100 text-right">
               <button
                 type="button"
                 onClick={() => setShowPolicyModal(false)}

@@ -28,34 +28,34 @@ export default function FooterV2() {
 
   return (
     <>
-      <footer className="bg-[#e8e7df] text-[#26373b] py-[55px] pb-[110px] px-[6%] text-[11px] border-t border-[#dedfd7]">
-        <div className="max-w-[1200px] mx-auto grid lg:grid-cols-[1fr_0.8fr_1.4fr] gap-[35px]">
+      <footer className="bg-[#e8e7df] text-[#26373b] py-8 sm:py-[55px] pb-24 sm:pb-[110px] px-4 sm:px-[6%] text-[11px] border-t border-[#dedfd7]">
+        <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_0.8fr_1.4fr] gap-6 sm:gap-[35px]">
           {/* 1열: 로고 및 회사 정보 */}
           <div className="self-start">
             <a
               href="#home"
-              className="inline-flex items-center gap-2.5 leading-[1.1] text-[#172c37]"
+              className="inline-flex items-center gap-2 leading-[1.1] text-[#172c37]"
             >
               <span
-                className="text-[48px] font-normal tracking-[-4px]"
+                className="text-[36px] sm:text-[48px] font-normal tracking-[-2px] sm:tracking-[-4px]"
                 style={{ fontFamily: "Georgia, serif" }}
               >
                 ∞
               </span>
               <div>
                 <span
-                  className="block text-[22px] font-semibold tracking-[2px]"
+                  className="block text-[18px] sm:text-[22px] font-semibold tracking-[1.5px] sm:tracking-[2px]"
                   style={{ fontFamily: "Georgia, serif" }}
                 >
                   DAONNET
                 </span>
-                <small className="block text-[9px] tracking-[2px] text-[#7e847e] mt-1.5">
+                <small className="block text-[9px] tracking-[1.5px] sm:tracking-[2px] text-[#7e847e] mt-1">
                   기억을 잇고, 삶을 돌보다
                 </small>
               </div>
             </a>
 
-            <p className="text-[11px] text-[#747b78] mt-4 leading-[1.7] m-0">
+            <p className="text-[11px] text-[#747b78] mt-3 sm:mt-4 leading-[1.6] sm:leading-[1.7] m-0 break-keep">
               {companyName}
               <br />
               {department}
@@ -64,17 +64,17 @@ export default function FooterV2() {
 
           {/* 2열: 고객상담센터 */}
           <div>
-            <b className="font-semibold text-[12px] text-[#26373b]">
+            <b className="font-semibold text-xs sm:text-[12px] text-[#26373b] block">
               {callCenterTitle}
             </b>
             <a
               href={`tel:${callCenterPhone.replace(/[^0-9]/g, "")}`}
-              className="block text-[26px] text-[#172c37] my-[8px] hover:text-[#947b50] transition"
+              className="block text-[22px] sm:text-[26px] text-[#172c37] my-1 sm:my-[8px] hover:text-[#947b50] transition font-bold"
               style={{ fontFamily: "Georgia, serif" }}
             >
               {callCenterPhone}
             </a>
-            <small className="block text-[10px] text-[#7e847e] leading-[1.6]">
+            <small className="block text-[10px] text-[#7e847e] leading-[1.6] break-keep">
               공식 제휴몰:{" "}
               <a
                 href={mallUrl.startsWith("http") ? mallUrl : `http://${mallUrl}`}
@@ -90,15 +90,15 @@ export default function FooterV2() {
           </div>
 
           {/* 3열: 법적 고지사항 및 하단 링크 */}
-          <div>
-            <div className="text-[10px] text-[#5e6562] leading-[1.7] mb-[12px] whitespace-pre-line">
+          <div className="md:col-span-2 lg:col-span-1">
+            <div className="text-[10px] text-[#5e6562] leading-[1.65] sm:leading-[1.7] mb-3 whitespace-pre-line break-keep">
               {noticeText}
             </div>
 
-            <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[#d5d8ce] text-[10px] text-[#7e847e]">
+            <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3 pt-2.5 sm:pt-3 border-t border-[#d5d8ce] text-[10px] text-[#7e847e]">
               <span>{copyright}</span>
 
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                 <button
                   onClick={openCert}
                   className="hover:text-[#172c37] underline cursor-pointer"

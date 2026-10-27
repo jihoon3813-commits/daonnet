@@ -8,28 +8,28 @@ export default function HeaderV2() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-30 h-[64px] md:h-[93px] px-4 sm:px-[5%] bg-[#f7f5ef]/95 backdrop-blur-sm border-b border-[#e5e4dc] flex items-center gap-3 lg:gap-8">
-      <div className="w-full max-w-[1400px] mx-auto flex items-center gap-3 xl:gap-8 whitespace-nowrap">
+    <header className="sticky top-0 z-30 h-[56px] sm:h-[64px] md:h-[93px] px-3 sm:px-[5%] bg-[#f7f5ef]/95 backdrop-blur-sm border-b border-[#e5e4dc] flex items-center">
+      <div className="w-full max-w-[1400px] mx-auto flex items-center justify-between gap-1.5 sm:gap-3 xl:gap-8">
         {/* 로고 */}
         <a
           href="#home"
-          className="flex items-center gap-2 sm:gap-2.5 leading-[1.1] text-[#26373b] group shrink-0 whitespace-nowrap"
+          className="flex items-center gap-1.5 sm:gap-2.5 leading-[1.1] text-[#26373b] group shrink min-w-0"
         >
           <span
-            className="text-[34px] sm:text-[43px] md:text-[54px] font-normal tracking-[-3px] sm:tracking-[-4px] text-[#172c37] select-none shrink-0"
+            className="text-[26px] sm:text-[40px] md:text-[54px] font-normal tracking-[-2px] sm:tracking-[-4px] text-[#172c37] select-none shrink-0"
             style={{ fontFamily: "Georgia, serif" }}
           >
             ∞
           </span>
-          <div className="whitespace-nowrap">
+          <div className="min-w-0">
             <span
-              className="block text-[18px] sm:text-[21px] md:text-[24px] font-semibold tracking-[1.5px] sm:tracking-[2px] text-[#172c37]"
+              className="block text-[15px] sm:text-[20px] md:text-[24px] font-semibold tracking-[1px] sm:tracking-[2px] text-[#172c37] truncate"
               style={{ fontFamily: "Georgia, serif" }}
             >
               DAONNET
             </span>
-            <small className="block text-[8px] md:text-[9px] tracking-[0.5px] xl:tracking-[2px] text-[#747b78] mt-1 font-normal whitespace-nowrap">
-              기억을 잇고, 삶을 돌보다 · 다온넷 라이프케어
+            <small className="hidden xs:block text-[8px] md:text-[9px] tracking-[0.3px] sm:tracking-[0.5px] xl:tracking-[2px] text-[#747b78] mt-0.5 sm:mt-1 font-normal truncate">
+              기억을 잇고, 삶을 돌보다<span className="hidden sm:inline"> · 다온넷 라이프케어</span>
             </small>
           </div>
         </a>
@@ -87,7 +87,7 @@ export default function HeaderV2() {
         </nav>
 
         {/* 우측 액션 버튼 */}
-        <div className="ml-auto lg:ml-0 flex items-center gap-1.5 sm:gap-2.5 shrink-0 whitespace-nowrap">
+        <div className="ml-auto lg:ml-0 flex items-center gap-1 sm:gap-2.5 shrink-0 whitespace-nowrap">
           <button
             onClick={openCert}
             className="hidden sm:inline-block border border-[#b6bcb7] text-[#26373b] hover:border-[#172c37] hover:bg-[#efeee7] text-[12px] font-medium px-[14px] xl:px-[16px] py-[10px] transition cursor-pointer whitespace-nowrap shrink-0"
@@ -97,7 +97,7 @@ export default function HeaderV2() {
 
           <button
             onClick={() => openContract()}
-            className="border border-[#172c37] bg-[#172c37] text-[#f7f5ef] hover:bg-[#26373b] text-[11px] sm:text-[12px] font-semibold px-[11px] sm:px-[14px] xl:px-[18px] py-[8px] sm:py-[10px] transition cursor-pointer whitespace-nowrap shrink-0"
+            className="border border-[#172c37] bg-[#172c37] text-[#f7f5ef] hover:bg-[#26373b] text-[11px] sm:text-[12px] font-semibold px-2.5 sm:px-[14px] xl:px-[18px] py-[6px] sm:py-[10px] transition cursor-pointer whitespace-nowrap shrink-0"
           >
             가입·상담 ↗
           </button>
@@ -107,16 +107,16 @@ export default function HeaderV2() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="더보기 메뉴 열기"
             aria-expanded={mobileMenuOpen}
-            className="lg:hidden border border-[#b6bcb7] bg-[#efeee7] hover:bg-[#e5e4dc] text-[11px] font-semibold text-[#26373b] px-2.5 py-[8px] flex items-center gap-1 cursor-pointer shrink-0"
+            className="lg:hidden border border-[#b6bcb7] bg-[#efeee7] hover:bg-[#e5e4dc] text-[11px] font-semibold text-[#26373b] px-2 sm:px-2.5 py-[6px] sm:py-[8px] flex items-center gap-1 cursor-pointer shrink-0"
           >
-            <span>{mobileMenuOpen ? "✕ 닫기" : "☰ 더보기"}</span>
+            <span>{mobileMenuOpen ? "✕ 닫기" : "☰ 메뉴"}</span>
           </button>
         </div>
       </div>
 
       {/* 모바일 더보기 드롭다운 메뉴 (상단 얇은 가로바 기능 통합) */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-[64px] md:top-[93px] left-0 right-0 bg-[#f7f5ef] border-b border-[#dedfd7] px-5 py-5 shadow-[0_20px_25px_rgba(0,0,0,0.1)] grid gap-3.5 text-[13px] font-medium text-[#26373b] max-h-[calc(100vh-4rem)] overflow-y-auto">
+        <div className="lg:hidden absolute top-[56px] sm:top-[64px] md:top-[93px] left-0 right-0 bg-[#f7f5ef] border-b border-[#dedfd7] px-4 py-4 sm:px-5 sm:py-5 shadow-[0_20px_25px_rgba(0,0,0,0.1)] grid gap-3 text-[13px] font-medium text-[#26373b] max-h-[calc(100vh-3.5rem)] overflow-y-auto">
           {/* 상단 가로바 통합 박스: 쇼핑포인트 & 보증서 & 내 신청조회 & 24시간 상담 */}
           <div className="bg-[#172c37] text-[#e3e6e5] p-3.5 space-y-3">
             <div className="flex items-center justify-between border-b border-[#2c4654] pb-2.5">

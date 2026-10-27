@@ -165,17 +165,17 @@ export default function MemorialParkSectionV2({
       {/* 1. THOUGHTFUL CARE — 추모공원 4대 특별지원 안내 (.intro 레이아웃 개선) */}
       <section
         id="support"
-        className="py-[56px] sm:py-[76px] lg:py-[100px] px-5 sm:px-[6%] max-w-[1240px] mx-auto"
+        className="py-6 sm:py-14 lg:py-20 px-4 sm:px-[6%] max-w-[1240px] mx-auto"
       >
         {/* 상단 헤더: 타이틀(좌) + 서브설명문(우)의 균형 잡힌 구조 */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-[20px] sm:gap-[32px] pb-[32px] sm:pb-[44px] border-b border-[#dedfd7]">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-3 sm:gap-[32px] pb-4 sm:pb-[44px] border-b border-[#dedfd7]">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f4efe6] border border-[#e5dac4] text-[10.5px] tracking-[2px] text-[#947b50] font-semibold uppercase mb-[12px] sm:mb-[16px]">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#f4efe6] border border-[#e5dac4] text-[10px] sm:text-[10.5px] tracking-[1.5px] sm:tracking-[2px] text-[#947b50] font-semibold uppercase mb-2 sm:mb-[16px]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#947b50]" />
               THOUGHTFUL CARE · 4대 특별지원
             </div>
             <h2
-              className="text-[26px] sm:text-[36px] font-medium leading-[1.38] tracking-[-1px] sm:tracking-[-1.3px] text-[#26373b] m-0"
+              className="text-[22px] sm:text-[36px] font-medium leading-[1.3] sm:leading-[1.38] tracking-[-0.8px] sm:tracking-[-1.3px] text-[#26373b] m-0"
               style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
             >
               어려운 준비를,
@@ -185,7 +185,7 @@ export default function MemorialParkSectionV2({
           </div>
 
           <div className="lg:max-w-[540px]">
-            <p className="text-[13.5px] sm:text-[15.5px] text-[#6b7370] leading-[1.8] sm:leading-[1.85] m-0">
+            <p className="text-[12px] sm:text-[15.5px] text-[#6b7370] leading-[1.7] sm:leading-[1.85] m-0 break-keep">
               어디서부터 알아봐야 할지 막막한 순간. 다온넷 프리미엄 249 회원은 직영{" "}
               <strong className="text-[#172c37] font-semibold">안성 유토피아 추모관</strong>을 비롯하여
               전국 어디든 희망하시는 추모공원을 <span className="text-[#947b50] font-semibold underline underline-offset-4 decoration-[#d9bc86]">특별 혜택</span>으로 준비하실 수 있습니다.
@@ -193,48 +193,48 @@ export default function MemorialParkSectionV2({
           </div>
         </div>
 
-        {/* 4대 특별지원 프리미엄 카드 그리드 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[16px] sm:gap-[20px] pt-[32px] sm:pt-[44px]">
+        {/* 4대 특별지원 프리미엄 카드 그리드 (모바일 2열) */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-[20px] pt-4 sm:pt-[44px]">
           {SPECIAL_BENEFITS.map((item) => {
             const Icon = item.icon;
             return (
               <article
                 key={item.num}
-                className="group relative bg-[#fcfbf9] hover:bg-white rounded-2xl p-6 sm:p-7 border border-[#e8e7df] hover:border-[#c5b28d] transition-all duration-300 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_16px_36px_rgba(23,44,55,0.08)] hover:-translate-y-1 flex flex-col justify-between"
+                className="group relative bg-[#fcfbf9] hover:bg-white rounded-xl sm:rounded-2xl p-3 sm:p-7 border border-[#e8e7df] hover:border-[#c5b28d] transition-all duration-300 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_16px_36px_rgba(23,44,55,0.08)] flex flex-col justify-between"
               >
                 <div>
                   {/* 상단 번호 & 아이콘 */}
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-2 sm:mb-4">
                     <span
-                      className="text-[22px] font-semibold text-[#c5b28d] group-hover:text-[#947b50] transition-colors"
+                      className="text-[16px] sm:text-[22px] font-semibold text-[#c5b28d] group-hover:text-[#947b50] transition-colors"
                       style={{ fontFamily: "Georgia, serif" }}
                     >
                       {item.num}
                     </span>
-                    <div className="w-10 h-10 rounded-xl bg-[#f2eee5] group-hover:bg-[#172c37] text-[#947b50] group-hover:text-[#d9bc86] flex items-center justify-center transition-all duration-300">
-                      <Icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
+                    <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#f2eee5] group-hover:bg-[#172c37] text-[#947b50] group-hover:text-[#d9bc86] flex items-center justify-center transition-all duration-300">
+                      <Icon className="w-3.5 h-3.5 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:scale-110" />
                     </div>
                   </div>
 
                   {/* 혜택 태그 배지 */}
-                  <div className="inline-block text-[11px] font-semibold text-[#8c744d] bg-[#f5ede0] border border-[#ecdcc3] px-2.5 py-0.5 rounded-full mb-3">
+                  <div className="inline-block text-[9.5px] sm:text-[11px] font-semibold text-[#8c744d] bg-[#f5ede0] border border-[#ecdcc3] px-2 py-0.5 rounded-full mb-1.5 sm:mb-3 truncate max-w-full">
                     {item.tag}
                   </div>
 
                   {/* 카드 제목 */}
-                  <h3 className="text-[16px] sm:text-[17px] font-bold text-[#26373b] leading-[1.4] mb-2.5 group-hover:text-[#172c37] transition-colors">
+                  <h3 className="text-[13px] sm:text-[17px] font-bold text-[#26373b] leading-[1.35] sm:leading-[1.4] mb-1.5 sm:mb-2.5 group-hover:text-[#172c37] transition-colors break-keep">
                     {item.title}
                   </h3>
 
                   {/* 설명 */}
-                  <p className="text-[12px] sm:text-[13px] text-[#6f7673] leading-[1.68] m-0">
+                  <p className="text-[10.5px] sm:text-[13px] text-[#6f7673] leading-[1.55] sm:leading-[1.68] m-0 break-keep line-clamp-3 sm:line-clamp-none">
                     {item.desc}
                   </p>
                 </div>
 
                 {/* 하단 체크 요약 포인트 */}
-                <div className="mt-5 pt-3.5 border-t border-[#edebe3] flex items-center gap-1.5 text-[11.5px] font-medium text-[#26373b]/85">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#947b50] shrink-0" />
+                <div className="mt-3 sm:mt-5 pt-2 sm:pt-3.5 border-t border-[#edebe3] flex items-center gap-1 text-[10px] sm:text-[11.5px] font-medium text-[#26373b]/85">
+                  <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#947b50] shrink-0" />
                   <span className="truncate">{item.highlight}</span>
                 </div>
               </article>
@@ -244,21 +244,21 @@ export default function MemorialParkSectionV2({
       </section>
 
       {/* 2. MEMORIAL PARK COLLECTION — 전국 55개 추모공원 둘러보기 (.parks 레이아웃) */}
-      <section id="memorial-parks" className="bg-[#efeee7] py-[48px] sm:py-[68px] lg:py-[96px] px-5 sm:px-[6%]">
+      <section id="memorial-parks" className="bg-[#efeee7] py-6 sm:py-14 lg:py-20 px-4 sm:px-[6%]">
         <div className="max-w-[1200px] mx-auto">
           {/* 섹션 헤더 */}
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-[14px] sm:gap-[20px] mb-[24px] sm:mb-[35px]">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2.5 sm:gap-[20px] mb-4 sm:mb-[35px]">
             <div>
-              <div className="text-[10px] tracking-[2.7px] text-[#947b50] font-semibold mb-[10px] sm:mb-[14px] uppercase">
+              <div className="text-[10px] tracking-[2px] sm:tracking-[2.7px] text-[#947b50] font-semibold mb-1.5 sm:mb-[14px] uppercase">
                 MEMORIAL PARK COLLECTION · 56 LOCATIONS
               </div>
               <h2
-                className="text-[24px] sm:text-[35px] font-medium leading-[1.45] sm:leading-[1.5] tracking-[-1px] sm:tracking-[-1.2px] text-[#26373b] m-0 mb-[8px] sm:mb-[10px]"
+                className="text-[22px] sm:text-[35px] font-medium leading-[1.3] sm:leading-[1.5] tracking-[-0.8px] sm:tracking-[-1.2px] text-[#26373b] m-0 mb-1.5 sm:mb-[10px]"
                 style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
               >
                 전국 56개 추모공원 둘러보기
               </h2>
-              <p className="text-[12px] sm:text-[14px] text-[#747b78] m-0">
+              <p className="text-[11.5px] sm:text-[14px] text-[#747b78] m-0 break-keep">
                 오래도록 찾아갈 곳이기에, 직영 유토피아 추모관부터 전국의 주요 시설을 한 곳 한 곳 살펴보세요.
               </p>
             </div>
@@ -268,7 +268,7 @@ export default function MemorialParkSectionV2({
                 setOnlySaved(!onlySaved);
                 setShowAll(true);
               }}
-              className={`self-start sm:self-end py-[8px] sm:py-[10px] border-b text-[12px] font-medium transition cursor-pointer whitespace-nowrap ${
+              className={`self-start sm:self-end py-1 sm:py-[10px] border-b text-[11.5px] sm:text-[12px] font-medium transition cursor-pointer whitespace-nowrap ${
                 onlySaved
                   ? "border-[#947b50] text-[#947b50] font-semibold"
                   : "border-[#aaa] text-[#26373b] hover:text-[#947b50]"
@@ -280,8 +280,8 @@ export default function MemorialParkSectionV2({
           </div>
 
           {/* 권역 탭 & 시설명 검색 바 (.filter-row) */}
-          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-[12px] sm:gap-[16px] border-b border-[#d5d8ce] pb-[16px] sm:pb-[20px]">
-            <div className="flex overflow-x-auto pb-1 sm:pb-0 sm:flex-wrap gap-[6px] no-scrollbar -mx-1 px-1">
+          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-2.5 sm:gap-[16px] border-b border-[#d5d8ce] pb-3 sm:pb-[20px]">
+            <div className="flex overflow-x-auto pb-1 sm:pb-0 sm:flex-wrap gap-1.5 sm:gap-[6px] no-scrollbar -mx-1 px-1">
               {[
                 { key: "ALL", label: "전국 전체", count: regionCounts.ALL },
                 { key: "CAPITAL", label: "수도권", count: regionCounts.CAPITAL },
@@ -297,7 +297,7 @@ export default function MemorialParkSectionV2({
                       setCurrentRegion(tab.key);
                       setShowAll(false);
                     }}
-                    className={`px-[14px] sm:px-[16px] py-[7px] sm:py-[8px] rounded-[30px] text-[12px] font-medium transition cursor-pointer whitespace-nowrap shrink-0 ${
+                    className={`px-3 sm:px-[16px] py-1.5 sm:py-[8px] rounded-[30px] text-[11.5px] sm:text-[12px] font-medium transition cursor-pointer whitespace-nowrap shrink-0 ${
                       active
                         ? "bg-[#172c37] text-white"
                         : "text-[#26373b] hover:bg-[#e2e1d8]"
@@ -312,7 +312,7 @@ export default function MemorialParkSectionV2({
               })}
             </div>
 
-            <label className="flex items-center bg-[#f7f6f1] border border-[#d5d8ce] px-[12px] py-[4px]">
+            <label className="flex items-center bg-[#f7f6f1] border border-[#d5d8ce] px-2.5 py-1">
               <span className="text-[#747b78] text-[13px]">⌕</span>
               <input
                 type="text"
@@ -323,22 +323,22 @@ export default function MemorialParkSectionV2({
                 }}
                 placeholder="시설명 또는 지역명으로 검색"
                 aria-label="시설명 검색"
-                className="w-full lg:w-[190px] border-0 bg-transparent p-[7px] text-[12px] text-[#26373b] focus:outline-none"
+                className="w-full lg:w-[190px] border-0 bg-transparent p-1 text-[12px] text-[#26373b] focus:outline-none"
               />
             </label>
           </div>
 
           {/* 리스트 메타 & 유형 필터 (.list-meta) */}
-          <div className="flex justify-between items-center my-[17px] text-[11px] text-[#707870]">
+          <div className="flex justify-between items-center my-3 sm:my-[17px] text-[11px] text-[#707870]">
             <span>
-              총 <strong className="text-[#26373b]">{filteredParks.length}</strong>개 시설 · 다온넷 특별지원 네트워크 기준
+              총 <strong className="text-[#26373b]">{filteredParks.length}</strong>개 시설 · 지원 네트워크
             </span>
 
             <select
               value={currentType}
               onChange={(e) => setCurrentType(e.target.value)}
               aria-label="시설 유형 필터"
-              className="border-0 bg-transparent text-[11px] text-[#26373b] font-medium py-1 px-2 focus:outline-none cursor-pointer"
+              className="border-0 bg-transparent text-[11px] text-[#26373b] font-medium py-1 px-1 focus:outline-none cursor-pointer"
             >
               <option value="ALL">전체 시설 유형</option>
               <option value="직영">직영 (안성 유토피아)</option>
@@ -350,7 +350,7 @@ export default function MemorialParkSectionV2({
 
           {/* 카드 그리드 (.park-grid) */}
           {filteredParks.length === 0 ? (
-            <div className="text-center py-[70px] bg-[#f7f5ef] border border-[#dedfd7]">
+            <div className="text-center py-10 sm:py-[70px] bg-[#f7f5ef] border border-[#dedfd7]">
               <p className="text-[#26373b] text-[14px] mb-3">
                 조건에 맞는 추모시설이 없습니다.
               </p>
@@ -367,7 +367,7 @@ export default function MemorialParkSectionV2({
               </button>
             </div>
           ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-[25px]">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-[25px]">
               {visibleParks.map((park, idx) => {
                 const isSaved = savedIds.includes(park.id);
                 const photoUrl = PARK_PHOTOS[idx % PARK_PHOTOS.length];
@@ -385,7 +385,7 @@ export default function MemorialParkSectionV2({
                     <button
                       onClick={() => toggleSavePark(park.id)}
                       aria-label={`${park.name} 관심시설`}
-                      className={`absolute right-[12px] top-[12px] w-[32px] h-[32px] rounded-full bg-[#fffdf4]/90 text-[18px] z-10 flex items-center justify-center transition cursor-pointer ${
+                      className={`absolute right-[10px] top-[10px] w-7 h-7 sm:w-[32px] sm:h-[32px] rounded-full bg-[#fffdf4]/90 text-[16px] sm:text-[18px] z-10 flex items-center justify-center transition cursor-pointer ${
                         isSaved ? "text-[#9b7544]" : "text-[#747b78] hover:text-[#26373b]"
                       }`}
                     >
@@ -394,15 +394,15 @@ export default function MemorialParkSectionV2({
 
                     <div>
                       {/* 상단 분위기 포토 영역 */}
-                      <div className="h-[195px] overflow-hidden relative bg-[#c9d0c2]">
+                      <div className="h-[145px] sm:h-[195px] overflow-hidden relative bg-[#c9d0c2]">
                         <img
                           src={(park as any).displayImageUrl || photoUrl}
                           alt={park.name}
                           loading="lazy"
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                         />
-                        <span className="absolute bottom-[12px] left-[14px] text-white bg-[#233c32]/80 text-[10px] px-[8px] py-[3px] tracking-wide">
-                          {park.type} · {park.featured ? "다온넷 직영" : "다온넷 지원 가능"}
+                        <span className="absolute bottom-2 left-2.5 sm:bottom-[12px] sm:left-[14px] text-white bg-[#233c32]/85 text-[9.5px] sm:text-[10px] px-2 py-0.5 sm:px-[8px] sm:py-[3px] tracking-wide">
+                          {park.type} · {park.featured ? "직영" : "지원 가능"}
                         </span>
                         {park.website && (
                           <a
@@ -410,7 +410,7 @@ export default function MemorialParkSectionV2({
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={(e) => e.stopPropagation()}
-                            className="absolute bottom-[12px] right-[14px] text-white bg-[#172c37]/85 hover:bg-[#947b50] text-[10px] font-medium px-[9px] py-[3px] rounded transition flex items-center gap-1 backdrop-blur-sm shadow-sm"
+                            className="absolute bottom-2 right-2.5 sm:bottom-[12px] sm:right-[14px] text-white bg-[#172c37]/85 hover:bg-[#947b50] text-[9.5px] sm:text-[10px] font-medium px-2 py-0.5 sm:px-[9px] sm:py-[3px] rounded transition flex items-center gap-1 backdrop-blur-sm shadow-sm"
                             title={`${park.name} 공식 홈페이지 새창 열기`}
                           >
                             <span>홈페이지</span>
@@ -418,34 +418,34 @@ export default function MemorialParkSectionV2({
                           </a>
                         )}
                         {park.featured && (
-                          <span className="absolute top-[12px] left-[14px] bg-[#d9bc86] text-[#172c37] text-[10px] font-bold px-[8px] py-[3px]">
-                            DIRECT · 직영 대표시설
+                          <span className="absolute top-2 left-2.5 sm:top-[12px] sm:left-[14px] bg-[#d9bc86] text-[#172c37] text-[9.5px] sm:text-[10px] font-bold px-2 py-0.5 sm:px-[8px] sm:py-[3px]">
+                            DIRECT · 직영
                           </span>
                         )}
                       </div>
 
                       {/* 카드 본문 */}
-                      <div className="p-[22px] pb-[16px]">
+                      <div className="p-3.5 sm:p-[22px] pb-3 sm:pb-[16px]">
                         <span className="text-[10px] text-[#8d7854] font-semibold tracking-wide">
                           {park.regionLabel} · {park.loc}
                         </span>
 
                         <h3
-                          className="text-[20px] font-medium text-[#26373b] my-[7px] leading-[1.35]"
+                          className="text-[17px] sm:text-[20px] font-medium text-[#26373b] my-1 sm:my-[7px] leading-[1.35]"
                           style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
                         >
                           {park.name}
                         </h3>
 
-                        <p className="text-[11px] text-[#747b78] mb-[8px] truncate">
+                        <p className="text-[11px] text-[#747b78] mb-1.5 sm:mb-[8px] truncate">
                           {park.addr}
                         </p>
 
-                        <p className="text-[12px] text-[#4e5855] leading-[1.6] mb-[12px]">
+                        <p className="text-[11.5px] sm:text-[12px] text-[#4e5855] leading-[1.55] sm:leading-[1.6] mb-2 sm:mb-[12px] line-clamp-2 sm:line-clamp-none">
                           {park.desc}
                         </p>
 
-                        <div className="bg-[#efeee7] px-[12px] py-[8px] text-[11px] text-[#6d5935] border-l-2 border-[#d9bc86]">
+                        <div className="bg-[#efeee7] px-2.5 py-1.5 sm:px-[12px] sm:py-[8px] text-[10.5px] sm:text-[11px] text-[#6d5935] border-l-2 border-[#d9bc86] break-keep">
                           <strong className="font-semibold">지원 혜택:</strong> {park.supportBenefit}
                         </div>
                       </div>

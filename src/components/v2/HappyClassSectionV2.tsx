@@ -43,60 +43,57 @@ export default function HappyClassSectionV2() {
       {/* 1. MORE MOMENTS, MORE LIFE — 라이프 혜택 4대 비주얼 카드 & 전국 50곳 제휴 숙박 & 해외 패키지 여행 */}
       <section
         id="happy-class"
-        className="bg-[#eeeee6] py-[48px] sm:py-[68px] lg:py-[96px] px-5 sm:px-[6%] border-t border-[#dedfd7]"
+        className="bg-[#eeeee6] py-6 sm:py-14 lg:py-20 px-4 sm:px-[6%] border-t border-[#dedfd7]"
       >
         <div className="max-w-[1200px] mx-auto">
           {/* 섹션 헤더 */}
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-[12px] sm:gap-[20px] mb-[26px] sm:mb-[35px]">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2.5 sm:gap-[20px] mb-4 sm:mb-[35px]">
             <div>
-              <div className="text-[10px] tracking-[2.7px] text-[#947b50] font-semibold mb-[10px] sm:mb-[14px] uppercase flex items-center gap-1.5">
+              <div className="text-[10px] tracking-[1.5px] sm:tracking-[2.7px] text-[#947b50] font-semibold mb-1.5 sm:mb-[14px] uppercase flex items-center gap-1.5">
                 <Sparkles className="w-3 h-3 text-[#947b50]" />
-                <span>MORE MOMENTS, MORE LIFE · 해피클래스 &amp; 패키지 여행 &amp; 크루즈</span>
+                <span>MORE MOMENTS, MORE LIFE · 해피클래스 &amp; 패키지 &amp; 크루즈</span>
               </div>
               <h2
-                className="text-[24px] sm:text-[35px] font-medium leading-[1.45] sm:leading-[1.5] tracking-[-1px] sm:tracking-[-1.2px] text-[#26373b] m-0"
+                className="text-[22px] sm:text-[35px] font-medium leading-[1.3] sm:leading-[1.5] tracking-[-0.8px] sm:tracking-[-1.2px] text-[#26373b] m-0"
                 style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
               >
                 일상에도 이어지는 다온의 혜택
               </h2>
             </div>
 
-            <p className="text-[12px] sm:text-[14px] text-[#747b78] m-0">
+            <p className="text-[11.5px] sm:text-[14px] text-[#747b78] m-0 break-keep">
               준비하는 마음만큼, 지금의 행복도 소중하니까요.
               <br />
               전국 50곳 2박 3일 무료 숙박권, <strong>해외 5개국 패키지 여행 우대</strong>, 럭셔리 크루즈 특전을 만나보세요.
             </p>
           </div>
 
-          {/* 4대 라이프 비주얼 카드 (.life-grid) */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-[14px] sm:gap-[18px] mb-[36px] sm:mb-[50px]">
+          {/* 4대 라이프 비주얼 카드 (.life-grid - 모바일 2열) */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-[18px] mb-6 sm:mb-[50px]">
             {/* 01 / STAY */}
             <div
               onClick={() => openContract("[해피클래스 2박 3일 숙박권 문의] ")}
-              className="h-[250px] sm:h-[355px] text-left p-[20px] sm:p-[24px] flex flex-col justify-between text-white relative overflow-hidden cursor-pointer group rounded-xl sm:rounded-none"
+              className="h-[165px] sm:h-[355px] text-left p-3 sm:p-[24px] flex flex-col justify-between text-white relative overflow-hidden cursor-pointer group rounded-xl"
               style={{
                 background:
-                  "linear-gradient(0deg, rgba(25, 51, 44, 0.9), rgba(25, 51, 44, 0.2)), url('/assets/stay.jpg') center/cover, #667e6a",
+                  "linear-gradient(0deg, rgba(25, 51, 44, 0.92), rgba(25, 51, 44, 0.3)), url('/assets/stay.jpg') center/cover, #667e6a",
               }}
             >
-              <span className="text-[9px] tracking-[2px] uppercase">
-                01 / STAY · 전국 50여 곳
+              <span className="text-[8.5px] sm:text-[9px] tracking-[1.5px] sm:tracking-[2px] uppercase">
+                01 / STAY · 전국 50곳
               </span>
               <div>
-                <small className="text-[9px] tracking-[2px] text-[#e1c897] uppercase block">
-                  HAPPY CLASS ACCOMMODATION
+                <small className="text-[8px] sm:text-[9px] tracking-[1px] sm:tracking-[2px] text-[#e1c897] uppercase block">
+                  ACCOMMODATION
                 </small>
                 <h3
-                  className="text-[20px] sm:text-[23px] font-normal my-[6px] sm:my-[8px]"
+                  className="text-[15px] sm:text-[23px] font-normal my-0.5 sm:my-[8px] text-white"
                   style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
                 >
                   잠시 쉬어가는 여유
                 </h3>
-                <p className="text-[12px] text-[#e3e6e5] m-0 leading-relaxed">
-                  전국 50여 곳 2박 3일 무료 숙박권 (1박 15만원 상당)
-                  <span className="float-right text-[18px] group-hover:translate-x-1 transition-transform">
-                    ↗
-                  </span>
+                <p className="text-[10.5px] sm:text-[12px] text-[#e3e6e5] m-0 leading-tight sm:leading-relaxed line-clamp-2 sm:line-clamp-none break-keep">
+                  전국 50여 곳 2박 3일 무료 숙박권 (30만원 상당)
                 </p>
               </div>
             </div>
@@ -104,35 +101,32 @@ export default function HappyClassSectionV2() {
             {/* 02 / PACKAGE TOUR (강조!) */}
             <a
               href="#package-tour-section"
-              className="h-[250px] sm:h-[355px] text-left p-[20px] sm:p-[24px] flex flex-col justify-between text-white relative overflow-hidden cursor-pointer group rounded-xl sm:rounded-none border-2 border-[#e1c897]/60 shadow-[0_4px_20px_rgba(225,200,151,0.25)]"
+              className="h-[165px] sm:h-[355px] text-left p-3 sm:p-[24px] flex flex-col justify-between text-white relative overflow-hidden cursor-pointer group rounded-xl border sm:border-2 border-[#e1c897]/70 shadow-sm"
               style={{
                 background:
-                  "linear-gradient(0deg, rgba(18, 38, 58, 0.92), rgba(18, 38, 58, 0.25)), url('https://api.tlabal.co.kr/api/assets/itinerary/7-mt6v20ts-18ijwou.jpg') center/cover, #1d3557",
+                  "linear-gradient(0deg, rgba(18, 38, 58, 0.94), rgba(18, 38, 58, 0.3)), url('https://api.tlabal.co.kr/api/assets/itinerary/7-mt6v20ts-18ijwou.jpg') center/cover, #1d3557",
               }}
             >
               <div className="flex items-center justify-between">
-                <span className="text-[9px] tracking-[2px] uppercase text-[#fef08a] font-bold">
-                  02 / PACKAGE · 해외 5개국
+                <span className="text-[8.5px] sm:text-[9px] tracking-[1.5px] sm:tracking-[2px] uppercase text-[#fef08a] font-bold">
+                  02 / TOUR · 5개국
                 </span>
-                <span className="px-2 py-0.5 rounded-full bg-[#E8172A] text-white text-[10px] font-bold">
-                  회원 우대
+                <span className="px-1.5 py-0.5 rounded-full bg-[#E8172A] text-white text-[9px] sm:text-[10px] font-bold">
+                  우대
                 </span>
               </div>
               <div>
-                <small className="text-[9px] tracking-[2px] text-[#e1c897] uppercase block">
-                  EXCLUSIVE PACKAGE TOUR
+                <small className="text-[8px] sm:text-[9px] tracking-[1px] sm:tracking-[2px] text-[#e1c897] uppercase block">
+                  PACKAGE TOUR
                 </small>
                 <h3
-                  className="text-[20px] sm:text-[23px] font-normal my-[6px] sm:my-[8px] text-white"
+                  className="text-[15px] sm:text-[23px] font-normal my-0.5 sm:my-[8px] text-white"
                   style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
                 >
                   패키지 여행 우대
                 </h3>
-                <p className="text-[12px] text-[#e3e6e5] m-0 leading-relaxed">
-                  베트남·태국·라오스 등 단독 우대 (문의: 1533-6041)
-                  <span className="float-right text-[18px] group-hover:translate-x-1 transition-transform text-[#e1c897]">
-                    ↓
-                  </span>
+                <p className="text-[10.5px] sm:text-[12px] text-[#e3e6e5] m-0 leading-tight sm:leading-relaxed line-clamp-2 sm:line-clamp-none break-keep">
+                  베트남·태국·라오스 등 단독 우대 (1533-6041)
                 </p>
               </div>
             </a>
@@ -140,30 +134,27 @@ export default function HappyClassSectionV2() {
             {/* 03 / CRUISE */}
             <div
               onClick={() => openContract("[럭셔리 크루즈 회원 우대 문의] ")}
-              className="h-[250px] sm:h-[355px] text-left p-[20px] sm:p-[24px] flex flex-col justify-between text-white relative overflow-hidden cursor-pointer group rounded-xl sm:rounded-none"
+              className="h-[165px] sm:h-[355px] text-left p-3 sm:p-[24px] flex flex-col justify-between text-white relative overflow-hidden cursor-pointer group rounded-xl"
               style={{
                 background:
-                  "linear-gradient(0deg, rgba(24, 55, 68, 0.9), rgba(24, 55, 68, 0.2)), url('/assets/sea.jpg') center/cover, #7b9ca5",
+                  "linear-gradient(0deg, rgba(24, 55, 68, 0.92), rgba(24, 55, 68, 0.3)), url('/assets/sea.jpg') center/cover, #7b9ca5",
               }}
             >
-              <span className="text-[9px] tracking-[2px] uppercase">
-                03 / CRUISE · 전담 데스크
+              <span className="text-[8.5px] sm:text-[9px] tracking-[1.5px] sm:tracking-[2px] uppercase">
+                03 / CRUISE
               </span>
               <div>
-                <small className="text-[9px] tracking-[2px] text-[#e1c897] uppercase block">
-                  TRAVEL &amp; LEISURE
+                <small className="text-[8px] sm:text-[9px] tracking-[1px] sm:tracking-[2px] text-[#e1c897] uppercase block">
+                  LUXURY CRUISE
                 </small>
                 <h3
-                  className="text-[20px] sm:text-[23px] font-normal my-[6px] sm:my-[8px]"
+                  className="text-[15px] sm:text-[23px] font-normal my-0.5 sm:my-[8px] text-white"
                   style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
                 >
                   더 넓은 세상으로
                 </h3>
-                <p className="text-[12px] text-[#e3e6e5] m-0 leading-relaxed">
+                <p className="text-[10.5px] sm:text-[12px] text-[#e3e6e5] m-0 leading-tight sm:leading-relaxed line-clamp-2 sm:line-clamp-none break-keep">
                   초호화 크루즈 회원 특별 할인가 및 기항지 특전
-                  <span className="float-right text-[18px] group-hover:translate-x-1 transition-transform">
-                    ↗
-                  </span>
                 </p>
               </div>
             </div>
@@ -171,40 +162,29 @@ export default function HappyClassSectionV2() {
             {/* 04 / HEALTH & GIFT */}
             <a
               href="#health-support"
-              className="h-[250px] sm:h-[355px] text-left p-[20px] sm:p-[24px] flex flex-col justify-between bg-[#ded9c9] text-[#172c37] relative overflow-hidden cursor-pointer group rounded-xl sm:rounded-none border-2 border-[#947b50]/40 hover:border-[#947b50] transition shadow-sm"
+              className="h-[165px] sm:h-[355px] text-left p-3 sm:p-[24px] flex flex-col justify-between bg-[#ded9c9] text-[#172c37] relative overflow-hidden cursor-pointer group rounded-xl border border-[#947b50]/40 transition shadow-sm"
             >
               <div className="flex items-center justify-between">
-                <span className="text-[9px] tracking-[2px] uppercase">
-                  04 / HEALTH &amp; SUPPORT
+                <span className="text-[8.5px] sm:text-[9px] tracking-[1.5px] sm:tracking-[2px] uppercase">
+                  04 / BENEFIT
                 </span>
-                <span className="px-2 py-0.5 rounded-full bg-[#172c37] text-[#d9bc86] text-[10px] font-bold">
-                  단독 특전
+                <span className="px-1.5 py-0.5 rounded-full bg-[#172c37] text-[#d9bc86] text-[9px] sm:text-[10px] font-bold">
+                  특전
                 </span>
-              </div>
-
-              {/* 타이포그래피 아트워크 (.shopping-art) */}
-              <div
-                className="text-[64px] sm:text-[80px] text-[#a5977c] absolute left-[42%] top-[34px] -rotate-[12deg] border border-[#b3a991] px-[16px] shadow-[8px_8px_#c3bcaa] select-none pointer-events-none"
-                style={{ fontFamily: "Georgia, serif" }}
-              >
-                d<span className="text-[22px]">＋</span>
               </div>
 
               <div className="relative z-10">
-                <small className="text-[9px] tracking-[2px] text-[#7b6845] uppercase block">
-                  SPECIAL COMPLIMENTARY
+                <small className="text-[8px] sm:text-[9px] tracking-[1px] sm:tracking-[2px] text-[#7b6845] uppercase block">
+                  COMPLIMENTARY
                 </small>
                 <h3
-                  className="text-[20px] sm:text-[23px] font-normal my-[6px] sm:my-[8px] text-[#172c37]"
+                  className="text-[15px] sm:text-[23px] font-normal my-0.5 sm:my-[8px] text-[#172c37]"
                   style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
                 >
-                  건강과 생활의 든든함
+                  건강과 위로지원
                 </h3>
-                <p className="text-[12px] text-[#26373b] m-0 leading-relaxed">
-                  건강식품 58만 상당(택1) + 위로지원금 40만
-                  <span className="float-right text-[18px] group-hover:translate-x-1 transition-transform text-[#947b50]">
-                    ↓
-                  </span>
+                <p className="text-[10.5px] sm:text-[12px] text-[#26373b] m-0 leading-tight sm:leading-relaxed line-clamp-2 sm:line-clamp-none break-keep">
+                  건강식품 58만(택1) + 현금지원 40만원
                 </p>
               </div>
             </a>
@@ -295,67 +275,61 @@ export default function HappyClassSectionV2() {
                 })}
               </div>
 
-              {/* 첨부 2번 이미지 형태의 썸네일 카드 그리드 */}
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* 첨부 2번 이미지 형태의 썸네일 카드 그리드 (모바일 2열) */}
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6">
                 {filteredPackages.map((pkg) => (
                   <div
                     key={pkg.id}
                     onClick={() => handleOpenDetail(pkg)}
-                    className="bg-white rounded-2xl border border-[#e5e7eb] hover:border-[#c5a059] shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer flex flex-col group"
+                    className="bg-white rounded-xl sm:rounded-2xl border border-[#e5e7eb] hover:border-[#c5a059] shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer flex flex-col group"
                   >
-                    {/* 카드 썸네일 이미지 & 상단 좌측 빨간색 배지 (첨부 2번 디자인 1:1) */}
+                    {/* 카드 썸네일 이미지 & 상단 좌측 빨간색 배지 */}
                     <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
                       <img
                         src={pkg.heroImage}
                         alt={pkg.name}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         onError={(e) => {
-                          // Fallback
                           e.currentTarget.src = `https://tlabal.co.kr/images/pkg-${pkg.slug}.jpg`;
                         }}
                       />
-                      {/* 빨간색 라운드 국가 배지 (첨부 2번 이미지와 일치) */}
-                      <span className="absolute top-3.5 left-3.5 bg-[#E8172A] text-white text-[12px] font-bold px-3 py-1 rounded-md shadow-sm">
+                      {/* 빨간색 라운드 국가 배지 */}
+                      <span className="absolute top-2 left-2 sm:top-3.5 sm:left-3.5 bg-[#E8172A] text-white text-[9.5px] sm:text-[12px] font-bold px-1.5 py-0.5 sm:px-3 sm:py-1 rounded-md shadow-sm">
                         {pkg.country}
                       </span>
 
                       {/* 호버 오버레이 안내 */}
                       <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span className="px-3.5 py-1.5 rounded-full bg-white/95 text-[#172c37] text-[12.5px] font-bold shadow-lg flex items-center gap-1">
+                        <span className="px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white/95 text-[#172c37] text-[11px] sm:text-[12.5px] font-bold shadow-lg flex items-center gap-1">
                           상세보기 ↗
                         </span>
                       </div>
                     </div>
 
                     {/* 카드 본문 (제목, 칩, 부가정보) */}
-                    <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                    <div className="p-2 sm:p-5 flex-1 flex flex-col justify-between">
                       <div>
                         {/* 상품명 */}
-                        <h4 className="text-[17px] sm:text-[18px] font-bold text-[#111827] group-hover:text-[#c5a059] transition-colors line-clamp-1 m-0">
+                        <h4 className="text-[12.5px] sm:text-[18px] font-bold text-[#111827] group-hover:text-[#c5a059] transition-colors line-clamp-1 m-0 break-keep">
                           {pkg.name}
                         </h4>
 
-                        {/* 알약 모양 칩 (3박 5일, 쇼핑 3회) */}
-                        <div className="flex flex-wrap items-center gap-2 mt-3 mb-3">
-                          <span className="bg-[#f1f3f5] text-[#495057] text-[12px] font-medium px-2.5 py-1 rounded-md">
+                        {/* 알약 모양 칩 */}
+                        <div className="flex flex-wrap items-center gap-1 sm:gap-2 mt-1.5 sm:mt-3 mb-1.5 sm:mb-3">
+                          <span className="bg-[#f1f3f5] text-[#495057] text-[9.5px] sm:text-[12px] font-medium px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded">
                             {pkg.nights}박 {pkg.days}일
                           </span>
-                          <span className="bg-[#f1f3f5] text-[#495057] text-[12px] font-medium px-2.5 py-1 rounded-md">
+                          <span className="bg-[#f1f3f5] text-[#495057] text-[9.5px] sm:text-[12px] font-medium px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded">
                             쇼핑 {pkg.shoppingCount}회
                           </span>
-                          {pkg.hasOptionalTour && (
-                            <span className="bg-[#f0f9ff] text-[#0284c7] text-[12px] font-medium px-2.5 py-1 rounded-md">
-                              선택관광
-                            </span>
-                          )}
                         </div>
                       </div>
 
                       {/* 하단 최소 출발 인원 및 우대 안내 */}
-                      <div className="pt-3 border-t border-[#f1f5f9] flex items-center justify-between text-[13px] text-[#6b7280]">
-                        <span>최소 출발 {pkg.minDeparturePax}명</span>
-                        <span className="text-[12px] font-semibold text-[#c5a059] flex items-center gap-0.5 group-hover:translate-x-0.5 transition-transform">
-                          일정 확인하기 &gt;
+                      <div className="pt-1.5 sm:pt-3 border-t border-[#f1f5f9] flex items-center justify-between text-[10px] sm:text-[13px] text-[#6b7280]">
+                        <span>출발 {pkg.minDeparturePax}명~</span>
+                        <span className="text-[10px] sm:text-[12px] font-semibold text-[#c5a059] flex items-center gap-0.5">
+                          상세 &gt;
                         </span>
                       </div>
                     </div>
@@ -551,49 +525,49 @@ export default function HappyClassSectionV2() {
                   </span>
                 </div>
 
-                {/* 6대 권역 카드 그리드 */}
-                <div className="grid sm:grid-cols-2 gap-3.5">
+                {/* 6대 권역 카드 그리드 (모바일 2열) */}
+                <div className="grid grid-cols-2 gap-2 sm:gap-3.5">
                   {RESORT_LIST.map((group, idx) => {
                     const themes = [
-                      "도심 & 오션스테이",
+                      "도심 & 오션",
                       "해운대 오션뷰",
-                      "수도권 근교 휴양",
-                      "동해 바다 & 마운틴",
-                      "명산 호반 & 온천",
-                      "남해안 & 제주 트립",
+                      "수도권 근교",
+                      "동해 & 마운틴",
+                      "호반 & 온천",
+                      "남해 & 제주",
                     ];
                     const theme = themes[idx] || "힐링 리조트";
 
                     return (
                       <div
                         key={idx}
-                        className="bg-[#faf8f4] hover:bg-white rounded-xl p-3.5 border border-[#e7e1d5] hover:border-[#c5a059] transition-all duration-300 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_20px_-6px_rgba(197,160,89,0.15)] group flex flex-col justify-between"
+                        className="bg-[#faf8f4] hover:bg-white rounded-xl p-2 sm:p-3.5 border border-[#e7e1d5] hover:border-[#c5a059] transition-all duration-300 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_20px_-6px_rgba(197,160,89,0.15)] group flex flex-col justify-between"
                       >
                         <div>
                           {/* 권역 번호 및 지역 */}
-                          <div className="flex items-center justify-between gap-2 mb-2 pb-2 border-b border-[#eae4d8]">
-                            <div className="flex items-center gap-1.5">
-                              <span className="w-5 h-5 rounded-md bg-[#172c37] text-[#d9bc86] text-[10px] font-bold flex items-center justify-center font-mono">
+                          <div className="flex items-center justify-between gap-1 mb-1.5 sm:mb-2 pb-1.5 sm:pb-2 border-b border-[#eae4d8]">
+                            <div className="flex items-center gap-1 sm:gap-1.5 min-w-0">
+                              <span className="w-4 h-4 sm:w-5 sm:h-5 rounded bg-[#172c37] text-[#d9bc86] text-[9px] sm:text-[10px] font-bold flex items-center justify-center font-mono shrink-0">
                                 0{idx + 1}
                               </span>
-                              <strong className="text-[12.5px] font-bold text-[#1f313a] group-hover:text-[#8c734b] transition-colors">
+                              <strong className="text-[11.5px] sm:text-[12.5px] font-bold text-[#1f313a] group-hover:text-[#8c734b] transition-colors truncate">
                                 {group.region}
                               </strong>
                             </div>
-                            <span className="text-[10px] font-medium text-[#8c734b] bg-[#f2ebd9] px-2 py-0.5 rounded-full shrink-0">
+                            <span className="text-[9px] sm:text-[10px] font-medium text-[#8c734b] bg-[#f2ebd9] px-1.5 py-0.2 rounded-full shrink-0">
                               {theme}
                             </span>
                           </div>
 
                           {/* 개별 호텔/리조트 뱃지 태그 리스트 */}
-                          <div className="flex flex-wrap gap-1.5 mt-2">
+                          <div className="flex flex-wrap gap-1 sm:gap-1.5 mt-1 sm:mt-2">
                             {group.places.map((place, pIdx) => (
                               <span
                                 key={pIdx}
-                                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-[#e4ded5] text-[#2c3d42] text-[11.5px] font-medium shadow-[0_1px_2px_rgba(0,0,0,0.02)] group-hover:border-[#d9cbba] hover:!border-[#c5a059] hover:!bg-[#fffdf9] hover:!text-[#8c734b] transition-colors"
+                                className="inline-flex items-center gap-1 px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded bg-white border border-[#e4ded5] text-[#2c3d42] text-[10px] sm:text-[11.5px] font-medium shadow-[0_1px_2px_rgba(0,0,0,0.02)]"
                               >
-                                <span className="w-1 h-1 rounded-full bg-[#c5a059]" />
-                                {place}
+                                <span className="w-1 h-1 rounded-full bg-[#c5a059] shrink-0" />
+                                <span className="truncate max-w-[80px] sm:max-w-none">{place}</span>
                               </span>
                             ))}
                           </div>
