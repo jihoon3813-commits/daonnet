@@ -134,20 +134,7 @@ export const DaonProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [preferredParkInput, setPreferredParkInput] = useState("");
   const [userPoints, setUserPoints] = useState(2490000);
   const [consultations, setConsultations] = useState<ConsultationItem[]>(INITIAL_CONSULTATIONS);
-  const [certificates, setCertificates] = useState<UserCertificate[]>([
-    {
-      certNumber: "DAON-2026-881601",
-      customerName: "김*수",
-      phone: "010-8816-****",
-      productName: "다온 프리미엄 249",
-      guaranteeAmount: 4980000,
-      funeralAmount: 1980000,
-      memorialTier: "봉안당 1단 기준 (유토피아 직영 및 전국)",
-      points: 2490000,
-      issuedDate: "2026-03-15",
-      status: "공증 환급 유효 (10년)",
-    },
-  ]);
+  const [certificates, setCertificates] = useState<UserCertificate[]>([]);
 
   // Convex mutations
   const createConsultationMutation = useMutation(api.consultations.createConsultation);
@@ -226,7 +213,14 @@ export const DaonProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const closeContract = () => setIsContractOpen(false);
-  const openCert = () => setIsCertOpen(true);
+  const openCert = () => {
+    if (!user) {
+      alert("마이 보증서는 로그인 후 확인하실 수 있습니다.");
+      openAuth("login");
+      return;
+    }
+    setIsCertOpen(true);
+  };
   const closeCert = () => setIsCertOpen(false);
   const openLookup = () => setIsLookupOpen(true);
   const closeLookup = () => setIsLookupOpen(false);
@@ -287,21 +281,6 @@ export const DaonProvider: React.FC<{ children: React.ReactNode }> = ({ children
     };
     const nextList = [newItem, ...consultations];
     saveConsultations(nextList);
-
-    // 자동 보증서 등록
-    const newCert: UserCertificate = {
-      certNumber: certNum,
-      customerName: item.customerName,
-      phone: item.phone,
-      productName: item.productName,
-      guaranteeAmount: item.productSet === "Set2" ? 4980000 : 1980000,
-      funeralAmount: 1980000,
-      memorialTier: "봉안당 1단 기준 (유토피아 직영 및 전국)",
-      points: item.productSet === "Set2" ? 2490000 : 1000000,
-      issuedDate: new Date().toISOString().split("T")[0],
-      status: "신청 완료 (보증서 발급 대기)",
-    };
-    saveCerts([newCert, ...certificates]);
 
     return certNum;
   };

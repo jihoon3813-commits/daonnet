@@ -25,7 +25,7 @@ declare global {
 }
 
 export default function ContractModal() {
-  const { isContractOpen, closeContract, preferredParkInput, addConsultation, openCert } =
+  const { isContractOpen, closeContract, preferredParkInput, addConsultation } =
     useDaon();
 
   const [healthFood, setHealthFood] = useState("삼칠그라 365 (59.8만원 상당)");
@@ -217,7 +217,7 @@ export default function ContractModal() {
 
             <div className="bg-[#FAF8F5] border border-amber-200/90 rounded-2xl p-5 text-left text-xs space-y-2.5 max-w-md mx-auto shadow-sm">
               <div className="flex justify-between items-center pb-2 border-b border-amber-100">
-                <span className="text-gray-500 font-medium">임시 발급 보증서 번호</span>
+                <span className="text-gray-500 font-medium">신청 접수 번호</span>
                 <strong className="text-[#0F1E36] font-mono text-sm font-bold bg-white px-2 py-0.5 rounded border border-amber-200">
                   {completedCertNum}
                 </strong>
@@ -249,21 +249,11 @@ export default function ContractModal() {
               </div>
             </div>
 
-            <div className="flex gap-2.5 pt-3">
-              <button
-                type="button"
-                onClick={() => {
-                  handleResetAndClose();
-                  openCert();
-                }}
-                className="flex-1 bg-gray-100 hover:bg-gray-200 text-[#0F1E36] font-bold py-3.5 rounded-xl text-xs sm:text-sm transition cursor-pointer"
-              >
-                모바일 보증서 확인
-              </button>
+            <div className="pt-3 max-w-md mx-auto">
               <button
                 type="button"
                 onClick={handleResetAndClose}
-                className="flex-1 gold-gradient text-white font-extrabold py-3.5 rounded-xl text-xs sm:text-sm shadow-md hover:brightness-105 transition cursor-pointer"
+                className="w-full gold-gradient text-white font-extrabold py-3.5 rounded-xl text-xs sm:text-sm shadow-md hover:brightness-105 transition cursor-pointer"
               >
                 확인 완료
               </button>

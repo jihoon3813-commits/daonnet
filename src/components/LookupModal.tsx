@@ -136,16 +136,22 @@ export default function LookupModal() {
                     </div>
 
                     <div className="pt-2 flex justify-end">
-                      <button
-                        onClick={() => {
-                          closeLookup();
-                          openCert();
-                        }}
-                        className="bg-white hover:bg-gray-50 text-[#0F1E36] border border-gray-300 px-3 py-1.5 rounded-lg font-bold text-[11px] flex items-center gap-1 transition cursor-pointer"
-                      >
-                        <Award className="w-3.5 h-3.5 text-[#C5A059]" />
-                        <span>보증서 보기</span>
-                      </button>
+                      {item.status === "보증서발급" ? (
+                        <button
+                          onClick={() => {
+                            closeLookup();
+                            openCert();
+                          }}
+                          className="bg-white hover:bg-gray-50 text-[#0F1E36] border border-gray-300 px-3 py-1.5 rounded-lg font-bold text-[11px] flex items-center gap-1 transition cursor-pointer"
+                        >
+                          <Award className="w-3.5 h-3.5 text-[#C5A059]" />
+                          <span>보증서 보기</span>
+                        </button>
+                      ) : (
+                        <span className="text-[11px] text-gray-500 font-medium">
+                          상담 및 심사 진행 중 (보증서 발급 대기)
+                        </span>
+                      )}
                     </div>
                   </div>
                 ))}

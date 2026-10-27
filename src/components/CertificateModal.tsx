@@ -19,20 +19,59 @@ import {
 import { useDaon } from "@/context/DaonContext";
 
 export default function CertificateModal() {
-  const { isCertOpen, closeCert, userPoints, certificates } = useDaon();
+  const { isCertOpen, closeCert, userPoints, certificates, user, openContract } = useDaon();
 
-  if (!isCertOpen) return null;
+  if (!isCertOpen || !user) return null;
 
-  const latestCert = certificates[0] || {
-    certNumber: "DAON-2026-881601",
-    customerName: "다온넷 VIP 정회원",
-    guaranteeAmount: 4980000,
-    funeralAmount: 1980000,
-    memorialTier: "봉안당 1단 기준 (유토피아 직영 및 전국)",
-    points: 2490000,
-    issuedDate: "2026-03-15",
-    status: "공증 환급 유효 (10년)",
-  };
+  const latestCert = certificates[0] || null;
+
+  if (!latestCert) {
+    return (
+      <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+        <div className="relative bg-[#FCFBF8] text-slate-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-[0_25px_60px_-15px_rgba(15,30,54,0.25)] border border-amber-200/90 text-center animate-scale-up">
+          <div className="flex justify-end mb-2">
+            <button
+              onClick={closeCert}
+              className="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 flex items-center justify-center transition cursor-pointer"
+              aria-label="닫기"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+          <div className="w-16 h-16 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center mx-auto mb-4 text-[#C5A059]">
+            <Award className="w-8 h-8" />
+          </div>
+          <h3
+            className="text-xl font-bold text-[#0F1E36] mb-2"
+            style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
+          >
+            발급된 보증서가 없습니다
+          </h3>
+          <p className="text-xs sm:text-sm text-gray-600 mb-6 leading-relaxed">
+            <strong className="text-[#0F1E36]">{user.email}</strong> 님 명의로 발급된 정식 이행보증서가 없습니다.<br />
+            다온 프리미엄 249 상품 가입 및 본사 승인 완료 후 10년 공증 환급보증서(498만 원)가 안전하게 발급 등록됩니다.
+          </p>
+          <div className="space-y-2">
+            <button
+              onClick={() => {
+                closeCert();
+                openContract();
+              }}
+              className="w-full gold-gradient text-white font-bold py-3.5 rounded-xl text-xs sm:text-sm shadow-md hover:brightness-105 transition cursor-pointer"
+            >
+              다온 프리미엄 249 가입·상담 신청하기
+            </button>
+            <button
+              onClick={closeCert}
+              className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 rounded-xl text-xs transition cursor-pointer"
+            >
+              닫기
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
