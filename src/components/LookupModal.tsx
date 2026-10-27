@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { X, Search, ShieldCheck, UserCheck, Calendar, Phone, Award } from "lucide-react";
 import { useDaon, ConsultationItem } from "@/context/DaonContext";
+import { formatPhoneNumber } from "@/utils/format";
 
 export default function LookupModal() {
   const { isLookupOpen, closeLookup, consultations, openCert } = useDaon();
@@ -57,10 +58,14 @@ export default function LookupModal() {
           </label>
           <div className="flex gap-2">
             <input
-              type="text"
+              type="tel"
+              inputMode="numeric"
+              pattern="[0-9]*"
+              autoComplete="tel"
+              maxLength={13}
               value={searchPhone}
-              onChange={(e) => setSearchPhone(e.target.value)}
-              placeholder="예: 01012345678 또는 뒷자리 4자리"
+              onChange={(e) => setSearchPhone(formatPhoneNumber(e.target.value))}
+              placeholder="예: 010-1234-5678 또는 뒷자리 4자리"
               className="flex-1 border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#0F1E36]"
             />
             <button

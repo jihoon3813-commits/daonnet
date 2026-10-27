@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import { ShieldCheck, PhoneCall, Sparkles, UserCheck, Settings } from "lucide-react";
+import { ShieldCheck, PhoneCall, Sparkles, UserCheck } from "lucide-react";
 import { useDaon } from "@/context/DaonContext";
 
 export default function TopBar() {
-  const { openCert, openLookup, openAdmin, userPoints } = useDaon();
+  const { openCert, openLookup, userPoints } = useDaon();
 
   return (
     <div className="hidden lg:block bg-[#091324] text-gray-300 text-xs py-2 px-4 border-b border-gray-800">
@@ -53,14 +53,6 @@ export default function TopBar() {
               {userPoints.toLocaleString()} P
             </strong>
           </div>
-
-          <button
-            onClick={openAdmin}
-            title="관리자 접수 현황 대시보드"
-            className="text-gray-500 hover:text-gray-300 p-1 transition shrink-0 cursor-pointer"
-          >
-            <Settings className="w-3.5 h-3.5" />
-          </button>
         </div>
       </div>
     </div>

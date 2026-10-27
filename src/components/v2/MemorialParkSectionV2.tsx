@@ -3,6 +3,15 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { MEMORIAL_PARKS, MemorialPark } from "@/data/memorialParks";
 import { useDaon } from "@/context/DaonContext";
+import { useQuery } from "convex/react";
+import { api } from "../../../convex/_generated/api";
+import {
+  ShieldCheck,
+  Sparkles,
+  Users,
+  Headphones,
+  CheckCircle2,
+} from "lucide-react";
 
 interface MemorialParkSectionV2Props {
   initialRegion?: string;
@@ -12,12 +21,71 @@ interface MemorialParkSectionV2Props {
 
 const PARK_PHOTOS = ["/assets/forest.jpg", "/assets/stay.jpg", "/assets/garden.jpg"];
 
+const SPECIAL_BENEFITS = [
+  {
+    num: "01",
+    tag: "정가 대비 10~70% 할인",
+    title: "봉안당 1단 기준 특별지원",
+    desc: "추모공원 이행증서 및 고급 봉안함을 기본 제공하며, 제휴 추모시설 정가 대비 10~70% 우대 할인가를 적용해 드립니다.",
+    highlight: "이행증서 & 고급 봉안함 제공",
+    icon: ShieldCheck,
+  },
+  {
+    num: "02",
+    tag: "우수 위치 사전 선점",
+    title: "사전 예약 및 로얄석 선점",
+    desc: "장례 발생 전 희망하는 장지의 우수 위치(로얄석)를 미리 지정하고 1:1 맞춤 현장 안내와 전문 상담을 진행합니다.",
+    highlight: "로얄석 사전 지정 · 1:1 맞춤 상담",
+    icon: Sparkles,
+  },
+  {
+    num: "03",
+    tag: "가족 간 무상 양도 가능",
+    title: "직계가족 자유 양도·양수",
+    desc: "본인은 물론 부모님 등 소중한 직계 가족 사용을 위해 추모공원 및 장례 이행에 대한 모든 권리를 조건 없이 자유롭게 양도합니다.",
+    highlight: "직계 가족 무상 권리 양도",
+    icon: Users,
+  },
+  {
+    num: "04",
+    tag: "24시 전국 장지 원스톱",
+    title: "원스톱 장지 연결 컨설팅",
+    desc: "장례 발생 시 24시간 의전 접수부터 전국 공설·사설 장지 예약 및 최종 안치까지 전 과정을 원스톱으로 지원합니다.",
+    highlight: "24시간 접수 · 전국 장지 안치",
+    icon: Headphones,
+  },
+];
+
 export default function MemorialParkSectionV2({
   initialRegion = "ALL",
   initialType = "ALL",
   initialKeyword = "",
 }: MemorialParkSectionV2Props) {
   const { openContract } = useDaon();
+  const dbParks = useQuery(api.parks.listParks, {});
+
+  // DB에 데이터가 있으면 DB 우선, 없으면 정적 fallback
+  const allParks = useMemo(() => {
+    if (dbParks && dbParks.length > 0) {
+      return dbParks.map((p: any) => ({
+        id: p._id,
+        region: p.region as any,
+        regionLabel: p.regionLabel,
+        loc: p.loc,
+        name: p.name,
+        type: p.type as any,
+        addr: p.addr,
+        desc: p.desc,
+        featured: p.featured,
+        phone: p.phone,
+        website: p.website,
+        supportBenefit: p.supportBenefit,
+        displayImageUrl: p.displayImageUrl,
+      }));
+    }
+    return MEMORIAL_PARKS;
+  }, [dbParks]);
+
   const [currentRegion, setCurrentRegion] = useState(initialRegion);
   const [currentType, setCurrentType] = useState(initialType);
   const [searchTerm, setSearchTerm] = useState(initialKeyword);
@@ -61,16 +129,16 @@ export default function MemorialParkSectionV2({
 
   const regionCounts = useMemo(() => {
     return {
-      ALL: MEMORIAL_PARKS.length,
-      CAPITAL: MEMORIAL_PARKS.filter((p) => p.region === "CAPITAL").length,
-      CHUNG_GANG: MEMORIAL_PARKS.filter((p) => p.region === "CHUNG_GANG").length,
-      YEONGNAM: MEMORIAL_PARKS.filter((p) => p.region === "YEONGNAM").length,
-      HONAM_JEJU: MEMORIAL_PARKS.filter((p) => p.region === "HONAM_JEJU").length,
+      ALL: allParks.length,
+      CAPITAL: allParks.filter((p) => p.region === "CAPITAL").length,
+      CHUNG_GANG: allParks.filter((p) => p.region === "CHUNG_GANG").length,
+      YEONGNAM: allParks.filter((p) => p.region === "YEONGNAM").length,
+      HONAM_JEJU: allParks.filter((p) => p.region === "HONAM_JEJU").length,
     };
-  }, []);
+  }, [allParks]);
 
   const filteredParks = useMemo(() => {
-    return MEMORIAL_PARKS.filter((park) => {
+    return allParks.filter((park) => {
       const matchRegion = currentRegion === "ALL" || park.region === currentRegion;
       const matchType = currentType === "ALL" || park.type === currentType;
       const matchSaved = !onlySaved || savedIds.includes(park.id);
@@ -84,7 +152,7 @@ export default function MemorialParkSectionV2({
 
       return matchRegion && matchType && matchSaved && matchSearch;
     });
-  }, [currentRegion, currentType, searchTerm, onlySaved, savedIds]);
+  }, [allParks, currentRegion, currentType, searchTerm, onlySaved, savedIds]);
 
   const visibleParks = showAll ? filteredParks : filteredParks.slice(0, 9);
 
@@ -94,93 +162,84 @@ export default function MemorialParkSectionV2({
 
   return (
     <>
-      {/* 1. THOUGHTFUL CARE — 추모공원 4대 특별지원 안내 (.intro 레이아웃) */}
+      {/* 1. THOUGHTFUL CARE — 추모공원 4대 특별지원 안내 (.intro 레이아웃 개선) */}
       <section
         id="support"
-        className="py-[48px] sm:py-[68px] lg:py-[96px] px-5 sm:px-[6%] max-w-[1320px] mx-auto grid lg:grid-cols-[0.8fr_1.3fr] gap-[24px] sm:gap-[40px] lg:gap-[65px]"
+        className="py-[56px] sm:py-[76px] lg:py-[100px] px-5 sm:px-[6%] max-w-[1240px] mx-auto"
       >
-        <div>
-          <div className="text-[10px] tracking-[2.7px] text-[#947b50] font-semibold mb-[12px] sm:mb-[17px] uppercase">
-            THOUGHTFUL CARE · 4대 특별지원
+        {/* 상단 헤더: 타이틀(좌) + 서브설명문(우)의 균형 잡힌 구조 */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-[20px] sm:gap-[32px] pb-[32px] sm:pb-[44px] border-b border-[#dedfd7]">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f4efe6] border border-[#e5dac4] text-[10.5px] tracking-[2px] text-[#947b50] font-semibold uppercase mb-[12px] sm:mb-[16px]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#947b50]" />
+              THOUGHTFUL CARE · 4대 특별지원
+            </div>
+            <h2
+              className="text-[26px] sm:text-[36px] font-medium leading-[1.38] tracking-[-1px] sm:tracking-[-1.3px] text-[#26373b] m-0"
+              style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
+            >
+              어려운 준비를,
+              <br />
+              <span className="text-[#947b50]">조금 더 편안하게.</span>
+            </h2>
           </div>
-          <h2
-            className="text-[24px] sm:text-[35px] font-medium leading-[1.45] sm:leading-[1.55] tracking-[-1px] sm:tracking-[-1.2px] text-[#26373b] m-0"
-            style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
-          >
-            어려운 준비를,
-            <br />
-            조금 더 편안하게.
-          </h2>
+
+          <div className="lg:max-w-[540px]">
+            <p className="text-[13.5px] sm:text-[15.5px] text-[#6b7370] leading-[1.8] sm:leading-[1.85] m-0">
+              어디서부터 알아봐야 할지 막막한 순간. 다온넷 프리미엄 249 회원은 직영{" "}
+              <strong className="text-[#172c37] font-semibold">안성 유토피아 추모관</strong>을 비롯하여
+              전국 어디든 희망하시는 추모공원을 <span className="text-[#947b50] font-semibold underline underline-offset-4 decoration-[#d9bc86]">특별 혜택</span>으로 준비하실 수 있습니다.
+            </p>
+          </div>
         </div>
 
-        <div>
-          <p className="text-[13px] sm:text-[16px] text-[#747b78] leading-[1.8] sm:leading-[1.85] m-0">
-            어디서부터 알아봐야 할지 막막한 순간. 다온넷 프리미엄 249 회원은 직영{" "}
-            <strong className="text-[#26373b] font-semibold">안성 유토피아 추모관</strong>을 비롯하여
-            전국 어디든 희망하시는 추모공원을 특별 혜택으로 준비하실 수 있습니다.
-          </p>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-[16px] sm:gap-[20px] mt-[24px] sm:mt-[32px]">
-            <article className="border-t border-[#dedfd7] pt-[14px] sm:pt-[17px]">
-              <span
-                className="text-[#aa9267] text-[12px] font-medium"
-                style={{ fontFamily: "Georgia, serif" }}
+        {/* 4대 특별지원 프리미엄 카드 그리드 */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[16px] sm:gap-[20px] pt-[32px] sm:pt-[44px]">
+          {SPECIAL_BENEFITS.map((item) => {
+            const Icon = item.icon;
+            return (
+              <article
+                key={item.num}
+                className="group relative bg-[#fcfbf9] hover:bg-white rounded-2xl p-6 sm:p-7 border border-[#e8e7df] hover:border-[#c5b28d] transition-all duration-300 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_16px_36px_rgba(23,44,55,0.08)] hover:-translate-y-1 flex flex-col justify-between"
               >
-                01
-              </span>
-              <h3 className="text-[14px] sm:text-[15px] font-semibold text-[#26373b] mt-[8px] sm:mt-[10px] mb-[5px] sm:mb-[6px]">
-                봉안당 1단 기준 특별지원
-              </h3>
-              <p className="text-[11px] text-[#747b78] leading-[1.6] sm:leading-[1.65] m-0">
-                추모공원 이행증서 및 고급 봉안함 기본 제공 (제휴 시설 정가 대비 10~70% 할인가 적용)
-              </p>
-            </article>
+                <div>
+                  {/* 상단 번호 & 아이콘 */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span
+                      className="text-[22px] font-semibold text-[#c5b28d] group-hover:text-[#947b50] transition-colors"
+                      style={{ fontFamily: "Georgia, serif" }}
+                    >
+                      {item.num}
+                    </span>
+                    <div className="w-10 h-10 rounded-xl bg-[#f2eee5] group-hover:bg-[#172c37] text-[#947b50] group-hover:text-[#d9bc86] flex items-center justify-center transition-all duration-300">
+                      <Icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
+                    </div>
+                  </div>
 
-            <article className="border-t border-[#dedfd7] pt-[14px] sm:pt-[17px]">
-              <span
-                className="text-[#aa9267] text-[12px] font-medium"
-                style={{ fontFamily: "Georgia, serif" }}
-              >
-                02
-              </span>
-              <h3 className="text-[14px] sm:text-[15px] font-semibold text-[#26373b] mt-[8px] sm:mt-[10px] mb-[5px] sm:mb-[6px]">
-                사전 예약 및 로얄석 선점
-              </h3>
-              <p className="text-[11px] text-[#747b78] leading-[1.6] sm:leading-[1.65] m-0">
-                장례 발생 전 희망하는 장지의 우수 위치(로얄석) 사전 지정 및 맞춤 상담 가능
-              </p>
-            </article>
+                  {/* 혜택 태그 배지 */}
+                  <div className="inline-block text-[11px] font-semibold text-[#8c744d] bg-[#f5ede0] border border-[#ecdcc3] px-2.5 py-0.5 rounded-full mb-3">
+                    {item.tag}
+                  </div>
 
-            <article className="border-t border-[#dedfd7] pt-[14px] sm:pt-[17px]">
-              <span
-                className="text-[#aa9267] text-[12px] font-medium"
-                style={{ fontFamily: "Georgia, serif" }}
-              >
-                03
-              </span>
-              <h3 className="text-[14px] sm:text-[15px] font-semibold text-[#26373b] mt-[8px] sm:mt-[10px] mb-[5px] sm:mb-[6px]">
-                직계가족 자유 양도·양수
-              </h3>
-              <p className="text-[11px] text-[#747b78] leading-[1.6] sm:leading-[1.65] m-0">
-                부모님 등 직계 가족 사용을 위한 추모공원 및 장례 이행 권리 자유 양도
-              </p>
-            </article>
+                  {/* 카드 제목 */}
+                  <h3 className="text-[16px] sm:text-[17px] font-bold text-[#26373b] leading-[1.4] mb-2.5 group-hover:text-[#172c37] transition-colors">
+                    {item.title}
+                  </h3>
 
-            <article className="border-t border-[#dedfd7] pt-[14px] sm:pt-[17px]">
-              <span
-                className="text-[#aa9267] text-[12px] font-medium"
-                style={{ fontFamily: "Georgia, serif" }}
-              >
-                04
-              </span>
-              <h3 className="text-[14px] sm:text-[15px] font-semibold text-[#26373b] mt-[8px] sm:mt-[10px] mb-[5px] sm:mb-[6px]">
-                원스톱 장지 연결 컨설팅
-              </h3>
-              <p className="text-[11px] text-[#747b78] leading-[1.6] sm:leading-[1.65] m-0">
-                장례 발생 시 24시간 의전 접수부터 전국 공설·사설 장지 안치까지 원스톱 진행
-              </p>
-            </article>
-          </div>
+                  {/* 설명 */}
+                  <p className="text-[12px] sm:text-[13px] text-[#6f7673] leading-[1.68] m-0">
+                    {item.desc}
+                  </p>
+                </div>
+
+                {/* 하단 체크 요약 포인트 */}
+                <div className="mt-5 pt-3.5 border-t border-[#edebe3] flex items-center gap-1.5 text-[11.5px] font-medium text-[#26373b]/85">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#947b50] shrink-0" />
+                  <span className="truncate">{item.highlight}</span>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
 
@@ -337,15 +396,27 @@ export default function MemorialParkSectionV2({
                       {/* 상단 분위기 포토 영역 */}
                       <div className="h-[195px] overflow-hidden relative bg-[#c9d0c2]">
                         <img
-                          src={photoUrl}
+                          src={(park as any).displayImageUrl || photoUrl}
                           alt={park.name}
                           loading="lazy"
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                          style={{ filter: "saturate(0.7)" }}
                         />
                         <span className="absolute bottom-[12px] left-[14px] text-white bg-[#233c32]/80 text-[10px] px-[8px] py-[3px] tracking-wide">
                           {park.type} · {park.featured ? "다온넷 직영" : "다온넷 지원 가능"}
                         </span>
+                        {park.website && (
+                          <a
+                            href={park.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="absolute bottom-[12px] right-[14px] text-white bg-[#172c37]/85 hover:bg-[#947b50] text-[10px] font-medium px-[9px] py-[3px] rounded transition flex items-center gap-1 backdrop-blur-sm shadow-sm"
+                            title={`${park.name} 공식 홈페이지 새창 열기`}
+                          >
+                            <span>홈페이지</span>
+                            <span className="text-[10px]">↗</span>
+                          </a>
+                        )}
                         {park.featured && (
                           <span className="absolute top-[12px] left-[14px] bg-[#d9bc86] text-[#172c37] text-[10px] font-bold px-[8px] py-[3px]">
                             DIRECT · 직영 대표시설
@@ -383,7 +454,20 @@ export default function MemorialParkSectionV2({
                     {/* 카드 하단 액션 */}
                     <div className="px-[22px] pb-[20px]">
                       <div className="flex justify-between items-center border-t border-[#dedfd7] pt-[14px] text-[11px] text-[#7b847d]">
-                        <span>봉안당 1단 기준 · 사전선점</span>
+                        {park.website ? (
+                          <a
+                            href={park.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#8d7854] hover:text-[#172c37] underline decoration-[#d9bc86] underline-offset-4 transition"
+                            title={`${park.name} 공식 홈페이지 새창 열기`}
+                          >
+                            <span>공식 홈페이지 바로가기</span>
+                            <span className="text-[10px]">↗</span>
+                          </a>
+                        ) : (
+                          <span>봉안당 1단 기준 · 사전선점</span>
+                        )}
                         <button
                           onClick={() => handleSelectPark(park)}
                           className="text-[12px] font-semibold text-[#172c37] hover:text-[#947b50] transition cursor-pointer"

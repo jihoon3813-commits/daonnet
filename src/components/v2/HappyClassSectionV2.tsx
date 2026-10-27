@@ -1,15 +1,46 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { RESORT_LIST } from "@/data/pointMall";
+import { PACKAGE_TOURS, PACKAGE_COUNTRIES, PackageTour } from "@/data/packageTours";
 import { useDaon } from "@/context/DaonContext";
+import PackageDetailModal from "./PackageDetailModal";
+import {
+  Sparkles,
+  Hotel,
+  Users,
+  Compass,
+  Phone,
+  ArrowUpRight,
+  ShieldCheck,
+  CheckCircle2,
+  Plane,
+  ChevronRight,
+} from "lucide-react";
 
 export default function HappyClassSectionV2() {
   const { openContract } = useDaon();
+  const [selectedCountry, setSelectedCountry] = useState<string>("전체");
+  const [selectedPkg, setSelectedPkg] = useState<PackageTour | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const filteredPackages =
+    selectedCountry === "전체"
+      ? PACKAGE_TOURS
+      : PACKAGE_TOURS.filter((p) => p.country === selectedCountry);
+
+  const handleOpenDetail = (pkg: PackageTour) => {
+    setSelectedPkg(pkg);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseDetail = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <>
-      {/* 1. MORE MOMENTS, MORE LIFE — 라이프 혜택 3대 비주얼 카드 & 전국 50곳 제휴 숙박 (.life) */}
+      {/* 1. MORE MOMENTS, MORE LIFE — 라이프 혜택 4대 비주얼 카드 & 전국 50곳 제휴 숙박 & 해외 패키지 여행 */}
       <section
         id="happy-class"
         className="bg-[#eeeee6] py-[48px] sm:py-[68px] lg:py-[96px] px-5 sm:px-[6%] border-t border-[#dedfd7]"
@@ -18,8 +49,9 @@ export default function HappyClassSectionV2() {
           {/* 섹션 헤더 */}
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-[12px] sm:gap-[20px] mb-[26px] sm:mb-[35px]">
             <div>
-              <div className="text-[10px] tracking-[2.7px] text-[#947b50] font-semibold mb-[10px] sm:mb-[14px] uppercase">
-                MORE MOMENTS, MORE LIFE · 해피클래스 &amp; 크루즈
+              <div className="text-[10px] tracking-[2.7px] text-[#947b50] font-semibold mb-[10px] sm:mb-[14px] uppercase flex items-center gap-1.5">
+                <Sparkles className="w-3 h-3 text-[#947b50]" />
+                <span>MORE MOMENTS, MORE LIFE · 해피클래스 &amp; 패키지 여행 &amp; 크루즈</span>
               </div>
               <h2
                 className="text-[24px] sm:text-[35px] font-medium leading-[1.45] sm:leading-[1.5] tracking-[-1px] sm:tracking-[-1.2px] text-[#26373b] m-0"
@@ -32,19 +64,19 @@ export default function HappyClassSectionV2() {
             <p className="text-[12px] sm:text-[14px] text-[#747b78] m-0">
               준비하는 마음만큼, 지금의 행복도 소중하니까요.
               <br />
-              전국 약 50곳 2박 3일 무료 숙박권과 크루즈 우대를 만나보세요.
+              전국 50곳 2박 3일 무료 숙박권, <strong>해외 5개국 패키지 여행 우대</strong>, 럭셔리 크루즈 특전을 만나보세요.
             </p>
           </div>
 
-          {/* 3대 라이프 비주얼 카드 (.life-grid) */}
-          <div className="grid lg:grid-cols-3 gap-[16px] sm:gap-[23px] mb-[36px] sm:mb-[50px]">
+          {/* 4대 라이프 비주얼 카드 (.life-grid) */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-[14px] sm:gap-[18px] mb-[36px] sm:mb-[50px]">
             {/* 01 / STAY */}
             <div
               onClick={() => openContract("[해피클래스 2박 3일 숙박권 문의] ")}
-              className="h-[240px] sm:h-[355px] text-left p-[20px] sm:p-[24px] flex flex-col justify-between text-white relative overflow-hidden cursor-pointer group"
+              className="h-[250px] sm:h-[355px] text-left p-[20px] sm:p-[24px] flex flex-col justify-between text-white relative overflow-hidden cursor-pointer group rounded-xl sm:rounded-none"
               style={{
                 background:
-                  "linear-gradient(0deg, rgba(25, 51, 44, 0.88), transparent), url('/assets/stay.jpg') center/cover, #667e6a",
+                  "linear-gradient(0deg, rgba(25, 51, 44, 0.9), rgba(25, 51, 44, 0.2)), url('/assets/stay.jpg') center/cover, #667e6a",
               }}
             >
               <span className="text-[9px] tracking-[2px] uppercase">
@@ -55,12 +87,12 @@ export default function HappyClassSectionV2() {
                   HAPPY CLASS ACCOMMODATION
                 </small>
                 <h3
-                  className="text-[21px] sm:text-[25px] font-normal my-[6px] sm:my-[8px]"
+                  className="text-[20px] sm:text-[23px] font-normal my-[6px] sm:my-[8px]"
                   style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
                 >
                   잠시 쉬어가는 여유
                 </h3>
-                <p className="text-[12px] text-[#e3e6e5] m-0">
+                <p className="text-[12px] text-[#e3e6e5] m-0 leading-relaxed">
                   전국 50여 곳 2박 3일 무료 숙박권 (1박 15만원 상당)
                   <span className="float-right text-[18px] group-hover:translate-x-1 transition-transform">
                     ↗
@@ -69,29 +101,65 @@ export default function HappyClassSectionV2() {
               </div>
             </div>
 
-            {/* 02 / CRUISE */}
-            <div
-              onClick={() => openContract("[럭셔리 크루즈 회원 우대 문의] ")}
-              className="h-[240px] sm:h-[355px] text-left p-[20px] sm:p-[24px] flex flex-col justify-between text-white relative overflow-hidden cursor-pointer group"
+            {/* 02 / PACKAGE TOUR (강조!) */}
+            <a
+              href="#package-tour-section"
+              className="h-[250px] sm:h-[355px] text-left p-[20px] sm:p-[24px] flex flex-col justify-between text-white relative overflow-hidden cursor-pointer group rounded-xl sm:rounded-none border-2 border-[#e1c897]/60 shadow-[0_4px_20px_rgba(225,200,151,0.25)]"
               style={{
                 background:
-                  "linear-gradient(0deg, rgba(24, 55, 68, 0.88), transparent), url('/assets/sea.jpg') center/cover, #7b9ca5",
+                  "linear-gradient(0deg, rgba(18, 38, 58, 0.92), rgba(18, 38, 58, 0.25)), url('https://api.tlabal.co.kr/api/assets/itinerary/7-mt6v20ts-18ijwou.jpg') center/cover, #1d3557",
+              }}
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-[9px] tracking-[2px] uppercase text-[#fef08a] font-bold">
+                  02 / PACKAGE · 해외 5개국
+                </span>
+                <span className="px-2 py-0.5 rounded-full bg-[#E8172A] text-white text-[10px] font-bold">
+                  회원 우대
+                </span>
+              </div>
+              <div>
+                <small className="text-[9px] tracking-[2px] text-[#e1c897] uppercase block">
+                  EXCLUSIVE PACKAGE TOUR
+                </small>
+                <h3
+                  className="text-[20px] sm:text-[23px] font-normal my-[6px] sm:my-[8px] text-white"
+                  style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
+                >
+                  패키지 여행 우대
+                </h3>
+                <p className="text-[12px] text-[#e3e6e5] m-0 leading-relaxed">
+                  베트남·태국·라오스 등 단독 우대 (문의: 1533-6041)
+                  <span className="float-right text-[18px] group-hover:translate-x-1 transition-transform text-[#e1c897]">
+                    ↓
+                  </span>
+                </p>
+              </div>
+            </a>
+
+            {/* 03 / CRUISE */}
+            <div
+              onClick={() => openContract("[럭셔리 크루즈 회원 우대 문의] ")}
+              className="h-[250px] sm:h-[355px] text-left p-[20px] sm:p-[24px] flex flex-col justify-between text-white relative overflow-hidden cursor-pointer group rounded-xl sm:rounded-none"
+              style={{
+                background:
+                  "linear-gradient(0deg, rgba(24, 55, 68, 0.9), rgba(24, 55, 68, 0.2)), url('/assets/sea.jpg') center/cover, #7b9ca5",
               }}
             >
               <span className="text-[9px] tracking-[2px] uppercase">
-                02 / CRUISE · 전담 데스크
+                03 / CRUISE · 전담 데스크
               </span>
               <div>
                 <small className="text-[9px] tracking-[2px] text-[#e1c897] uppercase block">
                   TRAVEL &amp; LEISURE
                 </small>
                 <h3
-                  className="text-[21px] sm:text-[25px] font-normal my-[6px] sm:my-[8px]"
+                  className="text-[20px] sm:text-[23px] font-normal my-[6px] sm:my-[8px]"
                   style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
                 >
                   더 넓은 세상으로
                 </h3>
-                <p className="text-[12px] text-[#e3e6e5] m-0">
+                <p className="text-[12px] text-[#e3e6e5] m-0 leading-relaxed">
                   초호화 크루즈 회원 특별 할인가 및 기항지 특전
                   <span className="float-right text-[18px] group-hover:translate-x-1 transition-transform">
                     ↗
@@ -100,21 +168,26 @@ export default function HappyClassSectionV2() {
               </div>
             </div>
 
-            {/* 03 / HEALTH & GIFT */}
-            <div
-              onClick={() => openContract("[삼칠그라 건강식품 & 위로지원금 40만원 문의] ")}
-              className="h-[240px] sm:h-[355px] text-left p-[20px] sm:p-[24px] flex flex-col justify-between bg-[#ded9c9] text-[#172c37] relative overflow-hidden cursor-pointer group"
+            {/* 04 / HEALTH & GIFT */}
+            <a
+              href="#health-support"
+              className="h-[250px] sm:h-[355px] text-left p-[20px] sm:p-[24px] flex flex-col justify-between bg-[#ded9c9] text-[#172c37] relative overflow-hidden cursor-pointer group rounded-xl sm:rounded-none border-2 border-[#947b50]/40 hover:border-[#947b50] transition shadow-sm"
             >
-              <span className="text-[9px] tracking-[2px] uppercase">
-                03 / HEALTH &amp; SUPPORT
-              </span>
+              <div className="flex items-center justify-between">
+                <span className="text-[9px] tracking-[2px] uppercase">
+                  04 / HEALTH &amp; SUPPORT
+                </span>
+                <span className="px-2 py-0.5 rounded-full bg-[#172c37] text-[#d9bc86] text-[10px] font-bold">
+                  단독 특전
+                </span>
+              </div>
 
               {/* 타이포그래피 아트워크 (.shopping-art) */}
               <div
-                className="text-[72px] sm:text-[92px] text-[#a5977c] absolute left-[45%] sm:left-[42%] top-[28px] sm:top-[42px] -rotate-[12deg] border border-[#b3a991] px-[18px] sm:px-[22px] shadow-[10px_10px_#c3bcaa] select-none"
+                className="text-[64px] sm:text-[80px] text-[#a5977c] absolute left-[42%] top-[34px] -rotate-[12deg] border border-[#b3a991] px-[16px] shadow-[8px_8px_#c3bcaa] select-none pointer-events-none"
                 style={{ fontFamily: "Georgia, serif" }}
               >
-                d<span className="text-[24px] sm:text-[28px]">＋</span>
+                d<span className="text-[22px]">＋</span>
               </div>
 
               <div className="relative z-10">
@@ -122,210 +195,436 @@ export default function HappyClassSectionV2() {
                   SPECIAL COMPLIMENTARY
                 </small>
                 <h3
-                  className="text-[21px] sm:text-[25px] font-normal my-[6px] sm:my-[8px] text-[#172c37]"
+                  className="text-[20px] sm:text-[23px] font-normal my-[6px] sm:my-[8px] text-[#172c37]"
                   style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
                 >
                   건강과 생활의 든든함
                 </h3>
-                <p className="text-[12px] text-[#26373b] m-0">
-                  삼칠그라 365(58만원 상당) 증정 + 위로지원금 40만원
-                  <span className="float-right text-[18px] group-hover:translate-x-1 transition-transform">
-                    ↗
+                <p className="text-[12px] text-[#26373b] m-0 leading-relaxed">
+                  건강식품 58만 상당(택1) + 위로지원금 40만
+                  <span className="float-right text-[18px] group-hover:translate-x-1 transition-transform text-[#947b50]">
+                    ↓
                   </span>
                 </p>
               </div>
-            </div>
+            </a>
           </div>
 
-          {/* 해피클래스 전국 50여 곳 주요 제휴 숙박시설 리스트 & 이용 기준 */}
-          <div className="bg-[#f7f5ef] border border-[#dedfd7] p-[20px] sm:p-[40px] grid lg:grid-cols-12 gap-[28px] sm:gap-[36px] items-start">
-            {/* 좌측: 숙박 & 크루즈 이용 조건 */}
-            <div className="lg:col-span-5 space-y-[18px]">
-              <div className="text-[10px] tracking-[2px] text-[#947b50] font-semibold uppercase">
-                ACCOMMODATION &amp; CRUISE GUIDE
-              </div>
+          {/* ========================================================================= */}
+          {/* ★ 다온넷 패키지 여행 우대 혜택 섹션 (요구사항 1, 2, 3 반영 완벽 구현) ★ */}
+          {/* ========================================================================= */}
+          <div
+            id="package-tour-section"
+            className="mb-[40px] sm:mb-[60px] bg-white rounded-2xl sm:rounded-3xl border border-[#e5dfd3] shadow-[0_15px_45px_-15px_rgba(23,44,55,0.08)] overflow-hidden"
+          >
+            {/* 상단 럭셔리 골드/레드 포인트 라인 */}
+            <div className="h-[4px] bg-gradient-to-r from-[#c5a059] via-[#E8172A] to-[#c5a059] w-full" />
 
-              <h3
-                className="text-[22px] sm:text-[25px] font-medium text-[#26373b] leading-[1.45] m-0"
-                style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
-              >
-                해피클래스 2박 3일 무료숙박권 &amp; 럭셔리 크루즈 이용 안내
-              </h3>
-
-              <p className="text-[12px] sm:text-[13px] text-[#747b78] leading-[1.8] m-0">
-                전국 약 50개 제휴 호텔·리조트·펜션에서 이용 가능한{" "}
-                <strong className="text-[#26373b]">2박 3일 숙박권(1박 평균 150,000원 상당)</strong>을 제공합니다.
-                직계가족에게 양도하여 사용하실 수 있습니다.
-              </p>
-
-              <div className="border-t border-[#dedfd7] pt-[16px] space-y-[12px] text-[12px]">
+            <div className="p-6 sm:p-9 lg:p-10">
+              {/* 패키지 여행 섹션 헤더 */}
+              <div className="flex flex-col lg:flex-row lg:items-end justify-between pb-6 mb-7 border-b border-[#eee7da] gap-4">
                 <div>
-                  <strong className="block text-[#26373b] font-semibold">
-                    · 숙박 이용 및 청소비 안내
-                  </strong>
-                  <span className="text-[#747b78] text-[11px] leading-[1.6] block mt-0.5">
-                    평일 청소비 19,000원 / 주말 청소비 39,000원 별도 (성수기·객실유형에 따라 추가요금 발생 가능, 직계가족 양도 가능)
-                  </span>
-                </div>
-
-                <div>
-                  <strong className="block text-[#26373b] font-semibold">
-                    · 크루즈 투어 전담 데스크 안내
-                  </strong>
-                  <span className="text-[#747b78] text-[11px] leading-[1.6] block mt-0.5">
-                    최소 6개월 이전 사전 예약 및 맞춤 상담 필수 (고객센터 1877-8816)
-                  </span>
-                </div>
-              </div>
-
-              <div className="bg-[#172c37] text-white p-[18px_22px] flex items-center justify-between">
-                <div>
-                  <div className="text-[10px] tracking-[1.5px] text-[#d9bc86] uppercase">
-                    RESERVATION DESK
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#fef2f2] border border-[#fecaca] text-[#dc2626] text-[11px] font-bold tracking-wider uppercase mb-2.5">
+                    <Plane className="w-3.5 h-3.5 text-[#dc2626]" />
+                    <span>DAONNET EXCLUSIVE TRAVEL BENEFIT</span>
                   </div>
-                  <div className="text-[13px] font-medium mt-0.5">
-                    숙박·크루즈 예약 및 상담센터
-                  </div>
-                </div>
-                <a
-                  href="tel:1877-8816"
-                  className="text-[18px] text-[#d9bc86] hover:underline"
-                  style={{ fontFamily: "Georgia, serif" }}
-                >
-                  1877-8816 ↗
-                </a>
-              </div>
-            </div>
 
-            {/* 우측: 전국 6대 권역 50여 곳 제휴 숙박시설 표 */}
-            <div className="lg:col-span-7">
-              <div className="flex justify-between items-center pb-[12px] mb-[18px] border-b border-[#dedfd7]">
-                <strong
-                  className="text-[16px] font-medium text-[#26373b]"
-                  style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
-                >
-                  전국 50여 곳 주요 제휴 호텔·리조트·펜션
-                </strong>
-                <span className="text-[11px] text-[#947b50] font-semibold">
-                  2박 3일 숙박권 제공
-                </span>
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-[14px]">
-                {RESORT_LIST.map((group, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-[#efeee7] p-[16px] border border-[#dedfd7]"
+                  <h3
+                    className="text-[24px] sm:text-[30px] font-bold text-[#1a2d36] leading-[1.3] m-0"
+                    style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
                   >
-                    <div className="text-[11px] font-semibold text-[#8d7854] mb-[6px]">
-                      0{idx + 1} · {group.region}
+                    다온넷 패키지 여행 우대 혜택
+                  </h3>
+                  <p className="text-[13px] sm:text-[14px] text-[#64748b] mt-1.5 mb-0">
+                    베트남·태국·라오스·필리핀·중국 등 엄선된 해외 인기 패키지 여행을 <strong>다온넷 회원 특별 우대가</strong>로 예약하세요.
+                  </p>
+                </div>
+
+                {/* 전담 상담 번호 (1533-6041) 헤더 배너 */}
+                <div className="flex items-center gap-3 bg-[#fdfbf7] p-3 sm:p-3.5 rounded-xl border border-[#e8dfcf] shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-[#172c37] text-[#c5a059] flex items-center justify-center shrink-0">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] text-[#8c734b] font-semibold">
+                      패키지 여행 전담 상담 데스크
                     </div>
-                    <p className="text-[12px] text-[#26373b] leading-[1.65] m-0">
-                      {group.places.join(" · ")}
-                    </p>
+                    <a
+                      href="tel:1533-6041"
+                      className="text-[18px] sm:text-[20px] font-black text-[#172c37] hover:text-[#c5a059] transition-colors block leading-tight"
+                      style={{ fontFamily: "Georgia, serif" }}
+                    >
+                      1533-6041
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* 국가별 탭 필터 (전체, 베트남, 태국, 라오스, 필리핀, 중국) */}
+              <div className="flex items-center gap-2 overflow-x-auto pb-2 mb-6 scrollbar-none">
+                {PACKAGE_COUNTRIES.map((country) => {
+                  const isActive = selectedCountry === country;
+                  const count =
+                    country === "전체"
+                      ? PACKAGE_TOURS.length
+                      : PACKAGE_TOURS.filter((p) => p.country === country).length;
+
+                  return (
+                    <button
+                      key={country}
+                      type="button"
+                      onClick={() => setSelectedCountry(country)}
+                      className={`px-4 py-2 rounded-xl text-[13px] font-bold transition whitespace-nowrap cursor-pointer flex items-center gap-1.5 ${
+                        isActive
+                          ? "bg-[#172c37] text-white shadow-sm"
+                          : "bg-[#f8fafc] text-[#64748b] hover:bg-[#f1f5f9] hover:text-[#1e293b] border border-[#e2e8f0]"
+                      }`}
+                    >
+                      <span>{country}</span>
+                      <span
+                        className={`text-[11px] px-1.5 py-0.2 rounded-full ${
+                          isActive
+                            ? "bg-white/20 text-white"
+                            : "bg-gray-200 text-gray-600"
+                        }`}
+                      >
+                        {count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* 첨부 2번 이미지 형태의 썸네일 카드 그리드 */}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredPackages.map((pkg) => (
+                  <div
+                    key={pkg.id}
+                    onClick={() => handleOpenDetail(pkg)}
+                    className="bg-white rounded-2xl border border-[#e5e7eb] hover:border-[#c5a059] shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer flex flex-col group"
+                  >
+                    {/* 카드 썸네일 이미지 & 상단 좌측 빨간색 배지 (첨부 2번 디자인 1:1) */}
+                    <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                      <img
+                        src={pkg.heroImage}
+                        alt={pkg.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        onError={(e) => {
+                          // Fallback
+                          e.currentTarget.src = `https://tlabal.co.kr/images/pkg-${pkg.slug}.jpg`;
+                        }}
+                      />
+                      {/* 빨간색 라운드 국가 배지 (첨부 2번 이미지와 일치) */}
+                      <span className="absolute top-3.5 left-3.5 bg-[#E8172A] text-white text-[12px] font-bold px-3 py-1 rounded-md shadow-sm">
+                        {pkg.country}
+                      </span>
+
+                      {/* 호버 오버레이 안내 */}
+                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span className="px-3.5 py-1.5 rounded-full bg-white/95 text-[#172c37] text-[12.5px] font-bold shadow-lg flex items-center gap-1">
+                          상세보기 ↗
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* 카드 본문 (제목, 칩, 부가정보) */}
+                    <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                      <div>
+                        {/* 상품명 */}
+                        <h4 className="text-[17px] sm:text-[18px] font-bold text-[#111827] group-hover:text-[#c5a059] transition-colors line-clamp-1 m-0">
+                          {pkg.name}
+                        </h4>
+
+                        {/* 알약 모양 칩 (3박 5일, 쇼핑 3회) */}
+                        <div className="flex flex-wrap items-center gap-2 mt-3 mb-3">
+                          <span className="bg-[#f1f3f5] text-[#495057] text-[12px] font-medium px-2.5 py-1 rounded-md">
+                            {pkg.nights}박 {pkg.days}일
+                          </span>
+                          <span className="bg-[#f1f3f5] text-[#495057] text-[12px] font-medium px-2.5 py-1 rounded-md">
+                            쇼핑 {pkg.shoppingCount}회
+                          </span>
+                          {pkg.hasOptionalTour && (
+                            <span className="bg-[#f0f9ff] text-[#0284c7] text-[12px] font-medium px-2.5 py-1 rounded-md">
+                              선택관광
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* 하단 최소 출발 인원 및 우대 안내 */}
+                      <div className="pt-3 border-t border-[#f1f5f9] flex items-center justify-between text-[13px] text-[#6b7280]">
+                        <span>최소 출발 {pkg.minDeparturePax}명</span>
+                        <span className="text-[12px] font-semibold text-[#c5a059] flex items-center gap-0.5 group-hover:translate-x-0.5 transition-transform">
+                          일정 확인하기 &gt;
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
 
-              <small className="block text-[10px] text-[#7b817b] mt-[14px] text-right">
-                ※ 제휴 시설 리스트는 시즌 및 제휴 협약 현황에 따라 일부 변경될 수 있습니다.
-              </small>
+              {/* 하단 패키지 여행 전담 문의 바 (1533-6041 강조) */}
+              <div className="mt-8 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#172c37] via-[#203a48] to-[#172c37] text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-md">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-[#c5a059] text-[#172c37] flex items-center justify-center shrink-0">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-[13px] sm:text-[14px] font-bold text-white">
+                      다온넷 패키지 여행 예약 &amp; 우대 상담 문의
+                    </div>
+                    <div className="text-[11px] sm:text-[12px] text-[#cbd5e1]">
+                      원하시는 일정과 여행지를 말씀해 주시면 회원 전용 특별 혜택으로 상세히 안내해 드립니다.
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 shrink-0">
+                  <a
+                    href="tel:1533-6041"
+                    className="px-4 py-2 rounded-xl bg-[#c5a059] hover:bg-[#d9bc86] text-[#172c37] font-black text-[16px] sm:text-[18px] flex items-center gap-2 transition shadow-sm"
+                    style={{ fontFamily: "Georgia, serif" }}
+                  >
+                    <Phone className="w-4 h-4" />
+                    <span>1533-6041</span>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => openContract("[패키지 여행 우대 상담 신청] ")}
+                    className="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium text-[12.5px] transition cursor-pointer"
+                  >
+                    간편 상담 ↗
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 해피클래스 전국 50여 곳 주요 제휴 숙박시설 리스트 & 이용 기준 (고급화 리디자인) */}
+          <div className="bg-white/95 rounded-2xl sm:rounded-3xl border border-[#e5dfd3] shadow-[0_15px_45px_-15px_rgba(23,44,55,0.08)] overflow-hidden relative">
+            {/* 상단 럭셔리 골드 액센트 라인 */}
+            <div className="h-[3px] bg-gradient-to-r from-[#d9bc86]/20 via-[#c5a059] to-[#d9bc86]/20 w-full" />
+
+            <div className="p-6 sm:p-9 lg:p-11 grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+              {/* 좌측: 숙박 & 크루즈 VIP 혜택 안내 */}
+              <div className="lg:col-span-5 flex flex-col justify-between space-y-5">
+                <div>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f6f1e7] border border-[#e2d5c0] text-[#936f38] text-[11px] font-semibold tracking-wider uppercase mb-3">
+                    <Sparkles className="w-3 h-3 text-[#c5a059]" />
+                    <span>PREMIUM BENEFIT GUIDE</span>
+                  </div>
+
+                  <h3
+                    className="text-[23px] sm:text-[27px] font-medium text-[#1a2d36] leading-[1.38] m-0"
+                    style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
+                  >
+                    해피클래스 2박 3일 무료숙박권
+                    <br />
+                    <span className="text-[#8c734b]">&amp; 럭셔리 크루즈 VIP 가이드</span>
+                  </h3>
+
+                  {/* 혜택 금액 강조 배너 */}
+                  <div className="mt-4 p-4 rounded-xl bg-gradient-to-br from-[#faf7f0] to-[#f4eee1] border border-[#e8dfcf] flex items-center justify-between gap-3">
+                    <div>
+                      <div className="text-[11px] text-[#8c734b] font-semibold tracking-wide">
+                        멤버십 기본 제공 가치
+                      </div>
+                      <div className="text-[17px] sm:text-[19px] font-bold text-[#172c37] mt-0.5" style={{ fontFamily: "Georgia, serif" }}>
+                        총 300,000원 <span className="text-[13px] font-normal text-[#666] font-sans">상당 혜택</span>
+                      </div>
+                    </div>
+                    <div className="text-right border-l border-[#decbb0] pl-3.5 shrink-0">
+                      <span className="inline-block text-[11px] font-semibold text-[#8c734b] bg-white px-2 py-0.5 rounded border border-[#e2d5c0]">
+                        1박 15만원 × 2박
+                      </span>
+                      <div className="text-[11px] text-[#787f7b] mt-0.5">전국 50곳 자유이용</div>
+                    </div>
+                  </div>
+
+                  {/* 핵심 혜택 3-Point */}
+                  <div className="mt-4 space-y-2.5">
+                    <div className="flex items-start gap-3 p-3 rounded-lg bg-[#faf9f5] border border-[#eee9dc]">
+                      <div className="w-7 h-7 rounded-full bg-[#eee5d3] text-[#8c734b] flex items-center justify-center shrink-0 mt-0.5">
+                        <Users className="w-3.5 h-3.5" />
+                      </div>
+                      <div>
+                        <strong className="block text-[13px] text-[#1c2e37] font-semibold">
+                          직계가족 양도 가능
+                        </strong>
+                        <p className="text-[12px] text-[#717875] leading-relaxed m-0 mt-0.5">
+                          본인은 물론 부모님 효도 여행이나 자녀 가족에게 자유롭게 양도하여 이용하실 수 있습니다.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 rounded-lg bg-[#faf9f5] border border-[#eee9dc]">
+                      <div className="w-7 h-7 rounded-full bg-[#eee5d3] text-[#8c734b] flex items-center justify-center shrink-0 mt-0.5">
+                        <Hotel className="w-3.5 h-3.5" />
+                      </div>
+                      <div>
+                        <strong className="block text-[13px] text-[#1c2e37] font-semibold">
+                          엄선된 전국 50여 개 숙박 네트워크
+                        </strong>
+                        <p className="text-[12px] text-[#717875] leading-relaxed m-0 mt-0.5">
+                          인천·부산·강원·제주 등 전국 주요 거점 호텔/리조트/펜션을 시즌에 맞춰 자유롭게 예약하세요.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 rounded-lg bg-[#faf9f5] border border-[#eee9dc]">
+                      <div className="w-7 h-7 rounded-full bg-[#eee5d3] text-[#8c734b] flex items-center justify-center shrink-0 mt-0.5">
+                        <Compass className="w-3.5 h-3.5" />
+                      </div>
+                      <div>
+                        <strong className="block text-[13px] text-[#1c2e37] font-semibold">
+                          초호화 크루즈 회원 우대
+                        </strong>
+                        <p className="text-[12px] text-[#717875] leading-relaxed m-0 mt-0.5">
+                          VIP 전용 특별 할인가 및 기항지 특전 제공 (최소 6개월 이전 사전 예약 필수)
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 정비비 & 이용 유의사항 안내 (투명 정찰제) */}
+                  <div className="mt-3.5 p-3 rounded-lg border border-[#e7e1d5] bg-white text-[11px] text-[#6d7572] leading-[1.65]">
+                    <div className="flex items-center gap-1.5 font-semibold text-[#26373b] mb-1">
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#8c734b]" />
+                      <span>투명한 정찰제 이용 기준</span>
+                    </div>
+                    <div>· 숙박 청소비: 평일 19,000원 / 주말 39,000원 별도 (실비 기준 투명 운영)</div>
+                    <div className="text-[10px] text-[#8f9693]">· 성수기 및 특정 객실 유형에 따라 추가 요금이 발생할 수 있습니다.</div>
+                  </div>
+                </div>
+
+                {/* 예약 데스크 카드 (컨시어지 콜센터) */}
+                <div className="rounded-xl bg-gradient-to-br from-[#172c37] via-[#14252f] to-[#0d1a21] text-white p-4.5 border border-[#2c4452] shadow-lg">
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <div className="flex items-center gap-1.5 text-[10px] tracking-[1.5px] text-[#d9bc86] uppercase font-medium">
+                        <Phone className="w-3 h-3 text-[#d9bc86]" />
+                        <span>RESERVATION CONCIERGE</span>
+                      </div>
+                      <div className="text-[14px] font-semibold text-white mt-1">
+                        숙박·크루즈 예약 및 상담센터
+                      </div>
+                    </div>
+                    <a
+                      href="tel:1877-8816"
+                      className="px-3 py-1.5 rounded-lg bg-[#c5a059] hover:bg-[#d9bc86] text-[#172c37] font-bold text-[14px] flex items-center gap-1.5 transition-all shadow-sm group shrink-0"
+                      style={{ fontFamily: "Georgia, serif" }}
+                    >
+                      <span>1877-8816</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </a>
+                  </div>
+                  <div className="mt-2.5 pt-2.5 border-t border-white/10 flex items-center justify-between text-[11px] text-[#a4b4bb]">
+                    <span>연중무휴 전문 상담원 연결</span>
+                    <button
+                      type="button"
+                      onClick={() => openContract("[해피클래스 2박 3일 숙박권/크루즈 예약 문의] ")}
+                      className="text-[#d9bc86] hover:underline cursor-pointer flex items-center gap-1"
+                    >
+                      온라인 간편 예약 신청 ↗
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* 우측: 전국 6대 권역 50여 곳 제휴 숙박시설 리스트 */}
+              <div className="lg:col-span-7">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 mb-4 border-b border-[#e5dfd3] gap-2">
+                  <div>
+                    <div className="text-[11px] font-semibold text-[#936f38] uppercase tracking-wider">
+                      AFFILIATED NETWORK
+                    </div>
+                    <h4
+                      className="text-[18px] sm:text-[20px] font-medium text-[#1c2e37] m-0"
+                      style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
+                    >
+                      전국 6대 권역 제휴 호텔·리조트·펜션
+                    </h4>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f5efe2] text-[#8c734b] text-[11px] font-bold border border-[#e2d5c0] w-fit">
+                    <Sparkles className="w-3 h-3 text-[#c5a059]" />
+                    <span>2박 3일 숙박권 적용처</span>
+                  </span>
+                </div>
+
+                {/* 6대 권역 카드 그리드 */}
+                <div className="grid sm:grid-cols-2 gap-3.5">
+                  {RESORT_LIST.map((group, idx) => {
+                    const themes = [
+                      "도심 & 오션스테이",
+                      "해운대 오션뷰",
+                      "수도권 근교 휴양",
+                      "동해 바다 & 마운틴",
+                      "명산 호반 & 온천",
+                      "남해안 & 제주 트립",
+                    ];
+                    const theme = themes[idx] || "힐링 리조트";
+
+                    return (
+                      <div
+                        key={idx}
+                        className="bg-[#faf8f4] hover:bg-white rounded-xl p-3.5 border border-[#e7e1d5] hover:border-[#c5a059] transition-all duration-300 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_20px_-6px_rgba(197,160,89,0.15)] group flex flex-col justify-between"
+                      >
+                        <div>
+                          {/* 권역 번호 및 지역 */}
+                          <div className="flex items-center justify-between gap-2 mb-2 pb-2 border-b border-[#eae4d8]">
+                            <div className="flex items-center gap-1.5">
+                              <span className="w-5 h-5 rounded-md bg-[#172c37] text-[#d9bc86] text-[10px] font-bold flex items-center justify-center font-mono">
+                                0{idx + 1}
+                              </span>
+                              <strong className="text-[12.5px] font-bold text-[#1f313a] group-hover:text-[#8c734b] transition-colors">
+                                {group.region}
+                              </strong>
+                            </div>
+                            <span className="text-[10px] font-medium text-[#8c734b] bg-[#f2ebd9] px-2 py-0.5 rounded-full shrink-0">
+                              {theme}
+                            </span>
+                          </div>
+
+                          {/* 개별 호텔/리조트 뱃지 태그 리스트 */}
+                          <div className="flex flex-wrap gap-1.5 mt-2">
+                            {group.places.map((place, pIdx) => (
+                              <span
+                                key={pIdx}
+                                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-[#e4ded5] text-[#2c3d42] text-[11.5px] font-medium shadow-[0_1px_2px_rgba(0,0,0,0.02)] group-hover:border-[#d9cbba] hover:!border-[#c5a059] hover:!bg-[#fffdf9] hover:!text-[#8c734b] transition-colors"
+                              >
+                                <span className="w-1 h-1 rounded-full bg-[#c5a059]" />
+                                {place}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* 하단 신뢰 안내문 */}
+                <div className="mt-4 pt-3 border-t border-[#e5dfd3]/80 flex flex-col sm:flex-row sm:items-center justify-between text-[11px] text-[#7c8380] gap-2">
+                  <div className="flex items-center gap-1">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#936f38] shrink-0" />
+                    <span>직계가족 양도 시 가족관계증명서 확인 후 간편 이용 가능합니다.</span>
+                  </div>
+                  <div className="text-[10.5px] text-[#8e9592]">
+                    ※ 제휴 시설 리스트는 시즌 및 협약 현황에 따라 일부 변경될 수 있습니다.
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. QUESTIONS & ANSWERS — 자주 묻는 질문 (.faq 레이아웃) */}
-      <section className="py-[68px] lg:py-[85px] px-[6%] max-w-[1200px] mx-auto border-t border-[#dedfd7] grid lg:grid-cols-[0.8fr_1.2fr] gap-[40px] lg:gap-[60px]">
-        <div>
-          <div className="text-[10px] tracking-[2.7px] text-[#947b50] font-semibold mb-[17px] uppercase">
-            QUESTIONS &amp; ANSWERS
-          </div>
-          <h2
-            className="text-[28px] sm:text-[35px] font-medium leading-[1.55] tracking-[-1.2px] text-[#26373b] m-0"
-            style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
-          >
-            궁금한 점을
-            <br />
-            먼저 확인하세요.
-          </h2>
-          <button
-            onClick={() => openContract("[이용 및 가입 문의] ")}
-            className="inline-block pt-[15px] pb-[5px] border-b border-[#9c9f91] text-[12px] text-[#26373b] hover:text-[#947b50] mt-[18px] cursor-pointer"
-          >
-            다른 질문이 있으신가요? 맞춤 상담 신청 ↗
-          </button>
-        </div>
-
-        <div>
-          {[
-            {
-              q: "다온 프리미엄 249의 498만 원 환급보증서는 어떤 혜택인가요?",
-              a: "가입금액 249만 원(VAT 포함) 납입 시 10년 공증 4,980,000원 환급보증서가 발행됩니다. 가입 2년 만기 후 제3자나 가족에게 자유롭게 양도·양수가 가능하며, 장례·추모 등 주요 서비스 미이용 시 (주)에스엘부티크호텔 반환 지급약정 및 보증서 조건에 따라 반환 지급됩니다.",
-            },
-            {
-              q: "전국 55개 추모공원에서 어떻게 혜택을 받을 수 있나요?",
-              a: "다온넷 직영 안성 유토피아 추모관을 비롯하여 전국 주요 추모공원 이용 시 봉안당 1단 기준 특별지원(봉안함 무료 제공) 또는 제휴 시설 정가 대비 10~70% 할인 혜택이 적용됩니다. 또한 공설 추모시설 희망 시 원스톱 입소 절차 안내를 지원하며, 장례 발생 전 사전 로얄석 지정 상담이 가능합니다.",
-            },
-            {
-              q: "전용몰 쇼핑포인트 2,490,000P는 어떻게 사용하나요?",
-              a: "가입 및 본인 인증 즉시 지급되는 2,490,000 포인트로 다온넷 전용 폐쇄몰(www.다온넷.kr)에서 상품별 최대 80%까지 포인트를 현금처럼 차감하고 잔액만 결제하여 최저가로 구매하실 수 있습니다.",
-            },
-            {
-              q: "해피클래스 2박 3일 숙박권 이용 시 추가비용이 있나요?",
-              a: "전국 약 50여 곳의 제휴 호텔·리조트·펜션을 2박 3일 무료 숙박권으로 이용하실 수 있으며, 청소비(평일 19,000원 / 주말 39,000원)는 별도입니다. 객실 등급 및 성수기 여부에 따른 세부 조건은 예약 데스크(1877-8816)를 통해 안내받으실 수 있습니다.",
-            },
-          ].map((item, idx) => (
-            <details
-              key={idx}
-              className="border-b border-[#d7d9d0] py-[20px] group"
-            >
-              <summary className="cursor-pointer text-[13px] sm:text-[14px] font-medium text-[#26373b] list-none pr-[24px] relative">
-                {item.q}
-                <span className="absolute right-0 top-0 text-[#9b8762] group-open:hidden">
-                  ＋
-                </span>
-                <span className="absolute right-0 top-0 text-[#9b8762] hidden group-open:inline">
-                  −
-                </span>
-              </summary>
-              <p className="text-[12px] text-[#747b78] leading-[1.75] mt-[14px] mb-0">
-                {item.a}
-              </p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* 3. WE ARE HERE FOR YOU — 하단 컨택트 배너 (.contact-banner 레이아웃) */}
-      <section className="bg-[#344b49] py-[55px] lg:py-[65px] px-[7%] lg:px-[9%] text-[#f5f4ec]">
-        <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row md:justify-between md:items-center gap-[25px]">
-          <div>
-            <div className="text-[10px] tracking-[2.7px] text-[#e1c897] font-semibold mb-[14px] uppercase">
-              WE ARE HERE FOR YOU · 365일 24시간 상담센터
-            </div>
-            <h2
-              className="text-[26px] sm:text-[32px] font-medium leading-[1.5] tracking-[-1px] m-0 mb-[8px]"
-              style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
-            >
-              가족을 위한 준비,
-              <br />
-              함께 이야기해 볼까요?
-            </h2>
-            <p className="text-[#c3ceca] text-[13px] m-0">
-              희망하시는 추모공원 지역과 다온 프리미엄 249 혜택을 편하게 남겨주세요.
-            </p>
-          </div>
-
-          <button
-            onClick={() => openContract()}
-            className="self-start md:self-center bg-[#d9bc86] text-[#172c37] hover:bg-[#e5cba0] px-[26px] py-[16px] text-[13px] font-semibold inline-flex items-center justify-between gap-[28px] transition cursor-pointer shrink-0"
-          >
-            <span>맞춤 상담·가입 신청하기</span>
-            <span>↗</span>
-          </button>
-        </div>
-      </section>
+      {/* 패키지 여행 상세 모달 */}
+      <PackageDetailModal
+        pkg={selectedPkg}
+        isOpen={isModalOpen}
+        onClose={handleCloseDetail}
+      />
     </>
   );
 }

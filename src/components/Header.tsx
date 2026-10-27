@@ -176,16 +176,6 @@ export default function Header() {
                 <span>24시간 긴급상담:</span>
                 <strong className="text-white font-black tracking-wider">1877-8816</strong>
               </a>
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  openAdmin();
-                }}
-                className="text-gray-400 hover:text-white flex items-center gap-1 text-[11px]"
-              >
-                <Settings className="w-3.5 h-3.5" />
-                <span>관리자</span>
-              </button>
             </div>
           </div>
 

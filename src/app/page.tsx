@@ -8,6 +8,8 @@ import MemorialParkSectionV2 from "@/components/v2/MemorialParkSectionV2";
 import Membership249SectionV2 from "@/components/v2/Membership249SectionV2";
 import PointMallSectionV2 from "@/components/v2/PointMallSectionV2";
 import HappyClassSectionV2 from "@/components/v2/HappyClassSectionV2";
+import SpecialHealthGiftSectionV2 from "@/components/v2/SpecialHealthGiftSectionV2";
+import FAQAndContactSectionV2 from "@/components/v2/FAQAndContactSectionV2";
 import FooterV2 from "@/components/v2/FooterV2";
 import FloatingBarV2 from "@/components/v2/FloatingBarV2";
 
@@ -15,6 +17,7 @@ import CertificateModal from "@/components/CertificateModal";
 import ContractModal from "@/components/ContractModal";
 import LookupModal from "@/components/LookupModal";
 import AdminModal from "@/components/AdminModal";
+import AuthModal from "@/components/AuthModal";
 
 export default function Home() {
   const [searchParams, setSearchParams] = useState({
@@ -57,7 +60,13 @@ export default function Home() {
       {/* 7. 해피클래스 2박 3일 무료 숙박권 & 크루즈 */}
       <HappyClassSectionV2 />
 
-      {/* 8. 푸터 */}
+      {/* 8. 삼칠그라/알부민 건강식품 택1 무료 증정 & 위로지원금 40만원 특별 혜택 */}
+      <SpecialHealthGiftSectionV2 />
+
+      {/* 9. 자주 묻는 질문(FAQ) & 24시간 상담 신청 배너 */}
+      <FAQAndContactSectionV2 />
+
+      {/* 10. 푸터 */}
       <FooterV2 />
 
       {/* 9. 하단 고정 24시간 긴급상담 플로팅 바 */}
@@ -68,6 +77,7 @@ export default function Home() {
       <ContractModal />
       <LookupModal />
       <AdminModal />
+      <AuthModal />
     </main>
   );
 }

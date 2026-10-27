@@ -129,12 +129,12 @@ export default function PointMallSection() {
               <div>
                 {/* 썸네일 박스 */}
                 <div
-                  className={`relative h-48 flex items-center justify-center p-4 ${
-                    prod.isComplimentary ? "bg-amber-50/70" : "bg-gray-50"
+                  className={`relative aspect-square w-full overflow-hidden ${
+                    prod.isComplimentary ? "bg-amber-50/70" : "bg-white"
                   }`}
                 >
                   <span
-                    className={`absolute top-3 left-3 text-xs font-black px-2.5 py-1 rounded-lg ${
+                    className={`absolute top-3 left-3 z-10 text-xs font-black px-2.5 py-1 rounded-lg ${
                       prod.isComplimentary
                         ? "gold-gradient text-white"
                         : "bg-red-600 text-white"
@@ -142,7 +142,15 @@ export default function PointMallSection() {
                   >
                     {prod.badge}
                   </span>
-                  {getProductIcon(prod.iconName)}
+                  {prod.imageUrl ? (
+                    <img
+                      src={prod.imageUrl}
+                      alt={prod.name}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform"
+                    />
+                  ) : (
+                    getProductIcon(prod.iconName)
+                  )}
                 </div>
 
                 {/* 상품 정보 */}
@@ -226,7 +234,7 @@ export default function PointMallSection() {
           </div>
           <div>
             <div className="font-extrabold text-[#0F1E36] text-xs sm:text-sm">
-              다온넷 폐쇄형 회원몰 (www.다온넷.kr) 안내
+              다온넷 폐쇄형 회원몰 (다온넷.kr) 안내
             </div>
             <div className="text-gray-600 mt-0.5 text-[11px] sm:text-xs">
               공식 제휴 폐쇄몰 체험 계정: <strong className="text-blue-900">ID : test1 / PW : 1234</strong>
@@ -235,7 +243,7 @@ export default function PointMallSection() {
         </div>
 
         <a
-          href="http://www.xn--hu1bo87b2xb.kr/"
+          href="http://다온넷.kr"
           target="_blank"
           rel="noopener noreferrer"
           className="w-full sm:w-auto justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2.5 sm:py-2 rounded-xl transition flex items-center gap-1 shrink-0"

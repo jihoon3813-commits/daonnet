@@ -9,6 +9,7 @@ export interface MemorialPark {
   desc: string;
   featured?: boolean;
   phone?: string;
+  website?: string;
   supportBenefit: string;
 }
 
@@ -25,6 +26,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     desc: '대규모 수목장 및 종합 봉안당 · 프리미엄 249 봉안당 1단 기준 특별지원',
     featured: true,
     phone: '1877-8816',
+    website: 'https://utopiapark.com',
     supportBenefit: '봉안당 1단 특별지원 + 봉안함 무료 제공',
   },
   // 수도권
@@ -37,6 +39,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '재단',
     addr: '경기 광주시 오포읍 오포로 762',
     desc: '재단법인 · 봉안당/매장묘/수목장 복합 명당',
+    website: 'https://sianpark.co.kr',
     supportBenefit: '10~70% 회원 특별 할인가 적용',
   },
   {
@@ -48,6 +51,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '재단',
     addr: '경기 용인시 처인구 포곡읍 에버랜드로 331',
     desc: '국내 최대 규모 복합 장사시설 및 프리미엄 실내 봉안당',
+    website: 'https://www.yongin-park.com',
     supportBenefit: '10~70% 회원 특별 할인가 적용',
   },
   {
@@ -59,6 +63,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '재단',
     addr: '경기 고양시 덕양구 자유로 359',
     desc: '실내 봉안당 중심 · 수도권 우수한 접근성',
+    website: 'https://www.chungahpark.co.kr',
     supportBenefit: '10~70% 회원 특별 할인가 적용',
   },
   {
@@ -70,6 +75,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '재단',
     addr: '경기 성남시 분당구 새나리로 79',
     desc: '재단법인 · 도심형 조각공원 추모시설',
+    website: 'https://bmpark.co.kr',
     supportBenefit: '10~70% 회원 특별 할인가 적용',
   },
   {
@@ -81,6 +87,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '사설',
     addr: '경기 이천시 마장면 덕평로 678',
     desc: '호텔/카페 복합형 프리미엄 추모공원',
+    website: 'https://edenparadise.co.kr',
     supportBenefit: '10~70% 회원 특별 할인가 적용',
   },
   {
@@ -92,6 +99,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '사설',
     addr: '경기 파주시 광탄면 부흥로 668',
     desc: '호텔식 쾌적한 실내 봉안당',
+    website: 'https://seohyunpark.com',
     supportBenefit: '10~70% 회원 특별 할인가 적용',
   },
   {
@@ -103,6 +111,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '사설',
     addr: '경기 파주시 광탄면 부흥로 498',
     desc: '기독교 전용 현대식 추모공원',
+    website: 'https://cmpark.co.kr',
     supportBenefit: '10~70% 회원 특별 할인가 적용',
   },
   {
@@ -114,6 +123,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '재단',
     addr: '경기 양평군 용문면 연수로 134',
     desc: '자연장, 봉안당, 공원형 디자인 시설',
+    website: 'http://star-re.com',
     supportBenefit: '10~70% 회원 특별 할인가 적용',
   },
   {
@@ -125,6 +135,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '재단',
     addr: '경기 동두천시 탑동로 142',
     desc: '자연친화적 공원묘원',
+    website: 'https://www.erehwon.or.kr',
     supportBenefit: '10~70% 회원 특별 할인가 적용',
   },
   {
@@ -136,6 +147,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '사설',
     addr: '경기 고양시 일산동구 성석로 156',
     desc: '기독교 전용 · 현대식 실내 봉안당',
+    website: 'http://www.hi1009.com',
     supportBenefit: '10~70% 회원 특별 할인가 적용',
   },
   {
@@ -147,6 +159,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '사설',
     addr: '경기 광주시 곤지암읍 광여로 318',
     desc: '가족봉안묘 및 봉안탑 중심',
+    website: 'http://elysium.co.kr',
     supportBenefit: '10~70% 회원 특별 할인가 적용',
   },
   {
@@ -158,6 +171,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '재단',
     addr: '경기 평택시 서동대로 2439',
     desc: '접근성 좋은 실내 봉안당',
+    website: 'https://www.seohopark.kr',
     supportBenefit: '10~70% 회원 특별 할인가 적용',
   },
   {
@@ -169,6 +183,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '재단',
     addr: '경기 여주시 북내면 당우리길 38',
     desc: '수려한 자연경관의 공원묘원',
+    website: 'http://nhgpark.co.kr',
     supportBenefit: '10~70% 회원 특별 할인가 적용',
   },
   {
@@ -180,6 +195,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '사설',
     addr: '경기 양주시 백석읍 기산로 98',
     desc: '호텔식 실내 봉안당',
+    website: 'https://haneulan.co.kr',
     supportBenefit: '10~70% 회원 특별 할인가 적용',
   },
   {
@@ -202,6 +218,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '사설',
     addr: '경기 포천시 내촌면 금강로 255',
     desc: '네트워크 연합 사설 장사시설',
+    website: 'https://xn--289a5d62b284avyo3rj.com/',
     supportBenefit: '10~70% 회원 특별 할인가 적용',
   },
   {
@@ -246,6 +263,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '공설',
     addr: '서울 서초구 헌릉로 420',
     desc: '서울시 운영 화장장 및 봉안시설 (원스톱 절차 안내)',
+    website: 'https://sisul.or.kr',
     supportBenefit: '공설 입소 원스톱 절차 및 의전 지원',
   },
   {
@@ -257,6 +275,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '공설',
     addr: '경기 파주시 광탄면 용미리 35',
     desc: '서울시립승화원 관할 공설묘지',
+    website: 'https://sisul.or.kr',
     supportBenefit: '공설 입소 원스톱 절차 및 의전 지원',
   },
   {
@@ -268,6 +287,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '공설',
     addr: '인천 부평구 평온로 61',
     desc: '만월당/평온당 등 대규모 종합 장사시설',
+    website: 'https://www.insiseol.or.kr',
     supportBenefit: '공설 입소 원스톱 절차 및 의전 지원',
   },
   {
@@ -292,6 +312,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '공설',
     addr: '세종시 연서면 은하수로 32',
     desc: '화장, 봉안, 자연장 복합 장사시설',
+    website: 'https://sjfmc.or.kr',
     supportBenefit: '원스톱 입소 및 의전 지원',
   },
   {
@@ -303,6 +324,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '공설',
     addr: '충남 천안시 동남구 광덕면',
     desc: '대형 봉안당 및 화장시설',
+    website: 'https://cheonan.go.kr',
     supportBenefit: '원스톱 입소 및 의전 지원',
   },
   {
@@ -314,6 +336,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '재단',
     addr: '충북 충주시 살미면 형산로 935',
     desc: '자연친화적 대규모 공원묘원',
+    website: 'https://jindallae.kr',
     supportBenefit: '10~70% 회원 특별 할인가 적용',
   },
   {
@@ -325,6 +348,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '공설',
     addr: '대전 서구 상보안윗길 49',
     desc: '봉안당, 자연장지 등 대전 대표 시설',
+    website: 'https://www.djsiseol.or.kr',
     supportBenefit: '원스톱 입소 및 의전 지원',
   },
   {
@@ -336,6 +360,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '사설',
     addr: '충남 금산군 추부면 서대산로 541',
     desc: '경관이 수려한 실내 봉안당',
+    website: 'https://xn--ob0bp8i99gpugnpa27ylkm.com/',
     supportBenefit: '10~70% 회원 특별 할인가 적용',
   },
   {
@@ -347,6 +372,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '재단',
     addr: '강원 춘천시 남산면 강촌로 224',
     desc: '수도권 인접 · 교통이 편리한 공원묘원',
+    website: 'http://kyungchun.co.kr',
     supportBenefit: '10~70% 회원 특별 할인가 적용',
   },
   {
@@ -358,6 +384,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '공설',
     addr: '충남 공주시 이인면 나래원길 193',
     desc: '지역 대표 종합 장사시설',
+    website: 'https://gongju.go.kr',
     supportBenefit: '원스톱 입소 및 의전 지원',
   },
   {
@@ -369,6 +396,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '공설',
     addr: '충북 청주시 서원구 현도면',
     desc: '봉안당 및 자연장지 완비',
+    website: 'https://www.cjuc.or.kr',
     supportBenefit: '원스톱 입소 및 의전 지원',
   },
   {
@@ -459,6 +487,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '공설',
     addr: '부산 금정구 금정로 66',
     desc: '부산광역시 대표 종합 장사시설',
+    website: 'https://bisco.or.kr',
     supportBenefit: '원스톱 입소 및 의전 지원',
   },
   {
@@ -470,6 +499,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '재단',
     addr: '부산 기장군 장안읍',
     desc: '조망이 뛰어난 대규모 재단 공원묘원',
+    website: 'http://www.siloami.com',
     supportBenefit: '10~70% 회원 특별 할인가 적용',
   },
   {
@@ -481,6 +511,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '공설',
     addr: '부산 기장군 장안읍',
     desc: '벽식 봉안당 및 실내외 대규모 추모시설',
+    website: 'https://bisco.or.kr',
     supportBenefit: '원스톱 입소 및 의전 지원',
   },
   {
@@ -582,6 +613,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '공설',
     addr: '전북 임실군',
     desc: '국가유공자 전용 국립 추모시설 안내',
+    website: 'https://www.mpva.go.kr/isnc/index.do',
     supportBenefit: '국가유공자 예우 및 원스톱 입소 지원',
   },
   {
@@ -593,6 +625,7 @@ export const MEMORIAL_PARKS: MemorialPark[] = [
     type: '공설',
     addr: '광주 북구',
     desc: '광주광역시 대표 종합 장사시설',
+    website: 'https://gjyoungrak.or.kr',
     supportBenefit: '원스톱 입소 및 의전 지원',
   },
   {

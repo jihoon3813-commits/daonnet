@@ -1,6 +1,8 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { useQuery, useMutation } from "convex/react";
+import { api } from "../../convex/_generated/api";
 
 export interface ConsultationItem {
   id: string;
@@ -31,6 +33,12 @@ export interface UserCertificate {
   status: string;
 }
 
+export interface AuthUser {
+  id: string;
+  email: string;
+  role?: string;
+}
+
 interface DaonContextType {
   // 모달 상태
   isContractOpen: boolean;
@@ -48,6 +56,17 @@ interface DaonContextType {
   isAdminOpen: boolean;
   openAdmin: () => void;
   closeAdmin: () => void;
+
+  // 회원 인증 모달
+  isAuthOpen: boolean;
+  authMode: "login" | "register";
+  openAuth: (mode?: "login" | "register") => void;
+  closeAuth: () => void;
+
+  // 회원 상태
+  user: AuthUser | null;
+  setUser: (user: AuthUser | null) => void;
+  logout: () => void;
 
   preferredParkInput: string;
   setPreferredParkInput: (val: string) => void;
@@ -106,6 +125,12 @@ export const DaonProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isCertOpen, setIsCertOpen] = useState(false);
   const [isLookupOpen, setIsLookupOpen] = useState(false);
   const [isAdminOpen, setIsAdminOpen] = useState(false);
+
+  // 인증 모달 상태
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
+  const [authMode, setAuthMode] = useState<"login" | "register">("login");
+  const [user, setUser] = useState<AuthUser | null>(null);
+
   const [preferredParkInput, setPreferredParkInput] = useState("");
   const [userPoints, setUserPoints] = useState(2490000);
   const [consultations, setConsultations] = useState<ConsultationItem[]>(INITIAL_CONSULTATIONS);
@@ -124,9 +149,17 @@ export const DaonProvider: React.FC<{ children: React.ReactNode }> = ({ children
     },
   ]);
 
+  // Convex mutations
+  const createConsultationMutation = useMutation(api.consultations.createConsultation);
+  const updateStatusMutation = useMutation(api.consultations.updateStatus);
+
   // 로컬 스토리지 동기화
   useEffect(() => {
     try {
+      const savedUser = localStorage.getItem("daon_user");
+      if (savedUser) {
+        setUser(JSON.parse(savedUser));
+      }
       const savedConsultations = localStorage.getItem("daon_consultations");
       if (savedConsultations) {
         setConsultations(JSON.parse(savedConsultations));
@@ -143,6 +176,29 @@ export const DaonProvider: React.FC<{ children: React.ReactNode }> = ({ children
       // ignore
     }
   }, []);
+
+  const openAuth = (mode: "login" | "register" = "login") => {
+    setAuthMode(mode);
+    setIsAuthOpen(true);
+  };
+  const closeAuth = () => setIsAuthOpen(false);
+
+  const handleSetUser = (u: AuthUser | null) => {
+    setUser(u);
+    try {
+      if (u) {
+        localStorage.setItem("daon_user", JSON.stringify(u));
+      } else {
+        localStorage.removeItem("daon_user");
+      }
+    } catch {
+      // ignore
+    }
+  };
+
+  const logout = () => {
+    handleSetUser(null);
+  };
 
   const saveConsultations = (items: ConsultationItem[]) => {
     setConsultations(items);
@@ -201,6 +257,27 @@ export const DaonProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const addConsultation = async (item: Omit<ConsultationItem, "id" | "createdAt" | "status">) => {
+    let certNum = "";
+    try {
+      // Convex에 저장
+      const res = await createConsultationMutation({
+        productSet: item.productSet,
+        productName: item.productName,
+        amount: item.amount,
+        healthFood: item.healthFood,
+        paymentMethod: item.paymentMethod,
+        customerName: item.customerName,
+        phone: item.phone,
+        address: item.address,
+        preferredPark: item.preferredPark,
+        notes: item.notes,
+      });
+      certNum = res.certNumber;
+    } catch (e) {
+      console.warn("Convex 저장 실패, 로컬로 폴백:", e);
+      certNum = `DAON-2026-${Math.floor(100000 + Math.random() * 900000)}`;
+    }
+
     const id = "consult-" + Date.now();
     const newItem: ConsultationItem = {
       ...item,
@@ -212,9 +289,8 @@ export const DaonProvider: React.FC<{ children: React.ReactNode }> = ({ children
     saveConsultations(nextList);
 
     // 자동 보증서 등록
-    const certNumber = `DAON-2026-${Math.floor(100000 + Math.random() * 900000)}`;
     const newCert: UserCertificate = {
-      certNumber,
+      certNumber: certNum,
       customerName: item.customerName,
       phone: item.phone,
       productName: item.productName,
@@ -227,7 +303,7 @@ export const DaonProvider: React.FC<{ children: React.ReactNode }> = ({ children
     };
     saveCerts([newCert, ...certificates]);
 
-    return certNumber;
+    return certNum;
   };
 
   const updateConsultationStatus = (id: string, status: string, notes?: string) => {
@@ -235,6 +311,19 @@ export const DaonProvider: React.FC<{ children: React.ReactNode }> = ({ children
       c.id === id ? { ...c, status, notes: notes !== undefined ? notes : c.notes } : c
     );
     saveConsultations(next);
+
+    // id가 convex Id 형식일 경우 mutation 실행 시도
+    if (id && !id.startsWith("sample-") && !id.startsWith("consult-")) {
+      try {
+        updateStatusMutation({
+          id: id as any,
+          status,
+          notes,
+        });
+      } catch {
+        // ignore
+      }
+    }
   };
 
   return (
@@ -252,6 +341,13 @@ export const DaonProvider: React.FC<{ children: React.ReactNode }> = ({ children
         isAdminOpen,
         openAdmin,
         closeAdmin,
+        isAuthOpen,
+        authMode,
+        openAuth,
+        closeAuth,
+        user,
+        setUser: handleSetUser,
+        logout,
         preferredParkInput,
         setPreferredParkInput,
         userPoints,

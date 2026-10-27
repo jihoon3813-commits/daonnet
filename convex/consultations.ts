@@ -47,7 +47,7 @@ export const listConsultations = query({
     limit: v.optional(v.number()),
   },
   handler: async (ctx, args) => {
-    const limit = args.limit ?? 50;
+    const limit = args.limit ?? 100;
     const items = await ctx.db
       .query("consultations")
       .withIndex("by_created_at")
@@ -57,7 +57,7 @@ export const listConsultations = query({
   },
 });
 
-// 상태 업데이트 (관리자용)
+// 상태 및 메모 업데이트 (관리자용)
 export const updateStatus = mutation({
   args: {
     id: v.id("consultations"),
@@ -69,6 +69,18 @@ export const updateStatus = mutation({
       status: args.status,
       notes: args.notes,
     });
+    return { success: true };
+  },
+});
+
+// 상담 삭제 (관리자용)
+export const deleteConsultation = mutation({
+  args: {
+    id: v.id("consultations"),
+  },
+  handler: async (ctx, args) => {
+    await ctx.db.delete(args.id);
+    return { success: true };
   },
 });
 
@@ -80,8 +92,7 @@ export const lookupByPhone = query({
   },
   handler: async (ctx, args) => {
     const cleanPhone = args.phone.replace(/[^0-9]/g, "");
-    
-    // DB의 모든 consultation 중 전화번호 일치 항목 필터
+
     const all = await ctx.db.query("consultations").collect();
     const matchedConsultations = all.filter((c: Record<string, unknown>) => {
       const phoneStr = String(c.phone || "");
@@ -113,9 +124,11 @@ export const getStats = query({
   args: {},
   handler: async (ctx) => {
     const all = await ctx.db.query("consultations").collect();
-    const pending = all.filter(c => c.status === "신청접수").length;
-    const processing = all.filter(c => c.status === "상담진행중").length;
-    const completed = all.filter(c => c.status === "계약완료" || c.status === "보증서발급").length;
+    const pending = all.filter((c) => c.status === "신청접수").length;
+    const processing = all.filter((c) => c.status === "상담진행중").length;
+    const completed = all.filter(
+      (c) => c.status === "계약완료" || c.status === "보증서발급"
+    ).length;
     return {
       total: all.length,
       pending,

@@ -13,6 +13,7 @@ import {
   ChevronUp,
   ArrowRight,
   Sparkles,
+  ExternalLink,
 } from "lucide-react";
 import { MEMORIAL_PARKS, MemorialPark } from "@/data/memorialParks";
 import { useDaon } from "@/context/DaonContext";
@@ -316,7 +317,20 @@ export default function MemorialParkSection({
               </div>
 
               <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between gap-2">
-                <span className="text-[11px] text-gray-400 whitespace-nowrap">봉안당 1단 / 사전선점</span>
+                {park.website ? (
+                  <a
+                    href={park.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-semibold text-[#C5A059] hover:text-[#0F1E36] hover:underline flex items-center gap-1 transition"
+                    title={`${park.name} 공식 홈페이지 새창 열기`}
+                  >
+                    <span>홈페이지 바로가기</span>
+                    <ExternalLink className="w-3 h-3 shrink-0" />
+                  </a>
+                ) : (
+                  <span className="text-[11px] text-gray-400 whitespace-nowrap">봉안당 1단 / 사전선점</span>
+                )}
                 <button
                   onClick={() => handleSelectPark(park)}
                   className="bg-[#0F1E36] hover:bg-[#C5A059] text-white text-xs font-bold px-3.5 py-2 rounded-xl transition flex items-center gap-1 cursor-pointer whitespace-nowrap shrink-0"

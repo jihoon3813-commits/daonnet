@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useDaon } from "@/context/DaonContext";
 
 export default function HeaderV2() {
-  const { openContract, openCert, openLookup, openAdmin, userPoints } = useDaon();
+  const { openContract, openCert, openLookup, openAuth, user, logout, userPoints } = useDaon();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -73,7 +73,16 @@ export default function HeaderV2() {
             href="#happy-class"
             className="hover:text-[#9c804d] transition py-1 whitespace-nowrap shrink-0"
           >
-            해피클래스·크루즈
+            해피클래스·패키지·크루즈
+          </a>
+          <a
+            href="#health-support"
+            className="text-[#947b50] hover:text-[#172c37] transition py-1 flex items-center gap-1.5 whitespace-nowrap shrink-0 font-bold"
+          >
+            <span>건강식품·위로지원금</span>
+            <span className="text-[10px] px-1.5 py-0.5 bg-[#947b50] text-white font-medium leading-none whitespace-nowrap shrink-0">
+              58만+40만
+            </span>
           </a>
         </nav>
 
@@ -158,15 +167,26 @@ export default function HeaderV2() {
               </a>
 
               <div className="flex items-center gap-2.5 text-[10px]">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    openAdmin();
-                  }}
-                  className="text-[#94a3a8] hover:text-white underline cursor-pointer"
-                >
-                  관리자
-                </button>
+                {user ? (
+                  <button
+                    onClick={() => {
+                      logout();
+                    }}
+                    className="text-[#d9bc86] hover:text-white underline cursor-pointer"
+                  >
+                    로그아웃
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      openAuth("login");
+                    }}
+                    className="text-[#d9bc86] hover:text-white underline cursor-pointer"
+                  >
+                    로그인/가입
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -216,8 +236,16 @@ export default function HeaderV2() {
             onClick={() => setMobileMenuOpen(false)}
             className="py-1.5 border-b border-[#dedfd7]/60 hover:text-[#947b50] flex justify-between items-center"
           >
-            <span>06. 해피클래스 2박 3일 숙박권 & 크루즈</span>
+            <span>06. 해피클래스 숙박권 & 패키지 여행 & 크루즈</span>
             <span className="text-[#947b50] text-xs">→</span>
+          </a>
+          <a
+            href="#health-support"
+            onClick={() => setMobileMenuOpen(false)}
+            className="py-1.5 border-b border-[#dedfd7]/60 text-[#947b50] font-semibold flex justify-between items-center"
+          >
+            <span>07. 건강식품(58만상당) 택1 증정 & 위로지원금 40만원</span>
+            <span className="text-xs">↗</span>
           </a>
           <div className="pt-1">
             <button
