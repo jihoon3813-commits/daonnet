@@ -235,7 +235,8 @@ export default function AuthModal() {
         }
       }
     } catch (err: any) {
-      setErrorMessage("서버 통신 중 오류가 발생했습니다. 다시 시도해주세요.");
+      console.error("Auth error:", err);
+      setErrorMessage(err.data?.message || err.message || "서버 통신 중 오류가 발생했습니다. 다시 시도해주세요.");
     } finally {
       setIsLoading(false);
     }
