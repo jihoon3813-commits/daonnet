@@ -59,8 +59,7 @@ export default function LookupModal() {
           <div className="flex gap-2">
             <input
               type="tel"
-              inputMode="numeric"
-              pattern="[0-9]*"
+              inputMode="tel"
               autoComplete="tel"
               maxLength={13}
               value={searchPhone}

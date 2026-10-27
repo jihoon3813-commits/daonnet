@@ -441,8 +441,7 @@ export default function ContractModal() {
                 </label>
                 <input
                   type="tel"
-                  inputMode="numeric"
-                  pattern="[0-9]*"
+                  inputMode="tel"
                   autoComplete="tel"
                   maxLength={13}
                   required
