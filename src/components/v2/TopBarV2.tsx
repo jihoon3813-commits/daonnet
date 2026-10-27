@@ -44,7 +44,7 @@ export default function TopBarV2() {
             <div className="flex items-center gap-2 text-[11px]">
               <span className="text-[#d9bc86] font-semibold flex items-center gap-1">
                 <User className="w-3.5 h-3.5" />
-                <span>{user.email}</span>
+                <span>{user.name ? `${user.name} 님` : user.email}</span>
               </span>
               <button
                 onClick={logout}

@@ -36,6 +36,9 @@ export interface UserCertificate {
 export interface AuthUser {
   id: string;
   email: string;
+  name?: string;
+  phone?: string;
+  address?: string;
   role?: string;
 }
 

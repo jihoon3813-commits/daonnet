@@ -168,14 +168,19 @@ export default function HeaderV2() {
 
               <div className="flex items-center gap-2.5 text-[10px]">
                 {user ? (
-                  <button
-                    onClick={() => {
-                      logout();
-                    }}
-                    className="text-[#d9bc86] hover:text-white underline cursor-pointer"
-                  >
-                    로그아웃
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[#d9bc86] font-semibold">
+                      {user.name ? `${user.name} 님` : user.email}
+                    </span>
+                    <button
+                      onClick={() => {
+                        logout();
+                      }}
+                      className="text-gray-300 hover:text-white underline cursor-pointer"
+                    >
+                      로그아웃
+                    </button>
+                  </div>
                 ) : (
                   <button
                     onClick={() => {

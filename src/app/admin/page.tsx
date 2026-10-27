@@ -1428,8 +1428,11 @@ export default function AdminPage() {
                 <table className="w-full text-left text-xs">
                   <thead className="bg-[#172c37] text-[#f7f5ef] border-b border-[#223947]">
                     <tr>
-                      <th className="p-3.5 font-bold">회원번호 (ID)</th>
-                      <th className="p-3.5 font-bold">가입 이메일</th>
+                      <th className="p-3.5 font-bold">회원번호</th>
+                      <th className="p-3.5 font-bold">성함</th>
+                      <th className="p-3.5 font-bold">연락처</th>
+                      <th className="p-3.5 font-bold">가입 이메일(아이디)</th>
+                      <th className="p-3.5 font-bold">주소</th>
                       <th className="p-3.5 font-bold">회원 권한</th>
                       <th className="p-3.5 font-bold">가입일시</th>
                     </tr>
@@ -1438,7 +1441,10 @@ export default function AdminPage() {
                     {registeredUsers.map((u: any, idx: number) => (
                       <tr key={u._id} className="hover:bg-[#faf9f5] transition">
                         <td className="p-3.5 text-[#747b78] font-mono text-[11px]">#{idx + 1}</td>
-                        <td className="p-3.5 font-bold text-[#172c37]">{u.email}</td>
+                        <td className="p-3.5 font-bold text-[#172c37]">{u.name || "-"}</td>
+                        <td className="p-3.5 text-[#26373b] font-mono">{u.phone || "-"}</td>
+                        <td className="p-3.5 text-[#172c37]">{u.email}</td>
+                        <td className="p-3.5 text-[#555] max-w-xs truncate" title={u.address || ""}>{u.address || "-"}</td>
                         <td className="p-3.5">
                           <span
                             className={`px-2 py-0.5 rounded font-semibold text-[10px] ${
@@ -1450,14 +1456,14 @@ export default function AdminPage() {
                             {u.role === "admin" ? "관리자" : "일반회원"}
                           </span>
                         </td>
-                        <td className="p-3.5 text-[#747b78]">
+                        <td className="p-3.5 text-[#747b78] whitespace-nowrap">
                           {new Date(u.createdAt).toLocaleString("ko-KR")}
                         </td>
                       </tr>
                     ))}
                     {registeredUsers.length === 0 && (
                       <tr>
-                        <td colSpan={4} className="p-12 text-center text-[#747b78] text-xs">
+                        <td colSpan={7} className="p-12 text-center text-[#747b78] text-xs">
                           가입된 회원이 아직 없습니다.
                         </td>
                       </tr>

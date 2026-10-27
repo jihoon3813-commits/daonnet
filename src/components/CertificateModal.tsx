@@ -48,7 +48,7 @@ export default function CertificateModal() {
             발급된 보증서가 없습니다
           </h3>
           <p className="text-xs sm:text-sm text-gray-600 mb-6 leading-relaxed">
-            <strong className="text-[#0F1E36]">{user.email}</strong> 님 명의로 발급된 정식 이행보증서가 없습니다.<br />
+            <strong className="text-[#0F1E36]">{user.name ? `${user.name} 님` : user.email}</strong> 명의로 발급된 정식 이행보증서가 없습니다.<br />
             다온 프리미엄 249 상품 가입 및 본사 승인 완료 후 10년 공증 환급보증서(498만 원)가 안전하게 발급 등록됩니다.
           </p>
           <div className="space-y-2">

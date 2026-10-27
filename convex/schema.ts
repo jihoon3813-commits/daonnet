@@ -13,9 +13,15 @@ export default defineSchema({
   users: defineTable({
     email: v.string(),
     password: v.string(),
+    name: v.optional(v.string()), // 회원 성함
+    phone: v.optional(v.string()), // 연락처
+    address: v.optional(v.string()), // 주소
+    zonecode: v.optional(v.string()), // 우편번호
     role: v.optional(v.string()), // "user" | "admin"
     createdAt: v.number(),
-  }).index("by_email", ["email"]),
+  })
+    .index("by_email", ["email"])
+    .index("by_phone", ["phone"]),
 
   // 온라인 계약 & 상담 신청 테이블
   consultations: defineTable({

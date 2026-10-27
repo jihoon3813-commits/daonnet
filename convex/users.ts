@@ -1,20 +1,40 @@
 import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
 
-// 이메일로 회원가입 (이메일로만 가입)
+// 회원가입 (이름, 연락처, 주소, 이메일 아이디, 비밀번호)
 export const registerWithEmail = mutation({
   args: {
     email: v.string(),
     password: v.string(),
+    name: v.string(),
+    phone: v.string(),
+    address: v.string(),
+    zonecode: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     const email = args.email.trim().toLowerCase();
     const password = args.password.trim();
+    const name = args.name.trim();
+    const phone = args.phone.trim();
+    const address = args.address.trim();
+    const zonecode = args.zonecode?.trim() || "";
+
+    if (!name) {
+      return { success: false, message: "이름(성함)을 입력해주세요." };
+    }
+
+    if (!phone) {
+      return { success: false, message: "휴대폰 번호를 입력해주세요." };
+    }
+
+    if (!address) {
+      return { success: false, message: "주소를 입력해주세요." };
+    }
 
     // 이메일 유효성 검증
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return { success: false, message: "올바른 이메일 형식을 입력해주세요." };
+      return { success: false, message: "올바른 이메일 형식을 입력해주세요 (예: user@example.com)." };
     }
 
     if (!password || password.length < 4) {
@@ -34,6 +54,10 @@ export const registerWithEmail = mutation({
     const userId = await ctx.db.insert("users", {
       email,
       password,
+      name,
+      phone,
+      address,
+      zonecode,
       role: "user",
       createdAt: Date.now(),
     });
@@ -44,6 +68,10 @@ export const registerWithEmail = mutation({
       user: {
         id: userId,
         email,
+        name,
+        phone,
+        address,
+        role: "user",
       },
     };
   },
@@ -78,6 +106,9 @@ export const loginWithEmail = mutation({
       user: {
         id: user._id,
         email: user.email,
+        name: user.name || "",
+        phone: user.phone || "",
+        address: user.address || "",
         role: user.role ?? "user",
       },
     };
@@ -92,6 +123,9 @@ export const listUsers = query({
     return users.map((u) => ({
       _id: u._id,
       email: u.email,
+      name: u.name || "-",
+      phone: u.phone || "-",
+      address: u.address || "-",
       role: u.role ?? "user",
       createdAt: u.createdAt,
     }));
