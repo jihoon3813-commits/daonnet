@@ -22,20 +22,8 @@ export const createConsultation = mutation({
       createdAt: Date.now(),
     });
 
-    // 신청 즉시 가상 모바일 보증서 1건 자동 생성 (조회용)
+    // 접수 고유 번호 반환
     const certNumber = `DAON-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}`;
-    await ctx.db.insert("certificates", {
-      certNumber,
-      customerName: args.customerName,
-      phone: args.phone,
-      productName: args.productName,
-      guaranteeAmount: args.productSet === "Set2" ? 4980000 : 1980000,
-      funeralAmount: 1980000,
-      memorialTier: "봉안당 1단 기준",
-      points: args.productSet === "Set2" ? 2490000 : 1000000,
-      issuedDate: new Date().toISOString().split("T")[0],
-      status: "발급접수완료",
-    });
 
     return { consultationId, certNumber };
   },
@@ -77,6 +65,17 @@ export const updateStatus = mutation({
 export const deleteConsultation = mutation({
   args: {
     id: v.id("consultations"),
+  },
+  handler: async (ctx, args) => {
+    await ctx.db.delete(args.id);
+    return { success: true };
+  },
+});
+
+// 보증서 삭제
+export const deleteCertificate = mutation({
+  args: {
+    id: v.id("certificates"),
   },
   handler: async (ctx, args) => {
     await ctx.db.delete(args.id);

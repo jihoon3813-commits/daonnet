@@ -2,14 +2,25 @@
 
 import React, { useState } from "react";
 import { X, Search, ShieldCheck, UserCheck, Calendar, Phone, Award } from "lucide-react";
-import { useDaon, ConsultationItem } from "@/context/DaonContext";
+import { useDaon } from "@/context/DaonContext";
 import { formatPhoneNumber } from "@/utils/format";
+import { useQuery } from "convex/react";
+import { api } from "../../convex/_generated/api";
 
 export default function LookupModal() {
-  const { isLookupOpen, closeLookup, consultations, openCert } = useDaon();
+  const { isLookupOpen, closeLookup, openCert } = useDaon();
   const [searchPhone, setSearchPhone] = useState("");
+  const [activeQueryPhone, setActiveQueryPhone] = useState<string | null>(null);
   const [hasSearched, setHasSearched] = useState(false);
-  const [matchedResults, setMatchedResults] = useState<ConsultationItem[]>([]);
+
+  // Convex 클라우드 서버에서 실시간 조회 (모든 기기/PC 연동)
+  const lookupData = useQuery(
+    api.consultations.lookupByPhone,
+    activeQueryPhone ? { phone: activeQueryPhone } : "skip"
+  );
+
+  const matchedConsultations = lookupData?.consultations || [];
+  const isLoading = activeQueryPhone !== null && lookupData === undefined;
 
   if (!isLookupOpen) return null;
 
@@ -21,12 +32,7 @@ export default function LookupModal() {
       return;
     }
 
-    const matched = consultations.filter((c) => {
-      const cClean = c.phone.replace(/[^0-9]/g, "");
-      return cClean.includes(cleanSearch) || cleanSearch.includes(cClean);
-    });
-
-    setMatchedResults(matched);
+    setActiveQueryPhone(cleanSearch);
     setHasSearched(true);
   };
 
@@ -37,7 +43,7 @@ export default function LookupModal() {
         <div className="flex justify-between items-center border-b border-gray-100 pb-4 mb-5">
           <div>
             <span className="text-xs font-black text-blue-600 tracking-wider block">
-              STATUS & CERTIFICATE LOOKUP
+              STATUS &amp; CERTIFICATE LOOKUP
             </span>
             <h3 className="text-xl font-black text-[#0F1E36] mt-0.5">
               내 상담 신청 및 보증서 현황 조회
@@ -46,6 +52,7 @@ export default function LookupModal() {
           <button
             onClick={closeLookup}
             className="text-gray-400 hover:text-gray-700 p-1.5 rounded-full hover:bg-gray-100 transition cursor-pointer"
+            aria-label="닫기"
           >
             <X className="w-6 h-6" />
           </button>
@@ -69,10 +76,11 @@ export default function LookupModal() {
             />
             <button
               type="submit"
-              className="bg-[#0F1E36] hover:bg-[#091324] text-white px-5 py-2.5 rounded-xl font-bold text-sm flex items-center gap-1.5 transition cursor-pointer"
+              disabled={isLoading}
+              className="bg-[#0F1E36] hover:bg-[#091324] text-white px-5 py-2.5 rounded-xl font-bold text-sm flex items-center gap-1.5 transition cursor-pointer disabled:opacity-50"
             >
               <Search className="w-4 h-4 text-[#C5A059]" />
-              <span>조회</span>
+              <span>{isLoading ? "조회 중..." : "조회"}</span>
             </button>
           </div>
         </form>
@@ -80,7 +88,11 @@ export default function LookupModal() {
         {/* 결과 영역 */}
         {hasSearched && (
           <div className="space-y-4">
-            {matchedResults.length === 0 ? (
+            {isLoading ? (
+              <div className="text-center py-8 text-gray-500 text-sm">
+                Convex 서버에서 신청 내역을 조회하는 중입니다...
+              </div>
+            ) : matchedConsultations.length === 0 ? (
               <div className="text-center py-8 bg-gray-50 rounded-2xl border border-gray-200 p-6">
                 <UserCheck className="w-10 h-10 text-gray-300 mx-auto mb-2" />
                 <p className="text-sm font-bold text-gray-700">
@@ -93,12 +105,12 @@ export default function LookupModal() {
             ) : (
               <div className="space-y-3">
                 <div className="text-xs font-bold text-gray-500">
-                  총 {matchedResults.length}건의 신청 내역이 확인되었습니다.
+                  총 {matchedConsultations.length}건의 신청 내역이 확인되었습니다.
                 </div>
 
-                {matchedResults.map((item) => (
+                {matchedConsultations.map((item: any) => (
                   <div
-                    key={item.id}
+                    key={item._id}
                     className="bg-[#FAF8F5] border border-amber-200/90 rounded-2xl p-4 text-xs space-y-2 relative"
                   >
                     <div className="flex justify-between items-start">
@@ -121,7 +133,7 @@ export default function LookupModal() {
                       </div>
                       <div>
                         <strong>결제 방법:</strong> {item.paymentMethod} (
-                        {item.amount.toLocaleString()}원)
+                        {Number(item.amount).toLocaleString()}원)
                       </div>
                       {item.preferredPark && (
                         <div>
