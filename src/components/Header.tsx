@@ -169,12 +169,12 @@ export default function Header() {
 
             <div className="flex items-center justify-between pt-0.5 text-xs">
               <a
-                href="tel:1877-8816"
+                href="tel:1544-8826"
                 className="flex items-center gap-1.5 text-gray-300 font-semibold"
               >
                 <PhoneCall className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
-                <span>24시간 긴급상담:</span>
-                <strong className="text-white font-black tracking-wider">1877-8816</strong>
+                <span>24시간 장례 긴급상담:</span>
+                <strong className="text-white font-black tracking-wider">1544-8826</strong>
               </a>
             </div>
           </div>

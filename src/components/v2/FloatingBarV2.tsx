@@ -11,7 +11,7 @@ export default function FloatingBarV2() {
       <div className="max-w-[1200px] mx-auto flex items-center justify-between gap-2 sm:gap-3 whitespace-nowrap">
         {/* 좌측: 24시간 전화상담 */}
         <a
-          href="tel:1877-8816"
+          href="tel:1544-8826"
           className="flex items-center gap-2.5 sm:gap-3 text-[#26373b] hover:text-[#947b50] transition shrink-0"
         >
           <span
@@ -28,7 +28,7 @@ export default function FloatingBarV2() {
               className="block text-[15px] sm:text-[19px] font-normal text-[#172c37] leading-tight"
               style={{ fontFamily: "Georgia, serif" }}
             >
-              1877-8816
+              1544-8826
             </strong>
           </div>
         </a>

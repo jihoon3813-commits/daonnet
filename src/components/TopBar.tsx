@@ -18,8 +18,8 @@ export default function TopBar() {
           <span className="hidden md:inline text-gray-400">|</span>
           <span className="hidden sm:flex items-center gap-1.5 text-gray-300 whitespace-nowrap">
             <PhoneCall className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
-            <span>365일 24시간 장례·추모공원 긴급상담센터:</span>
-            <strong className="text-white font-extrabold tracking-wider">1877-8816</strong>
+            <span>365일 24시간 장례·추모 긴급상담:</span>
+            <strong className="text-white font-extrabold tracking-wider">1544-8826</strong>
           </span>
         </div>
 

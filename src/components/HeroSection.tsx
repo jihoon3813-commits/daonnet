@@ -88,7 +88,7 @@ export default function HeroSection({ onSearch }: HeroSectionProps) {
                 <div className="text-sm sm:text-lg font-black text-white mt-1 whitespace-nowrap">
                   1,980,000원
                 </div>
-                <div className="text-[10px] sm:text-[11px] text-[#E5C98B] mt-0.5 whitespace-nowrap">365일 24시간 의전접수</div>
+                <div className="text-[10px] sm:text-[11px] text-[#E5C98B] mt-0.5 whitespace-nowrap">24시 의전 (1544-8826)</div>
               </div>
 
               <div className="bg-white/10 backdrop-blur p-3 sm:p-3.5 rounded-2xl border border-white/15 hover:border-[#C5A059]/50 transition">

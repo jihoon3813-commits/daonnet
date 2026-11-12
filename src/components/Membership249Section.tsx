@@ -302,7 +302,7 @@ export default function Membership249Section() {
               </span>
               <div className="font-extrabold text-[#0F1E36] text-sm">서비스 이용</div>
               <div className="text-xs text-gray-500 mt-1 leading-relaxed">
-                장례·추모 발생 시 24시간 고객센터(1877-8816) 접수 및 숙박/크루즈 예약
+                장례·추모 발생 시 24시간 긴급상담(1544-8826) 접수 및 숙박/크루즈 예약
               </div>
             </div>
 

@@ -244,8 +244,8 @@ export default function ContractModal() {
                 </div>
               )}
               <div className="flex justify-between items-center pt-2 border-t border-amber-100">
-                <span className="text-gray-500">장례·추모 24시 긴급 문의</span>
-                <strong className="text-[#C5A059] font-bold">1877-8816 (24시간)</strong>
+                <span className="text-gray-500">24시간 장례 긴급상담</span>
+                <strong className="text-[#C5A059] font-bold">1544-8826 (24시간)</strong>
               </div>
             </div>
 

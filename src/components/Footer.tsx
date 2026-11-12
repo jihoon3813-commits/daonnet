@@ -15,12 +15,12 @@ export default function Footer() {
   // 기본값 설정
   const companyName = settings?.companyName || "주식회사 다온넷 (DAONNET Co., Ltd.)";
   const department = settings?.department || "다온 프리미엄 249 라이프케어 사업본부";
-  const callCenterTitle = settings?.callCenterTitle || "고객상담센터 (365일 24시간 장례·추모 접수)";
-  const callCenterPhone = settings?.callCenterPhone || "1877-8816";
+  const callCenterTitle = settings?.callCenterTitle || "24시간 장례 긴급상담센터";
+  const callCenterPhone = settings?.callCenterPhone || "1544-8826";
   const mallName = settings?.mallName || "다온넷.kr";
   const mallUrl = settings?.mallUrl || "http://다온넷.kr";
   const callCenterSubtext = settings?.callCenterSubtext || "장례·추모공원 사전 예약 및 로얄석 상담 상시 운영";
-  const noticeText = settings?.noticeText || `• 장례·추모공원 이행증서는 실물 또는 모바일로 발급되며, 서비스 발생 시 반드시 고객센터(1877-8816) 접수 후 혜택이 적용됩니다.
+  const noticeText = settings?.noticeText || `• 장례·추모공원 이행증서는 실물 또는 모바일로 발급되며, 서비스 발생 시 반드시 긴급상담(1544-8826) 접수 후 혜택이 적용됩니다.
 • 추모공원·숙박·크루즈 등 제휴 서비스는 이용 시점의 제휴 여부, 시설 객실 현황, 시즌 및 운영규정에 따라 제한 또는 추가비용이 발생할 수 있습니다.
 • 환급보증서 497만 원은 보증서 금액 기준이며, 실제 환급 절차·지급형태·조건은 환급보증서 및 반환 지급약정 내용을 우선합니다.`;
   const copyright = settings?.copyright || "© 2026 DAONNET Co., Ltd. All rights reserved.";

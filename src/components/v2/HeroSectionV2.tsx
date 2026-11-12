@@ -128,7 +128,7 @@ export default function HeroSectionV2({ onSearch }: HeroSectionV2Props) {
                   1,980,000<span className="text-[11px] sm:text-[13px] ml-0.5 font-sans">원</span>
                 </div>
                 <div className="text-[9.5px] sm:text-[11px] text-[#c6cfc7] mt-0.5 break-keep">
-                  24시 의전 (1877-8816)
+                  24시 의전 (1544-8826)
                 </div>
               </div>
 

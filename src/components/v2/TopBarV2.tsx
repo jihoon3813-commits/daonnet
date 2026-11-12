@@ -16,12 +16,12 @@ export default function TopBarV2() {
           <span>소중한 기억을 위한 준비, 다온넷이 함께합니다</span>
           <span className="hidden md:inline text-[#4c626d]">|</span>
           <a
-            href="tel:1877-8816"
+            href="tel:1544-8826"
             className="hidden sm:inline-flex items-center gap-1.5 text-[#e3e6e5] hover:text-[#d9bc86] transition"
           >
             <span className="text-[#b8c2c4]">365일 24시간 장례·추모 긴급상담:</span>
             <strong className="text-[#d9bc86] font-semibold tracking-wider">
-              1877-8816
+              1544-8826
             </strong>
           </a>
         </div>

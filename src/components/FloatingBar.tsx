@@ -12,7 +12,7 @@ export default function FloatingBar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-3 whitespace-nowrap">
         {/* 전화번호 안내 */}
         <a
-          href="tel:1877-8816"
+          href="tel:1544-8826"
           className="flex items-center gap-2 sm:gap-2.5 group cursor-pointer shrink-0"
         >
           <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#0F1E36] text-[#C5A059] flex items-center justify-center text-lg group-hover:scale-105 transition transform shadow shrink-0">
@@ -23,7 +23,7 @@ export default function FloatingBar() {
               <span className="hidden sm:inline">365일 </span>24시간 긴급상담
             </div>
             <div className="text-sm sm:text-lg font-black text-[#0F1E36] tracking-wider leading-none mt-0.5">
-              1877-8816
+              1544-8826
             </div>
           </div>
         </a>

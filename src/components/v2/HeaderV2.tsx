@@ -157,12 +157,12 @@ export default function HeaderV2() {
 
             <div className="flex items-center justify-between pt-0.5 text-[11px]">
               <a
-                href="tel:1877-8816"
+                href="tel:1544-8826"
                 className="text-[#e3e6e5] flex items-center gap-1.5"
               >
                 <span className="text-[#b8c2c4]">24시간 긴급상담:</span>
                 <strong className="text-[#d9bc86] font-semibold tracking-wider">
-                  1877-8816
+                  1544-8826
                 </strong>
               </a>
 

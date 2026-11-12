@@ -471,7 +471,7 @@ export default function Membership249SectionV2() {
             곁에서 차근차근.
           </h2>
           <p className="text-[#747b78] text-[11.5px] sm:text-[14px] leading-[1.7] sm:leading-[1.8] mb-3 sm:mb-[20px] break-keep">
-            장례가 발생하면 먼저 다온넷 24시간 고객센터(1877-8816)로 연락해 주세요.
+            장례가 발생하면 먼저 다온넷 24시간 장례 긴급상담(1544-8826)으로 연락해 주세요.
             198만 원 후불장례 이행보증부터 희망 추모공원 안치까지 원스톱으로 안내합니다.
           </p>
 
@@ -487,7 +487,7 @@ export default function Membership249SectionV2() {
                 365일 24시간 긴급 장례 접수
               </b>
               <p className="text-[10.5px] sm:text-[11px] text-[#747b78] mt-0.5 sm:mt-[4px] mb-1 break-keep">
-                고객센터(1877-8816) 전화 한 통으로 전국 어디서나 즉시 의전팀 출동 및 접수 안내
+                긴급상담(1544-8826) 전화 한 통으로 전국 어디서나 즉시 의전팀 출동 및 접수 안내
               </p>
             </div>
           </div>
@@ -527,10 +527,10 @@ export default function Membership249SectionV2() {
           </div>
 
           <a
-            href="tel:1877-8816"
+            href="tel:1544-8826"
             className="inline-block pt-2 sm:pt-[15px] pb-1 border-b border-[#9c9f91] text-[11.5px] sm:text-[12px] font-semibold text-[#26373b] hover:text-[#947b50] mt-2 sm:mt-[18px]"
           >
-            24시간 장례·추모 상담 1877-8816 ↗
+            24시간 장례 긴급상담 1544-8826 ↗
           </a>
         </div>
       </section>
