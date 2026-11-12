@@ -39,7 +39,7 @@ export default function FloatingBarV2() {
             onClick={openCert}
             className="border border-[#b6bcb7] hover:border-[#172c37] bg-[#f7f5ef] text-[#26373b] px-[10px] sm:px-[18px] py-[8px] sm:py-[10px] text-[11px] sm:text-[12px] font-medium transition cursor-pointer whitespace-nowrap shrink-0"
           >
-            <span className="hidden sm:inline">모바일 </span>보증서(498만)
+            <span className="hidden sm:inline">모바일 </span>보증서(497만)
           </button>
 
           <button

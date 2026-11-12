@@ -62,7 +62,7 @@ export default function Header() {
             href="#refund-guarantee"
             className="hover:text-[#C5A059] flex items-center gap-1.5 py-2 transition text-red-600 font-extrabold whitespace-nowrap shrink-0"
           >
-            <span>498만 환급보증</span>
+            <span>497만 환급보증</span>
           </a>
           <a
             href="#daon-mall"
@@ -152,7 +152,7 @@ export default function Header() {
                 className="bg-[#0F1E36] hover:bg-[#162a4a] border border-[#C5A059]/40 rounded-xl py-2.5 px-3 flex items-center justify-center gap-1.5 font-bold text-gray-100"
               >
                 <ShieldCheck className="w-4 h-4 text-[#C5A059] shrink-0" />
-                <span>모바일 보증서(498만)</span>
+                <span>모바일 보증서(497만)</span>
               </button>
 
               <button
@@ -210,7 +210,7 @@ export default function Header() {
             >
               <span className="flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-red-500 shrink-0" />
-                498만원 공증 환급보증서 안내
+                497만원 공증 환급보증서 안내
               </span>
               <ChevronRight className="w-4 h-4 text-red-400" />
             </a>

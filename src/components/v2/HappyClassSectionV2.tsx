@@ -184,7 +184,7 @@ export default function HappyClassSectionV2() {
                   건강과 위로지원
                 </h3>
                 <p className="text-[10.5px] sm:text-[12px] text-[#26373b] m-0 leading-tight sm:leading-relaxed line-clamp-2 sm:line-clamp-none break-keep">
-                  건강식품 58만(택1) + 현금지원 40만원
+                  건강식품 58만(택1) + 현금지원 50만원
                 </p>
               </div>
             </a>

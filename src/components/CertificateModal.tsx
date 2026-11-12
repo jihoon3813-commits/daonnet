@@ -49,7 +49,7 @@ export default function CertificateModal() {
           </h3>
           <p className="text-xs sm:text-sm text-gray-600 mb-6 leading-relaxed">
             <strong className="text-[#0F1E36]">{user.name ? `${user.name} 님` : user.email}</strong> 명의로 발급된 정식 이행보증서가 없습니다.<br />
-            다온 프리미엄 249 상품 가입 및 본사 승인 완료 후 10년 공증 환급보증서(498만 원)가 안전하게 발급 등록됩니다.
+            다온 프리미엄 249 상품 가입 및 본사 승인 완료 후 10년 공증 환급보증서(497만 원)가 안전하게 발급 등록됩니다.
           </p>
           <div className="space-y-2">
             <button
@@ -95,7 +95,7 @@ export default function CertificateModal() {
               다온넷 모바일 이행보증서 &amp; 포인트 월렛
             </h3>
             <p className="text-gray-500 text-[11px] sm:text-xs mt-1">
-              10년 공증 환급보증 498만 원 및 VIP 라이프케어 올인원 디지털 자산 패스
+              10년 공증 환급보증 497만 원 및 VIP 라이프케어 올인원 디지털 자산 패스
             </p>
           </div>
 
@@ -344,7 +344,7 @@ export default function CertificateModal() {
               </div>
             </div>
             <strong className="text-[#9C752B] font-bold text-xs sm:text-sm self-end sm:self-auto">
-              삼칠그라 365 + 위로금 400,000원
+              삼칠그라 365 + 위로금 500,000원
             </strong>
           </div>
         </div>

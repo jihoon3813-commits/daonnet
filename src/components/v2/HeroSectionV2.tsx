@@ -54,7 +54,7 @@ export default function HeroSectionV2({ onSearch }: HeroSectionV2Props) {
 
             <p className="text-[#dde1d9] text-[11.5px] sm:text-[14.5px] leading-[1.7] sm:leading-[1.85] max-w-[630px] m-0 break-keep">
               직영 <strong className="text-white font-semibold">안성 유토피아 추모관</strong>부터 전국 56개 주요 추모공원 봉안당(1단 기준) 특별지원은 물론,{" "}
-              <strong className="text-[#e1c897] font-semibold">10년 공증 498만 원 환급보증서</strong>와{" "}
+              <strong className="text-[#e1c897] font-semibold">10년 공증 497만 원 환급보증서</strong>와{" "}
               <strong className="text-white font-semibold">249만 쇼핑포인트</strong>,{" "}
               <strong className="text-white font-semibold">해피클래스 2박 3일 숙박권</strong>까지 하나로 담았습니다.
             </p>
@@ -81,7 +81,7 @@ export default function HeroSectionV2({ onSearch }: HeroSectionV2Props) {
                 onClick={openCert}
                 className="col-span-2 sm:col-span-1 justify-center text-[#e1c897] border border-[#e1c897]/50 hover:border-[#e1c897] px-3 sm:px-[20px] py-2.5 sm:py-[14px] text-[11.5px] sm:text-[12px] font-medium inline-flex items-center gap-2 transition cursor-pointer"
               >
-                <span>498만 모바일 보증서 보기 ↗</span>
+                <span>497만 모바일 보증서 보기 ↗</span>
               </button>
             </div>
 
@@ -110,7 +110,7 @@ export default function HeroSectionV2({ onSearch }: HeroSectionV2Props) {
                   className="text-[14px] sm:text-[19px] text-[#d9bc86] mt-0.5 sm:mt-1 font-medium"
                   style={{ fontFamily: "Georgia, serif" }}
                 >
-                  4,980,000<span className="text-[11px] sm:text-[13px] ml-0.5 font-sans">원</span>
+                  4,970,000<span className="text-[11px] sm:text-[13px] ml-0.5 font-sans">원</span>
                 </div>
                 <div className="text-[9.5px] sm:text-[11px] text-[#c6cfc7] mt-0.5 break-keep">
                   2년 후 양도 가능
@@ -140,7 +140,7 @@ export default function HeroSectionV2({ onSearch }: HeroSectionV2Props) {
                   className="text-[13.5px] sm:text-[18px] text-white mt-0.5 sm:mt-1 font-normal break-keep"
                   style={{ fontFamily: "Georgia, serif" }}
                 >
-                  249만P + 40만원
+                  249만P + 50만원
                 </div>
                 <div className="text-[9.5px] sm:text-[11px] text-[#c6cfc7] mt-0.5 break-keep">
                   삼칠그라·2박3일 숙박
@@ -149,7 +149,7 @@ export default function HeroSectionV2({ onSearch }: HeroSectionV2Props) {
             </div>
 
             <div className="hidden sm:block text-[9px] tracking-[2px] text-[#c6cfc7] mt-6">
-              MEMORIAL PARK · 4,980,000 GUARANTEE · LIFE CARE · MEMBERSHIP
+              MEMORIAL PARK · 4,970,000 GUARANTEE · LIFE CARE · MEMBERSHIP
             </div>
           </div>
         </div>

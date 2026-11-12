@@ -20,7 +20,7 @@ export default function SpecialHealthGiftSectionV2() {
   const [selectedGift, setSelectedGift] = useState<string>("samchilgra-365");
 
   const handleApplyGift = (giftName: string) => {
-    openContract(`[건강기능식품(${giftName}) 무료증정 & 위로지원금 40만원 신청] `);
+    openContract(`[건강기능식품(${giftName}) 무료증정 & 위로지원금 50만원 신청] `);
   };
 
   return (
@@ -51,19 +51,19 @@ export default function SpecialHealthGiftSectionV2() {
             시중가 58만원 상당 건강식품 무료 증정
             <br className="hidden sm:inline" />
             <span className="text-[#947b50] font-normal"> ＋ </span>
-            현금 위로지원금 <span className="text-[#a16207] underline decoration-[#d9bc86] decoration-4 underline-offset-6">40만원</span> 별도 지급
+            현금 위로지원금 <span className="text-[#a16207] underline decoration-[#d9bc86] decoration-4 underline-offset-6">50만원</span> 별도 지급
           </h2>
 
           <p className="text-[11.5px] sm:text-[15px] text-[#5e6562] leading-[1.65] sm:leading-[1.7] m-0 break-keep">
             다온 프리미엄 회원님만을 위해 준비한 파격적인 2대 특전입니다.
             최고급 프리미엄 건강기능식품(삼칠그라 365 또는 경남제약 알부민 프라임 맥스 택1)을{" "}
             <strong className="text-[#172c37] font-semibold">100% 무료 증정</strong>하며,
-            <strong className="text-[#a16207] font-semibold"> 현금 위로지원금 40만원</strong>까지 별도로 드립니다.
+            <strong className="text-[#a16207] font-semibold"> 현금 위로지원금 50만원</strong>까지 별도로 드립니다.
           </p>
         </div>
 
         {/* ========================================================================= */}
-        {/* ★ 특별 현금 위로지원금 40만원 하이라이트 배너 ★ */}
+        {/* ★ 특별 현금 위로지원금 50만원 하이라이트 배너 ★ */}
         {/* ========================================================================= */}
         <div className="mb-4 sm:mb-[48px] bg-gradient-to-r from-[#172c37] via-[#243d4c] to-[#172c37] text-white rounded-xl sm:rounded-3xl p-3.5 sm:p-8 lg:p-10 shadow-md border sm:border-2 border-[#d9bc86]/50 relative overflow-hidden">
           {/* 황금빛 광택 효과 */}
@@ -81,12 +81,12 @@ export default function SpecialHealthGiftSectionV2() {
                 style={{ fontFamily: "'Noto Serif KR', Georgia, serif" }}
               >
                 회원님을 위한 특별 위로지원금{" "}
-                <span className="text-[#ffd56b] whitespace-nowrap">400,000원</span> 현금 별도 지급
+                <span className="text-[#ffd56b] whitespace-nowrap">500,000원</span> 현금 별도 지급
               </h3>
 
               <p className="text-[11.5px] sm:text-[14px] text-[#cfd8d6] leading-[1.65] m-0 break-keep">
                 건강기능식품 무료 증정 혜택과 중복으로 적용됩니다!
-                지정 계좌로 <strong className="text-white font-semibold">현금 40만원</strong>을 직접 지급해 드립니다.
+                지정 계좌로 <strong className="text-white font-semibold">현금 50만원</strong>을 직접 지급해 드립니다.
               </p>
 
               <div className="flex flex-wrap items-center gap-1.5 sm:gap-3 pt-1 text-[10.5px] sm:text-[12px] text-[#e0e7e5]">
@@ -96,7 +96,7 @@ export default function SpecialHealthGiftSectionV2() {
                 </span>
                 <span className="flex items-center gap-1 bg-black/25 px-2 py-0.5 rounded border border-white/10">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#ffd56b] shrink-0" />
-                  현금 400,000원 직접 계좌 입금 지원
+                  현금 500,000원 직접 계좌 입금 지원
                 </span>
                 <span className="flex items-center gap-1 bg-black/25 px-2 py-0.5 rounded border border-white/10">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#ffd56b] shrink-0" />
@@ -117,14 +117,14 @@ export default function SpecialHealthGiftSectionV2() {
                 className="text-[26px] sm:text-[40px] font-black text-[#ffd56b] tracking-tight leading-none my-1"
                 style={{ fontFamily: "Georgia, serif" }}
               >
-                400,000<span className="text-[16px] sm:text-[22px] font-bold text-white ml-1">원</span>
+                500,000<span className="text-[16px] sm:text-[22px] font-bold text-white ml-1">원</span>
               </div>
               <div className="text-[10px] sm:text-[11px] text-[#94a3b8] mb-2 sm:mb-4">
                 (현금 별도 지급 · 세부 지급조건 기준 확인)
               </div>
 
               <button
-                onClick={() => handleApplyGift("위로지원금 40만원 및 건강식품")}
+                onClick={() => handleApplyGift("위로지원금 50만원 및 건강식품")}
                 className="w-full bg-[#d9bc86] hover:bg-[#e6c995] text-[#172c37] font-bold py-2.5 sm:py-3 px-3 rounded-lg sm:rounded-xl text-[11.5px] sm:text-[13px] transition flex items-center justify-center gap-1.5 cursor-pointer shadow-md"
               >
                 <span>위로지원금 혜택 신청하기</span>
@@ -279,7 +279,7 @@ export default function SpecialHealthGiftSectionV2() {
                 TOTAL BENEFIT SUMMARY
               </div>
               <div className="text-[13px] sm:text-[17px] font-bold text-[#172c37] break-keep">
-                건강식품(약 580,000원 상당) ＋ 현금 위로지원금(400,000원)
+                건강식품(약 580,000원 상당) ＋ 현금 위로지원금(500,000원)
               </div>
             </div>
           </div>
@@ -291,12 +291,12 @@ export default function SpecialHealthGiftSectionV2() {
                 className="text-[20px] sm:text-[28px] font-extrabold text-[#172c37]"
                 style={{ fontFamily: "Georgia, serif" }}
               >
-                약 980,000<span className="text-[13px] sm:text-[16px] font-medium text-[#947b50]">원 상당</span>
+                약 1,080,000<span className="text-[13px] sm:text-[16px] font-medium text-[#947b50]">원 상당</span>
               </strong>
             </div>
 
             <button
-              onClick={() => handleApplyGift("건강식품 택1 & 위로지원금 40만원")}
+              onClick={() => handleApplyGift("건강식품 택1 & 위로지원금 50만원")}
               className="bg-[#947b50] hover:bg-[#836c44] text-white font-bold px-3.5 sm:px-5 py-2 sm:py-3 rounded-lg sm:rounded-xl text-[11.5px] sm:text-[13px] transition cursor-pointer shadow"
             >
               특전 상담 ↗
@@ -314,7 +314,7 @@ export default function SpecialHealthGiftSectionV2() {
             • <strong>건강식품 증정:</strong> 삼칠그라 365 또는 경남제약 알부민 프라임 맥스 중 1종을 선택하실 수 있으며, 온라인 제공자료상 약 580,000원 ~ 598,000원 상당의 정품 세트가 무료 배송됩니다.
           </p>
           <p className="m-0">
-            • <strong>위로지원금 지급:</strong> 건강식품 증정과 별도로 회원님의 든든한 일상을 응원하기 위해 현금 400,000원을 지정 계좌로 지급해 드립니다.
+            • <strong>위로지원금 지급:</strong> 건강식품 증정과 별도로 회원님의 든든한 일상을 응원하기 위해 현금 500,000원을 지정 계좌로 지급해 드립니다.
           </p>
           <p className="m-0">
             • <strong>운영 기준:</strong> 건강식품 세부 규격·배송 및 위로지원금 지급 시점·조건은 다온넷 최종 회원 가입 규정 및 운영 기준에 따릅니다.

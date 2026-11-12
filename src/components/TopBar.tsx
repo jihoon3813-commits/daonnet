@@ -29,7 +29,7 @@ export default function TopBar() {
             className="hover:text-white flex items-center gap-1 transition px-1.5 py-0.5 whitespace-nowrap cursor-pointer"
           >
             <ShieldCheck className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
-            <span className="text-gray-200">모바일 보증서(498만)</span>
+            <span className="text-gray-200">모바일 보증서(497만)</span>
           </button>
 
           <span className="text-gray-700">|</span>

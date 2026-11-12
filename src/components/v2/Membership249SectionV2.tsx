@@ -18,7 +18,7 @@ export default function Membership249SectionV2() {
 
   return (
     <>
-      {/* 1. 다크 슬레이트 네이비 멤버십 & 498만 환급보증 하이라이트 (.membership) */}
+      {/* 1. 다크 슬레이트 네이비 멤버십 & 497만 환급보증 하이라이트 (.membership) */}
       <section
         id="premium-249"
         className="relative overflow-hidden text-white py-6 sm:py-14 lg:py-20 px-4 sm:px-[7%] lg:px-[8%]"
@@ -44,7 +44,7 @@ export default function Membership249SectionV2() {
           id="refund-guarantee"
           className="relative z-10 max-w-[1180px] mx-auto grid lg:grid-cols-2 gap-6 sm:gap-[52px] lg:gap-[80px] items-center"
         >
-          {/* 좌측: 상품 설명 및 가격, 498만 환급보증 안내 */}
+          {/* 좌측: 상품 설명 및 가격, 497만 환급보증 안내 */}
           <div>
             {/* 세련된 골드 캡슐 뱃지 */}
             <div className="inline-flex items-center gap-1.5 px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#d9bc86]/10 border border-[#d9bc86]/30 backdrop-blur-md mb-2.5 sm:mb-[20px]">
@@ -61,13 +61,13 @@ export default function Membership249SectionV2() {
               내일을 위한 준비에,
               <br />
               <span className="bg-gradient-to-r from-[#fcf4e4] via-[#edd29b] to-[#c99f57] bg-clip-text text-transparent font-semibold drop-shadow-sm">
-                498만 원 환급보증의 안심을 더하다.
+                497만 원 환급보증의 안심을 더하다.
               </span>
             </h2>
 
             <p className="text-[#c2cfd3] text-[11.5px] sm:text-[14.5px] leading-[1.7] sm:leading-[1.88] m-0 font-light break-keep">
               가입금액 <strong className="text-white font-medium">249만 원(VAT 포함)</strong>으로 추모공원·후불장례 보증부터 쇼핑·여행·건강식품까지.
-              안전한 납입과 든든한 보장을 위해 <strong className="text-[#edd29b] font-medium">10년 공증 4,980,000원 환급보증서</strong>가 발행되며,
+              안전한 납입과 든든한 보장을 위해 <strong className="text-[#edd29b] font-medium">10년 공증 4,970,000원 환급보증서</strong>가 발행되며,
               가입 <strong className="text-white font-medium">2년 만기 후 자유롭게 양도·양수</strong>가 가능합니다.
             </p>
 
@@ -104,7 +104,7 @@ export default function Membership249SectionV2() {
                   className="block text-[24px] sm:text-[40px] tracking-[0.5px] sm:tracking-[1px] font-normal text-[#edd29b] leading-[1.15] mt-0.5 whitespace-nowrap drop-shadow"
                   style={{ fontFamily: "Georgia, serif" }}
                 >
-                  4,980,000
+                  4,970,000
                   <span className="text-[12px] sm:text-[15px] ml-[4px] sm:ml-[6px] font-sans font-light text-[#edd5a6]">원</span>
                 </strong>
                 <span className="block text-[10px] sm:text-[11px] text-[#a4b8bf] mt-1">
@@ -129,7 +129,7 @@ export default function Membership249SectionV2() {
                 onClick={openCert}
                 className="backdrop-blur-md bg-white/[0.05] text-white border border-[#d9bc86]/40 hover:border-[#edd5a6] px-4 sm:px-[24px] py-3 sm:py-[17px] rounded-xl text-[12.5px] sm:text-[13.5px] font-semibold inline-flex items-center justify-between gap-2.5 sm:gap-[22px] transition cursor-pointer"
               >
-                <span>모바일 보증서(498만) 보기</span>
+                <span>모바일 보증서(497만) 보기</span>
                 <span className="text-[#ebd29f]">↗</span>
               </button>
             </div>
@@ -173,7 +173,7 @@ export default function Membership249SectionV2() {
                 >
                   마음을 담은 준비, 삶을 채우는 혜택.
                   <br />
-                  <span className="text-[#ebd29f] font-semibold">환급보증서 4,980,000원 발행</span>
+                  <span className="text-[#ebd29f] font-semibold">환급보증서 4,970,000원 발행</span>
                 </strong>
               </div>
 
@@ -195,7 +195,7 @@ export default function Membership249SectionV2() {
                   </b>
                 </div>
                 <span className="text-[#b4c3c6] text-[11px] leading-[1.5] block">
-                  4,980,000원 증서 발행 (2년 후 양도 가능)*
+                  4,970,000원 증서 발행 (2년 후 양도 가능)*
                 </span>
               </div>
 
@@ -231,7 +231,7 @@ export default function Membership249SectionV2() {
                   </b>
                 </div>
                 <span className="text-[#b4c3c6] text-[11px] leading-[1.5] block">
-                  2,490,000P + 2박3일 숙박 + 삼칠그라 + 40만원*
+                  2,490,000P + 2박3일 숙박 + 삼칠그라 + 50만원*
                 </span>
               </div>
             </div>
@@ -284,7 +284,7 @@ export default function Membership249SectionV2() {
                 num: "01",
                 tag: "보증 01",
                 sub: "100% 환급",
-                value: "4,980,000원",
+                value: "4,970,000원",
                 title: "10년 공증 환급보증",
                 desc: "10년 공증 환급증서 발급. 가입 2년 후 양도·양수가 가능하며, 주요 서비스 미이용 시 안전하게 반환 지급됩니다.",
                 note: "실물/모바일 보증서 발급 · 에스엘부티크호텔 약정",
@@ -346,9 +346,9 @@ export default function Membership249SectionV2() {
                 num: "06·07",
                 tag: "특전 06·07",
                 sub: "식품+현금",
-                value: "58만 + 40만",
+                value: "58만 + 50만",
                 title: "건강식품 & 위로지원금",
-                desc: "58~59.8만원 상당 삼칠그라 365(또는 알부민 맥스) 무료 증정 및 현금 400,000원 위로지원금을 별도 지급합니다.",
+                desc: "58~59.8만원 상당 삼칠그라 365(또는 알부민 맥스) 무료 증정 및 현금 500,000원 위로지원금을 별도 지급합니다.",
                 note: "건강식품 무료배송 + 현금 직접 지급",
                 icon: Gift,
                 image:
@@ -559,7 +559,7 @@ export default function Membership249SectionV2() {
             {
               num: "02",
               title: "보증서 및 혜택 발급",
-              desc: "498만 환급보증서, 장례보증서, 249만P, 삼칠그라가 발급됩니다.",
+              desc: "497만 환급보증서, 장례보증서, 249만P, 삼칠그라가 발급됩니다.",
               image:
                 "https://res.cloudinary.com/lyjyvy54/image/upload/v1793086166/%ED%94%84%EB%A6%AC%EB%AF%B8%EC%97%84_%EB%B3%B4%EC%A6%9D%EC%84%9C%EC%99%80_%EB%A9%A4%EB%B2%84%EC%8B%AD_%ED%98%9C%ED%83%9D-2_cd4pli.png",
             },
@@ -573,7 +573,7 @@ export default function Membership249SectionV2() {
             {
               num: "04",
               title: "양도·양수 및 환급",
-              desc: "가입 2년 후 자유 양도 가능, 10년 만기 미이용 시 498만원 반환.",
+              desc: "가입 2년 후 자유 양도 가능, 10년 만기 미이용 시 497만원 반환.",
               image:
                 "https://res.cloudinary.com/lyjyvy54/image/upload/v1793086164/%ED%9A%8C%EC%9B%90%EA%B6%8C_%EC%96%91%EB%8F%84%EC%99%80_%EC%95%88%EC%A0%84%ED%95%9C_%EC%A1%B0%EA%B1%B4%EB%B6%80_%ED%99%98%EA%B8%89-3_hpwjdk.png",
             },

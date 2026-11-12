@@ -13,29 +13,29 @@ export default function HeaderV2() {
         {/* 로고 */}
         <a
           href="#home"
-          className="flex items-center gap-1.5 sm:gap-2.5 leading-[1.1] text-[#26373b] group shrink min-w-0"
+          className="flex items-center gap-1.5 sm:gap-2.5 leading-[1.1] text-[#26373b] group shrink-0"
         >
           <span
-            className="text-[26px] sm:text-[40px] md:text-[54px] font-normal tracking-[-2px] sm:tracking-[-4px] text-[#172c37] select-none shrink-0"
+            className="text-[26px] sm:text-[36px] md:text-[48px] font-normal tracking-[-2px] sm:tracking-[-3px] text-[#172c37] select-none shrink-0"
             style={{ fontFamily: "Georgia, serif" }}
           >
             ∞
           </span>
-          <div className="min-w-0">
+          <div className="shrink-0">
             <span
-              className="block text-[15px] sm:text-[20px] md:text-[24px] font-semibold tracking-[1px] sm:tracking-[2px] text-[#172c37] truncate"
+              className="block text-[15px] sm:text-[19px] md:text-[22px] font-semibold tracking-[1px] sm:tracking-[1.5px] text-[#172c37] whitespace-nowrap"
               style={{ fontFamily: "Georgia, serif" }}
             >
               DAONNET
             </span>
-            <small className="hidden xs:block text-[8px] md:text-[9px] tracking-[0.3px] sm:tracking-[0.5px] xl:tracking-[2px] text-[#747b78] mt-0.5 sm:mt-1 font-normal truncate">
+            <small className="hidden xs:block text-[8px] md:text-[9px] tracking-[0.3px] sm:tracking-[0.5px] xl:tracking-[1.5px] text-[#747b78] mt-0.5 sm:mt-1 font-normal whitespace-nowrap">
               기억을 잇고, 삶을 돌보다<span className="hidden sm:inline"> · 다온넷 라이프케어</span>
             </small>
           </div>
         </a>
 
         {/* 데스크탑 GNB */}
-        <nav className="hidden lg:flex items-center gap-4 xl:gap-[27px] ml-auto text-[12px] font-semibold text-[#26373b] whitespace-nowrap">
+        <nav className="hidden lg:flex items-center gap-2 xl:gap-[20px] 2xl:gap-[27px] ml-auto text-[11.5px] xl:text-[12px] font-semibold text-[#26373b] whitespace-nowrap">
           <a
             href="#support"
             className="hover:text-[#9c804d] transition py-1 whitespace-nowrap shrink-0"
@@ -58,7 +58,7 @@ export default function HeaderV2() {
             href="#refund-guarantee"
             className="text-[#947b50] hover:text-[#172c37] transition py-1 font-bold whitespace-nowrap shrink-0"
           >
-            498만 환급보증
+            497만 환급보증
           </a>
           <a
             href="#daon-mall"
@@ -81,7 +81,7 @@ export default function HeaderV2() {
           >
             <span>건강식품·위로지원금</span>
             <span className="text-[10px] px-1.5 py-0.5 bg-[#947b50] text-white font-medium leading-none whitespace-nowrap shrink-0">
-              58만+40만
+              58만+50만
             </span>
           </a>
         </nav>
@@ -142,7 +142,7 @@ export default function HeaderV2() {
                 }}
                 className="bg-[#213a48] hover:bg-[#294656] border border-[#d9bc86]/40 text-[#f5e6c8] py-2 px-2.5 font-semibold text-center cursor-pointer"
               >
-                모바일 보증서(498만) ↗
+                모바일 보증서(497만) ↗
               </button>
               <button
                 onClick={() => {
@@ -225,7 +225,7 @@ export default function HeaderV2() {
             onClick={() => setMobileMenuOpen(false)}
             className="py-1.5 border-b border-[#dedfd7]/60 text-[#947b50] font-semibold flex justify-between items-center"
           >
-            <span>04. 10년 공증 498만 원 환급보증서</span>
+            <span>04. 10년 공증 497만 원 환급보증서</span>
             <span className="text-xs">↗</span>
           </a>
           <a
@@ -249,7 +249,7 @@ export default function HeaderV2() {
             onClick={() => setMobileMenuOpen(false)}
             className="py-1.5 border-b border-[#dedfd7]/60 text-[#947b50] font-semibold flex justify-between items-center"
           >
-            <span>07. 건강식품(58만상당) 택1 증정 & 위로지원금 40만원</span>
+            <span>07. 건강식품(58만상당) 택1 증정 & 위로지원금 50만원</span>
             <span className="text-xs">↗</span>
           </a>
           <div className="pt-1">

@@ -51,7 +51,7 @@ export default function Home() {
         initialKeyword={searchParams.keyword}
       />
 
-      {/* 5. 다온 프리미엄 249 & 498만 환급보증 상세 */}
+      {/* 5. 다온 프리미엄 249 & 497만 환급보증 상세 */}
       <Membership249SectionV2 />
 
       {/* 6. 다온넷 회원 전용 포인트 특가몰 (2,490,000P) */}
@@ -60,7 +60,7 @@ export default function Home() {
       {/* 7. 해피클래스 2박 3일 무료 숙박권 & 크루즈 */}
       <HappyClassSectionV2 />
 
-      {/* 8. 삼칠그라/알부민 건강식품 택1 무료 증정 & 위로지원금 40만원 특별 혜택 */}
+      {/* 8. 삼칠그라/알부민 건강식품 택1 무료 증정 & 위로지원금 50만원 특별 혜택 */}
       <SpecialHealthGiftSectionV2 />
 
       {/* 9. 자주 묻는 질문(FAQ) & 24시간 상담 신청 배너 */}

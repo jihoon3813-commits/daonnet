@@ -51,7 +51,7 @@ export default function HeroSection({ onSearch }: HeroSectionProps) {
 
             <p className="text-gray-300 text-xs sm:text-base leading-relaxed max-w-2xl font-normal">
               직영 <strong className="text-white font-bold">안성 유토피아 추모관</strong>부터 전국 주요 추모공원 봉안당(1단 기준) 지원은 물론,{" "}
-              <strong className="text-[#E5C98B] font-bold">10년 만기 498만 원 환급보증서</strong>와{" "}
+              <strong className="text-[#E5C98B] font-bold">10년 만기 497만 원 환급보증서</strong>와{" "}
               <strong className="text-white font-bold">249만 쇼핑포인트</strong>,{" "}
               <strong className="text-white font-bold">2박 3일 무료 숙박권</strong>까지 하나로 담았습니다.
             </p>
@@ -75,7 +75,7 @@ export default function HeroSection({ onSearch }: HeroSectionProps) {
                   <span>10년 공증 환급보증</span>
                 </div>
                 <div className="text-sm sm:text-lg font-black text-[#E5C98B] mt-1 whitespace-nowrap">
-                  4,980,000원
+                  4,970,000원
                 </div>
                 <div className="text-[10px] sm:text-[11px] text-gray-300 mt-0.5 whitespace-nowrap">가입 2년 후 양도 가능</div>
               </div>
@@ -97,7 +97,7 @@ export default function HeroSection({ onSearch }: HeroSectionProps) {
                   <span>포인트 + 지원금</span>
                 </div>
                 <div className="text-sm sm:text-lg font-black text-white mt-1 whitespace-nowrap">
-                  249만P + 40만원
+                  249만P + 50만원
                 </div>
                 <div className="text-[10px] sm:text-[11px] text-[#E5C98B] mt-0.5 whitespace-nowrap">삼칠그라·2박3일 숙박권</div>
               </div>

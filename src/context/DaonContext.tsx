@@ -103,7 +103,7 @@ const INITIAL_CONSULTATIONS: ConsultationItem[] = [
     address: "경기도 용인시 수지구",
     preferredPark: "유토피아추모관 (다온넷 직영)",
     status: "계약완료",
-    notes: "10년 공증 환급보증서 4,980,000원 모바일 발급 완료",
+    notes: "10년 공증 환급보증서 4,970,000원 모바일 발급 완료",
     createdAt: Date.now() - 86400000 * 2,
   },
   {

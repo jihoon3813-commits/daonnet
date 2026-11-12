@@ -228,7 +228,7 @@ export default function ContractModal() {
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-gray-500">신청 상품</span>
-                <strong className="text-[#0F1E36] font-semibold">다온 프리미엄 249 (498만 공증 보증)</strong>
+                <strong className="text-[#0F1E36] font-semibold">다온 프리미엄 249 (497만 공증 보증)</strong>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-gray-500">선택 사은품</span>
@@ -281,7 +281,7 @@ export default function ContractModal() {
                 </div>
                 <div className="text-right shrink-0">
                   <div className="inline-block bg-red-600 text-white font-black text-[9px] sm:text-[10px] px-1.5 py-0.5 rounded shadow-sm mb-0.5">
-                    10년 498만 환급보증
+                    10년 497만 환급보증
                   </div>
                   <div className="font-black text-[#0F1E36] text-base sm:text-lg tracking-tight">
                     2,490,000<span className="text-[11px] sm:text-xs font-bold text-gray-600 ml-0.5">원</span>
@@ -308,7 +308,7 @@ export default function ContractModal() {
                     <span className="text-emerald-600 font-black shrink-0 text-xs">✓</span>
                     <span className="leading-tight break-keep">
                       <strong className="text-[#0F1E36] font-bold">10년 환급보증</strong>
-                      <span className="text-[9px] text-gray-500 block">498만 공증 보증</span>
+                      <span className="text-[9px] text-gray-500 block">497만 공증 보증</span>
                     </span>
                   </div>
 
@@ -355,7 +355,7 @@ export default function ContractModal() {
                   <div className="flex items-start gap-1 bg-white/80 backdrop-blur-xs p-1.5 sm:p-2 rounded-lg border border-amber-100">
                     <span className="text-emerald-600 font-black shrink-0 text-xs">✓</span>
                     <span className="leading-tight break-keep">
-                      <strong className="text-[#0F1E36] font-bold">위로지원금 40만원</strong>
+                      <strong className="text-[#0F1E36] font-bold">위로지원금 50만원</strong>
                       <span className="text-[9px] text-gray-500 block">장례 발생 시 현금지급</span>
                     </span>
                   </div>

@@ -126,9 +126,9 @@ export const HEALTH_GIFT_PRODUCTS: HealthGiftProduct[] = [
 ];
 
 export const CONSOLATION_BENEFIT = {
-  title: '특별 위로지원금 400,000원 별도 현금 지급',
-  amount: 400000,
-  description: '회원님의 소중한 삶과 일상을 든든하게 응원하기 위해, 건강기능식품 무료 증정과 별도로 40만원의 위로지원금을 현금으로 직접 지급해 드립니다.',
+  title: '특별 위로지원금 500,000원 별도 현금 지급',
+  amount: 500000,
+  description: '회원님의 소중한 삶과 일상을 든든하게 응원하기 위해, 건강기능식품 무료 증정과 별도로 50만원의 위로지원금을 현금으로 직접 지급해 드립니다.',
   notice: '건강기능식품 세부 규격·무료 배송 및 위로지원금 지급 시점·조건은 다온넷 최종 회원 운영기준에 따릅니다.',
 };
 

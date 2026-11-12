@@ -35,7 +35,7 @@ export default function FloatingBar() {
             className="px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-[#0F1E36] text-[11px] sm:text-sm font-bold transition flex items-center gap-1 cursor-pointer whitespace-nowrap shrink-0"
           >
             <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C5A059] shrink-0" />
-            <span className="hidden sm:inline">모바일 </span>보증서(498만)
+            <span className="hidden sm:inline">모바일 </span>보증서(497만)
           </button>
 
           <button

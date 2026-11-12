@@ -34,7 +34,7 @@ export default function Membership249Section() {
           </p>
         </div>
 
-        {/* 498만원 환급보증 하이라이트 배너 */}
+        {/* 497만원 환급보증 하이라이트 배너 */}
         <div
           id="refund-guarantee"
           className="navy-gradient rounded-2xl sm:rounded-3xl p-5 sm:p-10 text-white shadow-2xl mb-8 sm:mb-12 border-2 border-[#C5A059]/60 relative overflow-hidden"
@@ -48,7 +48,7 @@ export default function Membership249Section() {
 
               <h3 className="text-xl sm:text-4xl font-black leading-snug sm:leading-tight">
                 가입금액 249만 원,<br />
-                <span className="text-[#E5C98B]">환급보증서 4,980,000원</span> 발행!
+                <span className="text-[#E5C98B]">환급보증서 4,970,000원</span> 발행!
               </h3>
 
               <p className="text-gray-300 text-xs sm:text-base leading-relaxed">
@@ -118,7 +118,7 @@ export default function Membership249Section() {
                     <span className="font-bold text-[#0F1E36] text-xs sm:text-sm whitespace-nowrap">
                       환급보증서 금액
                     </span>
-                    <span className="text-xl sm:text-2xl font-black text-red-600 whitespace-nowrap">4,980,000 원</span>
+                    <span className="text-xl sm:text-2xl font-black text-red-600 whitespace-nowrap">4,970,000 원</span>
                   </div>
                   <div className="flex justify-between text-[11px] sm:text-xs pt-1 text-gray-500">
                     <span>보증 조건</span>
@@ -143,7 +143,7 @@ export default function Membership249Section() {
                 <span className="text-xs font-black text-[#C5A059] bg-amber-50 px-3 py-1 rounded-full">
                   보증 혜택 01
                 </span>
-                <span className="text-xl font-black text-red-600">4,980,000원</span>
+                <span className="text-xl font-black text-red-600">4,970,000원</span>
               </div>
               <h4 className="text-lg font-black text-[#0F1E36] mb-2 flex items-center gap-2">
                 <Award className="w-5 h-5 text-[#C5A059]" />
@@ -253,14 +253,14 @@ export default function Membership249Section() {
                 <span className="text-xs font-black text-amber-700 bg-amber-50 px-3 py-1 rounded-full">
                   특별 지원 06·07
                 </span>
-                <span className="text-xl font-black text-green-700">58만원 상당 + 40만원</span>
+                <span className="text-xl font-black text-green-700">58만원 상당 + 50만원</span>
               </div>
               <h4 className="text-lg font-black text-[#0F1E36] mb-2 flex items-center gap-2">
                 <HeartPulse className="w-5 h-5 text-red-500" />
                 6. 건강식품 & 7. 위로지원금
               </h4>
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
-                온라인가 58~59.8만 원 상당의 <strong>삼칠그라 365</strong>(또는 경남제약 알부민 맥스) 무료 증정 및 등급별 <strong>위로지원금 현금 400,000원</strong>을 지급합니다.
+                온라인가 58~59.8만 원 상당의 <strong>삼칠그라 365</strong>(또는 경남제약 알부민 맥스) 무료 증정 및 등급별 <strong>위로지원금 현금 500,000원</strong>을 지급합니다.
               </p>
             </div>
             <div className="text-[11px] text-gray-400 border-t border-gray-100 pt-3">
@@ -292,7 +292,7 @@ export default function Membership249Section() {
               </span>
               <div className="font-extrabold text-[#0F1E36] text-sm">증서 / 혜택 발급</div>
               <div className="text-xs text-gray-500 mt-1 leading-relaxed">
-                498만 환급보증서 · 장례보증서 · 추모공원증서 · 봉안함 · 숙박권 · 249만P
+                497만 환급보증서 · 장례보증서 · 추모공원증서 · 봉안함 · 숙박권 · 249만P
               </div>
             </div>
 
